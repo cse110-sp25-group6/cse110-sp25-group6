@@ -1,6 +1,9 @@
-# We are the Null Terminators 
+<div style="display:flex; align-items:center;display:block;margin:auto;text-align:center">
+    <h1>We are the Null Terminators</h1>
+</div>
 
-<img src="branding/null_terminators_logo.png" width="200">
+
+<img src="branding/null_terminators_logo.png" width="200" style="display: block; margin: auto; border-radius:100px">
 
 ## Values & Team Culture
 - Respect one another’s ideas
