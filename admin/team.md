@@ -7,6 +7,7 @@
 - Accountability and Responsibility for your work
 - Open Communication and Collaboration
 
+![Team picture](branding/team_pic.png)
 
 ## Meet the Team
 
