@@ -52,8 +52,8 @@
 **Website**: https://khuyenlai.github.io/CSE110LAB1/index.html
 
 ### Lia Chai
-**Bio**:  
-**Website**:
+**Bio**:  I’m a 3rd year Computer Science student, and I newly transferred to UCSD this year. I like anime, games, and Dungeons and Dragons. Although I haven’t had too much direct experience with software development, I am currently part of the team of krooster.com, so I’m excited to see how this class and this team will help me learn the skills I need to be a more productive programmer.
+**Website**: https://dipstickpinez.github.io/CSE-190-GitHub-Pages/
 
 ### Yanhua Liu
 **Bio**: I am a 4th year computer engineering student at UCSD. I haven't much experience with software engineering, but I hope I can find a fun team and enjoy this class. I love hiking and playing video games. I'm thinking of a future career in the gaming industry or in circuits for that matter. Good to see you guys.  
