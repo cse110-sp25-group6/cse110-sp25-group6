@@ -1,33 +1,35 @@
 # Project Pitch Document
 
-## 1. Statement of Purpose
+## 1. Project Ideas
+
+## 2. Statement of Purpose
 
 
 ---
 
-## 2. System Overview
+## 3. System Overview
 
 
 ---
 
-## 3. Visual Representation
+## 4. Visual Representation
 
-### 3.1 System Diagram
+### 4.1 System Diagram
 
-### 3.2 Wireframes
-
----
-
-## 4. User Personas
-
+### 4.2 Wireframes
 
 ---
 
-## 5. Risks and Rabbit Holes
+## 5. User Personas
 
-### 5.1 Risks
 
-### 5.2 Rabbit Holes
+---
+
+## 6. Risks and Rabbit Holes
+
+### 6.1 Risks
+
+### 6.2 Rabbit Holes
 
 ---
 
