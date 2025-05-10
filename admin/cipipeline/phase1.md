@@ -1,6 +1,6 @@
 # CI/CD Pipeline Phase 1 Report
 
-![Pipeline Diagram](./phase1.pdf)
+![Pipeline Diagram](./phase1.pgn)
 
 ---
 
