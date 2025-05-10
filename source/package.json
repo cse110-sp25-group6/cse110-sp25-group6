@@ -1,0 +1,28 @@
+{
+  "name": "source",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint -c config/eslint.config.js script",
+    "format": "prettier --write script",
+    "docs": "jsdoc -c config/jsdoc.conf.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^9.26.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-browser": "^0.0.0",
+    "eslint-plugin-prettier": "^5.4.0",
+    "jsdoc": "^4.0.4",
+    "prettier": "^3.5.3"
+  },
+  "type": "module",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "description": ""
+}
