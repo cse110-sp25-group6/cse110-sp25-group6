@@ -13,12 +13,12 @@ if (!input) {
 const inputPath = path.resolve(input);
 
 if (!fs.statSync(inputPath).isFile()) {
-  console.error(`❌ Not a file: ${inputPath}`);
+  console.error(`Not a file: ${inputPath}`);
   process.exit(1);
 }
 
 if (!inputPath.endsWith('.html')) {
-  console.error('❌ Only .html files are supported.');
+  console.error('Only .html files are supported.');
   process.exit(1);
 }
 
