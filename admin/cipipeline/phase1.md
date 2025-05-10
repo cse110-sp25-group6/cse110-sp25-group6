@@ -12,4 +12,5 @@ Our goal in Phase 1 is to build a foundational, testable CI process using experi
 
 ---
 
-## ✅ Features Currently Functional
+## ✅ Pipeline status: Planned
+
