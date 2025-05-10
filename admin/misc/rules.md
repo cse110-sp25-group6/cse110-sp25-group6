@@ -1,17 +1,17 @@
 # Management Group Contract
-### Team Purpose and Objectives.
+### Team Purpose and Objectives:
 - Gain an in-depth understanding of how to make an app from start to finish
 - Understanding the software engineering workflow
 - Learn how to work with a large number of people collaboratively and efficiently
 - Touching up technical skills
 - Prepares the team to enter industry
-### Common Values and Standards.
+### Common Values and Standards:
 - Responsibility (Responsible for the work you put in)
 - Accountability (Account for the mistakes you make)
 - Integrity (Be honest and straightforward with the work you do)
 - Communication (Coordinate in a timely manner, update team when conflicts occur)
 - Courage (Voice opinions, ask questions, and raise concerns as necessary) 
-### Roles, Responsibilities, and Accountability
+### Roles, Responsibilities, and Accountability:
 - Andrew + Adrian = leads
   - Managing the team
   - Ensuring the team stays on track
@@ -23,7 +23,7 @@
 - = Logic/Backend
 - = DevOps
 - everyone’s responsibility to get their work done on time.
-### Potential Issues and Conflict-Resolution Strategies.
+### Potential Issues and Conflict-Resolution Strategies:
 - Have regular check-ins / stand-up to identify current progress and talk about blockers as soon as they happen
 - Task Communication Protocol
   - Project Managers need to clearly specify tasks
@@ -37,13 +37,13 @@
 - Disagreements between groups/pairs
   - solution: come to a compromise, bring a third party in to mediate a conversation between the two people
   - solution: worst case scenario we can separate group members into new pairs/groups to work on different things.
-### If Rules are Broken
+### If Rules are Broken:
 - Meet with team leads
 - Bring it up in the sprint review
-### Transparent Communication Protocols.
+### Transparent Communication Protocols:
 - Weekly meetings
 - Continuously check Slack/Discord
-### Measuring Success
+### Measuring Success:
 - Clear communication and thought-out planning
 - How well solution adheres to task/specification
   - Quality of solution
