@@ -23,10 +23,16 @@ Date: MM/DD/YY
 ## Pros
 
 *insert a list of positives here, why this option is the best fit*
+* *Positive a*
+* *Positive b*
+* *Positive c*
 
 ## Cons 
 
 *insert a list of downsides/negatives of this decision*
+* *Negative a*
+* *Negative b*
+* *Negative c*
 
 ## Examples/Any more important information
 
