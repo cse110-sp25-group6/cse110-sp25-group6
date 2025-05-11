@@ -34,7 +34,7 @@ We are going to use another already created GitHub action that directly implemen
 ## Examples/Any more important information
 
 I think that using Cyb3r-Jak3's HTML5 validator will be easier and more integratable into our pipeline, without having to install many npm libraries ourselves. Below is a link to the GitHub action repo for it, and you can view example calls and actions on Marketplace.
-Additionally, I have attached the npm libraries for html-validator and w3c-css aswell
+Additionally, I have attached the npm libraries for html-validator and w3c-css aswell.
 
 [GitHub Actions Validator Repository](https://github.com/Cyb3r-Jak3/html5validator-action)
 [html-validator documentation](https://www.npmjs.com/package/html-validator)
