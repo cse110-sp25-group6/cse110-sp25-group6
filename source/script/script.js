@@ -8,7 +8,6 @@ function add(a, b) {
   return a + b;
 }
 
-
 /**
  * Subtracts two numbers together.
  * @param {number} a - First number
@@ -19,7 +18,6 @@ function subtract(a, b) {
   return a + b;
 }
 
-
 /**
  * Multiplies two number together
  * @param {number} a - first number
@@ -27,7 +25,7 @@ function subtract(a, b) {
  * @returns {number} product of a and b
  */
 function multiply(a, b) {
-  return a*b;
+  return a * b;
 }
 
 /**
@@ -41,3 +39,4 @@ function divide(a, b) {
 }
 
 // test comment
+// another test comment

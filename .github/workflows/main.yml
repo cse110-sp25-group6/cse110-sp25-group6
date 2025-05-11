@@ -16,9 +16,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install Dependencies
         run: npm install
-      - name: Linting
+      - name: Run Linter
         run: npm run lint
-      - name: Formatting
-        run: npm run format
+      - name: Check Formatting
+        run: npm run prettier:check 
       - name: Doc Gen
         run: npm run docs
