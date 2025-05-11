@@ -2,7 +2,7 @@
 Date: 05/11/25
 ---
 
-# Use Github Actions for CI/CD Pipeline
+# Use GitHub Actions for CI/CD Pipeline
 
 ## Context and Problem Statement
 
@@ -14,13 +14,13 @@ Where can we use the tools we find to evaluate our development process?
 ## Considered Solutions/Options
 
 
-* Github Actions
+* GitHub Actions
 * Jenkins
 * Azure DevOps
 
 ## Decision:
 
-We chose `Github Actions` because of its quick turnaround time from making changes to the repository to deployment, as well as its straightforward setup process.
+We chose `GitHub Actions` because of its quick turnaround time from making changes to the repository to deployment, as well as its straightforward setup process.
 
 ## Pros
 
