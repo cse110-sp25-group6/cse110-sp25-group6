@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "html-validator": "^6.0.1",
+    "w3c-css": "^2.0.2"
+  }
+}
