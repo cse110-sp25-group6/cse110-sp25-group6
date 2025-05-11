@@ -27,7 +27,8 @@ jobs:
         with:
           root: source/
           css: true
-          blacklist: node_modules
+          blacklist: node_modules, docs
+
       #- uses: actions/upload-artifact@v3
       #  with:
       #    name: log
