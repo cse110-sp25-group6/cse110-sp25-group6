@@ -17,6 +17,8 @@ jobs:
       - name: Formatting
         run: npm run format
         working-directory: ./source
+      - name: Run All Unit Tests # uses jest to test everything in the './__tests__/' directory
+        run: npx jest __tests__/ # alternatively use 'run: npm test' if the 'package.json' is configured like the lab
       - name: Doc Gen
         run: npm run docs
         working-directory: ./source
