@@ -1,9 +1,6 @@
 name: CI Pipeline
 
-on:
-  push:
-    branches:
-      - test-pipeline
+on: [push]
 jobs: 
   checks: 
     runs-on: ubuntu-latest 
