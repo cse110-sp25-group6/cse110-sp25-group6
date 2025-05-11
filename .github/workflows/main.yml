@@ -28,10 +28,10 @@ jobs:
           root: source/
           css: true
           blacklist: 'node_modules/'
-      - uses: actions/upload-artifact@v3
-        with:
-          name: log
-          path: log.log
+      #- uses: actions/upload-artifact@v3
+      #  with:
+      #    name: log
+      #    path: log.log
 
       - name: Doc Gen
         run: npm run docs
