@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "lint": "eslint -c config/eslint.config.js script",
     "prettier:check": "prettier --check script",
     "prettier:fix": "prettier --write script",
@@ -17,6 +17,7 @@
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-browser": "^0.0.0",
     "eslint-plugin-prettier": "^5.4.0",
+    "jest": "^29.7.0",
     "jsdoc": "^4.0.4",
     "prettier": "^3.5.3"
   },
