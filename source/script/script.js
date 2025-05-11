@@ -19,3 +19,25 @@ function subtract(a, b) {
   return a + b;
 }
 
+
+/**
+ * Multiplies two number together
+ * @param {number} a - first number
+ * @param {number} b - second number
+ * @returns {number} product of a and b
+ */
+function multiply(a, b) {
+  return a*b;
+}
+
+/**
+ * Divides two number together
+ * @param {number} a - first number
+ * @param {number} b - second number
+ * @returns {number} quotient of a divided by b
+ */
+function divide(a, b) {
+  return a / b;
+}
+
+// test comment
