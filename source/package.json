@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint -c config/eslint.config.js script",
     "prettier:check": "prettier --check script",
-    "prettier:format": "prettier --check script",
+    "prettier:fix": "prettier --write script",
     "docs": "jsdoc -c config/jsdoc.conf.json"
   },
   "keywords": [],
