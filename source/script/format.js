@@ -1,0 +1,1 @@
+console.log('format failure due to no semicolon')
