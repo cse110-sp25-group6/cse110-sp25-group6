@@ -12,7 +12,7 @@ Our goal in Phase 1 is to build a foundational, testable CI process using experi
 
 ---
 
-## Pipeline status: Planned
+## Pipeline status: In progress, mostly completed
 
 The status of the pipeline is mostly completed, but few parts are still in progress as detailed below. The diagram for the pipeline has been created and is shown above.
 
