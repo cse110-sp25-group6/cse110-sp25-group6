@@ -1,5 +1,7 @@
 # CI/CD Pipeline Phase 1 Report
 
+## Pipeline Diagram
+
 ![Pipeline Diagram](./phase1.png)
 
 ---
@@ -18,65 +20,41 @@ The status of the pipeline is mostly completed, but few parts are still in progr
 
 ---
 
-## Linting
+### Function Features
 
-We will be using a linter that runs every time we push new code, which will help us avoid simple mistakes, enforce accessibility rules for HTML/CSS and keep our codebase clean.
+#### Linting
+We implement linting for our Javascript code with the ESLint node package. Running the linter ensures that our Javascript code is free from syntax errors and enables us to catch potential bugs early on in our development.
 
-> **This is completed and functional.**
+#### Code Format Checking
+We use the Prettier node package to check that the code we write adheres to our coding style guidlines. This ensures that our code will be uniform in style for things like spacing, indents, semicolons, and line length, making it easier to read, maintain, and review across the team.
 
----
+#### HTML/CSS Validator
+We have implemented the HTML and CSS validator using Cyb3r-Jak3's html5validator-action on GitHub Actions. This ensures all HTML and CSS files in the project adhere to web standards, helping to catch structural errors, and improve accessibility.
 
-## Code Style Review
+#### Unit Tests
+We use Jest to run automated tests for utility functions, ensuring the correctness of core logic on every commit or pull request.
 
-Prettyfi
+--- 
 
-> **This is completed and functional.**
+### In-Progress
 
----
+#### Human Code Review with Pull Requests
+Team members will manually review pull requests as an additional quality check to ensure not only correctness but also that the overall direction and structure of the code align with project goals. If any issues or inconsistencies are found, they will be discussed with the author, and the necessary updates will be made collaboratively.
 
-## HTML/CSS Validator
-
-We have implemented the HTML and CSS validator using Cyb3r-Jak3's html5validator-action on GitHub Actions. 
-
-> **This is completed and functional.**
-
----
-
-## Unit Tests
-
-We will use Jest to initially tests planned for utility function, auto-verify correctness of core logic on every commit or PR.
-
-> **This is completed and functional.**
-
----
-
-## Code Review (human with pull requests)
-
-We will have members of the team manually review pull requests. If any problems are found, we’ll discuss the errors/inconsistencies with the team member who wrote it and fix up the code.
-
-> **This is planned and completed, but has not been functionally utilized yet.**
-
----
-
-## Documentation Generation
-
-Planning to use JSDoc to implement documentation generation, ensuring quick and easy documentation uploading to a webpage or readme.
-
-> **This is planned and in progress.**
-
----
-
-## Assets Validation/Review
-
+#### Assets Validation/Review
 Just as a user, maintain a consistent and performant UI asset pipeline. Ensure continunity between UI assets and any other elements that are being
 
-> **This is completed, but has not been functionally utilized yet.**
-
----
-
-## Manual Testing (end-to-end)
-
+#### Manual Testing (end-to-end)
 The code will be manually tested by developers to evaluate the functionality and visual aspects. Developers will visit the application, simulating potential user actions. If an area is missing visual/aesthetic aspects or lacks performance quality, the developers will return to the code. They will make improvements and modify the existing code to meet developer and user expectations. Once stable, we will use https://playwright.dev/ as another method of manual testing. This resource will be utilized to automate manual testing, allowing for greater time efficiency and verification of results. Additionally, we may communicate with other groups and ask them to test the application. This method of manual testing could provide more useful feedback in terms of quality and cleanliness. 
 
-> **This is completed, but has not been functionally utilized yet.**
+--- 
+
+### Planned for the Future
+
+#### Documentation Generation
+We are planning to use JSDoc to generate directly from annotated JavaScript source code. At the moment, we can generate documenation html pages locally and are in the progress of publishing them to Github pages automatically with Github actions.
+
+
+
+
 
