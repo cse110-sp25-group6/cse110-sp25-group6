@@ -1,0 +1,24 @@
+name: CI Pipeline
+
+on: 
+  push:
+  workflow_dispatch:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        working-directory: ./source
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Dependencies
+        run: npm install
+      - name: Linting
+        run: npm run lint
+      - name: Formatting
+        run: npm run format
+      - name: Doc Gen
+        run: npm run docs
