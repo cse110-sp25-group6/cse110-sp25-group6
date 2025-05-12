@@ -4,7 +4,8 @@ Date: MM/DD/YY
 
 # *write the overall Architectural decision here*
 
-## Question/Problem being solved, with context
+
+## Context and Problem Statement
 
 *insert questions/problems here*
 *add additional context if necessary*
@@ -35,5 +36,6 @@ Date: MM/DD/YY
 * *Negative c*
 
 ## Examples/Any more important information
+
 
 *write anything else relevant to the decision/important information related*
