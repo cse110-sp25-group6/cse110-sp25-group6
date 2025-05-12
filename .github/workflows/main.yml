@@ -3,6 +3,8 @@ name: CI Pipeline
 on: 
   push:
   workflow_dispatch:
+  pull_request:
+
 
 jobs:
   ci:
@@ -16,9 +18,16 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install Dependencies
         run: npm install
-      - name: Linting
+      - name: Run Linter
         run: npm run lint
-      - name: Formatting
-        run: npm run format
-      - name: Doc Gen
-        run: npm run docs
+      - name: Check Formatting
+        run: npm run prettier:check 
+
+      - name: HTML Validator
+        uses: Cyb3r-Jak3/html5validator-action@v7.2.0
+        with:
+          root: source/
+          css: true
+          blacklist: |
+            node_modules
+            docs
