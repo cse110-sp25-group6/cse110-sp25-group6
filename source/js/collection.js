@@ -19,6 +19,9 @@ function addCardsToDocument(cards) {
 }
 
 function populateLocalStorage() {
+	if (localStorage.getItem('collection') !== null) {
+		return;
+	}
 	for (let i = 0; i < 30; i++) {
 		let card = {
 			"name" : `card${i}`,

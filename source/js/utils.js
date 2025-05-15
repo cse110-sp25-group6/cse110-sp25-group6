@@ -1,8 +1,12 @@
 export function getCollectionCards() {
-	return JSON.parse(localStorage.getItem('collection'));
+	if (localStorage.getItem('collection')) {
+		return JSON.parse(localStorage.getItem('collection'));
+	}
+	return [];
 }
 
 export function addCardToCollection(card) {
+	if (!card) return;
 	card.acquisition = Date.now();
 	const cards = getCollectionCards();
 	cards.push(card);
