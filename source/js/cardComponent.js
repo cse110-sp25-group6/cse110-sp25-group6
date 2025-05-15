@@ -5,18 +5,22 @@ class CardComponent extends HTMLElement {
 		super();
 		this.shadow = this.attachShadow({ mode: 'open'});
 		const article = document.createElement('article');
-		const style = document.createElement('style');
+		const link = document.createElement('link');
+		link.setAttribute('rel', 'stylesheet');
+		link.setAttribute('href','../css/cardComponent.css');
 
-		this.shadow.append(style, article);
+		this.shadow.append(link, article);
 	}
 
 	set data(data) {
 		if (!data) return;
 		const article = this.shadow.querySelector('article');
 		article.innerHTML = `
-			<p> ${data.name} </p>
-			<p> ${new Date(data.acquisition).toString()} </p>
-			<p> ${data.rarity} </p>
+			<div class="card" style="background-image: url('../../admin/branding/team_pic.png');">
+				<p class="name"> ${data.name} </p>
+				<p class="acquisition"> ${new Date(data.acquisition).toString()} </p>
+				<p class="rarity"> ${data.rarity} </p>
+			</div>
 		`;
 	}
 
