@@ -10,34 +10,27 @@
 </head>
 <body>
   <header>
-    <button class="home-button">
-        Home
-    </button>
+    <a href="#">Home</a>
     <h1>Collection</h1>
-    <div class="Currency">
-        <h2>Coins</h2>
-    </div>
-    <div class="Packs">
-      <h2>Packs</h2>
-    </div>
+    <stats-container>
+      <stat-display>Gems: 100</stat-display>
+      <stat-display>Packs: 3</stat-display>
+    </stats-container>
   </header>
-  <side-bar>
-    <p>
-        Sort
-    </p>
-    <p>
-        A-Z
-    </p>
-    <p>
-        Rarity
-    </p>
-    <p>
-        Recent
-    </p>
-  </side-bar>
-<collection-container>
+  <main>
+    <side-bar>
+      <h2>Sort By</h2>
+      <hr>
+      <sorting-options>
+        <button>Name</button>
+        <button>Rarity</button>
+        <button>Recent</button>
+      </sorting-options>
+    </side-bar>
     
-</collection-container>
+    <collection-container></collection-container>
+  </main>
+  
   
 
 </body>
