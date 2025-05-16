@@ -1,4 +1,5 @@
-export function getCollectionCards() {
+export function getCollectionCards(sortProperty) {
+	
 	if (localStorage.getItem('collection')) {
 		return JSON.parse(localStorage.getItem('collection'));
 	}

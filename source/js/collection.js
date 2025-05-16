@@ -8,7 +8,6 @@ function init() {
 	addCardsToDocument(cards);
 }
 
-
 function addCardsToDocument(cards) {
 	const collectionContainer = document.querySelector('collection-container');
 	for (let cardData of cards) {
