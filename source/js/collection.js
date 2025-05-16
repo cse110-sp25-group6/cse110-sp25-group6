@@ -65,7 +65,7 @@ function populateLocalStorage() {
  * @param {String} property - Property by which to sort the given cards by
  * @returns {void} - Nothing
  */
-function sortCards(cards, property) {
+export function sortCards(cards, property) {
 	if (property === "name") {
 		cards.sort((a, b) => a.name.localeCompare(b.name));
 	}
