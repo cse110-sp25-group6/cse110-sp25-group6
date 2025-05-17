@@ -1,4 +1,4 @@
-import { sortCards } from '../collection/collection.js'
+import { sortCards } from './collection.js'
 
 let card1 = {
 	'name' : 'b-card',	
