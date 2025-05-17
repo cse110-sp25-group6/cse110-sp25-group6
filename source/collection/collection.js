@@ -1,5 +1,5 @@
 
-import { getCollectionCards, addCardToCollection } from "./utils.js";
+import { getCollectionCards, addCardToCollection } from "../util/utils.js";
 
 window.addEventListener("DOMContentLoaded", init);
 
@@ -7,9 +7,12 @@ let cards = [];
 
 function init() {
 	populateLocalStorage();
+
 	cards = getCollectionCards();
 	sortCards(cards, "acquisition");
 	addCardsToDocument(cards);
+
+	addCurrencyToDocument();
 
 	document.getElementById("sort-name").addEventListener("click", () => {
 		sortCards(cards, "name");
@@ -25,6 +28,19 @@ function init() {
 	});
 }
 
+function addCurrencyToDocument() {
+	const gems = document.getElementsByClassName("gems");
+	const packs = document.getElementsByClassName("packs");
+	const gemsValue = localStorage.getItem("Gems");
+	const packsValue = localStorage.getItem("Packs");
+
+	for (let i = 0; i < gems.length; i++) {
+		gems[i].innerHTML = `Gems: ${gemsValue}`;
+	}
+	for (let i = 0; i < packs.length; i++) {
+		packs[i].innerHTML = `Packs: ${packsValue}`;
+	}
+}
 
 /**
  * Adds all the cards that the user has to the document
@@ -47,6 +63,8 @@ function addCardsToDocument(cards) {
  */
 function populateLocalStorage() {
 	localStorage.clear();
+	localStorage.setItem('Gems',JSON.stringify(50)); // Add some gems
+	localStorage.setItem('Packs',JSON.stringify(3)); // Add some packs
 	for (let i = 0; i < 30; i++) {
 		let card = {
 			"name": `card${i}`,

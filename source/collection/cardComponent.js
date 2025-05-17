@@ -7,7 +7,7 @@ class CardComponent extends HTMLElement {
 		const article = document.createElement('article');
 		const link = document.createElement('link');
 		link.setAttribute('rel', 'stylesheet');
-		link.setAttribute('href','../css/cardComponent.css');
+		link.setAttribute('href','cardComponent.css');
 
 		this.shadow.append(link, article);
 	}
