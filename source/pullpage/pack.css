@@ -20,6 +20,22 @@ header {
 
 }
 
+.video-container {
+  width: 100vw;
+  height: var(--screen-height);
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity .25s;
+}
+
+.video-container.show {
+  display: block;
+  background-color: #fff;
+  opacity: 1
+}
+
 .not-enough-packs {
   color: #de2f22
 }

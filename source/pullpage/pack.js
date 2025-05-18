@@ -8,10 +8,14 @@ function init() {
     populateLocalStorage();
 
     cards = getCollectionCards();
-    sortCards(cards, "acquisition");
-    addCardsToDocument(cards);
 
     addCurrencyToDocument();
+    verifyPullCount();
+
+    //Temporary functionality to test Video Container by single pulling
+    document.getElementsByClassName("pull1")[0].addEventListener("click", () => {
+        showVideo();
+    });
 }
 
 function addCurrencyToDocument() {
@@ -54,5 +58,37 @@ function verifyPullCount() {
 
     for (let i = 0; i < pull10.length; i++) {
         pull10[i].classList.toggle("not-enough-packs", packsValue < 10);
+    }
+}
+
+function showVideo() {
+    const videoContainer = document.getElementsByClassName("video-container");
+    const videoElement = document.getElementsByClassName("pack-video");
+
+    for (let i = 0; i < videoContainer.length; i++) {
+        videoContainer[i].classList.toggle("show", true);
+    }
+
+    for (let i = 0; i < videoElement.length; i++) {
+        videoElement[i].style.display = "unset";
+        videoElement[i].play();
+    }
+
+    videoElement[0].addEventListener("ended", (event) => {
+        hideVideo();
+    })
+
+}
+
+function hideVideo() {
+    const videoContainer = document.getElementsByClassName("video-container");
+    const videoElement = document.getElementsByClassName("pack-video");
+
+    for (let i = 0; i < videoContainer.length; i++) {
+        videoContainer[i].classList.toggle("show", false);
+    }
+
+    for (let i = 0; i < videoElement.length; i++) {
+        videoElement[i].style.display = "none";
     }
 }
