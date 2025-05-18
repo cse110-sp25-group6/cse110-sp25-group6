@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="collection.css" rel="stylesheet">
+  <title>Card Grid</title>
+  <script src="cardComponent.js" type="module"></script>
+  <script src="collection.js" type="module"></script>
+</head>
+
+<body>
+  <header>
+    <a href="#">Home</a>
+    <h1>Collection</h1>
+    <stats-container>
+      <stat-display class="gems">Gems: 100</stat-display>
+      <stat-display class="packs">Packs: 3</stat-display>
+    </stats-container>
+  </header>
+  <main>
+    <side-bar>
+      <h2 id="sort-header">Sort By</h2>
+      <hr>
+      <sorting-options>
+        <button id="sort-name">Name</button>
+        <button id="sort-rarity">Rarity</button>
+        <button id="sort-acquisition">Recent</button>
+      </sorting-options>
+    </side-bar>
+
+    <collection-container></collection-container>
+  </main>
+
+
+
+</body>
+
+</html>

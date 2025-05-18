@@ -1,0 +1,12 @@
+[
+    {
+        "id" : 1,
+        "name" : "card1",
+        "image": "image.png",
+        "rarity": 1,
+        "stats": {
+            "health": 100,
+            "damage": 50
+        }
+    }
+]
