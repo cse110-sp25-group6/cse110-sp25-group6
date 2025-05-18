@@ -8,10 +8,9 @@ function init() {
     populateLocalStorage();
 
     cards = getCollectionCards();
-    sortCards(cards, "acquisition");
-    addCardsToDocument(cards);
 
     addCurrencyToDocument();
+    verifyPullCount();
 }
 
 function addCurrencyToDocument() {
