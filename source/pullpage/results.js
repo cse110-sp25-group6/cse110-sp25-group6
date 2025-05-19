@@ -30,7 +30,7 @@ function createCard(index) {
     card.appendChild(inner);
 
     // Start off-screen (above the stack)
-    card.style.transform = `translate(0px, -500px)`;
+    card.style.transform = `translate(675px, -500px)`;
 
     return card;
 }
