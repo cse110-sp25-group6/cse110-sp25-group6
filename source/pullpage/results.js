@@ -10,17 +10,13 @@ const DEAL_DELAY = 500;
 
 // Utility: Create a card DOM element
 function createCard(index) {
-    /*const cardContainer = document.createElement("div");
-    cardContainer.classList.add("card-container");*/
 
     const card = document.createElement("div");
-    card.classList.add("card");
-    // card.classList.add("hidden");
+    card.classList.add("card", "facedown");
 
     const front = document.createElement("div");
     front.classList.add("card-front");
     front.textContent = `Front ${index + 1}`;
-    card.classList.add("facedown");
 
     const back = document.createElement("div");
     back.classList.add("card-back");
@@ -28,7 +24,9 @@ function createCard(index) {
 
     card.appendChild(front);
     card.appendChild(back);
-    // cardContainer.appendChild(card);
+
+    // Start off-screen (above the stack)
+    card.style.transform = `translate(0px, -500px) rotateY(180deg)`;
 
     return card;
 }
@@ -36,20 +34,29 @@ function createCard(index) {
 // Deal cards with delay
 function dealCards() {
     const cards = Array.from(stack.children);
+    const cardWidth = 200;
+    const cardHeight = 300;
+    const gap = 20;
 
     cards.forEach((card, i) => {
-        
+
         setTimeout(() => {
-            const targetRow = i < 3 ? topRow : bottomRow;
-            targetRow.appendChild(card);
+            const col = i % 3;
+            const row = i < 3 ? 0 : 1;
+
+            const cardsInRow = i < 3 ? 3 : 2;
+            const totalWidth = cardsInRow * cardWidth + (cardsInRow - 1) * gap;
+            const startX = (stack.clientWidth - totalWidth) / 2;
+
+            const x = startX + col * (cardWidth + gap);
+            const y = row * (cardHeight + gap);
+
+            // Animate movement using transform
+            card.style.transform = `translate(${x}px, ${y}px)`;
 
             card.classList.add("dealt");
 
             card.addEventListener("click", () => flipCard(card));
-
-            if (i === cards.length - 1) {
-                continueButton.classList.remove("hidden");
-            }
         }, i * DEAL_DELAY);
     });
 }
@@ -62,6 +69,7 @@ function flipCard(card) {
 
 // Initialize: create cards and trigger deal
 function init() {
+    
     for (let i = 0; i < TOTAL_CARDS; i++) {
         const card = createCard(i);
         stack.appendChild(card);
