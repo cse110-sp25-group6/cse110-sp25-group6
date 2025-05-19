@@ -72,4 +72,5 @@ header {
   font-size: clamp(10px, 2vw, 4vw);
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   background-color: aqua;
+  cursor: pointer;
 }

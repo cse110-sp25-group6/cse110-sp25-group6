@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="results.css" rel="stylesheet">
+    <title>Results Page</title>
+    <script src="results.js" type="module"></script>
+</head>
+
+<body>
+    
+    <header>
+        <a href="#" class="header-elem">Home</a>
+        <stats-container class="header-elem">
+            <stat-display class="gems">Gems: 100</stat-display>
+            <stat-display class="packs">Packs: 3</stat-display>
+        </stats-container>
+    </header>
+
+    <main>
+        <div class="wrapper">
+            <div id="display-area">
+                <div class="row" id="top-row"></div>
+                <div class="row" id="bottom-row"></div>
+            </div>
+
+            <div id="card-stack"></div>
+
+            <div id="continue">
+                <button class="hidden">Continue</button>
+            </div>
+        </div>
+    </main>
+</body>

@@ -15,6 +15,7 @@ function init() {
     //Temporary functionality to test Video Container by single pulling
     document.getElementsByClassName("pull1")[0].addEventListener("click", () => {
         showVideo();
+
     });
 }
 
@@ -76,6 +77,8 @@ function showVideo() {
 
     videoElement[0].addEventListener("ended", (event) => {
         hideVideo();
+        // switch to results page
+        window.location.href = 'results.html';
     })
 
 }
