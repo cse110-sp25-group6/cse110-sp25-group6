@@ -42,8 +42,6 @@ function dealCards() {
     const cardHeight = 300;
     const gap = 20;
 
-
-
     cards.forEach((card, i) => {
         
         setTimeout(() => {
