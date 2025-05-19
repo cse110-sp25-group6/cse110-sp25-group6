@@ -14,6 +14,9 @@ function createCard(index) {
     const card = document.createElement("div");
     card.classList.add("card", "facedown");
 
+    const inner = document.createElement("div");
+    inner.classList.add("card-inner");
+
     const front = document.createElement("div");
     front.classList.add("card-front");
     front.textContent = `Front ${index + 1}`;
@@ -22,11 +25,12 @@ function createCard(index) {
     back.classList.add("card-back");
     back.textContent = `Back ${index + 1}`;
 
-    card.appendChild(front);
-    card.appendChild(back);
+    inner.appendChild(front);
+    inner.appendChild(back);
+    card.appendChild(inner);
 
     // Start off-screen (above the stack)
-    card.style.transform = `translate(0px, -500px) rotateY(180deg)`;
+    card.style.transform = `translate(0px, -500px)`;
 
     return card;
 }
@@ -38,8 +42,10 @@ function dealCards() {
     const cardHeight = 300;
     const gap = 20;
 
-    cards.forEach((card, i) => {
 
+
+    cards.forEach((card, i) => {
+        
         setTimeout(() => {
             const col = i % 3;
             const row = i < 3 ? 0 : 1;
@@ -74,6 +80,7 @@ function init() {
         const card = createCard(i);
         stack.appendChild(card);
     }
+    
     dealCards();
 }
 
