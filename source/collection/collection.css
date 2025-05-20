@@ -30,7 +30,6 @@ main {
   flex-direction: row-reverse;
   justify-content: center;
   height: 100%;
-  overflow: scroll;
   padding: 0 5%;
   margin: 0;
 }
@@ -76,5 +75,12 @@ sorting-options button {
   padding: 0.5rem;
   border: 1px black solid;
   border-radius: 9999px;
-  width: 100px;
+  width: 100%;
+  background-color: white;
+}
+
+.selected, sorting-options button:hover:not(.selected) {
+  background-color: darkred;
+  color: white;
+  border-color: white;
 }

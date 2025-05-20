@@ -4,6 +4,7 @@ import { getCollectionCards, addCardToCollection } from "../util/utils.js";
 window.addEventListener("DOMContentLoaded", init);
 
 let cards = [];
+let lastSort = "acquisition";
 
 function init() {
 	populateLocalStorage();
@@ -14,15 +15,36 @@ function init() {
 
 	addCurrencyToDocument();
 
-	document.getElementById("sort-name").addEventListener("click", () => {
+	let sortNameButton = document.getElementById("sort-name");
+	let sortRarityButon = document.getElementById("sort-rarity");
+	let sortAcquisitionButton = document.getElementById("sort-acquisition");
+
+	sortNameButton.addEventListener("click", () => {
+		if (lastSort === "name") return;
+		sortNameButton.classList.add("selected");
+		sortRarityButon.classList.remove("selected");
+		sortAcquisitionButton.classList.remove("selected");
+		lastSort = "name";
 		sortCards(cards, "name");
 		addCardsToDocument(cards);
 	});
-	document.getElementById("sort-rarity").addEventListener("click", () => {
+	
+	sortRarityButon.addEventListener("click", () => {
+		if (lastSort === "rarity") return;
+		sortRarityButon.classList.add("selected");
+		sortNameButton.classList.remove("selected");
+		sortAcquisitionButton.classList.remove("selected");
+		lastSort = "rarity";
 		sortCards(cards, "rarity");
 		addCardsToDocument(cards);
 	});
-	document.getElementById("sort-acquisition").addEventListener("click", () => {
+	
+	sortAcquisitionButton.addEventListener("click", () => {
+		if (lastSort === "acquisition") return;
+		sortAcquisitionButton.classList.add("selected");
+		sortNameButton.classList.remove("selected");
+		sortRarityButon.classList.remove("selected");
+		lastSort = "acquisition";
 		sortCards(cards, "acquisition");
 		addCardsToDocument(cards);
 	});
