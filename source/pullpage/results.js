@@ -2,11 +2,13 @@
 const stack = document.getElementById("card-stack");
 const topRow = document.getElementById("top-row");
 const bottomRow = document.getElementById("bottom-row");
-const continueButton = document.querySelector("#continue button");
+const continueButton = document.querySelector("#continue");
 
 // configuration
 const TOTAL_CARDS = 5;
 const DEAL_DELAY = 500;
+let FLIPPED = TOTAL_CARDS;
+let CONTINUE = false;
 
 // utility: Create a card DOM element
 function createCard(index) {
@@ -68,6 +70,10 @@ function dealCards() {
 function flipCard(card) {
     card.classList.remove("facedown");
     card.classList.add("flipped");
+    FLIPPED--;
+    if (FLIPPED <= 0) {
+        CONTINUE = true;
+    }
 }
 
 // initialize: create cards and trigger deal
@@ -80,9 +86,12 @@ function init() {
     
     dealCards();
 
+    // if continue is true, change text on button
+
     document.getElementById("continue").addEventListener("click", () => {
         window.location.href = 'pack.html';
     });
+
 }
 
 document.addEventListener("DOMContentLoaded", init);

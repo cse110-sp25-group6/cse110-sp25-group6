@@ -76,7 +76,6 @@ function showVideo() {
     }
 
     videoElement[0].addEventListener("ended", (event) => {
-        hideVideo();
         // switch to results page
         window.location.href = 'results.html';
     })
