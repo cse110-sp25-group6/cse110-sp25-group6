@@ -78,11 +78,12 @@ function showVideo() {
     videoElement[0].addEventListener("ended", (event) => {
         // switch to results page
         window.location.href = 'results.html';
+        // hideVideo();
     })
 
 }
 
-function hideVideo() {
+function hideVideo() { //Keeping this around temporarily in case we still need it later, but for now the easiest fix is just to not run this function.
     const videoContainer = document.getElementsByClassName("video-container");
     const videoElement = document.getElementsByClassName("pack-video");
 
