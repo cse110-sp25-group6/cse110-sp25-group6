@@ -1,14 +1,14 @@
-// Get references to DOM elements
+// get references to DOM elements
 const stack = document.getElementById("card-stack");
 const topRow = document.getElementById("top-row");
 const bottomRow = document.getElementById("bottom-row");
 const continueButton = document.querySelector("#continue button");
 
-// Configuration
+// configuration
 const TOTAL_CARDS = 5;
 const DEAL_DELAY = 500;
 
-// Utility: Create a card DOM element
+// utility: Create a card DOM element
 function createCard(index) {
 
     const card = document.createElement("div");
@@ -29,13 +29,13 @@ function createCard(index) {
     inner.appendChild(back);
     card.appendChild(inner);
 
-    // Start off-screen (above the stack)
+    // deal from off-screen (centered, above five locations)
     card.style.transform = `translate(675px, -500px)`;
 
     return card;
 }
 
-// Deal cards with delay
+// deal cards
 function dealCards() {
     const cards = Array.from(stack.children);
     const cardWidth = 200;
@@ -55,7 +55,6 @@ function dealCards() {
             const x = startX + col * (cardWidth + gap);
             const y = row * (cardHeight + gap);
 
-            // Animate movement using transform
             card.style.transform = `translate(${x}px, ${y}px)`;
 
             card.classList.add("dealt");
@@ -65,13 +64,13 @@ function dealCards() {
     });
 }
 
-// Flip card animation
+// flip card animation
 function flipCard(card) {
     card.classList.remove("facedown");
     card.classList.add("flipped");
 }
 
-// Initialize: create cards and trigger deal
+// initialize: create cards and trigger deal
 function init() {
     
     for (let i = 0; i < TOTAL_CARDS; i++) {
@@ -80,6 +79,10 @@ function init() {
     }
     
     dealCards();
+
+    document.getElementById("continue").addEventListener("click", () => {
+        window.location.href = 'pack.html';
+    });
 }
 
 document.addEventListener("DOMContentLoaded", init);

@@ -32,7 +32,7 @@ header {
 #display-area {
   position: relative;
   width: 800px;
-  height: 600px;
+  height: 100vh;
   border: dashed 2px #ccc;
   overflow: hidden;
 }
@@ -102,7 +102,14 @@ header {
 }
 
 .card.dealt {
-  opacity: 1;
-  pointer-events: auto;
+    opacity: 1;
+    pointer-events: auto;
 }
 
+#continue {
+  position: absolute;
+  top: 85vh;
+  left: 85vw;
+  width: 10em;
+  height: 3em;
+}
