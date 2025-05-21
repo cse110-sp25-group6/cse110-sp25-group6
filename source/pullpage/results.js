@@ -13,17 +13,17 @@ let CONTINUE = false;
 // utility: Create a card DOM element
 function createCard(index) {
 
-    const card = document.createElement("div");
+    let card = document.createElement("div");
     card.classList.add("card", "facedown");
 
-    const inner = document.createElement("div");
+    let inner = document.createElement("div");
     inner.classList.add("card-inner");
 
-    const front = document.createElement("div");
+    let front = document.createElement("div");
     front.classList.add("card-front");
     front.textContent = `Front ${index + 1}`;
 
-    const back = document.createElement("div");
+    let back = document.createElement("div");
     back.classList.add("card-back");
     back.textContent = `Back ${index + 1}`;
 
@@ -39,23 +39,23 @@ function createCard(index) {
 
 // deal cards
 function dealCards() {
-    const cards = Array.from(stack.children);
-    const cardWidth = 200;
-    const cardHeight = 300;
-    const gap = 20;
+    let cards = Array.from(stack.children);
+    let cardWidth = 200;
+    let cardHeight = 300;
+    let gap = 20;
 
     cards.forEach((card, i) => {
         
         setTimeout(() => {
-            const col = i % 3;
-            const row = i < 3 ? 0 : 1;
+            let col = i % 3;
+            let row = i < 3 ? 0 : 1;
 
-            const cardsInRow = i < 3 ? 3 : 2;
-            const totalWidth = cardsInRow * cardWidth + (cardsInRow - 1) * gap;
-            const startX = (stack.clientWidth - totalWidth) / 2;
+            let cardsInRow = i < 3 ? 3 : 2;
+            let totalWidth = cardsInRow * cardWidth + (cardsInRow - 1) * gap;
+            let startX = (stack.clientWidth - totalWidth) / 2;
 
-            const x = startX + col * (cardWidth + gap);
-            const y = row * (cardHeight + gap);
+            let x = startX + col * (cardWidth + gap);
+            let y = row * (cardHeight + gap);
 
             card.style.transform = `translate(${x}px, ${y}px)`;
 
@@ -76,6 +76,24 @@ function flipCard(card) {
     }
 }
 
+// wipe card animation
+function wipeCards() {
+    let cards = Array.from(stack.children);
+
+    // Apply messy wipe with slight delay for each card
+    cards.forEach((card, index) => {
+      setTimeout(() => {
+        let randomX = 800 + Math.random() * 400; // 800px to 1200px
+        let randomY = (Math.random() - 0.5) * 200; // -100px to +100px
+        let randomAngle = (Math.random() - 0.5) * 60; // -30deg to +30deg
+
+        card.style.transition = 'transform 0.7s ease-in-out, opacity 0.5s';
+        card.style.opacity = '0';
+        card.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${randomAngle}deg)`;
+      }, index * 100); // 100ms stagger per card
+    });
+}
+
 // initialize: create cards and trigger deal
 function init() {
     
@@ -86,10 +104,15 @@ function init() {
     
     dealCards();
 
-    // if continue is true, change text on button
+    // if continue is true, change text on button -- to be implemented
 
     document.getElementById("continue").addEventListener("click", () => {
-        window.location.href = 'pack.html';
+        wipeCards()
+
+        const delay = 100 * stack.children.length + 700;
+        setTimeout(() => {
+            window.location.href = 'pack.html';
+        }, delay);
     });
 
 }
