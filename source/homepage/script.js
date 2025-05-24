@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gemsCount: 250,
         packsCount: 8,
         packProgress: 75,
-        packProgressText: "75/100"
+        packProgressText: "5h 32 min"
     };
 
     // Populate DOM
