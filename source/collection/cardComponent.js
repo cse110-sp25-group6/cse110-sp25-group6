@@ -18,7 +18,6 @@ class CardComponent extends HTMLElement {
 		article.innerHTML = `
 			<div class="card" style="background-image: url('../../admin/branding/team_pic.png');">
 				<p class="name"> ${data.name} </p>
-				<p class="acquisition"> ${new Date(data.acquisition).toString()} </p>
 				<p class="rarity"> ${data.rarity} </p>
 			</div>
 		`;

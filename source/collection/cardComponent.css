@@ -2,23 +2,26 @@
     background: #f8f8f8;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    height: 300px;
-    background-size: cover;      /* fill the element */
-    background-position: center; /* center the image */
+    width: 230px;
+    height: calc(230px * (7 / 5));
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
+    position: relative;
 }
 
 .name {
-    margin-top: 1vh;
-    margin-left: 1vw;
-    color:black;
+    display: inline-block;
+    margin-top: 1.5vh;
+    color:white;
+    background-color: black;
     font-size: 30px;
 }
 
-.acquisition {
-    color: black;
-}
-
 .rarity {
-    color: black;
+    position: absolute;
+    background-color: black;
+    color: white;
+    bottom: 0;
+    margin-bottom: 1.5vh;
 }
