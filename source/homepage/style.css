@@ -26,6 +26,7 @@ header {
     display: flex;
     align-items: center;
     gap: 15px;
+    margin-right: auto;
 }
 
 #profileImage {
@@ -51,11 +52,6 @@ header {
 #userLevel {
     font-size: 14px;
     color: #666;
-}
-
-/* Currency styling */
-.currency {
-    margin-right: auto;
 }
 
 .gems, .packs-owned {
@@ -152,6 +148,27 @@ main {
 }
 
 .collections-button button:hover {
+    background-color: #2980b9;
+}
+
+.currency {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Increase gap for even spacing */
+}
+
+.navbar-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-btn:hover {
     background-color: #2980b9;
 }
 

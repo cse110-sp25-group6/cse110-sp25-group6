@@ -9,16 +9,6 @@
 <body>
   <!-- Header containing profile and currency -->
   <header>
-    <div class="currency">
-      <div class="gems">
-        <img src="https://placehold.co/30x30?text=Gems" alt="Gems" />
-        <span id="gemsCount">100</span>
-      </div>
-      <div class="packs-owned">
-        <img src="https://placehold.co/30x30?text=Pack" alt="Packs" />
-        <span id="packsCount">5</span>
-      </div>
-    </div>
     <div class="profile">
       <img id="profileImage" src="https://placehold.co/60x60?text=User" alt="Profile Image" />
       <div class="profile-info">
@@ -29,6 +19,17 @@
             <div class="progress" id="levelProgress"></div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="currency">
+      <button id="collectionsBtn" class="navbar-btn">Collections</button>
+      <div class="gems">
+        <img src="https://placehold.co/30x30?text=Gems" alt="Gems" />
+        <span id="gemsCount">100</span>
+      </div>
+      <div class="packs-owned">
+        <img src="https://placehold.co/30x30?text=Pack" alt="Packs" />
+        <span id="packsCount">5</span>
       </div>
     </div>
   </header>
@@ -47,14 +48,9 @@
           <div class="progress" id="packProgress"></div>
         </div>
         <div class="pack-progress-text">
-          <span id="packProgressText">50/100</span> to next pack
+          <span id="packProgressText">5h 32 min</span> left
         </div>
       </div>
-    </div>
-
-    <!-- Collections button -->
-    <div class="collections-button">
-      <button id="collectionsBtn">Collections</button>
     </div>
   </main>
 
