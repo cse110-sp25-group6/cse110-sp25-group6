@@ -1,11 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        
-    </body>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pack Puller</title>
+    <!-- reuse the homepage CSS -->
+    <link rel="stylesheet" href="../homepage/style.css" />
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <a href="../homepage/index.html" class="back-btn">
+                <!-- Inline SVG arrow -->
+                <svg class="back-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"
+                    focusable="false">
+                    <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                <span>Home</span>
+            </a>
+        </div>
+
+        <!-- Right: Gems / Packs -->
+        <div class="header-actions">
+            <div class="action-item gems">
+                <img src="../img/gem.png" alt="Gems" />
+                <span id="gemsCount">250</span>
+            </div>
+            <div class="action-item packs">
+                <img src="../img/pack.png" alt="Packs" />
+                <span id="packsCount">8</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="pack-container">
+            <!-- Big pack card -->
+            <div id="mainPack" class="pack">
+                <img src="https://placehold.co/200x300?text=Pack" alt="Pack" />
+            </div>
+
+            <!-- Pull controls -->
+            <div class="pull-controls">
+                <button id="pull1Btn" class="pull-btn">Pull 1</button>
+                <button id="pull10Btn" class="pull-btn">Pull 10</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- reuse the homepage JS  -->
+    <script src="../homepage/script.js"></script>
+</body>
+
 </html>
