@@ -2,59 +2,63 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Game Homepage</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <!-- Header containing profile and currency -->
   <header>
-    <div class="currency">
-      <div class="gems">
-        <img src="https://placehold.co/30x30?text=Gems" alt="Gems" />
-        <span id="gemsCount">100</span>
-      </div>
-      <div class="packs-owned">
-        <img src="https://placehold.co/30x30?text=Pack" alt="Packs" />
-        <span id="packsCount">5</span>
-      </div>
-    </div>
+    <!-- Profile section (left) -->
     <div class="profile">
-      <img id="profileImage" src="https://placehold.co/60x60?text=User" alt="Profile Image" />
+      <!-- user avatar -->
+      <img id="profileImage" src="../img/huang.jpg" alt="User Avatar"/>
       <div class="profile-info">
-        <h2 id="profileName">Username</h2>
+        <h2 id="profileName">Player123</h2>
         <div class="level-container">
-          <span id="userLevel">Level 1</span>
-          <div class="progress-bar">
+          <span id="userLevel">Level 5</span>
+          <div class="progress-bar level-bar">
             <div class="progress" id="levelProgress"></div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Header actions (right): Collections / Gems / Packs -->
+    <div class="header-actions">
+      <button id="collectionsBtn" class="header-btn">Collections</button>
+      <div class="action-item gems">
+        <!-- gem icon -->
+        <img src="../img/gem.png" alt="Gems"/>
+        <span id="gemsCount">250</span>
+      </div>
+      <div class="action-item packs">
+        <!-- pack count icon -->
+        <img src="../img/pack.png" alt="Packs"/>
+        <span id="packsCount">8</span>
+      </div>
+    </div>
   </header>
 
   <main>
-    <!-- Pack display -->
+    <!-- Pack display (center) -->
     <div class="pack-container">
       <div id="mainPack" class="pack">
-        <img src="https://placehold.co/200x300?text=Game+Pack" alt="Game Pack" />
+        <!-- main pack image -->
+        <img src="https://placehold.co/200x300?text=Game+Pack" alt="Game Pack"/>
       </div>
-      <div class="pack-progress">
-        <div class="pack-count">
-          <span id="currentPacks">5</span> packs owned
+      <div class="pack-footer">
+        <!-- Packs owned indicator -->
+        <div class="pack-info">
+          <img src="../img/pack.png" alt="Pack Icon"/>
+          <span id="currentPacks">3</span>
         </div>
-        <div class="progress-bar">
+        <!-- Progress bar to next pack -->
+        <div class="progress-bar pack-bar">
           <div class="progress" id="packProgress"></div>
         </div>
-        <div class="pack-progress-text">
-          <span id="packProgressText">50/100</span> to next pack
-        </div>
+        <!-- Time left until next pack -->
+        <div class="pack-time" id="packTimeLeft">5h 32min left</div>
       </div>
-    </div>
-
-    <!-- Collections button -->
-    <div class="collections-button">
-      <button id="collectionsBtn">Collections</button>
     </div>
   </main>
 
