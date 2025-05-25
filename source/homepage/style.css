@@ -22,16 +22,9 @@ header {
 
 /* Profile styling (left) */
 .profile {
-<<<<<<< HEAD
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-right: auto;
-=======
   display: flex;
   align-items: center;
   gap: 15px;
->>>>>>> main
 }
 #profileImage {
   width: 60px;
@@ -68,13 +61,7 @@ header {
   align-items: center;
   gap: 24px;
 }
-<<<<<<< HEAD
 
-.gems, .packs-owned {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-=======
 .header-btn {
   padding: 12px 22px;
   font-size: 18px;
@@ -86,7 +73,6 @@ header {
 }
 .header-btn:hover {
   background-color: #2980b9;
->>>>>>> main
 }
 .action-item {
   display: flex;

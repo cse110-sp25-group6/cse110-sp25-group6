@@ -7,14 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
         levelProgress: 65,   // percentage
         gemsCount: 250,
         packsCount: 8,
-<<<<<<< HEAD
-        packProgress: 75,
-        packProgressText: "5h 32 min"
-=======
         currentPacks: 3,
         packProgress: 75,   // percentage
         packTimeLeft: "5h 32min left"
->>>>>>> main
     };
 
     // Populate profile info
