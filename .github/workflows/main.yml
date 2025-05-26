@@ -24,7 +24,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
       - name: Run Linter
         run: npm run lint
       - name: Check Formatting
