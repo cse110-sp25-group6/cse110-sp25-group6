@@ -14,8 +14,6 @@ let CONTINUE = false;
 // initialize: create cards and trigger deal
 function init() {
 
-
-
     if (sessionStorage.getItem("pull5") == "true") {
         TOTAL_CARDS = 25;
         DEAL_DELAY = 100;
@@ -29,8 +27,6 @@ function init() {
         FLIPPED = TOTAL_CARDS;
     }
 
-    
-    
     for (let i = 0; i < TOTAL_CARDS; i++) {
         const card = createCard(i);
         stack.appendChild(card);
