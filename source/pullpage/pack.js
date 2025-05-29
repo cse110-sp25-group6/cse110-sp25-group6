@@ -5,7 +5,6 @@ window.addEventListener("DOMContentLoaded", init);
 let cards = [];
 
 function init() {
-<<<<<<< HEAD
     //populateLocalStorage();
 
     homepageInit();
@@ -13,15 +12,6 @@ function init() {
     cards = getCollectionCards();
 
     //addCurrencyToDocument();
-=======
-    populateLocalStorage();
-
-    homepageInit();
-    
-    cards = getCollectionCards();
-
-    addCurrencyToDocument();
->>>>>>> b386b4171c840b22cf3f056ae9a889e188756f3e
     verifyPullCount();
 
     document.getElementById("pull1")[0].addEventListener("click", () => {
@@ -34,11 +24,7 @@ function init() {
         showVideo();
     });
 }
-<<<<<<< HEAD
 /*
-=======
-
->>>>>>> b386b4171c840b22cf3f056ae9a889e188756f3e
 function addCurrencyToDocument() {
     const gems = document.getElementsByClassName("gems");
     const packs = document.getElementsByClassName("packs");
@@ -65,11 +51,7 @@ function populateLocalStorage() {
         }
         addCardToCollection(card);
     }
-<<<<<<< HEAD
 }*/
-=======
-}
->>>>>>> b386b4171c840b22cf3f056ae9a889e188756f3e
 
 function verifyPullCount() {
     const pull1 = document.getElementsByClassName("pull1");
@@ -164,7 +146,6 @@ function homepageInit() {
     document.getElementById("backBtn")?.addEventListener("click", () => {
         window.location.href = "../homepage/index.html";
     });
-<<<<<<< HEAD
 
     // Pull buttons on pack.html
     document.getElementById("pull1")[0].addEventListener("click", () => {
@@ -176,6 +157,4 @@ function homepageInit() {
         sessionStorage.setItem("pull5", "true");
         showVideo();
     });
-=======
->>>>>>> b386b4171c840b22cf3f056ae9a889e188756f3e
 }
