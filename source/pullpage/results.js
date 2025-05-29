@@ -5,10 +5,54 @@ const bottomRow = document.getElementById("bottom-row");
 const continueButton = document.querySelector("#continue");
 
 // configuration
-const TOTAL_CARDS = 5;
-const DEAL_DELAY = 500;
+let TOTAL_CARDS = 5;
+let DEAL_DELAY = 500;
+let WIPE_DELAY = 100;
 let FLIPPED = TOTAL_CARDS;
 let CONTINUE = false;
+
+// initialize: create cards and trigger deal
+function init() {
+
+
+
+    if (sessionStorage.getItem("pull5") == "true") {
+        TOTAL_CARDS = 25;
+        DEAL_DELAY = 100;
+        WIPE_DELAY = 20;
+        FLIPPED = TOTAL_CARDS;
+    }
+    else {
+        TOTAL_CARDS = 5;
+        DEAL_DELAY = 500;
+        WIPE_DELAY = 100;
+        FLIPPED = TOTAL_CARDS;
+    }
+
+    
+    
+    for (let i = 0; i < TOTAL_CARDS; i++) {
+        const card = createCard(i);
+        stack.appendChild(card);
+    }
+
+    dealCards();
+
+    document.getElementById("continue").addEventListener("click", () => {
+        if (CONTINUE) {
+            wipeCards()
+
+            let delay = WIPE_DELAY * (stack.children.length * 2);
+            setTimeout(() => {
+                window.location.href = 'pack.html';
+            }, delay);
+        }
+        else {
+            flipAll();
+        }
+    });
+
+}
 
 // utility: Create a card DOM element
 function createCard(index) {
@@ -39,31 +83,63 @@ function createCard(index) {
 
 // deal cards
 function dealCards() {
-    let cards = Array.from(stack.children);
-    let cardWidth = 200;
-    let cardHeight = 300;
-    let gap = 20;
+    if (TOTAL_CARDS == 5) {
+        let cards = Array.from(stack.children);
+        let cardWidth = 200;
+        let cardHeight = 300;
+        let gap = 20;
 
-    cards.forEach((card, i) => {
-        
-        setTimeout(() => {
-            let col = i % 3;
-            let row = i < 3 ? 0 : 1;
+        cards.forEach((card, i) => {
+            
+            setTimeout(() => {
+                let col = i % 3;
+                let row = i < 3 ? 0 : 1;
 
-            let cardsInRow = i < 3 ? 3 : 2;
-            let totalWidth = cardsInRow * cardWidth + (cardsInRow - 1) * gap;
-            let startX = (stack.clientWidth - totalWidth) / 2;
+                let cardsInRow = i < 3 ? 3 : 2;
+                let totalWidth = cardsInRow * cardWidth + (cardsInRow - 1) * gap;
+                let startX = (stack.clientWidth - totalWidth) / 2;
 
-            let x = startX + col * (cardWidth + gap);
-            let y = row * (cardHeight + gap);
+                let x = startX + col * (cardWidth + gap);
+                let y = row * (cardHeight + gap);
 
-            card.style.transform = `translate(${x}px, ${y}px)`;
+                card.style.transform = `translate(${x}px, ${y}px)`;
 
-            card.classList.add("dealt");
+                card.classList.add("dealt");
 
-            card.addEventListener("click", () => flipCard(card));
-        }, i * DEAL_DELAY);
-    });
+                card.addEventListener("click", () => flipCard(card));
+            }, i * DEAL_DELAY);
+        });
+    }
+    else {
+        let cards = Array.from(stack.children);
+        let cardWidth = 400/3;
+        let cardHeight = 200;
+        let gap = 20;
+
+        cards.forEach((card, i) => {
+            
+            card.style.width = `${cardWidth}px`;
+            card.style.height = `${cardHeight}px`;
+
+            setTimeout(() => {
+                let col = i < 8  ?  i % 8  :  i < 17  ?  (i + 1) % 9 : (i - 1) % 8;
+                let row = i < 8 ? 0 : i < 17 ? 1 : 2;
+
+                let cardsInRow = i < 8 ? 8 : i < 17 ? 9 : 8;
+                let totalWidth = cardsInRow * cardWidth + (cardsInRow - 1) * gap;
+                let startX = (stack.clientWidth - totalWidth) / 2;
+
+                let x = startX + col * (cardWidth + gap);
+                let y = row * (cardHeight + gap) - 50;
+
+                card.style.transform = `translate(${x}px, ${y}px)`;
+
+                card.classList.add("dealt");
+
+                card.addEventListener("click", () => flipCard(card));
+            }, i * DEAL_DELAY);
+        });
+    }
 }
 
 // flip card animation
@@ -74,6 +150,16 @@ function flipCard(card) {
     if (FLIPPED <= 0) {
         CONTINUE = true;
     }
+}
+
+function flipAll() {
+    let cards = Array.from(stack.children);
+
+    cards.forEach((card) => {
+        flipCard(card);
+    });
+    // if continue is true, change text on button
+    document.getElementById("continue").textContent = 'Continue';
 }
 
 // wipe card animation
@@ -90,31 +176,10 @@ function wipeCards() {
         card.style.transition = 'transform 0.7s ease-in-out, opacity 0.5s';
         card.style.opacity = '0';
         card.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${randomAngle}deg)`;
-      }, index * 100); // 100ms stagger per card
+      }, index * WIPE_DELAY); // 100ms stagger per card
     });
 }
 
-// initialize: create cards and trigger deal
-function init() {
-    
-    for (let i = 0; i < TOTAL_CARDS; i++) {
-        const card = createCard(i);
-        stack.appendChild(card);
-    }
-    
-    dealCards();
 
-    // if continue is true, change text on button -- to be implemented
-
-    document.getElementById("continue").addEventListener("click", () => {
-        wipeCards()
-
-        const delay = 100 * stack.children.length + 700;
-        setTimeout(() => {
-            window.location.href = 'pack.html';
-        }, delay);
-    });
-
-}
 
 document.addEventListener("DOMContentLoaded", init);

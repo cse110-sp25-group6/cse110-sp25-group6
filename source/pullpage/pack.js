@@ -12,10 +12,14 @@ function init() {
     addCurrencyToDocument();
     verifyPullCount();
 
-    //Temporary functionality to test Video Container by single pulling
     document.getElementsByClassName("pull1")[0].addEventListener("click", () => {
+        sessionStorage.setItem("pull5", "false");
         showVideo();
+    });
 
+    document.getElementsByClassName("pull5")[0].addEventListener("click", () => {
+        sessionStorage.setItem("pull5", "true");
+        showVideo();
     });
 }
 
@@ -49,7 +53,7 @@ function populateLocalStorage() {
 
 function verifyPullCount() {
     const pull1 = document.getElementsByClassName("pull1");
-    const pull10 = document.getElementsByClassName("pull10");
+    const pull5 = document.getElementsByClassName("pull5");
 
     const packsValue = localStorage.getItem("Packs");
 
@@ -57,8 +61,8 @@ function verifyPullCount() {
         pull1[i].classList.toggle("not-enough-packs", packsValue < 1);
     }
 
-    for (let i = 0; i < pull10.length; i++) {
-        pull10[i].classList.toggle("not-enough-packs", packsValue < 10);
+    for (let i = 0; i < pull5.length; i++) {
+        pull5[i].classList.toggle("not-enough-packs", packsValue < 5);
     }
 }
 
