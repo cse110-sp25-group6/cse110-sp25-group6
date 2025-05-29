@@ -44,14 +44,4 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = "../homepage/index.html";
     });
 
-    // Pull buttons on pack.html
-    document.getElementById("pull1Btn")?.addEventListener("click", () => {
-        console.log("Pulled 1 pack");
-        // TODO: decrement packsCount, update UI
-    });
-    document.getElementById("pull10Btn")?.addEventListener("click", () => {
-        console.log("Pulled 10 packs");
-        // TODO: batch-pull logic
-    });
-
 });

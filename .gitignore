@@ -1,7 +1,13 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 source/node_modules
 node_modules/
 .DS_Store
 =======
 source/node_modules
 >>>>>>> 8598e2e081ba26233b9e141ab0ac2ab29410bc3f
+=======
+source/node_modules
+node_modules/
+.DS_Store
+>>>>>>> b386b4171c840b22cf3f056ae9a889e188756f3e
