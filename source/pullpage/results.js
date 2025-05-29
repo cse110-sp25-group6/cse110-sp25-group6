@@ -149,6 +149,8 @@ function flipCard(card) {
     FLIPPED--;
     if (FLIPPED <= 0) {
         CONTINUE = true;
+        // if continue is true, change text on button
+        document.getElementById("continue").textContent = 'Continue';
     }
 }
 
@@ -158,8 +160,6 @@ function flipAll() {
     cards.forEach((card) => {
         flipCard(card);
     });
-    // if continue is true, change text on button
-    document.getElementById("continue").textContent = 'Continue';
 }
 
 // wipe card animation
