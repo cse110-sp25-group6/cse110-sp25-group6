@@ -1,0 +1,179 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Header styling */
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile styling */
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#profileImage {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid gold;
+}
+
+.profile-info h2 {
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: #333;
+}
+
+.level-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#userLevel {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Currency styling */
+.currency {
+    margin-right: auto;
+}
+
+.gems, .packs-owned {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.gems img, .packs-owned img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Main content styling */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 40px 20px;
+}
+
+/* Pack styling */
+.pack-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.pack {
+    width: 200px;
+    height: 300px;
+    background-color: #ddd;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.pack:hover {
+    transform: scale(1.05);
+}
+
+.pack img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Pack progress styling */
+.pack-progress {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 200px;
+    text-align: center;
+}
+
+.pack-count {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.progress-bar {
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: #4CAF50;
+    width: 0; /* Will be set by JavaScript */
+}
+
+.pack-progress-text {
+    font-size: 12px;
+    color: #666;
+}
+
+/* Collections button styling */
+.collections-button button {
+    padding: 15px 30px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.collections-button button:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .currency {
+        width: 100%;
+        justify-content: center;
+    }
+
+    main {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .collections-button {
+        margin-top: 20px;
+    }
+}
