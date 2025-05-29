@@ -7,17 +7,19 @@ let cards = [];
 function init() {
     populateLocalStorage();
 
+    homepageInit();
+    
     cards = getCollectionCards();
 
     addCurrencyToDocument();
     verifyPullCount();
 
-    document.getElementsByClassName("pull1")[0].addEventListener("click", () => {
+    document.getElementById("pull1")[0].addEventListener("click", () => {
         sessionStorage.setItem("pull5", "false");
         showVideo();
     });
 
-    document.getElementsByClassName("pull5")[0].addEventListener("click", () => {
+    document.getElementById("pull5")[0].addEventListener("click", () => {
         sessionStorage.setItem("pull5", "true");
         showVideo();
     });
@@ -98,4 +100,50 @@ function hideVideo() { //Keeping this around temporarily in case we still need i
     for (let i = 0; i < videoElement.length; i++) {
         videoElement[i].style.display = "none";
     }
+}
+
+function homepageInit() {
+    // Sample user data (replace with your real data source)
+    const userData = {
+        profileName: "Player123",
+        userLevel: 5,
+        levelProgress: 65,   // percentage
+        gemsCount: 250,
+        packsCount: 8,
+        currentPacks: 3,
+        packProgress: 75,   // percentage
+        packTimeLeft: "5h 32min left"
+    };
+
+    // Populate profile info
+    document.getElementById("profileName").textContent = userData.profileName;
+    document.getElementById("userLevel").textContent = `Level ${userData.userLevel}`;
+    document.getElementById("levelProgress").style.width = `${userData.levelProgress}%`;
+
+    // Populate header actions
+    document.getElementById("gemsCount").textContent = userData.gemsCount;
+    document.getElementById("packsCount").textContent = userData.packsCount;
+
+    // Populate pack display
+    document.getElementById("currentPacks").textContent = userData.currentPacks;
+    document.getElementById("packProgress").style.width = `${userData.packProgress}%`;
+    document.getElementById("packTimeLeft").textContent = userData.packTimeLeft;
+
+    // Navigate to pack-opening page when clicking the main pack
+    const mainPack = document.getElementById("mainPack");
+    mainPack.style.cursor = "pointer";
+    mainPack.addEventListener("click", () => {
+        window.location.href = "../pullpage/pack.html";
+    });
+
+    // Navigate to collection page when clicking Collections button
+    const collectionsBtn = document.getElementById("collectionsBtn");
+    collectionsBtn.addEventListener("click", () => {
+        window.location.href = "../collection/collection.html";
+    });
+
+    // Back button navigates home
+    document.getElementById("backBtn")?.addEventListener("click", () => {
+        window.location.href = "../homepage/index.html";
+    });
 }
