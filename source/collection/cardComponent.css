@@ -30,6 +30,8 @@
     background-repeat: no-repeat;
 }
 
+
+
 .card:hover {
     transform: scale(1.05);
 }

@@ -75,7 +75,17 @@ function addCardsToDocument(cards) {
 	for (let cardData of cards) {
 		const cardComponent = document.createElement('card-component');
 		cardComponent.data = cardData;
+
+
+		cardComponent.classList.remove('animate-in');
 		collectionContainer.append(cardComponent);
+		void cardComponent.offsetWidth;
+		const x = -100 - Math.random() * 500 + '%'
+		const y = -100 - Math.random() * 500 + '%'
+		console.log(x,y)
+		cardComponent.style.setProperty('--start-x', x);
+    	cardComponent.style.setProperty('--start-y', y);
+		cardComponent.classList.add('animate-in');
 	}
 }
 

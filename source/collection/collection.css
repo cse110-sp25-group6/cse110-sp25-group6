@@ -68,6 +68,30 @@ collection-container {
   padding: 2vh;
 }
 
+card-component {
+    opacity: 1;
+    transform: translate(var(--start-x), var(--start-y)) scale(0.5);
+}
+
+
+@keyframes fallIn {
+  0% {
+    opacity: 1;
+    transform: translate(var(--start-x), var(--start-y)) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+card-component.animate-in {
+  animation-name: fallIn;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+}
 
 sorting-options {
   display: flex;
