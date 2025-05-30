@@ -1,3 +1,4 @@
+/*
 .card {
     background: #f8f8f8;
     border-radius: 8px;
@@ -9,8 +10,32 @@
     background-repeat: no-repeat;
     position: relative;
 }
+    */
+
+.card {
+    width: 13rem;
+    height: calc(13rem * (7 / 5));
+    background-color: #ddd;
+    border-color: black;
+    border-style: solid;
+    border-width: 0.3rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
 
 .name {
+    border-radius: 5px;
     display: inline-block;
     margin-top: 1.5vh;
     color:white;
@@ -19,9 +44,31 @@
 }
 
 .rarity {
+    border-radius: 5px;
     position: absolute;
     background-color: black;
     color: white;
     bottom: 0;
     margin-bottom: 1.5vh;
+}
+.stats {
+    position: absolute;
+    bottom: 1.5vh;
+    right: 0.5em;
+    display: flex;
+    gap: 0.5em;  
+}
+
+.stats span {
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    padding: 0.2em 0.5em;
+    font-size: 0.9em;
+}
+
+.stats span img {
+    width: 0.7em;
+    height: 0.7em;
+    object-fit: contain;
 }

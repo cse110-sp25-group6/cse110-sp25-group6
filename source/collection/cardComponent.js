@@ -16,9 +16,17 @@ class CardComponent extends HTMLElement {
 		if (!data) return;
 		const article = this.shadow.querySelector('article');
 		article.innerHTML = `
-			<div class="card" style="background-image: url('../../admin/branding/team_pic.png');">
+			<div class="card" style="background-image: url('../card_data/common_images/heap.png');">
 				<p class="name"> ${data.name} </p>
-				<p class="rarity"> ${data.rarity} </p>
+				<p class="rarity"> ${'★'.repeat(data.rarity + 1)} </p>
+				<div class="stats">
+					<span class="health"> 
+						❤ ${data.health} 
+					</span>
+					<span class="damage"> 
+						⚔ ${data.damage} 
+					</span>
+				</div>
 			</div>
 		`;
 	}

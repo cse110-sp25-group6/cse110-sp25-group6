@@ -91,6 +91,8 @@ function populateLocalStorage() {
 		let card = {
 			"name": `card${i}`,
 			"rarity": i % 5,
+			"health": i*3,
+			"damage": i*2,
 			"acquisition": Date.now() - ((i % 7) * 1000 * 60 * 60 * 24)
 		}
 		addCardToCollection(card);
