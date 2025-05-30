@@ -1,0 +1,22 @@
+[
+    {
+        "id": 10,
+        "name": "Lambda Lich",
+        "image": "Lambda Calculus.png",
+        "rarity": 5,
+        "stats": {
+            "health": 400,
+            "damage": 160
+        }
+    },
+    {
+        "id": 7,
+        "name": "Overflow Leviathan",
+        "image": "StackOverflow.png",
+        "rarity": 5,
+        "stats": {
+            "health": 400,
+            "damage": 160
+        }
+    }
+]

@@ -1,0 +1,22 @@
+[
+    {
+        "id": 9,
+        "name": "Hask Hydra",
+        "image": "Haskell.png",
+        "rarity": 4,
+        "stats": {
+            "health": 300,
+            "damage": 120
+        }
+    },
+    {
+        "id": 6,
+        "name": "Leet Kraken",
+        "image": "LeetCode.png",
+        "rarity": 4,
+        "stats": {
+            "health": 300,
+            "damage": 120
+        }
+    }
+]

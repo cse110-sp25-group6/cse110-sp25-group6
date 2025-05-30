@@ -18,19 +18,19 @@ class CardComponent extends HTMLElement {
 		article.innerHTML = `
 			<div class="card" style="background-image: url('../card_data/common_images/heap.png');">
 				<p class="name"> ${data.name} </p>
-				<p class="rarity"> ${'★'.repeat(data.rarity + 1)} </p>
+				<p class="rarity"> ${'★'.repeat(data.rarity)} </p>
 				<div class="stats">
 					<span class="health"> 
 						<span class="heart-icon">
 							❤
 						</span>
-						${data.health} 
+						${data.stats.health} 
 					</span>
 					<span class="damage"> 
 						<span class="damage-icon">
 							🗡️
 						</span>
-						${data.damage} 
+						${data.stats.damage} 
 					</span>
 				</div>
 			</div>

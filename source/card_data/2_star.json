@@ -1,0 +1,32 @@
+[
+    {
+        "id": 11,
+        "name": "Join Golem",
+        "image": "Inner Join.png",
+        "rarity": 2,
+        "stats": {
+            "health": 150,
+            "damage": 60
+        }
+    },
+    {
+        "id": 5,
+        "name": "Traversal Treant",
+        "image": "Postorder Traversal.png",
+        "rarity": 2,
+        "stats": {
+            "health": 150,
+            "damage": 60
+        }
+    },
+    {
+        "id": 2,
+        "name": "Mergefiend",
+        "image": "Merge sort.png",
+        "rarity": 1,
+        "stats": {
+            "health": 150,
+            "damage": 60
+        }
+    }
+]

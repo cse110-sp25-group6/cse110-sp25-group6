@@ -6,8 +6,8 @@ window.addEventListener("DOMContentLoaded", init);
 let cards = [];
 let lastSort = "acquisition";
 
-function init() {
-	populateLocalStorage();
+async function init() {
+	await populateLocalStorage();
 
 	cards = getCollectionCards();
 	sortCards(cards, "acquisition");
@@ -83,20 +83,25 @@ function addCardsToDocument(cards) {
  * Populates the local storage with some sample cards 
  * @returns {void} - Nothing
  */
-function populateLocalStorage() {
+async function populateLocalStorage() {
 	localStorage.clear();
 	localStorage.setItem('Gems',JSON.stringify(50)); // Add some gems
 	localStorage.setItem('Packs',JSON.stringify(3)); // Add some packs
-	for (let i = 0; i < 30; i++) {
-		let card = {
-			"name": `card${i}`,
-			"rarity": i % 5,
-			"health": i*3,
-			"damage": i*2,
-			"acquisition": Date.now() - ((i % 7) * 1000 * 60 * 60 * 24)
+
+	for (let i = 1; i < 6; i++) {
+		const res = await fetch(`../card_data/${i}_star.json`);
+		if (!res.ok) {
+			console.error(`Failed to load ${i}_star.json`);
+			continue;
 		}
-		addCardToCollection(card);
-	}
+
+		const cards = await res.json();
+
+		for (const card of cards) {
+			card.acquisition = Date.now() - ((i % 7) * 1000 * 60 * 60 * 24);
+			addCardToCollection(card);
+		}
+  }
 }
 
 
