@@ -21,10 +21,16 @@ class CardComponent extends HTMLElement {
 				<p class="rarity"> ${'★'.repeat(data.rarity + 1)} </p>
 				<div class="stats">
 					<span class="health"> 
-						❤ ${data.health} 
+						<span class="heart-icon">
+							❤
+						</span>
+						${data.health} 
 					</span>
 					<span class="damage"> 
-						⚔ ${data.damage} 
+						<span class="damage-icon">
+							🗡️
+						</span>
+						${data.damage} 
 					</span>
 				</div>
 			</div>

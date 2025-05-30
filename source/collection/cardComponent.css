@@ -35,11 +35,13 @@
 }
 
 .name {
-    border-radius: 5px;
+    border-radius: 0px;
+    width: 100%;
+    text-align: center;
     display: inline-block;
-    margin-top: 1.5vh;
+    margin-top: 1vh;
     color:white;
-    background-color: black;
+    background-color: rgba(0,0,0,0.6);
     font-size: 30px;
 }
 
@@ -59,7 +61,7 @@
     gap: 0.5em;  
 }
 
-.stats span {
+.health, .damage {
     background-color: black;
     color: white;
     border-radius: 5px;
@@ -71,4 +73,16 @@
     width: 0.7em;
     height: 0.7em;
     object-fit: contain;
+}
+
+.rarity {
+    color: yellow;
+}
+
+.heart-icon {
+    color: red;
+}
+
+.damage-icon {
+    color: blue;
 }
