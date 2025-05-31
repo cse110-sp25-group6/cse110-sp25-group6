@@ -1,7 +1,8 @@
 export const styles = `
 	.card {
-		width: 13rem;
-		height: calc(13rem * (7 / 5));
+	 	aspect-ratio: 5 / 7;
+		box-sizing: border-box;
+		height: 100%;
 		background-color: #ddd;
 		border-color: black;
 		border-style: solid;

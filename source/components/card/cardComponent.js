@@ -33,10 +33,7 @@ class CardComponent extends HTMLElement {
 	}
 
 	connectedCallback() {
-		const link = document.createElement('link');
-		link.setAttribute('rel', 'stylesheet');
-		link.setAttribute('href','../components/card/cardComponent.css');
-		this.shadowRoot.append(link);
+		this.render();
 	}
 
 }

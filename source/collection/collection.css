@@ -70,6 +70,7 @@ stat-display {
 }
 
 main {
+  position: relative;
   flex: 1 1 auto;
   display: flex;
   flex-direction: row-reverse;
@@ -163,4 +164,52 @@ sorting-options button {
   background-color: var(--accent-clr);
   color: white;
   border-color: white;
+}
+
+.test {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.test {
+  display: flex;
+  justify-content: space-around;
+}
+
+.test card-component {
+  height: 60vh;
+}
+
+.test button {
+  background-color: rgba(0, 0, 0, 0);
+  border-style: none;
+  font-size: var(--alt-heading-sz);
+  transition: all 0.5s ease;
+}
+
+.test button:hover {
+  transform: scale(1.5);
+  color: var(--accent-clr);
+}
+
+card-component {
+  height: 30vh;
+}
+
+inspect-container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  background-color: var(--background-clr);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.lore {
+  padding: 2rem;
 }
