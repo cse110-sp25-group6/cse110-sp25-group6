@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Turret+Road:wght@200;300;400;500;700;800&display=swap');
+@import '../components/card/cardComponent.css';
+@import url('https://fonts.googleapis.com/css2?family=Turret+Road:wght@200;300;400;500;700;800&display=swap');
 
 :root {
   --background-clr: #141a1c;
@@ -115,7 +115,7 @@ collection-container {
   background-color: var(--foreground-clr);
 }
 
-card-component {
+/* card-component {
     opacity: 1;
     transform: translate(var(--start-x), var(--start-y)) scale(0.5);
 }
@@ -138,7 +138,7 @@ card-component.animate-in {
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
   animation-delay: 0s;
-}
+} */
 
 sorting-options {
   display: flex;

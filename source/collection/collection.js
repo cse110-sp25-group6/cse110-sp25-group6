@@ -1,4 +1,5 @@
-
+import '../components/card/cardComponent.js';
+import '../components/top-bar/top-bar.js';
 import { getCollectionCards, addCardToCollection } from "../util/utils.js";
 
 window.addEventListener("DOMContentLoaded", init);
