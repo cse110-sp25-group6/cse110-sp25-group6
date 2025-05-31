@@ -110,6 +110,12 @@ main {
   transition: transform 0.3s ease;
   overflow: hidden;
 }
+/* Dim pack and disable clicking during cooldown */
+.pack.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
 .pack:hover {
   transform: scale(1.05);
 }
