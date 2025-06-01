@@ -115,7 +115,7 @@ collection-container {
   background-color: var(--foreground-clr);
 }
 
-/* card-component {
+ card-component {
     opacity: 1;
     transform: translate(var(--start-x), var(--start-y)) scale(0.5);
 }
@@ -138,7 +138,7 @@ card-component.animate-in {
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
   animation-delay: 0s;
-} */
+} 
 
 sorting-options {
   display: flex;
