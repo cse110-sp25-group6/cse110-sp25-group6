@@ -1,23 +1,13 @@
+@import '../util/globals.css';
 @import '../components/card/cardComponent.css';
 @import url('https://fonts.googleapis.com/css2?family=Turret+Road:wght@200;300;400;500;700;800&display=swap');
-
-:root {
-  --background-clr: #141a1c;
-  --foreground-clr: #373b3d;
-  --text-clr: #F2F2F2;
-  --accent-clr: #1574a0;
-  --text-sz: 1rem;
-  --main-heading-sz: 3rem;
-  --alt-heading-sz: 2rem;
-  --icon-sz: 2rem;
-}
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  color: var(--text-clr);
-  font-family: "Turret Road", sans-serif;
+  color: var(--color-text);
+  font-family: var(--font-family);
 }
 
 body {
@@ -25,48 +15,6 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-}
-
-header {
-  flex: 0 0 auto;
-  background-color: white;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--background-clr);
-}
-
-header h1 {
-  font-size: var(--main-heading-sz);
-  font-weight: 900;
-}
-
-stats-container {
-  display: flex;
-  gap: 1rem;
-  font-size: var(--text-sz);
-  background-color: var(--foreground-clr);
-  padding: 0.5rem;
-  border-radius: 1rem;
-}
-
-stat-display {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.stat-icon {
-  font-size: var(--icon-sz);
-}
-
-#gems {
-  color: rgb(172, 44, 208)
-}
-
-#packs {
-  color: rgb(187, 36, 36)
 }
 
 main {
@@ -78,7 +26,7 @@ main {
   padding: 0 5%;
   margin: 0;
   overflow: hidden;
-  background-color: var(--background-clr);
+  background-color: var(--color-background);
 }
 
 side-bar {
@@ -86,19 +34,19 @@ side-bar {
   right: 0;
   height: 100%;
   padding: 3rem;
-  background-color: var(--background-clr);
+  background-color: var(--color-background);
   width: fit-content;
 }
 
 #sort-header {
   margin-bottom: 0.5rem;
-  font-size: var(--alt-heading-sz);
+  font-size: var(--font-size-heading);
 }
 
 hr {
   height: 1px;
   border: none;
-  background-color: var(--text-clr);
+  background-color: var(--color-text);
   margin: 0.75rem 0;
 }
 
@@ -113,7 +61,7 @@ collection-container {
   overflow: auto;
   width: 80%;
   padding: 2vh;
-  background-color: var(--foreground-clr);
+  background-color: var(--color-foreground);
 }
 
 
@@ -128,17 +76,15 @@ sorting-options {
 sorting-options button {
   cursor: pointer;
   padding: 0.5rem;
-  /* border: 1px black solid; */
-  /* border: 2px var(--accent-clr) outset; */
   border-style: none;
   border-radius: 9999px;
   width: 100%;
-  background-color: var(--foreground-clr);
-  font-size: var(--text-sz);
+  background-color: var(--color-foreground);
+  font-size: var(--font-size-body);
 }
 
 .selected, sorting-options button:hover:not(.selected) {
-  background-color: var(--accent-clr);
+  background-color: var(--color-accent);
   color: white;
   border-color: white;
 }
@@ -160,13 +106,13 @@ sorting-options button {
 .inspector button {
   background-color: rgba(0, 0, 0, 0);
   border-style: none;
-  font-size: var(--alt-heading-sz);
-  transition: all 0.5s ease;
+  font-size: var(--font-size-heading);
+  transition: all var(--transition-time) ease;
 }
 
 .inspector button:hover {
-  transform: scale(1.5);
-  color: var(--accent-clr);
+  transform: scale(var(--scale-hover));
+  color: var(--color-accent);
 }
 
 @keyframes fallIn {
@@ -200,7 +146,7 @@ inspect-container {
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr 1fr;
-  background-color: var(--background-clr);
+  background-color: var(--color-background);
   padding: 1rem;
   border-radius: 1rem;
 }

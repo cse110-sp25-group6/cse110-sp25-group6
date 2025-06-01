@@ -1,36 +1,42 @@
 export const styles = `
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		color: var(--color-text);
+		font-family: var(--font-family);
+	}
+
 	header {
 		flex: 0 0 auto;
-		background-color: white;
 		padding: 2rem;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		background-color: var(--background-clr);
+		background-color: var(--color-background);
 	}
 
 	header h1 {
-		font-size: var(--main-heading-sz);
-		font-weight: 900;
+		font-size: var(--font-size-title);
+		font-weight: var(--font-weight-bold);
 		margin: 0;
 	}
 	
 	a {
-		color: var(--text-clr);
-		font-size: var(--icon-sz);
-		transition: all 0.5s ease;
+		font-size: var(--font-size-icon);
+		transition: all var(--transition-time) ease;
 	}
 	
 	a:hover {
-		transform: scale(1.05);
-		color: var(--accent-clr);
+		transform: scale(var(--scale-hover));
+		color: var(--color-accent);
 	}
 
 	stats-container {
 		display: flex;
 		gap: 1rem;
-		font-size: var(--text-sz);
-		background-color: var(--foreground-clr);
+		font-size: var(--font-size-body);
+		background-color: var(--color-foreground);
 		padding: 0.5rem;
 		border-radius: 1rem;
 	}
@@ -42,14 +48,15 @@ export const styles = `
 	}
 
 	.stat-icon {
-		font-size: var(--icon-sz);
+		font-size: var(--font-size-icon);
 	}
 
 	#gems {
-		color: rgb(172, 44, 208)
+		color: var(--color-gems);
 	}
 
 	#packs {
-		color: rgb(187, 36, 36)
+		color: var(--color-packs); 
 	}
+
 `;
