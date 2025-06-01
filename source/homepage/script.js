@@ -1,7 +1,7 @@
 // script.js for homepage landing page functionality
 document.addEventListener('DOMContentLoaded', () => {
-    const FREE_PACK_INTERVAL_HOURS = 6;
-    const FREE_PACK_INTERVAL_MS = FREE_PACK_INTERVAL_HOURS * 60 * 60 * 1000;
+    //const FREE_PACK_INTERVAL_HOURS = 6;
+    //const FREE_PACK_INTERVAL_MS = FREE_PACK_INTERVAL_HOURS * 60 * 60 * 1000;
     // Sample user data (replace with your real data source)
     //updated from hard coded values - set as default values
     const defaultData = {
@@ -68,9 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
 
     updateCooldown();
-    updatePackWithProgress();
+    //updatePackWithProgress();
     setInterval(updateCooldown, 1000); // Update cooldown every second
-    setInterval(updatePackWithProgress, 1000);
+    //setInterval(updatePackWithProgress, 1000);
 });
 
 // === Cooldown Timer Settings ===
@@ -102,9 +102,18 @@ function updateCooldown() {
   const timeLeft = unlockTime - now;
 
   if (timeLeft <= 0) {
+    let userData = JSON.parse(localStorage.getItem('userData'));
+    if (userData) {
+      userData.packsCount += 1;
+      userData.currentPacks += 1;
+      localStorage.setItem('userData', JSON.stringify(userData));
+    }
+
     timeText.textContent = "Ready to open!";
     progress.style.width = "100%";
     pack.classList.remove("disabled");
+    //prevents repeated incrementation
+    localStorage.removeItem("nextPackTime");
   } else {
     timeText.textContent = formatTime(timeLeft);
     const percent = ((fullTime - timeLeft) / fullTime) * 100;
@@ -118,7 +127,7 @@ function startCooldown() {
   localStorage.setItem("nextPackTime", unlockTime);
   updateCooldown();
 }
-
+/*
 function updatePackWithProgress() {
   userData = JSON.parse(localStorage.getItem('userData'));
   if (!userData) {
@@ -141,13 +150,13 @@ function updatePackWithProgress() {
   }
 
   if (percent >= 100) {
-    userData.packsCount += 1;
     userData.lastFreePackTime = now;
+    userData.packCount += 1;
     userData.currentPacks += 1;
 
-    document.getElementById("packCount").textContent = userData.packsCount;
+    document.getElementById("packCount").textContent = userData.packCount;
     document.getElementById("currentPacks").textContent = userData.currentPacks;
     localStorage.setItem("userData", JSON.stringify(userData));
   }
-
 }
+*/
