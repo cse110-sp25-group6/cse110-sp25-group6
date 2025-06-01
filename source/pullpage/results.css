@@ -25,15 +25,6 @@ header {
   margin-right: 1rem;
 }
 
-.wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  position: relative;
-  gap: 20px;
-  top: 60px;
-}
-
 #display-area {
   position: relative;
   width: 800px;
@@ -44,9 +35,11 @@ header {
 
 #card-stack {
   /* width and height are half of the card size, so the card gets placed in the center of the screen*/
+  /*
   width: 100vw;
   height: 150%;
   z-index: 3;
+  */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -63,7 +56,6 @@ header {
   transform-style: preserve-3d;
   cursor: pointer;
   z-index: 2;
-  transform-origin: top left;
 }
 
 .card-inner {

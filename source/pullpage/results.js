@@ -121,17 +121,17 @@ function dealCards() {
             card.style.width = `${cardWidth}px`;
             card.style.height = `${cardHeight}px`;
 
+            let col = i < 8  ?  i % 8  :  i < 17  ?  (i + 1) % 9 : (i - 1) % 8;
+            let row = i < 8 ? 0 : i < 17 ? 1 : 2;
+
+            let cardsInRow = i < 8 ? 8 : i < 17 ? 9 : 8;
+            let totalWidth = cardsInRow * cardWidth + (cardsInRow - 1) * gap;
+            let startX = (stack.clientWidth - totalWidth) / 2;
+
+            let x = startX + col * (cardWidth + gap);
+            let y = row * (cardHeight + gap) - 50;
+
             setTimeout(() => {
-                // let col = i < 8  ?  i % 8  :  i < 17  ?  (i + 1) % 9 : (i - 1) % 8;
-                let row = i < 8 ? 0 : i < 17 ? 1 : 2;
-
-                let cardsInRow = i < 8 ? 8 : i < 17 ? 9 : 8;
-                let totalWidth = cardsInRow * cardWidth + (cardsInRow - 1) * gap;
-                let startX = (stack.clientWidth - totalWidth) / 2;
-
-                let x = startX + (i % 8) * (cardWidth + gap);
-                let y = row * (cardHeight + gap) - 50;
-
                 card.style.transform = `translate(${x}px, ${y}px)`;
 
                 // Listen for translate end
