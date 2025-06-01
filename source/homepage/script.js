@@ -1,16 +1,26 @@
 // script.js for homepage landing page functionality
 document.addEventListener('DOMContentLoaded', () => {
+    const FREE_PACK_INTERVAL_HOURS = 6;
+    const FREE_PACK_INTERVAL_MS = FREE_PACK_INTERVAL_HOURS * 60 * 60 * 1000;
     // Sample user data (replace with your real data source)
-    const userData = {
+    //updated from hard coded values - set as default values
+    const defaultData = {
         profileName: "Player123",
         userLevel: 5,
         levelProgress: 65,   // percentage
         gemsCount: 250,
+        //packcount and curr pack count currently hardcoded *****************************
         packsCount: 8,
         currentPacks: 3,
         packProgress: 75,   // percentage
         packTimeLeft: "5h 32min left"
     };
+
+    let userData = JSON.parse(localStorage.getItem('userData'));
+    if (!userData) {
+        userData = defaultData;
+        localStorage.setItem('userData', JSON.stringify(userData));
+    }
 
     // Populate profile info
     document.getElementById("profileName").textContent = userData.profileName;
@@ -58,7 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
 
     updateCooldown();
+    updatePackWithProgress();
     setInterval(updateCooldown, 1000); // Update cooldown every second
+    setInterval(updatePackWithProgress, 1000);
 });
 
 // === Cooldown Timer Settings ===
@@ -105,4 +117,37 @@ function startCooldown() {
   const unlockTime = Date.now() + COOLDOWN_MINUTES * 60 * 1000;
   localStorage.setItem("nextPackTime", unlockTime);
   updateCooldown();
+}
+
+function updatePackWithProgress() {
+  userData = JSON.parse(localStorage.getItem('userData'));
+  if (!userData) {
+    return;
+  }
+  const now = Date.now();
+  const elapsed = now - userData.lastFreePackTime;
+  const percent = Math.min((elapsed / FREE_PACK_INTERVAL_MS) * 100, 100);
+
+  const progressBar = document.getElementById("packProgress");
+  const timeText = document.getElementById("packTimeLeft");
+
+  if(progressBar) {
+    progressBar.style.width = `${percent}%`;
+  }
+
+  const timeLeft = Math.max(FREE_PACK_INTERVAL_MS - elapsed, 0);
+  if(timeText) {
+    timeText.textContent = (percent >= 100) ? "Free pack ready!" : formatTime(timeLeft);
+  }
+
+  if (percent >= 100) {
+    userData.packsCount += 1;
+    userData.lastFreePackTime = now;
+    userData.currentPacks += 1;
+
+    document.getElementById("packCount").textContent = userData.packsCount;
+    document.getElementById("currentPacks").textContent = userData.currentPacks;
+    localStorage.setItem("userData", JSON.stringify(userData));
+  }
+
 }
