@@ -4,6 +4,7 @@
         "name": "Dynadrake",
         "image": "Dynamic Programming.png",
         "rarity": 3,
+        "lore": "",
         "stats": {
             "health": 200,
             "damage": 80
@@ -14,6 +15,7 @@
         "name": "C++ Chimera",
         "image": "C++.png",
         "rarity": 3,
+        "lore": "",
         "stats": {
             "health": 200,
             "damage": 80
@@ -24,6 +26,7 @@
         "name": "Mongo Manticore",
         "image": "MongoDB.png",
         "rarity": 3,
+        "lore": "",
         "stats": {
             "health": 200,
             "damage": 80

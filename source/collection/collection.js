@@ -5,6 +5,7 @@ import { getCollectionCards, addCardToCollection } from "../util/utils.js";
 window.addEventListener("DOMContentLoaded", init);
 
 let cards = [];
+let currentIndex = 0;
 let lastSort = "acquisition";
 
 async function init() {
@@ -19,6 +20,31 @@ async function init() {
 	let sortNameButton = document.getElementById("sort-name");
 	let sortRarityButon = document.getElementById("sort-rarity");
 	let sortAcquisitionButton = document.getElementById("sort-acquisition");
+
+	const inspectorContainer = document.querySelector('.inspector');
+	const inspectedCard = document.getElementById('insepct-card');
+	const previousButton = document.getElementById("previous");
+	const nextButton = document.getElementById("next");
+
+	inspectorContainer.addEventListener("click", (e) => {
+		if (e.target === e.currentTarget) {
+			inspectorContainer.style.display = "none";
+		}
+	})
+	previousButton.addEventListener("click", () => {
+		if (currentIndex != 0) {
+			currentIndex -= 1;
+			inspectedCard.data = cards[currentIndex]
+			lore.textContent = cards[currentIndex].lore;
+		}
+	})
+	nextButton.addEventListener("click", () => {
+		if (currentIndex != cards.length - 1) {
+			currentIndex += 1;
+			inspectedCard.data = cards[currentIndex]
+			lore.textContent = cards[currentIndex].lore;
+		}
+	})
 
 	sortNameButton.addEventListener("click", () => {
 		if (lastSort === "name") return;
@@ -72,10 +98,21 @@ function addCurrencyToDocument() {
  */
 function addCardsToDocument(cards) {
 	const collectionContainer = document.querySelector('collection-container');
+	const inspectorContainer = document.querySelector('.inspector');
+	const inspectedCard = document.getElementById('insepct-card');
+	const lore = document.querySelector('.lore');
 	collectionContainer.innerHTML = ''; // Remove all cards
-	for (let cardData of cards) {
+	for (let c = 0; c < cards.length; c++) {
+		let cardData = cards[c];
 		const cardComponent = document.createElement('card-component');
 		cardComponent.data = cardData;
+
+		cardComponent.addEventListener("click", () => {
+			currentIndex = c;
+			inspectorContainer.style.display = "flex";
+			inspectedCard.data = cardData;
+			lore.textContent = cardData.lore;
+		})
 
 
 		cardComponent.classList.remove('animate-in');
@@ -83,7 +120,6 @@ function addCardsToDocument(cards) {
 		void cardComponent.offsetWidth;
 		const x = -100 - Math.random() * 500 + '%'
 		const y = -100 - Math.random() * 500 + '%'
-		console.log(x,y)
 		cardComponent.style.setProperty('--start-x', x);
     	cardComponent.style.setProperty('--start-y', y);
 		cardComponent.classList.add('animate-in');

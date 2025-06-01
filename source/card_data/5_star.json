@@ -4,6 +4,7 @@
         "name": "Lambda Lich",
         "image": "Lambda Calculus.png",
         "rarity": 5,
+        "lore": "",
         "stats": {
             "health": 400,
             "damage": 160
@@ -14,6 +15,7 @@
         "name": "Overflow Leviathan",
         "image": "StackOverflow.png",
         "rarity": 5,
+        "lore": "",
         "stats": {
             "health": 400,
             "damage": 160

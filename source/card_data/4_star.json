@@ -4,6 +4,7 @@
         "name": "Hask Hydra",
         "image": "Haskell.png",
         "rarity": 4,
+        "lore": "",
         "stats": {
             "health": 300,
             "damage": 120
@@ -14,6 +15,7 @@
         "name": "Leet Kraken",
         "image": "LeetCode.png",
         "rarity": 4,
+        "lore": "",
         "stats": {
             "health": 300,
             "damage": 120

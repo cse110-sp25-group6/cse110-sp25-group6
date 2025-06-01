@@ -1,5 +1,4 @@
 export const template = (data) => {
-	console.log('update template');
 	return `
 		<div class="card" style="background-image: url('../card_data/common_images/heap.png');">
 			<p class="name"> ${data.name} </p>

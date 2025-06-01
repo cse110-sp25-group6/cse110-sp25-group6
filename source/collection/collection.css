@@ -116,30 +116,7 @@ collection-container {
   background-color: var(--foreground-clr);
 }
 
- card-component {
-    opacity: 1;
-    transform: translate(var(--start-x), var(--start-y)) scale(0.5);
-}
 
-
-@keyframes fallIn {
-  0% {
-    opacity: 1;
-    transform: translate(var(--start-x), var(--start-y)) scale(0.5);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(0, 0) scale(1);
-  }
-}
-
-card-component.animate-in {
-  animation-name: fallIn;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-  animation-delay: 0s;
-} 
 
 sorting-options {
   display: flex;
@@ -166,40 +143,58 @@ sorting-options button {
   border-color: white;
 }
 
-.test {
+.inspector {
   position: absolute;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
-.test {
-  display: flex;
-  justify-content: space-around;
-}
-
-.test card-component {
+.inspector card-component {
   height: 60vh;
 }
 
-.test button {
+.inspector button {
   background-color: rgba(0, 0, 0, 0);
   border-style: none;
   font-size: var(--alt-heading-sz);
   transition: all 0.5s ease;
 }
 
-.test button:hover {
+.inspector button:hover {
   transform: scale(1.5);
   color: var(--accent-clr);
 }
 
-card-component {
-  height: 30vh;
+@keyframes fallIn {
+  0% {
+    opacity: 1;
+    transform: translate(var(--start-x), var(--start-y)) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
 }
+
+card-component.animate-in {
+  animation-name: fallIn;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+} 
+
+card-component {
+  height: 320px;
+  opacity: 1;
+  transform: translate(var(--start-x), var(--start-y)) scale(0.5);
+}
+
+
 
 inspect-container {
   display: grid;

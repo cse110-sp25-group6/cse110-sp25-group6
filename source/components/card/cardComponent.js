@@ -20,20 +20,24 @@ class CardComponent extends HTMLElement {
 	set data(data) {
 		if (!data) return;
 		this.cardData = data;
-		this.render();
+		this.render(1.05);
+		this.set = true;
 	}
 
-	render() {
+	render(scale_size) {
 		this.shadowRoot.innerHTML = `
 			<style>
 				${styles}
 			</style>
 			${template(this.cardData)}
 		`;
+		this.style.setProperty('--scale-size',scale_size);
 	}
 
 	connectedCallback() {
-		this.render();
+		if (!this.set) {
+			this.render(1);
+		}
 	}
 
 }

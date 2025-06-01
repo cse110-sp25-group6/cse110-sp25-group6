@@ -4,6 +4,7 @@
         "name": "Stack Troll",
         "image": "Stack.png",
         "rarity": 1,
+        "lore": "",
         "stats": {
             "health": 100,
             "damage": 40
@@ -14,6 +15,7 @@
         "name": "Queue Wraith",
         "image": "Queue.png",
         "rarity": 1,
+        "lore": "",
         "stats": {
             "health": 100,
             "damage": 40

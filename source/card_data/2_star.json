@@ -4,6 +4,7 @@
         "name": "Join Golem",
         "image": "Inner Join.png",
         "rarity": 2,
+        "lore": "",
         "stats": {
             "health": 150,
             "damage": 60
@@ -14,6 +15,7 @@
         "name": "Traversal Treant",
         "image": "Postorder Traversal.png",
         "rarity": 2,
+        "lore": "",
         "stats": {
             "health": 150,
             "damage": 60
@@ -23,7 +25,8 @@
         "id": 2,
         "name": "Mergefiend",
         "image": "Merge sort.png",
-        "rarity": 1,
+        "rarity": 2,
+        "lore": "",
         "stats": {
             "health": 150,
             "damage": 60
