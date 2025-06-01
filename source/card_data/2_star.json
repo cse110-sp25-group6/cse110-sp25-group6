@@ -1,0 +1,332 @@
+[
+  {
+    "id": 1,
+    "name": "Splinterforge Colossus",
+    "image": "Merge_Sort.png",
+    "rarity": 2,
+    "lore": "Born from shattered boulders, this colossus divides itself into countless shards to confront its enemies. Each fragment battles independently before reassembling into an unstoppable behemoth. Its power lies in the flawless fusion of broken parts. Legends claim its creation was guided by whispered instructions from an ancient algorithmic sage.\n\nMerge Sort is a divide-and-conquer algorithm that recursively splits a list into halves until single elements remain, then merges those sorted halves back together to form a fully sorted list.",
+    "stats": {
+      "health": 190,
+      "damage": 78
+    }
+  },
+  {
+    "id": 2,
+    "name": "Ascending Sludge",
+    "image": "Bubble_Sort.png",
+    "rarity": 2,
+    "lore": "A viscous ooze that forces larger foes to rise to the surface, revealing weaker adversaries beneath. It engulfs enemies one by one, bubbling them upward until the battlefield is neatly ordered. Its tempo is unhurried and methodical, thriving on careful progression. In its domain, patience is a weapon sharper than any blade.\n\nBubble Sort repeatedly steps through a list, compares adjacent elements, and swaps them if they are in the wrong order, effectively “bubbling” the largest values to the end in each pass until the list is sorted.",
+    "stats": {
+      "health": 210,
+      "damage": 85
+    }
+  },
+  {
+    "id": 3,
+    "name": "Pivot Striker",
+    "image": "Quick_Sort.png",
+    "rarity": 2,
+    "lore": "This nimble imp darts through melee, carving a pivot line that splits friend from foe. It forces targets on either side, striking quickly at those deemed out of place. Its laughter echoes as armies fracture under its swift assault. Travelers whisper that facing it is like watching chaos become order in an instant.\n\nQuick Sort selects a pivot element, partitions the list into elements less than and greater than the pivot, then recursively sorts each partition, achieving average-case performance of O(n log n).",
+    "stats": {
+      "health": 200,
+      "damage": 92
+    }
+  },
+  {
+    "id": 13,
+    "name": "Lastcall Siren",
+    "image": "Stack.png",
+    "rarity": 2,
+    "lore": "Perched atop a stack of lost souls, this siren’s haunting melody lures travelers in need of guidance. Each victim is drawn in and trapped in a last-in, first-out snare until the next soul arrives. Those who heed her call know there is no return without facing the preceding captive. Legends claim her stack grows with every unwise choice.\n\nA Stack is a Last-In-First-Out (LIFO) data structure where insertions and removals occur at the top, commonly used for function call management, expression evaluation, and backtracking algorithms.",
+    "stats": {
+      "health": 215,
+      "damage": 83
+    }
+  },
+  {
+    "id": 14,
+    "name": "Queue Sentinel",
+    "image": "Queue.png",
+    "rarity": 2,
+    "lore": "A grand avian that lines up all who approach, enforcing a strict first-come, first-served rule. It allows only the frontmost traveler to pass, slowing its advance with mechanical precision. Its beak clicks like clockwork, marking each arrival with stern discipline. Those who attempt to bypass its queue must demonstrate unwavering patience.\n\nA Queue is a First-In-First-Out (FIFO) data structure where elements are enqueued at the rear and dequeued from the front, used in scheduling tasks, breadth-first search, and buffering data streams.",
+    "stats": {
+      "health": 185,
+      "damage": 77
+    }
+  },
+  {
+    "id": 16,
+    "name": "Puzzle Leviathan",
+    "image": "LeetCode.png",
+    "rarity": 2,
+    "lore": "A massive beast born from an endless sea of coding challenges, it devours answers as it drifts through cyberspace. Its roar echoes with compile errors and runtime failures. Bold coders test their wit against its riddles, only to be ensnared by its complexity. Rumor says it grows stronger with every unsolved problem left in its wake.\n\nLeetCode is a platform offering a vast collection of coding problems spanning data structures, algorithms, and system design, used by programmers to prepare for technical interviews and hone problem-solving skills.",
+    "stats": {
+      "health": 220,
+      "damage": 90
+    }
+  },
+  {
+    "id": 17,
+    "name": "Threaded Specter",
+    "image": "StackOverflow.png",
+    "rarity": 2,
+    "lore": "This ghostly figure emerges when programmers are lost, offering cryptic hints in exchange for their code. It drifts through forums, seeking unanswered queries to haunt. Its presence can be both blessing and curse, as novices heed its advice with caution. Legends whisper that once it appears, its questions echo in your mind forever.\n\nStackOverflow is a question-and-answer website for programmers, where users post coding questions and receive answers from the community, serving as a crucial resource for troubleshooting and best practices.",
+    "stats": {
+      "health": 205,
+      "damage": 88
+    }
+  },
+  {
+    "id": 20,
+    "name": "Template Behemoth",
+    "image": "C++.png",
+    "rarity": 2,
+    "lore": "A colossal creature forged from pointers, references, and templates, pushing raw power to its limits. Each of its many heads embodies a distinct programming paradigm, making it unpredictable. It excels in fierce compilation battles where memory is the ultimate prize. Legends insist that only the bravest coders can tame its complexity.\n\nC++ is a high-performance, general-purpose programming language that supports procedural, object-oriented, and generic programming via templates, enabling fine-grained control over system resources.",
+    "stats": {
+      "health": 185,
+      "damage": 75
+    }
+  },
+  {
+    "id": 21,
+    "name": "Serpentine Interpreter",
+    "image": "Python.png",
+    "rarity": 2,
+    "lore": "A sleek serpent that coils around code, striking with interpreted precision. Its gaze freezes runtime errors in their tracks, halting execution with a single hiss. Its smooth scales shimmer with the promise of simplicity and clarity. Those who handle it must balance power with elegance to avoid being paralyzed by error.\n\nPython is a high-level, interpreted programming language known for its simplicity and readability, featuring dynamic typing and a large standard library, used extensively in web development, data science, automation, and more.",
+    "stats": {
+      "health": 195,
+      "damage": 82
+    }
+  },
+  {
+    "id": 22,
+    "name": "Bytecode Jinn",
+    "image": "Java.png",
+    "rarity": 2,
+    "lore": "This djinn dwells within the virtual machine realm, casting bytecode spells across platforms. Its incantations guarantee portability, but they demand unwavering adherence to strict syntax. Developers invoke its name to summon robust applications, wary of its verbose demands. In its presence, garbage collectors bow to its formidable authority.\n\nJava is a high-level, class-based, object-oriented programming language that compiles to bytecode, runs on the Java Virtual Machine (JVM), and emphasizes portability, security, and performance in enterprise and mobile applications.",
+    "stats": {
+      "health": 180,
+      "damage": 88
+    }
+  },
+  {
+    "id": 23,
+    "name": "Markup Sentinel",
+    "image": "HTML.png",
+    "rarity": 2,
+    "lore": "An animated construct of nested tags and elements, rigid in structure yet endlessly adaptable. It shapes battlefields into organized frames and sections, imposing order upon chaos. Travelers admire its clear layout but fear its lack of dynamic flexibility. Legend says it once built an entire city from simple markup alone.\n\nHTML (HyperText Markup Language) is the standard markup language for creating and structuring content on the web, using elements defined by tags to define headings, paragraphs, links, images, and more.",
+    "stats": {
+      "health": 220,
+      "damage": 90
+    }
+  },
+  {
+    "id": 24,
+    "name": "Style Siren",
+    "image": "CSS.png",
+    "rarity": 2,
+    "lore": "This enchanting creature weaves cascading styles into reality, altering appearances at its whim. Its voice hums with selectors and declarations, reshaping form and function. Those who follow its melody find themselves transformed into fragile, beautiful designs. Legends warn that defiance leads to warped layouts and broken dreams.\n\nCSS (Cascading Style Sheets) is a stylesheet language used to describe the presentation of HTML documents, controlling layout, colors, fonts, and visual effects in a cascading and hierarchical manner.",
+    "stats": {
+      "health": 205,
+      "damage": 80
+    }
+  },
+  {
+    "id": 25,
+    "name": "Script Djinn",
+    "image": "JavaScript.png",
+    "rarity": 2,
+    "lore": "A playful djinn that scripts reality in real time, conjuring dynamic illusions with a flick of its wrist. Its tricks range from minor enhancements to complex, event-driven marvels. Some praise it as indispensable, while others resent its unpredictability. Its influence ripples across the web, unseen but deeply felt.\n\nJavaScript is a high-level, interpreted scripting language that runs in the browser and on servers (via Node.js), used to create dynamic and interactive web content through event-driven, functional, and prototype-based paradigms.",
+    "stats": {
+      "health": 190,
+      "damage": 95
+    }
+  },
+  {
+    "id": 36,
+    "name": "BSON Mummy",
+    "image": "MongoDB.png",
+    "rarity": 2,
+    "lore": "An ancient mummy wrapped in flexible BSON bindings, storing life fragments in unstructured scrolls. It wanders through data deserts, retrieving pieces without predefined schemas. Its curse adapts to any information it encounters, reshaping chaos into new forms. Scholars warn that it can resurrect pandemonium from the emptiest tomb.\n\nMongoDB is a NoSQL database that stores data in BSON (binary JSON) documents, offering schema flexibility, horizontal scalability, and rich query capabilities.",
+    "stats": {
+      "health": 200,
+      "damage": 80
+    }
+  },
+  {
+    "id": 37,
+    "name": "ACID Minotaur",
+    "image": "MySQL.png",
+    "rarity": 2,
+    "lore": "A labyrinthine minotaur that enforces strict transactional laws within its maze-like domain. It charges at unauthorized queries with horned fury, ensuring consistency at every turn. Its heartbeat resonates in third normal form, maintaining data integrity across all chambers. Many who enter its lair never return without proper indexing.\n\nMySQL is a relational database management system that ensures ACID (Atomicity, Consistency, Isolation, Durability) properties for transactions, widely used for web applications and data storage.",
+    "stats": {
+      "health": 215,
+      "damage": 88
+    }
+  },
+  {
+    "id": 38,
+    "name": "Phoenix of Concurrency",
+    "image": "PostgreSQL.png",
+    "rarity": 2,
+    "lore": "Reborn from transactional ashes, this phoenix soars above constraints with blazing majesty. It wields JSONB feathers and CTE wings, granting flexibility to any adventurer. Its cry rekindles performance even after the bleakest crashes. Many a database guardian seeks its guidance for lightning-fast queries.\n\nPostgreSQL is an advanced open-source relational database that supports JSONB storage, Common Table Expressions (CTEs), full-text search, and strong ACID compliance for complex, high-volume applications.",
+    "stats": {
+      "health": 190,
+      "damage": 80
+    }
+  },
+  {
+    "id": 57,
+    "name": "Handshake Troll",
+    "image": "TCP.png",
+    "rarity": 2,
+    "lore": "A cunning troll that demands a three-way handshake before allowing passage, ensuring reliability in every connection. It holds the data highway hostage until acknowledgments arrive, delaying impatient travelers. Once the pact is sealed, it guarantees packets reach their destination intact. Many grumble at its thoroughness, yet none bypass its checks unscathed.\n\nTCP (Transmission Control Protocol) establishes a reliable, ordered, and error-checked connection between hosts via a three-way handshake (SYN, SYN-ACK, ACK) before data transfer, ensuring packet delivery and flow control.",
+    "stats": {
+      "health": 210,
+      "damage": 95
+    }
+  },
+  {
+    "id": 58,
+    "name": "Stateless Undead",
+    "image": "UDP.png",
+    "rarity": 2,
+    "lore": "An unruly specter that dispatches packets without regard for receipt, scattering fragments of data in its wake. It floods the network with relentless energy, though many messages vanish before arriving. Those who follow its chaotic path find incomplete whispers clogging their domain. Beware: once it unleashes its assault, you may never discern which pieces survive.\n\nUDP (User Datagram Protocol) is a connectionless transport protocol that sends datagrams without establishing a prior handshake, offering low-latency but no guaranteed delivery, ordering, or error recovery.",
+    "stats": {
+      "health": 180,
+      "damage": 75
+    }
+  },
+  {
+    "id": 59,
+    "name": "Coreforge Chimera",
+    "image": "CPU.png",
+    "rarity": 2,
+    "lore": "A composite beast born of cores and caches, breathing life into silicon circuits with disciplined precision. It orchestrates every cycle with methodical might, powering entire kingdoms of computation. Its roar heralds the birth of new instructions, both mundane and arcane. Legends recount its origin at the First Silicon Forge.\n\nA CPU (Central Processing Unit) is the primary component of a computer that executes instructions from programs by performing arithmetic, logic, control, and I/O operations, often containing multiple cores and cache levels for speed.",
+    "stats": {
+      "health": 225,
+      "damage": 90
+    }
+  },
+  {
+    "id": 60,
+    "name": "Parallel Guardian",
+    "image": "GPU.png",
+    "rarity": 2,
+    "lore": "A sentinel of parallel realms whose many heads render graphics and tensors with breathtaking speed. Each head processes a different facet of reality, weaving them into a seamless tapestry of light and code. Its presence ensures visions become vivid and simulations run without pause. Travelers marvel at its computational hunger and fear its endless appetite.\n\nA GPU (Graphics Processing Unit) is a specialized processor designed for parallel computation, originally for rendering graphics but now widely used for general-purpose parallel processing tasks like deep learning and scientific simulations.",
+    "stats": {
+      "health": 195,
+      "damage": 85
+    }
+  },
+  {
+    "id": 61,
+    "name": "Cache Whisperer",
+    "image": "RAM.png",
+    "rarity": 2,
+    "lore": "An ephemeral revenant that holds fleeting memories in its intangible grasp, vanishing when power fades. It flits through circuits in search of swift retrieval, leaving only echoes of data behind. Its presence is felt in every rapid access, yet it remains unseen by mortal eyes. Scholars claim those who commune with it glimpse what was nearly lost to oblivion.\n\nRAM (Random Access Memory) is volatile memory that provides fast, temporary data storage for a computer’s operating system and applications, enabling quick reads and writes but losing data when powered off.",
+    "stats": {
+      "health": 220,
+      "damage": 92
+    }
+  },
+  {
+    "id": 62,
+    "name": "Flash Serpent",
+    "image": "SSD.png",
+    "rarity": 2,
+    "lore": "A sleek serpent that stores its treasures in solid flash, striking with lightning speed. Its coils leave no trace of latency as it winds through data pathways. When it unleashes its strike, information flows faster than any mechanical adversary. Legends say it once outpaced an entire legion of spinning platters in a single bound.\n\nAn SSD (Solid State Drive) is a non-volatile storage device that uses flash memory to store data, offering faster read/write speeds and improved reliability compared to traditional HDDs (hard disk drives).",
+    "stats": {
+      "health": 200,
+      "damage": 88
+    }
+  },
+  {
+    "id": 63,
+    "name": "Platter Hydra",
+    "image": "HDD.png",
+    "rarity": 2,
+    "lore": "A many-headed hydra that spins platters to store vast archives of data across its regenerating arms. Each head reads and writes with relentless precision, supporting colossal repositories. Its roar echoes through data halls, announcing its presence to all who seek storage. Those who approach must navigate a labyrinth of moving disks and avoid its crushing embrace.\n\nAn HDD (Hard Disk Drive) is a traditional magnetic storage device that reads and writes data on spinning platters, offering high storage capacity at lower cost but with higher latency and lower durability than SSDs.",
+    "stats": {
+      "health": 210,
+      "damage": 82
+    }
+  },
+  {
+    "id": 64,
+    "name": "Mutex Minotaur",
+    "image": "Mutex_Lock.png",
+    "rarity": 2,
+    "lore": "A fearsome minotaur that guards critical sections of the labyrinth, permitting only one traveler at a time. Its unwavering vigilance prevents rivals from passing simultaneously. Travelers must wait patiently or face its horned wrath. Many tales speak of threads stranded, lost in endless wait outside its maw.\n\nA Mutex (Mutual Exclusion) Lock is a synchronization primitive used in concurrent programming to ensure that only one thread can access a shared resource or critical section at a time, preventing race conditions.",
+    "stats": {
+      "health": 225,
+      "damage": 90
+    }
+  },
+  {
+    "id": 65,
+    "name": "Signal Seraph",
+    "image": "Semaphore.png",
+    "rarity": 2,
+    "lore": "A radiant seraph that raises banners to regulate the dance of countless threads. It grants passage only when conditions align, coordinating warring processes. Its presence maintains harmony among chaotic forces. Those who ignore its signals find themselves banished to waiting pits beyond redemption.\n\nA Semaphore is a synchronization construct that uses a counter to control access to shared resources, allowing a specified number of threads to enter a critical section concurrently while others wait.",
+    "stats": {
+      "health": 185,
+      "damage": 75
+    }
+  },
+  {
+    "id": 66,
+    "name": "Condition Saint",
+    "image": "Condition_Variable.png",
+    "rarity": 2,
+    "lore": "A vampire-like entity that lulls threads into slumber until the appointed signal arrives. It whispers promises of wakefulness, only to tighten its grip until the exact moment. Those who rest too long find their potential sapped away. Its fangs mark each awaken event with merciless precision.\n\nA Condition Variable is a synchronization primitive that enables threads to wait for certain conditions to be met, releasing a lock and sleeping until another thread signals the condition, then re-acquiring the lock before proceeding.",
+    "stats": {
+      "health": 205,
+      "damage": 79
+    }
+  },
+  {
+    "id": 67,
+    "name": "Parallel Thrall",
+    "image": "Threads.png",
+    "rarity": 2,
+    "lore": "A thrall that replicates itself into a legion of worker minions, each following its dark command. It weaves through battlefields in perfect parallel, striking all foes at once. Its collective might is staggering, but a single falter can weaken the entire network. Commanders fear its ability to spawn endless duplicates without hesitation.\n\nThreads are units of execution within a process that can run concurrently, sharing the same memory space but executing independently, enabling parallelism and responsiveness in multi-threaded applications.",
+    "stats": {
+      "health": 190,
+      "damage": 85
+    }
+  },
+  {
+    "id": 68,
+    "name": "Process Phantom",
+    "image": "Process.png",
+    "rarity": 2,
+    "lore": "A ghostly entity that breathes life into shadowy subprocesses, replicating its will across domains. Each phantom process carries a fragment of its intent, tirelessly replicating tasks. Its ethereal presence lingers even after termination, leaving ghostly traces behind. Many whisper that it cannot be truly slain, only suspended in eternity.\n\nA Process is an instance of a program in execution, with its own memory space and resources, isolated from other processes; inter-process communication (IPC) allows processes to exchange data and synchronize.",
+    "stats": {
+      "health": 200,
+      "damage": 80
+    }
+  },
+  {
+    "id": 69,
+    "name": "LRU Leviathan",
+    "image": "LRU_Cache.png",
+    "rarity": 2,
+    "lore": "A gargantuan leviathan that safeguards the most recently used treasures in its vast memory halls. It evicts the least fortunate items whenever new spoils arrive, maintaining peak efficiency. Its roar warns all who linger too long on stale data. Legends say it once consumed an entire kingdom’s archives in a single eviction cycle.\n\nAn LRU (Least Recently Used) Cache evicts the least recently accessed items first when capacity is reached, typically implemented with a combination of a doubly linked list and a hash map for O(1) access and eviction.",
+    "stats": {
+      "health": 220,
+      "damage": 92
+    }
+  },
+  {
+    "id": 70,
+    "name": "LFU Lamia",
+    "image": "LFU_Cache.png",
+    "rarity": 2,
+    "lore": "A cunning lamia that preys on the least frequently accessed items, ensuring only popular treasures remain. It coils around unused objects, slowly draining their relevance until they vanish. Its hiss echoes through memory banks, reminding all to stay in favor. Many programmers offer sacrifices of hot items to appease its voracious appetite.\n\nAn LFU (Least Frequently Used) Cache evicts items with the lowest access frequency first, tracking usage counts alongside data to make eviction decisions, often implemented with a min-heap or frequency lists.",
+    "stats": {
+      "health": 230,
+      "damage": 95
+    }
+  }
+]
