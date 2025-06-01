@@ -1,35 +1,222 @@
 [
-    {
-        "id": 2,
-        "name": "Dynadrake",
-        "image": "Dynamic Programming.png",
-        "rarity": 3,
-        "lore": "",
-        "stats": {
-            "health": 200,
-            "damage": 80
-        }
-    },
-    {
-        "id": 8,
-        "name": "C++ Chimera",
-        "image": "C++.png",
-        "rarity": 3,
-        "lore": "",
-        "stats": {
-            "health": 200,
-            "damage": 80
-        }
-    },
-    {
-        "id": 12,
-        "name": "Mongo Manticore",
-        "image": "MongoDB.png",
-        "rarity": 3,
-        "lore": "",
-        "stats": {
-            "health": 200,
-            "damage": 80
-        }
+  {
+    "id": 4,
+    "name": "Memoir Dragon",
+    "image": "Dynamic_Programming.png",
+    "rarity": 3,
+    "lore": "This ancient dragon stores every skirmish it has ever encountered, learning from each outcome. It weaves smaller triumphs into a grand strategy, optimizing its next assault. Legends tell of entire legions defeated by its ability to recall past victories. Its scales shimmer with runes representing conquered subproblems.",
+    "stats": {
+      "health": 300,
+      "damage": 120
     }
+  },
+  {
+    "id": 5,
+    "name": "Reverie Wraith",
+    "image": "Backtracking.png",
+    "rarity": 3,
+    "lore": "An ethereal specter that drifts through shadowed corridors, retracing its path to find new opportunities. When a chosen route ends in danger, it slips back into the gloom and seeks another path. Its mournful wail lures lost wanderers deeper into its labyrinth. Those who hear its cry understand that only persistence can break its curse.",
+    "stats": {
+      "health": 300,
+      "damage": 120
+    }
+  },
+  {
+    "id": 6,
+    "name": "Shortsighted Gremlin",
+    "image": "Greedy_Algorithm.png",
+    "rarity": 3,
+    "lore": "This cunning creature grabs the most tempting treasure within reach, ignoring any potential gains that lie ahead. Its hoard grows haphazardly as it chases each shiny object, leaving long-term wealth to rust. Over time, its fleeting victories reveal glaring weaknesses. Legends warn that its greatest danger is its own insatiable hunger.",
+    "stats": {
+      "health": 300,
+      "damage": 120
+    }
+  },
+  {
+    "id": 7,
+    "name": "Wavefront Devourer",
+    "image": "BFS.png",
+    "rarity": 3,
+    "lore": "This relentless entity expands outward, consuming everything at one depth before moving deeper. It engulfs every target in its path, leaving no one safe at a given radius. Victims trapped at the edge watch helplessly as each wave sweeps them into oblivion. Survivors whisper that its advance is heralded by distant, muffled screams.",
+    "stats": {
+      "health": 300,
+      "damage": 120
+    }
+  },
+  {
+    "id": 8,
+    "name": "Abyssal Wyrm",
+    "image": "DFS.png",
+    "rarity": 3,
+    "lore": "A daunting serpent that plunges into darkness without hesitation, ignoring any easier prey. It follows a single tunnel until it reaches a dead end or finds its ultimate quarry. Its fiery breath illuminates ancient catacombs as it hunts. Travelers warn that once it commits to a path, its persistence is terrifying.",
+    "stats": {
+      "health": 300,
+      "damage": 120
+    }
+  },
+  {
+    "id": 9,
+    "name": "Pathfinder Djinn",
+    "image": "Dijkstra’s.png",
+    "rarity": 3,
+    "lore": "This spectral djinn weighs every possible route before unleashing its wrath along the optimal path. It glides over uneven terrain, leaving smoldering traces where obstacles once stood. Opponents realize too late that no detour can save them from its precision. Tales recount mighty heroes falter under its unerring guidance.",
+    "stats": {
+      "health": 300,
+      "damage": 120
+    }
+  },
+  {
+    "id": 10,
+    "name": "Midpoint Basilisk",
+    "image": "Binary_Search.png",
+    "rarity": 3,
+    "lore": "A towering basilisk that halves any crowd with a single petrifying glare. Its gaze locks onto the central point of its prey’s formation, eliminating half in an instant. Victims collapse into a frozen tableau as the beast discards one side after another. Legends say those who survive find their defenses irreparably shattered.",
+    "stats": {
+      "health": 300,
+      "damage": 120
+    }
+  },
+  {
+    "id": 11,
+    "name": "Rootbound Hydra",
+    "image": "Heap.png",
+    "rarity": 3,
+    "lore": "This multi-headed hydra organizes its heads by strength, attacking with the mightiest one first. As each head is severed, another rises to maintain the heap’s balance. Enemies tremble at the sight of the topmost head lunging with overwhelming force. Defeating it demands rooting out every head until its foundation is exposed.",
+    "stats": {
+      "health": 300,
+      "damage": 120
+    }
+  },
+  {
+    "id": 12,
+    "name": "Feathered Cipher",
+    "image": "Hashmap.png",
+    "rarity": 3,
+    "lore": "This harpy conceals secrets within hashed feathers, striking in constant time before its prey can react. It swoops down with uncanny precision, leaving victims disoriented and confused. Its lair is a maze of key-value enigmas only it can unravel. Rumor says those who steal its feathers vanish into an abyss of collisions.",
+    "stats": {
+      "health": 300,
+      "damage": 120
+    }
+  },
+  {
+    "id": 15,
+    "name": "Branchblade Treant",
+    "image": "Tree_Traversal.png",
+    "rarity": 3,
+    "lore": "An ancient treant that journeys through its forest in preorder, inorder, and postorder rituals. Each branch conceals a secret, revealed only when its traversal is complete. The earth trembles as its roots shift pathways for unsuspecting travelers. Legends speak of its wisdom in uncovering hidden truths among tangled limbs.",
+    "stats": {
+      "health": 300,
+      "damage": 120
+    }
+  },
+  {
+    "id": 32,
+    "name": "Unionmind Illithid",
+    "image": "Inner_Join.png",
+    "rarity": 3,
+    "lore": "This mind flayer merges the consciousness of two victims, extracting only their shared memories. It binds them together in a psychic union, tearing away extraneous thoughts. In its lair, only overlapping identities may endure its mental probe. Survivors whisper of a connection beyond mortal understanding.",
+    "stats": {
+      "health": 300,
+      "damage": 120
+    }
+  },
+  {
+    "id": 33,
+    "name": "Omniconflux Behemoth",
+    "image": "Full_Join.png",
+    "rarity": 3,
+    "lore": "A towering behemoth that gathers all warriors and monsters under one immense canopy, ignoring allegiances. It wields a staff of union that binds both friend and foe to its cause. Its roar echoes with the combined voices of every being in its thrall. Only the mightiest resist its all-encompassing embrace.",
+    "stats": {
+      "health": 300,
+      "damage": 120
+    }
+  },
+  {
+    "id": 34,
+    "name": "Leftbound Lich",
+    "image": "Left_Join.png",
+    "rarity": 3,
+    "lore": "A skeletal lich that summons allies exclusively loyal to its left-hand force, ignoring others entirely. It raises a legion of undead, each bound by partial allegiance. Its cryptic incantations dismiss missing souls on the right, focusing on the faithful few. Survivors claim even its incomplete army is a terrifying sight.",
+    "stats": {
+      "health": 300,
+      "damage": 120
+    }
+  },
+  {
+    "id": 35,
+    "name": "Rightward Revenant",
+    "image": "Right_Join.png",
+    "rarity": 3,
+    "lore": "This ghostly revenant calls forth only those aligned with its right-hand force, banishing others to oblivion. Its mournful howl summons lost warriors desperate to join its spectral ranks. Even the unwilling are drawn into its fold by its unrelenting call. Each new soul strengthens its eerie, one-sided army.",
+    "stats": {
+      "health": 300,
+      "damage": 120
+    }
+  },
+  {
+    "id": 39,
+    "name": "Distance Kraken",
+    "image": "K-NN.png",
+    "rarity": 3,
+    "lore": "A colossal kraken that lurks in clustered depths, snapping at the k nearest swimmers with monstrous tentacles. It measures distances with terrifying accuracy, ensuring no prey escapes its grip. Its lair is mapped with countless data points, each glinting like a warning. Sailors tell of vanishing fleets when its presence is near.",
+    "stats": {
+      "health": 300,
+      "damage": 120
+    }
+  },
+  {
+    "id": 40,
+    "name": "Margin Specter",
+    "image": "SVM.png",
+    "rarity": 3,
+    "lore": "A ghostly wraith that carves hyperplanes between the realms of the living and the dead. It maximizes the distance between its prey with spectral precision, chilling the air with each breath. Those who cross its boundary feel an icy hand determine their fate. In its presence, no soul dares stray too close to the margin.",
+    "stats": {
+      "health": 300,
+      "damage": 120
+    }
+  },
+  {
+    "id": 41,
+    "name": "LeastSquares Lamia",
+    "image": "Linear_Regression.png",
+    "rarity": 3,
+    "lore": "A serpent-woman who forecasts her prey’s path with uncanny linear precision. Each slither traces a least-squares line carved into her scales. She coils around scattered souls, eliminating outliers with venomous intent. Legends say she once predicted the downfall of entire kingdoms.",
+    "stats": {
+      "health": 300,
+      "damage": 120
+    }
+  },
+  {
+    "id": 48,
+    "name": "Expectation Efreet",
+    "image": "EM.png",
+    "rarity": 3,
+    "lore": "An efreet that shifts between expectation and maximization, forging infernal solutions beneath its smoky veil. In the expectation phase, it conjures possible states; in maximization, it strengthens the likeliest one. Its methods evolve with each iteration, never resting until convergence. Mortals quake at its unseen steps, for the true model remains hidden until the end.",
+    "stats": {
+      "health": 300,
+      "damage": 120
+    }
+  },
+  {
+    "id": 49,
+    "name": "Centroid Kraken",
+    "image": "K-Means_Clustering.png",
+    "rarity": 3,
+    "lore": "A titanic kraken that herds sailors into k distinct clusters before unleashing its wrath. Its tentacles circle centroids carved from the screams of the doomed. Each cluster shrieks when separated, only to be swallowed as one. Its lair is a shifting mosaic of similar terrors bound by unrelenting algorithmic fervor.",
+    "stats": {
+      "health": 300,
+      "damage": 120
+    }
+  },
+  {
+    "id": 53,
+    "name": "Minimax Revenant",
+    "image": "MiniMax.png",
+    "rarity": 3,
+    "lore": "A cunning mimic that alternates between maximizing its loot and minimizing its foes’ options. It shifts its form to mirror the greatest threat, ensuring no enemy gains the advantage. Each encounter becomes a balanced duel of wits as it calculates both sides at once. Only those who think several steps ahead survive its strategic onslaught.",
+    "stats": {
+      "health": 300,
+      "damage": 120
+    }
+  }
 ]

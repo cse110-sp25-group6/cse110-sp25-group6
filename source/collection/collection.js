@@ -25,6 +25,7 @@ async function init() {
 	const inspectedCard = document.getElementById('insepct-card');
 	const previousButton = document.getElementById("previous");
 	const nextButton = document.getElementById("next");
+	const lore = document.querySelector('.lore');
 
 	inspectorContainer.addEventListener("click", (e) => {
 		if (e.target === e.currentTarget) {
@@ -125,7 +126,7 @@ function addCardsToDocument(cards) {
     	cardComponent.style.setProperty('--start-y', y);
 		cardComponent.classList.add('animate-in');
 
-		
+
 		const card = cardComponent.shadowRoot.querySelector('.card');
 		card.addEventListener('mouseover', () => {
 			card.style.transform = 'scale(1.05)';

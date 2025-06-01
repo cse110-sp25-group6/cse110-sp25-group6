@@ -1,24 +1,57 @@
 [
-    {
-        "id": 10,
-        "name": "Lambda Lich",
-        "image": "Lambda Calculus.png",
-        "rarity": 5,
-        "lore": "",
-        "stats": {
-            "health": 400,
-            "damage": 160
-        }
-    },
-    {
-        "id": 7,
-        "name": "Overflow Leviathan",
-        "image": "StackOverflow.png",
-        "rarity": 5,
-        "lore": "",
-        "stats": {
-            "health": 400,
-            "damage": 160
-        }
+  {
+    "id": 28,
+    "name": "Primeval Lambda",
+    "image": "Lambda_Calculus.png",
+    "rarity": 5,
+    "lore": "A primordial leviathan of abstraction, spawning boundless possibilities with a single lambda. It drifts through realms of pure computation, collapsing everything into functions. Those who witness its form are said to glimpse deeper truths hidden from mortal eyes. Few dare approach, for its power transcends all logic.",
+    "stats": {
+      "health": 500,
+      "damage": 200
     }
+  },
+  {
+    "id": 51,
+    "name": "Hidden State Horror",
+    "image": "Hidden_Markov_Model.png",
+    "rarity": 5,
+    "lore": "A spectral horror shifting through unseen states, cloaking its victims in probabilistic dread. Its every movement is a hidden algorithm, observable only through trembling fear. Those trapped in its chain quake as underlying states change without warning. Scholars know only that its next form is always uncertain.",
+    "stats": {
+      "health": 500,
+      "damage": 200
+    }
+  },
+  {
+    "id": 52,
+    "name": "Policy Djinn",
+    "image": "Markov_Decision_Process.png",
+    "rarity": 5,
+    "lore": "This djinn navigates infinite states, selecting actions to maximize its expected reward at every turn. It observes the world with calculating eyes, shifting probabilities in its favor. Adventurers gamble each step they take, unaware of the transitions that lie ahead. Legends tell of entire kingdoms swayed by its mastery of policy.",
+    "stats": {
+      "health": 500,
+      "damage": 200
+    }
+  },
+  {
+    "id": 74,
+    "name": "Turing Titan",
+    "image": "Turing_Machine.png",
+    "rarity": 5,
+    "lore": "A colossal titan that reads and writes across infinite tape, deciding destinies with boundless logic. Its head moves left and right, altering symbols to reshape entire worlds. Mortals whisper its name with reverence, for its computations transcend all comprehension. Legends tell of kingdoms restored—or destroyed—by its algorithmic will.",
+    "stats": {
+      "health": 500,
+      "damage": 200
+    }
+  },
+  {
+    "id": 82,
+    "name": "Superposition Quasar",
+    "image": "Quantum_Bits.png",
+    "rarity": 5,
+    "lore": "A cosmic quasar entangled in superposition, collapsing realities with a single glance. It flickers between existence and oblivion, defying all classical law. Physicists revere it as the bridge between parallel worlds, yet few survive its observation. Those who endure claim it holds secrets of infinite universes.",
+    "stats": {
+      "health": 500,
+      "damage": 200
+    }
+  }
 ]
