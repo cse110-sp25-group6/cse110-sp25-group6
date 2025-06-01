@@ -44,8 +44,9 @@ header {
   flex-wrap: wrap;
   justify-content: center;
   position: relative;
-  gap: 20px;
-  top: 60px;
+  gap: 10px;
+  top: 10px;
+  margin-bottom: 12vh;
 } 
 
 .card {
@@ -111,6 +112,7 @@ header {
 /* button */
 #continue {
   /* location */
+  display: block;
   position: fixed;
   bottom: 10px;
   right: 10px;
