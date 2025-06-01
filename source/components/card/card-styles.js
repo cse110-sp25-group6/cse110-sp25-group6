@@ -18,10 +18,6 @@ export const styles = `
 		background-repeat: no-repeat;
 	}
 
-	.card:hover {
-		transform: scale(var(--scale-size));
-	}
-
 	.name {
 		border-radius: 0px;
 		width: 100%;

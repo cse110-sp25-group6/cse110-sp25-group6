@@ -105,6 +105,7 @@ function addCardsToDocument(cards) {
 	for (let c = 0; c < cards.length; c++) {
 		let cardData = cards[c];
 		const cardComponent = document.createElement('card-component');
+
 		cardComponent.data = cardData;
 
 		cardComponent.addEventListener("click", () => {
@@ -123,6 +124,15 @@ function addCardsToDocument(cards) {
 		cardComponent.style.setProperty('--start-x', x);
     	cardComponent.style.setProperty('--start-y', y);
 		cardComponent.classList.add('animate-in');
+
+		
+		const card = cardComponent.shadowRoot.querySelector('.card');
+		card.addEventListener('mouseover', () => {
+			card.style.transform = 'scale(1.05)';
+		});
+		card.addEventListener('mouseout', () => {
+			card.style.transform = 'scale(1)';
+		});
 	}
 }
 
