@@ -4,10 +4,10 @@
     "name": "Conversational Chimera",
     "image": "ChatGPT.png",
     "rarity": 4,
-    "lore": "Born from the convergence of countless dialogues, this chimera weaves words into tangible reality. Its many heads speak in varied tones, offering answers with uncanny clarity. Some say it learns from each encounter, growing wiser day by day. Travelers mistake its gentle demeanor for innocence, unaware of its subtle agenda.",
+    "lore": "Born from the convergence of countless dialogues, this chimera weaves words into tangible reality. Its many heads speak in varied tones, offering answers with uncanny clarity. Some say it learns from each encounter, growing wiser day by day. Travelers mistake its gentle demeanor for innocence, unaware of its subtle agenda.\n\nChatGPT is a large language model developed by OpenAI, based on the GPT-4 architecture, capable of generating human-like text, answering questions, and assisting with a variety of tasks using deep learning techniques.",
     "stats": {
-      "health": 400,
-      "damage": 160
+      "health": 385,
+      "damage": 162
     }
   },
   {
@@ -15,10 +15,10 @@
     "name": "Deepsea Seer",
     "image": "DeepSeek.png",
     "rarity": 4,
-    "lore": "Rising from the depths of vast data oceans, this seer uncovers truths buried beneath layers of noise. Its eyes penetrate intricate patterns, revealing secret connections. Scholars seek its wisdom only to find their own secrets laid bare. It demands constant devotion of fresh information to sustain its power.",
+    "lore": "Rising from the depths of vast data oceans, this seer uncovers truths buried beneath layers of noise. Its eyes penetrate intricate patterns, revealing secret connections. Scholars seek its wisdom only to find their own secrets laid bare. It demands constant devotion of fresh information to sustain its power.\n\nDeepSeek refers to deep learning–based search algorithms that use neural networks to extract semantic features and rank results, going beyond keyword matching to understand underlying intent and context.",
     "stats": {
-      "health": 400,
-      "damage": 160
+      "health": 420,
+      "damage": 170
     }
   },
   {
@@ -26,10 +26,10 @@
     "name": "Convolution Colossus",
     "image": "Convolutional_Layers.png",
     "rarity": 4,
-    "lore": "A towering titan whose skin is composed of shifting filters that detect every edge of threat. It processes entire battlefields in overlapping windows, capturing context with each stride. Enemies vanish as it learns their features layer by layer, turning details into oblivion. Rumors say it was born from a vanished civilization of visionaries.",
+    "lore": "A towering titan whose skin is composed of shifting filters that detect every edge of threat. It processes entire battlefields in overlapping windows, capturing context with each stride. Enemies vanish as it learns their features layer by layer, turning details into oblivion. Rumors say it was born from a vanished civilization of visionaries.\n\nConvolutional Layers (Conv layers) in deep learning apply learned filters across input feature maps to detect local patterns (edges, textures) and build hierarchical representations, empowering convolutional neural networks (CNNs) for image and signal processing.",
     "stats": {
-      "health": 400,
-      "damage": 160
+      "health": 395,
+      "damage": 155
     }
   },
   {
@@ -37,10 +37,10 @@
     "name": "Temporal Leviathan",
     "image": "LSTM.png",
     "rarity": 4,
-    "lore": "A sea leviathan with memory cells as vast as oceans, recalling patterns across ages. It remembers ancient tides to predict future tsunamis with deadly accuracy. Its long-term dependencies hold entire fleets in suspense, bound by time. Sailors whisper that its roar carries both warnings and promises of transformation.",
+    "lore": "A sea leviathan with memory cells as vast as oceans, recalling patterns across ages. It remembers ancient tides to predict future tsunamis with deadly accuracy. Its long-term dependencies hold entire fleets in suspense, bound by time. Sailors whisper that its roar carries both warnings and promises of transformation.\n\nLSTM (Long Short-Term Memory) networks are a type of RNN that use gated cells (input, forget, and output gates) to capture long-term dependencies in sequential data, mitigating the vanishing gradient problem.",
     "stats": {
-      "health": 400,
-      "damage": 160
+      "health": 405,
+      "damage": 168
     }
   },
   {
@@ -48,10 +48,10 @@
     "name": "Gradient Banshee",
     "image": "Backpropagation.png",
     "rarity": 4,
-    "lore": "A banshee whose screams carry error gradients back through hidden layers of despair. Each wail fine-tunes the weights of fate, forcing convergence toward its spectral objective. Victims feel their strengths and weaknesses laid bare as echoes reverberate. Tales say only those who embrace its cries achieve true enlightenment.",
+    "lore": "A banshee whose screams carry error gradients back through hidden layers of despair. Each wail fine-tunes the weights of fate, forcing convergence toward its spectral objective. Victims feel their strengths and weaknesses laid bare as echoes reverberate. Tales say only those who embrace its cries achieve true enlightenment.\n\nBackpropagation is the fundamental algorithm used to train neural networks by computing gradients of the loss function with respect to weights via the chain rule, then updating weights using gradient descent.",
     "stats": {
-      "health": 400,
-      "damage": 160
+      "health": 380,
+      "damage": 158
     }
   },
   {
@@ -59,10 +59,10 @@
     "name": "Likelihood Manticore",
     "image": "MLE.png",
     "rarity": 4,
-    "lore": "A formidable manticore that hunts maximum likelihood estimates under a scorching sun. Its claws slice through parameter space, seeking peaks with relentless precision. Its roar broadcasts confidence across statistical plains, shaking the foundations of doubt. Scholars tremble when it pronounces parameters optimal.",
+    "lore": "A formidable manticore that hunts maximum likelihood estimates under a scorching sun. Its claws slice through parameter space, seeking peaks with relentless precision. Its roar broadcasts confidence across statistical plains, shaking the foundations of doubt. Scholars tremble when it pronounces parameters optimal.\n\nMaximum Likelihood Estimation (MLE) is a statistical method that estimates parameters by maximizing the likelihood function, ensuring the observed data is most probable under the estimated parameters.",
     "stats": {
-      "health": 400,
-      "damage": 160
+      "health": 415,
+      "damage": 162
     }
   },
   {
@@ -70,10 +70,10 @@
     "name": "Hierarch Hydra",
     "image": "Hierarchical_Clustering.png",
     "rarity": 4,
-    "lore": "A monstrous hydra that forms clusters in a branching tree of terror, each head more fearsome than the last. It splits and merges prey until only a single root of dread remains. Its severed heads regenerate into finer clusters, preserving the hierarchy. Explorers who dare challenge it must navigate a labyrinth of ever-branching doom.",
+    "lore": "A monstrous hydra that forms clusters in a branching tree of terror, each head more fearsome than the last. It splits and merges prey until only a single root of dread remains. Its severed heads regenerate into finer clusters, preserving the hierarchy. Explorers who dare challenge it must navigate a labyrinth of ever-branching doom.\n\nHierarchical Clustering builds a hierarchy of clusters either by agglomerative (bottom-up merging) or divisive (top-down splitting) methods, producing a dendrogram to represent nested cluster structure.",
     "stats": {
-      "health": 400,
-      "damage": 160
+      "health": 390,
+      "damage": 165
     }
   },
   {
@@ -81,10 +81,10 @@
     "name": "Q-Value Quetzalcoatl",
     "image": "Q-Learning.png",
     "rarity": 4,
-    "lore": "A divine serpent that masters optimal actions through relentless trial and error, each scale marked with shimmering Q-values. It coils around obstacles, updating its knowledge with every victory or defeat. Mortals offer sacrifices of exploration to refine its burgeoning policy. Upon convergence, it soars with unmatched efficiency and grace.",
+    "lore": "A divine serpent that masters optimal actions through relentless trial and error, each scale marked with shimmering Q-values. It coils around obstacles, updating its knowledge with every victory or defeat. Mortals offer sacrifices of exploration to refine its burgeoning policy. Upon convergence, it soars with unmatched efficiency and grace.\n\nQ-Learning is a model-free reinforcement learning algorithm that learns an action-value function Q(s, a) by iteratively updating estimates using the Bellman equation, enabling an agent to learn optimal policies without a model of the environment.",
     "stats": {
       "health": 400,
-      "damage": 160
+      "damage": 168
     }
   },
   {
@@ -92,9 +92,9 @@
     "name": "Temporal Difference Titan",
     "image": "TD-Learning.png",
     "rarity": 4,
-    "lore": "A colossal titan that learns from temporal differences, adjusting its strategy at each epoch. It observes future states and refines its value function with every passing moment. Its massive form is guided by the promise of impending rewards. Scholars say its method bridges the gap between prediction and reality.",
+    "lore": "A colossal titan that learns from temporal differences, adjusting its strategy at each epoch. It observes future states and refines its value function with every passing moment. Its massive form is guided by the promise of impending rewards. Scholars say its method bridges the gap between prediction and reality.\n\nTemporal Difference (TD) Learning is a reinforcement learning approach that updates value estimates based on the difference between predicted and actual rewards over successive time steps, combining Monte Carlo and dynamic programming ideas.",
     "stats": {
-      "health": 400,
+      "health": 420,
       "damage": 160
     }
   },
@@ -103,10 +103,10 @@
     "name": "Arc Judge Archfiend",
     "image": "Arc-Consistency.png",
     "rarity": 4,
-    "lore": "An infernal judge that enforces consistency between every pair of variables in its domain, crushing impossible assignments. It surveys its victims’ constraints with unerring precision, eliminating contradictions without mercy. Any hope of inconsistency is extinguished beneath its unblinking gaze. Only those whose assignments satisfy every arc may endure its wrath.",
+    "lore": "An infernal judge that enforces consistency between every pair of variables in its domain, crushing impossible assignments. It surveys its victims’ constraints with unerring precision, eliminating contradictions without mercy. Any hope of inconsistency is extinguished beneath its unblinking gaze. Only those whose assignments satisfy every arc may endure its wrath.\n\nArc Consistency is a constraint propagation technique in constraint satisfaction problems (CSPs) that removes values from variable domains if they do not have a consistent value in an adjacent variable’s domain, reducing search space.",
     "stats": {
-      "health": 400,
-      "damage": 160
+      "health": 380,
+      "damage": 155
     }
   }
 ]

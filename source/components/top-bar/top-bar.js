@@ -14,13 +14,13 @@ class TopBar extends HTMLElement {
 	}
 
 	connectedCallback() {
-		this.data.pageTitle = this.dataset.title || "";
-		this.data.gems = localStorage.getItem('Gems') || 0;
-		this.data.packs = localStorage.getItem('Packs') || 0;
 		this.render();
 	}
 
 	render() {
+		this.data.pageTitle = this.dataset.title || "";
+		this.data.gems = localStorage.getItem('Gems') || 0;
+		this.data.packs = localStorage.getItem('Packs') || 0;
 		this.shadowRoot.innerHTML = `
 			<style>
 				${styles}
