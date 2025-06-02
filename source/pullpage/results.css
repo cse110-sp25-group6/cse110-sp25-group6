@@ -34,7 +34,6 @@ header {
 }
 
 #card-stack {
-  /* width and height are half of the card size, so the card gets placed in the center of the screen*/
   /*
   width: 100vw;
   height: 150%;
