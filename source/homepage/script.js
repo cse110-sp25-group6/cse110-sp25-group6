@@ -107,6 +107,7 @@ function updateCooldown() {
       userData.packsCount += 1;
       userData.currentPacks += 1;
       localStorage.setItem('userData', JSON.stringify(userData));
+      //TODO: load local storage to update values right away
     }
 
     timeText.textContent = "Ready to open!";
@@ -127,36 +128,3 @@ function startCooldown() {
   localStorage.setItem("nextPackTime", unlockTime);
   updateCooldown();
 }
-/*
-function updatePackWithProgress() {
-  userData = JSON.parse(localStorage.getItem('userData'));
-  if (!userData) {
-    return;
-  }
-  const now = Date.now();
-  const elapsed = now - userData.lastFreePackTime;
-  const percent = Math.min((elapsed / FREE_PACK_INTERVAL_MS) * 100, 100);
-
-  const progressBar = document.getElementById("packProgress");
-  const timeText = document.getElementById("packTimeLeft");
-
-  if(progressBar) {
-    progressBar.style.width = `${percent}%`;
-  }
-
-  const timeLeft = Math.max(FREE_PACK_INTERVAL_MS - elapsed, 0);
-  if(timeText) {
-    timeText.textContent = (percent >= 100) ? "Free pack ready!" : formatTime(timeLeft);
-  }
-
-  if (percent >= 100) {
-    userData.lastFreePackTime = now;
-    userData.packCount += 1;
-    userData.currentPacks += 1;
-
-    document.getElementById("packCount").textContent = userData.packCount;
-    document.getElementById("currentPacks").textContent = userData.currentPacks;
-    localStorage.setItem("userData", JSON.stringify(userData));
-  }
-}
-*/
