@@ -13,3 +13,4 @@ export function addCardToCollection(card) {
 	cards.push(card);
 	localStorage.setItem('Collection', JSON.stringify(cards));
 }
+
