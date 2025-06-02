@@ -1,16 +1,13 @@
 // script.js for homepage landing page functionality
 document.addEventListener('DOMContentLoaded', () => {
-    //const FREE_PACK_INTERVAL_HOURS = 6;
-    //const FREE_PACK_INTERVAL_MS = FREE_PACK_INTERVAL_HOURS * 60 * 60 * 1000;
+    
     // Sample user data (replace with your real data source)
-    //updated from hard coded values - set as default values
     const defaultData = {
         profileName: "Player123",
         userLevel: 5,
         levelProgress: 65,   // percentage
         gemsCount: 250,
-        //packcount and curr pack count currently hardcoded *****************************
-        packsCount: 8,
+        packsCount: 3,
         currentPacks: 3,
         packProgress: 75,   // percentage
         packTimeLeft: "5h 32min left"
@@ -68,9 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
 
     updateCooldown();
-    //updatePackWithProgress();
     setInterval(updateCooldown, 1000); // Update cooldown every second
-    //setInterval(updatePackWithProgress, 1000);
 });
 
 // === Cooldown Timer Settings ===
@@ -107,7 +102,18 @@ function updateCooldown() {
       userData.packsCount += 1;
       userData.currentPacks += 1;
       localStorage.setItem('userData', JSON.stringify(userData));
-      //TODO: load local storage to update values right away
+      
+      const packsCountA = document.getElementById("packsCount");
+      const currentPacksA = document.getElementById("currentPacks");
+
+      if(packsCountA) {
+        packsCountA.textContent = userData.packsCount;
+      }
+
+      if(currentPacksA) {
+        currentPacksA.textContent = userData.currentPacks;
+      }
+
     }
 
     timeText.textContent = "Ready to open!";
