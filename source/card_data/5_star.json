@@ -53,5 +53,16 @@
       "health": 515,
       "damage": 200
     }
+  },
+  {
+    "id": 83,
+    "name": "God Powell",
+    "image": "Powell.png",
+    "rarity": 5,
+    "lore": "",
+    "stats": {
+      "health": 999,
+      "damage": 999
+    }
   }
 ]
