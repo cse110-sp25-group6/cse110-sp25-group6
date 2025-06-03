@@ -37,7 +37,6 @@ class CardComponent extends HTMLElement {
 
 	/**
 	 * Setter for the card data.
-	 * If valid data is provided, it updates internal state and triggers a re-render.
 	 *
 	 * @param {Object} data - The card data to be rendered.
 	 */
@@ -49,7 +48,6 @@ class CardComponent extends HTMLElement {
 
 	/**
 	 * Renders the card by inserting the style and template into the shadow DOM.
-	 * Combines the imported CSS styles and HTML template with the current card data.
 	 *
 	 * @returns {void}
 	 */
@@ -64,7 +62,6 @@ class CardComponent extends HTMLElement {
 
 	/**
 	 * Lifecycle callback invoked when the element is connected to the document.
-	 * Ensures that the card is rendered when the element is added to the DOM.
 	 *
 	 * @returns {void}
 	 */
