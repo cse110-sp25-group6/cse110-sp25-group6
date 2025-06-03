@@ -1,3 +1,12 @@
+/**
+ * Top Bar Styles
+ *
+ * Exports the CSS styles for the <top-bar> component.
+ * Defines global resets, header layout, link hover effects, and styling
+ * for the currency (stats) display.
+ *
+ */
+
 export const styles = `
 	* {
 		box-sizing: border-box;

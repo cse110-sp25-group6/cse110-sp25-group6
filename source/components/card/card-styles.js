@@ -1,3 +1,12 @@
+/**
+ * Card Styles
+ *
+ * Exports the CSS styles for the card component.
+ * These styles define the appearance for the card container,
+ * its name, rarity, stats, and icon elements.
+ *
+ */
+
 export const styles = `
 	.card {
 	 	aspect-ratio: 5 / 7;

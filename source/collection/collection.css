@@ -1,7 +1,12 @@
+/* Collection Page Styles
+   Provides styling for the collection page including layout, sorting, inspector, and animations.
+*/
+
 @import '../util/globals.css';
 @import '../components/card/cardComponent.css';
 @import url('https://fonts.googleapis.com/css2?family=Turret+Road:wght@200;300;400;500;700;800&display=swap');
 
+/* Global element styling */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -17,6 +22,7 @@ body {
   overflow: hidden;
 }
 
+/* Main container styles */
 main {
   position: relative;
   flex: 1 1 auto;
@@ -29,6 +35,7 @@ main {
   background-color: var(--color-background);
 }
 
+/* Sidebar styling for sorting options */
 side-bar {
   position: sticky;
   right: 0;
@@ -38,6 +45,7 @@ side-bar {
   width: fit-content;
 }
 
+/* Sort header and divider */
 #sort-header {
   margin-bottom: 0.5rem;
   font-size: var(--font-size-heading);
@@ -50,6 +58,7 @@ hr {
   margin: 0.75rem 0;
 }
 
+/* Collection container for cards */
 collection-container {
   display: flex;
   flex-wrap: wrap;
@@ -64,8 +73,7 @@ collection-container {
   background-color: var(--color-foreground);
 }
 
-
-
+/* Sorting options styling */
 sorting-options {
   display: flex;
   flex-direction: column;
@@ -83,12 +91,14 @@ sorting-options button {
   font-size: var(--font-size-body);
 }
 
-.selected, sorting-options button:hover:not(.selected) {
+.selected,
+sorting-options button:hover:not(.selected) {
   background-color: var(--color-accent);
   color: white;
   border-color: white;
 }
 
+/* Inspector overlay styles */
 .inspector {
   position: absolute;
   width: 100%;
@@ -115,11 +125,13 @@ sorting-options button {
   color: var(--color-accent);
 }
 
+/* Card entrance animation */
 @keyframes fallIn {
   0% {
     opacity: 1;
     transform: translate(var(--start-x), var(--start-y)) scale(0.5);
   }
+
   100% {
     opacity: 1;
     transform: translate(0, 0) scale(1);
@@ -132,7 +144,7 @@ card-component.animate-in {
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
   animation-delay: 0s;
-} 
+}
 
 card-component {
   height: 320px;
@@ -140,8 +152,7 @@ card-component {
   transform: translate(var(--start-x), var(--start-y)) scale(0.5);
 }
 
-
-
+/* Inspector container for detailed view */
 inspect-container {
   display: grid;
   gap: 1rem;
@@ -151,6 +162,7 @@ inspect-container {
   border-radius: 1rem;
 }
 
+/* Styling for card lore section */
 .lore {
   padding: 2rem;
 }
