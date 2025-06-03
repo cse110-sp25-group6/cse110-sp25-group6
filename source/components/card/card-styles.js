@@ -30,7 +30,8 @@ export const styles = `
 	}
 
 	.rarity {
-		border-radius: 5px;
+		border-top-right-radius: 5px;
+		border-bottom-right-radius: 5px;
 		position: absolute;
 		background-color: black;
 		color: white;
