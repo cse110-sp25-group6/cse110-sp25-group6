@@ -1,3 +1,12 @@
+/**
+ *
+ * This file exports a template function that returns an HTML string to render a card.
+ * It uses the provided data to populate card properties such as name, rarity, and stats.
+ *
+ * @param {Object} data - The card data containing properties for name, rarity, and stats.
+ * @returns {string} HTML string representing the card element.
+ */
+
 export const template = (data) => {
 	let blur = 0;
 	let spread = 0;
