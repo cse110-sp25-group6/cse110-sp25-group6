@@ -8,7 +8,7 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: auto;
 }
 
 header {
@@ -21,12 +21,8 @@ header {
 }
 
 #header-elem {
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
-
-.wrapper {
-    position: relative;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 #display-area {
@@ -38,16 +34,23 @@ header {
 }
 
 #card-stack {
-    position: absolute;
-    top: 5em;
-    /* width and height are half of the card size, so the card gets placed in the center of the screen*/
-    width: 100%;
-    height: 150%;
-    z-index: 3;
+  /* width and height are half of the card size, so the card gets placed in the center of the screen*/
+  /*
+  width: 100vw;
+  height: 150%;
+  z-index: 3;
+  */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  gap: 10px;
+  top: 10px;
+  margin-bottom: 12vh;
 } 
 
 .card {
-  position: absolute;
+  position: relative;
   width: 200px;
   height: 300px;
   transition: transform 0.8s ease, opacity 0.5s ease;
@@ -107,16 +110,17 @@ header {
 }
 
 /* button */
-
 #continue {
   /* location */
-  position: absolute;
-  top: 85vh;
-  left: 85vw;
-  width: 10em;
-  height: 3em;
+  display: block;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1000;
 
   /* style */
+  width: 10em;
+  height: 3em;
   border-radius: 10px;
   background-color: rgb(57, 214, 57);
   border: 2px solid rgb(11, 83, 11);
