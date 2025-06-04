@@ -23,8 +23,4 @@
 	/* Animation Parameters */
 	--transition-time: 0.3s;
 	--scale-hover: 1.05;
-
-    /* Fix for transform errors */
-    --start-x: 0px;
-    --start-y: 0px;
 }

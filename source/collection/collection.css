@@ -118,7 +118,7 @@ sorting-options button {
 @keyframes fallIn {
   0% {
     opacity: 1;
-    transform: translate(var(--start-x), var(--start-y)) scale(0.5);
+    transform: translate(0px, 0px) scale(0.5);
   }
   100% {
     opacity: 1;
