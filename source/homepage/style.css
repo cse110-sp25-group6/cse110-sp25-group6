@@ -147,13 +147,29 @@ main {
   border-radius: 4px;
   overflow: hidden;
 }
-.pack-bar .progress {
-  background-color: #4CAF50;
-  height: 100%;
-}
+
 .pack-time {
   font-size: 13px;
   color: #666;
+}
+
+/* Progress bar container */
+.progress-bar.pack-bar {
+  width: 160px;
+  height: 8px;
+  background-color: #eee;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+/* Progress fill */
+#packProgress {
+  height: 100%;
+  width: 0%;
+  background-color: #4CAF50; /* soft green, change if needed */
+  transition: width 1s linear;
+  border-radius: 4px;
 }
 
 /* Back button with arrow  */

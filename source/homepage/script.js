@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // === Cooldown Timer Settings ===
-const COOLDOWN_MINUTES = 1; // 2 minutes
+const COOLDOWN_MINUTES = 1; // 1 minute
 
 function formatTime(ms) {
   const totalSec = Math.floor(ms / 1000);
@@ -96,6 +96,7 @@ function updateCooldown() {
   } else {
     timeText.textContent = formatTime(timeLeft);
     const percent = ((fullTime - timeLeft) / fullTime) * 100;
+    console.log(`Progress: ${percent}%`);
     progress.style.width = `${percent}%`;
     pack.classList.add("disabled");
   }
