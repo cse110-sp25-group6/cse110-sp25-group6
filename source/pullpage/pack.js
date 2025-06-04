@@ -1,6 +1,6 @@
 import '../components/card/cardComponent.js';
 import '../components/top-bar/top-bar.js';
-import { getCollectionCards, addCardToCollection } from "../util/utils.js";
+import { getCollectionCards } from "../util/utils.js";
 
 window.addEventListener("DOMContentLoaded", init);
 
@@ -178,7 +178,7 @@ function showVideo() {
 
 }
 
-function hideVideo() { //Keeping this around temporarily in case we still need it later, but for now the easiest fix is just to not run this function.
+/*function hideVideo() { //Keeping this around temporarily in case we still need it later, but for now the easiest fix is just to not run this function.
     const videoContainer = document.getElementsByClassName("video-container");
     const videoElement = document.getElementsByClassName("pack-video");
 
@@ -189,4 +189,4 @@ function hideVideo() { //Keeping this around temporarily in case we still need i
     for (let i = 0; i < videoElement.length; i++) {
         videoElement[i].style.display = "none";
     }
-}
+}*/
