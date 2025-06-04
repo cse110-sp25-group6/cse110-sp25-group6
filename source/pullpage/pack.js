@@ -5,6 +5,7 @@ import { getCollectionCards, addCardToCollection } from "../util/utils.js";
 window.addEventListener("DOMContentLoaded", init);
 
 let cards = [];
+const gemsPerPack = 15;
 
 function init() {
     cards = getCollectionCards();
@@ -18,25 +19,38 @@ function init() {
         if (packsValue < 1) {
             createPopup(1);
         } else {
-            makeAPull("pull1");
+            makeAPull(1);
         }
 
     });
 
     document.getElementsByClassName("pull5")[0].addEventListener("click", () => {
-        if (packsValue < 10) {
-            createPopup(10);
+        if (packsValue < 5) {
+            createPopup(5);
         } else {
-            makeAPull("pull10");
+            makeAPull(5);
         }
     });
 }
 
-function addCurrencyToDocument() {
+export function addCurrencyToDocument() {
     const gems = document.getElementsByClassName("gems");
     const packs = document.getElementsByClassName("packs");
-    const gemsValue = localStorage.getItem("Gems");
-    const packsValue = localStorage.getItem("Packs");
+    let gemsValue = localStorage.getItem("Gems");
+    let packsValue = localStorage.getItem("Packs");
+
+
+
+    //temporary setting test values for dev purposes
+    let setBudget = false;
+    if (setBudget) {
+        gemsValue = 100;
+        packsValue = 1;
+        localStorage.setItem('Gems', JSON.stringify(gemsValue));
+        localStorage.setItem('Packs', JSON.stringify(packsValue));
+    }
+
+
 
     for (let i = 0; i < gems.length; i++) {
         gems[i].innerHTML = `Gems: ${gemsValue}`;
@@ -61,7 +75,15 @@ function verifyPullCount() {
     }
 }
 
-function createPopup(pullType) {
+function createPopup(pullCount) {
+
+    const gemCount = localStorage.getItem("Gems");
+    const packCount = localStorage.getItem("Packs");
+    const plural = pullCount > 1;
+    const pullCost = pullCount * gemsPerPack;
+    const enoughGems = (gemCount > pullCost);
+    const enoughPacks = (packCount > pullCount);
+
     const mainContainer = document.querySelector('main');
     const popupContainer = document.createElement('div');
     popupContainer.classList.add("popup-container");
@@ -69,49 +91,69 @@ function createPopup(pullType) {
     const popup = document.createElement('div');
     popup.classList.add("popup");
 
+    const popupTextContainer = document.createElement('div');
+    popupTextContainer.classList.add("popup-text-container");
+
     const popupText = document.createElement('div');
     popupText.classList.add("popup-text");
-    popupText.textContent = "An Additional 10 Intertwined Fate are needed";
+    popupText.innerHTML = `An Additional <span class="yellow">${pullCount}</span> pack ${plural ? "s are needed." : "is needed."} <br> Purchase with <span class=${enoughGems ? "yellow" : "red"}>${pullCost}</span> gems?<br><br> ${enoughGems ? "" : "<span class='red'>Insufficient Funds</span>"} `;
+
+    popupTextContainer.append(popupText);
 
     const popupButtonContainer = document.createElement('div');
     popupButtonContainer.classList.add("popup-button-container");
 
     const popupCancel = document.createElement('button');
-    popupCancel.classList.add("popup-cancel");
+    popupCancel.classList.add("popup-button");
     popupCancel.innerText = "Cancel";
 
     const popupConfirm = document.createElement('button');
-    popupConfirm.classList.add("popup-confirm");
+    popupConfirm.classList.add("popup-button");
+    if (!enoughGems) {
+        popupConfirm.disabled = true;
+    }
     popupConfirm.innerText = "Confirm";
 
     popupButtonContainer.append(popupCancel);
     popupButtonContainer.append(popupConfirm);
 
 
-    popup.append(popupText);
+    popup.append(popupTextContainer);
     popup.append(popupButtonContainer);
 
     popupContainer.append(popup);
 
     mainContainer.append(popupContainer);
 
-    popup.addEventListener('click', () => {
+    popupConfirm.addEventListener('click', () => {
+        popupContainer.remove();
+        makeAPull(pullCount, true);
+    });
+
+    popupCancel.addEventListener('click', () => {
         popupContainer.remove();
     });
 
-
     popupContainer.addEventListener('click', (e) => {
-        console.log("Clicked uh something?");
-        if (e.target != popup) {
-            console.log("Clicked outside popup");
+        console.log("E.target:" + e.target);
+        if (!popup.contains(e.target)) {
             popupContainer.remove();
         }
     });
 }
 
-function makeAPull(pullType) {
+function makeAPull(pullCount, gemPull) {
+    let gemsValue = localStorage.getItem("Gems");
+    let packsValue = localStorage.getItem("Packs");
+    if (gemPull) {
+        gemsValue -= gemsPerPack * pullCount;
+        localStorage.setItem('Gems', JSON.stringify(gemsValue));
+    } else {
+        packsValue -= pullCount;
+        localStorage.setItem('Packs', JSON.stringify(packsValue));
+    }
     sessionStorage.setItem("madePull", "true");
-    sessionStorage.setItem("pull5", pullType == "pull5");
+    sessionStorage.setItem("pull5", pullCount == 5);
     showVideo();
 }
 
