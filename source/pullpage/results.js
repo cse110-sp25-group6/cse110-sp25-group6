@@ -1,12 +1,9 @@
-import { getCollectionCards, addCardToCollection } from "../util/utils.js";
+import { addCardToCollection } from "../util/utils.js";
 import '../components/card/cardComponent.js';
 
 
 // get references to DOM elements
 const stack = document.getElementById("card-stack");
-const topRow = document.getElementById("top-row");
-const bottomRow = document.getElementById("bottom-row");
-const continueButton = document.querySelector("#continue");
 
 // configuration
 let TOTAL_CARDS = 5;
@@ -74,7 +71,7 @@ async function getRandomCard() {
 
     const res = await fetch(`../card_data/${rarity}_star.json`);
     if (!res.ok) {
-        console.error(`Failed to load ${i}_star.json`);
+        console.error(`Failed to load ${rarity}_star.json`);
     }
     const cards = await res.json();
     let index = Math.floor(Math.random() * cards.length);
