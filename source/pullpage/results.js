@@ -1,6 +1,6 @@
 import { addCardToCollection } from "../util/utils.js";
 import '../components/card/cardComponent.js';
-
+import '../components/top-bar/top-bar.js';
 
 // get references to DOM elements
 const stack = document.getElementById("card-stack");
