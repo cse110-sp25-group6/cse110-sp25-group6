@@ -101,7 +101,7 @@ sorting-options button:hover:not(.selected) {
 @keyframes fallIn {
   0% {
     opacity: 1;
-    transform: translate(var(--start-x), var(--start-y)) scale(0.5);
+    transform: translate(var(--start-x, 0), var(--start-y, 0)) scale(0.5);
   }
 
   100% {
@@ -121,7 +121,7 @@ card-component.animate-in {
 card-component {
   height: 320px;
   opacity: 1;
-  transform: translate(var(--start-x), var(--start-y)) scale(0.5);
+  transform: translate(var(--start-x, 0), var(--start-y, 0)) scale(0.5);
 }
 
 /* Inspector overlay styles */
