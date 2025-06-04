@@ -89,7 +89,7 @@
   },
   {
     "id": 55,
-    "name": "Temporal Difference Titan",
+    "name": "Temporal Titan",
     "image": "TD-Learning.png",
     "rarity": 4,
     "lore": "A colossal titan that learns from temporal differences, adjusting its strategy at each epoch. It observes future states and refines its value function with every passing moment. Its massive form is guided by the promise of impending rewards. Scholars say its method bridges the gap between prediction and reality.\n\nTemporal Difference (TD) Learning is a reinforcement learning approach that updates value estimates based on the difference between predicted and actual rewards over successive time steps, combining Monte Carlo and dynamic programming ideas.",
