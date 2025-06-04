@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // === Cooldown Timer Settings ===
-const COOLDOWN_MINUTES = 1; // 1 minute
+const COOLDOWN_MINUTES = 360; // 6 hours in minutes
 
 function formatTime(ms) {
   const totalSec = Math.floor(ms / 1000);
@@ -99,6 +99,21 @@ function updateCooldown() {
     console.log(`Progress: ${percent}%`);
     progress.style.width = `${percent}%`;
     pack.classList.add("disabled");
+  }
+}
+function formatTime(ms) {
+  if (ms >= 60 * 60 * 1000) {
+    const hours = Math.floor(ms / (60 * 60 * 1000));
+    const minutes = Math.floor((ms % (60 * 60 * 1000)) / (60 * 1000));
+    return `${pad(hours)}H ${pad(minutes)}M`;
+  } else {
+    const minutes = Math.floor(ms / (60 * 1000));
+    const seconds = Math.floor((ms % (60 * 1000)) / 1000);
+    return `${pad(minutes)}M ${pad(seconds)}S`;
+  }
+
+  function pad(n) {
+    return n.toString().padStart(2, '0');
   }
 }
 
