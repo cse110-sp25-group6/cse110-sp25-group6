@@ -76,7 +76,7 @@ function createCard(index) {
     card.appendChild(inner);
 
     // deal from off-screen (centered, above five locations)
-    card.style.transform = `translate(-1000px, -1000px)`;
+    card.style.transform = `translate(-1500px, -1500px)`;
 
     return card;
 }
