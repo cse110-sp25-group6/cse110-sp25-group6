@@ -1,14 +1,11 @@
 import '../components/card/cardComponent.js';
 import '../components/top-bar/top-bar.js';
-import { getCollectionCards } from "../util/utils.js";
 
 window.addEventListener("DOMContentLoaded", init);
 
-let cards = [];
 const gemsPerPack = 15;
 
 function init() {
-    cards = getCollectionCards();
 
     addCurrencyToDocument();
     verifyPullCount();
@@ -82,7 +79,6 @@ function createPopup(pullCount) {
     const plural = pullCount > 1;
     const pullCost = pullCount * gemsPerPack;
     const enoughGems = (gemCount > pullCost);
-    const enoughPacks = (packCount > pullCount);
 
     const mainContainer = document.querySelector('main');
     const popupContainer = document.createElement('div');
@@ -170,7 +166,7 @@ function showVideo() {
         videoElement[i].play();
     }
 
-    videoElement[0].addEventListener("ended", (event) => {
+    videoElement[0].addEventListener("ended", () => {
         // switch to results page
         window.location.href = 'results.html';
         // hideVideo();

@@ -80,7 +80,7 @@ async function getRandomCard() {
 
     const res = await fetch(`../card_data/${rarity}_star.json`);
     if (!res.ok) {
-        console.error(`Failed to load ${i}_star.json`);
+        console.error(`Failed to load ${rarity}_star.json`);
     }
     const cards = await res.json();
     let index = Math.floor(Math.random() * cards.length);
@@ -117,34 +117,17 @@ async function createCard(index) {
 
 // deal cards
 function dealCards() {
-    if (TOTAL_CARDS == 5) {
-        let cards = Array.from(stack.children);
-        cards.forEach((card, i) => {
+    let cards = Array.from(stack.children);
+    cards.forEach((card, i) => {
 
-            setTimeout(() => {
-                card.style.transform = '';
-                card.classList.add("dealt");
-                card.style.transition = "transform 0.8s ease";
+        setTimeout(() => {
+            card.style.transform = '';
+            card.classList.add("dealt");
+            card.style.transition = "transform 0.8s ease";
 
-                card.addEventListener("click", () => flipCard(card));
-            }, i * DEAL_DELAY);
-        });
-    }
-    else {
-        let cards = Array.from(stack.children);
-
-        cards.forEach((card, i) => {
-
-            setTimeout(() => {
-                card.style.transform = '';
-
-                card.classList.add("dealt");
-                card.style.transition = "transform 0.8s ease";
-
-                card.addEventListener("click", () => flipCard(card));
-            }, i * DEAL_DELAY);
-        });
-    }
+            card.addEventListener("click", () => flipCard(card));
+        }, i * DEAL_DELAY);
+    });
 }
 
 // flip card animation
