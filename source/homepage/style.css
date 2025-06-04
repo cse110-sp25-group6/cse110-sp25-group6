@@ -42,9 +42,6 @@ header {
   display: flex;
   align-items: center;
   gap: 8px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
 .level-bar {
   flex: 1;
@@ -52,6 +49,10 @@ header {
   background: #eee;
   border-radius: 3px;
   overflow: hidden;
+}
+.level-bar .progress {
+  background: #4CAF50;
+  height: 100%;
 }
 
 /* Header actions styling (right) */
@@ -79,7 +80,6 @@ header {
   gap: 6px;
   font-size: 14px;
 }
-
 .action-item img {
   width: 32px;
   height: 32px;
@@ -147,11 +147,21 @@ main {
   border-radius: 4px;
   overflow: hidden;
 }
+
 .pack-time {
   font-size: 13px;
   color: #666;
 }
 
+/* Progress bar container */
+.progress-bar.pack-bar {
+  width: 160px;
+  height: 8px;
+  background-color: #eee;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 4px;
+}
 
 /* Progress fill */
 #packProgress {
