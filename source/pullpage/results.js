@@ -1,3 +1,7 @@
+import { getCollectionCards, addCardToCollection } from "../util/utils.js";
+import '../components/card/cardComponent.js';
+
+
 // get references to DOM elements
 const stack = document.getElementById("card-stack");
 const topRow = document.getElementById("top-row");
@@ -49,26 +53,30 @@ function init() {
 
 }
 
+function getRandomCard() {
+    
+}
+
 // utility: Create a card DOM element
 function createCard(index) {
+
+    let front = document.createElement('card-component');
+    front.classList.add("card-front");
+    //let cardData = getRandomCard();
+    //front.data = cardData;
+    //addCardToCollection(cardData);
 
     let card = document.createElement("div");
     card.classList.add("card", "facedown");
 
-    let inner = document.createElement("div");
-    inner.classList.add("card-inner");
-
-    let front = document.createElement("div");
-    front.classList.add("card-front");
-    front.textContent = `Front ${index + 1}`;
+    
 
     let back = document.createElement("div");
     back.classList.add("card-back");
     back.textContent = `Back ${index + 1}`;
 
-    inner.appendChild(front);
-    inner.appendChild(back);
-    card.appendChild(inner);
+    card.appendChild(front);
+    card.appendChild(back);
 
     // deal from off-screen (centered, above five locations)
     card.style.transform = `translate(-1500px, -1500px)`;
@@ -85,6 +93,7 @@ function dealCards() {
             setTimeout(() => {
                 card.style.transform = '';
                 card.classList.add("dealt");
+                card.style.transition = "transform 0.8s ease";
 
                 card.addEventListener("click", () => flipCard(card));
             }, i * DEAL_DELAY);
@@ -99,6 +108,7 @@ function dealCards() {
                 card.style.transform = '';
 
                 card.classList.add("dealt");
+                card.style.transition = "transform 0.8s ease";
 
                 card.addEventListener("click", () => flipCard(card));
             }, i * DEAL_DELAY);

@@ -27,7 +27,7 @@ class CardComponent extends HTMLElement {
 		this.cardData = {
 			name: "unknown",
 			image: "heap.png",
-			rarity: 0,
+			rarity: 5,
 			stats: {
 				health: -1,
 				damage: -1
@@ -66,6 +66,7 @@ class CardComponent extends HTMLElement {
 	 * @returns {void}
 	 */
 	connectedCallback() {
+		console.log("test")
 		this.render();
 	}
 }

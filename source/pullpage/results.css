@@ -50,27 +50,20 @@ header {
 
 .card {
   position: relative;
-  width: 200px;
-  height: 300px;
+  width: 228px;
+  height: 320px;
   transition: transform 0.8s ease, opacity 0.5s ease;
   transform-style: preserve-3d;
   cursor: pointer;
   z-index: 2;
 }
 
-.card-inner {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.8s ease;
-}
 
-.card.facedown .card-inner {
+.card.facedown {
   transform: rotateY(180deg);
 }
 
-.card.flipped .card-inner {
+.card.flipped {
   transform: rotateY(0deg);
 }
 
