@@ -7,57 +7,54 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Header containing profile and currency -->
   <header>
-    <div class="currency">
-      <div class="gems">
-        <img src="https://placehold.co/30x30?text=Gems" alt="Gems" />
-        <span id="gemsCount">100</span>
-      </div>
-      <div class="packs-owned">
-        <img src="https://placehold.co/30x30?text=Pack" alt="Packs" />
-        <span id="packsCount">5</span>
-      </div>
-    </div>
     <div class="profile">
-      <img id="profileImage" src="https://placehold.co/60x60?text=User" alt="Profile Image" />
+      <div class="avatar">6</div>
       <div class="profile-info">
-        <h2 id="profileName">Username</h2>
+        <h2 id="profileName">Team6</h2>
         <div class="level-container">
-          <span id="userLevel">Level 1</span>
-          <div class="progress-bar">
+          <span id="userLevel">Level 5</span>
+          <div class="progress-bar level-bar">
             <div class="progress" id="levelProgress"></div>
           </div>
         </div>
       </div>
     </div>
+    <div class="header-actions">
+      <button class="header-btn" id="collectionsBtn">Collections</button>
+      <stats-container>
+        <stat-display class="gems">
+          <span class="stat-icon">&#9672;</span>
+          <span class="stat-value gems">0</span>
+        </stat-display>
+        <stat-display class="packs">
+          <span class="stat-icon">&#10697;</span>
+          <span class="stat-value packs">0</span>
+        </stat-display>
+      </stats-container>
+    </div>
   </header>
 
   <main>
-    <!-- Pack display -->
     <div class="pack-container">
       <div id="mainPack" class="pack">
         <img src="https://placehold.co/200x300?text=Game+Pack" alt="Game Pack" />
       </div>
-      <div class="pack-progress">
-        <div class="pack-count">
-          <span id="currentPacks">5</span> packs owned
-        </div>
-        <div class="progress-bar">
+      <div class="pack-footer">
+        <stats-container>
+          <stat-display class="packs">
+            <span class="stat-icon">&#10697;</span>
+            <span class="stat-value" id="currentPacks">0</span>
+          </stat-display>
+        </stats-container>
+        <div class="progress-bar pack-bar">
           <div class="progress" id="packProgress"></div>
         </div>
-        <div class="pack-progress-text">
-          <span id="packProgressText">50/100</span> to next pack
-        </div>
+        <div class="pack-time" id="packTimeLeft">5h 32min left</div>
       </div>
-    </div>
-
-    <!-- Collections button -->
-    <div class="collections-button">
-      <button id="collectionsBtn">Collections</button>
     </div>
   </main>
 
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
