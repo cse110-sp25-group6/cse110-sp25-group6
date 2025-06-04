@@ -4,55 +4,36 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pack Puller</title>
-    <!-- reuse the homepage CSS -->
-    <link rel="stylesheet" href="../homepage/style.css" />
+    <link href="pack.css" rel="stylesheet">
+    <title>Pull Page</title>
+    <script src="pack.js" type="module"></script>
 </head>
 
 <body>
     <header>
-        <div class="header-left">
-            <a href="../homepage/index.html" class="back-btn">
-                <!-- Inline SVG arrow -->
-                <svg class="back-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"
-                    focusable="false">
-                    <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
-                <span>Home</span>
-            </a>
-        </div>
-
-        <!-- Right: Gems / Packs -->
-        <div class="header-actions">
-            <div class="action-item gems">
-                <img src="../img/gem.png" alt="Gems" />
-                <span id="gemsCount">250</span>
-            </div>
-            <div class="action-item packs">
-                <img src="../img/pack.png" alt="Packs" />
-                <span id="packsCount">8</span>
-            </div>
-        </div>
+        <a href="#">Home</a>
+        <stats-container>
+            <stat-display class="gems">Gems: 100</stat-display>
+            <stat-display class="packs">Packs: 3</stat-display>
+        </stats-container>
     </header>
 
     <main>
-        <div class="pack-container">
-            <!-- Big pack card -->
-            <div id="mainPack" class="pack">
-                <img src="https://placehold.co/200x300?text=Pack" alt="Pack" />
-            </div>
-
-            <!-- Pull controls -->
-            <div class="pull-controls">
-                <button id="pull1Btn" class="pull-btn">Pull 1</button>
-                <button id="pull10Btn" class="pull-btn">Pull 10</button>
-            </div>
+        <!--
+            Just a placeholder for the card pack. Replace later once we have the art for this
+        -->
+        <div class="video-container">
+            <video playsinline="" class="pack-video" src="genshinWishSingleTemp.mp4"
+                style="display: none;"></video>
         </div>
+        <div id="pack-image">
+            <img id="packPlaceholder" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                width="300" height="150" alt="Placeholder image">
+        </div>
+        <section id="pull-buttons">
+            <button type="button" class="pull1">Pull One(1)</button>
+            <button type="button" class="pull5">Pull Five(5)</button>
+        </section>
+
     </main>
-
-    <!-- reuse the homepage JS  -->
-    <script src="../homepage/script.js"></script>
 </body>
-
-</html>
