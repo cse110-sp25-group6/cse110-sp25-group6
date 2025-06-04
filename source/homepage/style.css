@@ -109,6 +109,7 @@ main {
   cursor: pointer;
   transition: transform 0.3s ease;
   overflow: hidden;
+
 }
 /* Dim pack and disable clicking during cooldown */
 .pack.disabled {
