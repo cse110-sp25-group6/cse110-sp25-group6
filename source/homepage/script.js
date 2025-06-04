@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // === Cooldown Timer Settings ===
-const COOLDOWN_MINUTES = 1; // 1 minute
+const COOLDOWN_MINUTES = 360; // 6 hours cooldown for opening packs
 
 function formatTime(ms) {
   const totalSec = Math.floor(ms / 1000);
