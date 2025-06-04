@@ -1,3 +1,5 @@
+import { addCurrencyToDocument } from './pack.js';
+
 // get references to DOM elements
 const stack = document.getElementById("card-stack");
 const topRow = document.getElementById("top-row");
@@ -13,8 +15,7 @@ let CONTINUE = false;
 
 // initialize: create cards and trigger deal
 function init() {
-
-
+    addCurrencyToDocument();
 
     if (sessionStorage.getItem("pull5") == "true") {
         TOTAL_CARDS = 25;

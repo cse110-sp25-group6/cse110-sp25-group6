@@ -14,16 +14,28 @@ function init() {
 
     document.getElementsByClassName("pull1")[0].addEventListener("click", () => {
         sessionStorage.setItem("pull5", "false");
+
+        let packsValue = localStorage.getItem("Packs");
+        packsValue -= 1;
+        localStorage.setItem('Packs', JSON.stringify(packsValue));
+        // console.log(packsValue);
+
         showVideo();
     });
 
     document.getElementsByClassName("pull5")[0].addEventListener("click", () => {
         sessionStorage.setItem("pull5", "true");
+
+        let packsValue = localStorage.getItem("Packs");
+        packsValue -= 5;
+        localStorage.setItem('Packs', JSON.stringify(packsValue));
+        // console.log(packsValue);
+
         showVideo();
     });
 }
 
-function addCurrencyToDocument() {
+export function addCurrencyToDocument() {
     const gems = document.getElementsByClassName("gems");
     const packs = document.getElementsByClassName("packs");
     const gemsValue = localStorage.getItem("Gems");
@@ -38,9 +50,9 @@ function addCurrencyToDocument() {
 }
 
 function populateLocalStorage() {
-    localStorage.clear();
-    localStorage.setItem('Gems', JSON.stringify(50)); // Add some gems
-    localStorage.setItem('Packs', JSON.stringify(3)); // Add some packs
+    // localStorage.clear();
+    // localStorage.setItem('Gems', JSON.stringify(50)); // Add some gems
+    // localStorage.setItem('Packs', JSON.stringify(3)); // Add some packs
     for (let i = 0; i < 30; i++) {
         let card = {
             "name": `card${i}`,
@@ -55,7 +67,7 @@ function verifyPullCount() {
     const pull1 = document.getElementsByClassName("pull1");
     const pull5 = document.getElementsByClassName("pull5");
 
-    const packsValue = localStorage.getItem("Packs");
+    let packsValue = localStorage.getItem("Packs");
 
     for (let i = 0; i < pull1.length; i++) {
         pull1[i].classList.toggle("not-enough-packs", packsValue < 1);
