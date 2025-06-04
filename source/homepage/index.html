@@ -1,67 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Game Homepage</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css?v=1.02" />
 </head>
+
 <body>
   <header>
-    <!-- Profile section (left) -->
     <div class="profile">
-      <!-- user avatar -->
-      <img id="profileImage" src="../img/huang.jpg" alt="User Avatar"/>
+      <div class="avatar">T6</div>
       <div class="profile-info">
-        <h2 id="profileName">Player123</h2>
+        <h2 id="profileName">Team6</h2>
         <div class="level-container">
+
           <span id="userLevel">Level 5</span>
+
           <div class="progress-bar level-bar">
             <div class="progress" id="levelProgress"></div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Header actions (right): Collections / Gems / Packs -->
     <div class="header-actions">
-      <button id="collectionsBtn" class="header-btn">Collections</button>
-      <div class="action-item gems">
-        <!-- gem icon -->
-        <img src="../img/gem.png" alt="Gems"/>
-        <span id="gemsCount">250</span>
-      </div>
-      <div class="action-item packs">
-        <!-- pack count icon -->
-        <img src="../img/pack.png" alt="Packs"/>
-        <span id="packsCount">8</span>
-      </div>
+      <button class="header-btn" id="collectionsBtn">Collections</button>
+      <stats-container>
+        <stat-display class="gems">
+          <span class="stat-icon">&#9672;</span>
+          <span class="stat-value gems">0</span>
+        </stat-display>
+        <stat-display class="packs">
+          <span class="stat-icon">&#10697;</span>
+          <span class="stat-value packs">0</span>
+        </stat-display>
+      </stats-container>
     </div>
   </header>
 
   <main>
-    <!-- Pack display (center) -->
     <div class="pack-container">
       <div id="mainPack" class="pack">
         <!-- main pack image -->
         <img src="https://placehold.co/200x300?text=Game+Pack" alt="Game Pack"/>
       </div>
       <div class="pack-footer">
-        <!-- Packs owned indicator -->
-        <div class="pack-info">
-          <img src="../img/pack.png" alt="Pack Icon"/>
-          <span id="currentPacks">3</span>
-        </div>
-        <!-- Progress bar to next pack -->
+        <stats-container>
+          <stat-display class="packs">
+            <span class="stat-icon">&#10697;</span>
+            <span class="stat-value" id="currentPacks">0</span>
+          </stat-display>
+        </stats-container>
         <div class="progress-bar pack-bar">
-          <div id="packProgress"></div>
+          <div class="progress" id="packProgress"></div>
         </div>
-        <!-- Time left until next pack -->
-        <div class="pack-time" id="packTimeLeft">--</div>
+        <div class="pack-time" id="packTimeLeft">5h 32min left</div>
       </div>
     </div>
   </main>
 
-  <script src="script.js"></script>
+  <script type="module" src="script.js?v=1.01"></script>
 </body>
+
 </html>
