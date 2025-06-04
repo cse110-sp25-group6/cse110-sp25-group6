@@ -1,4 +1,9 @@
 /*
+   Card Component Styles
+   Styles for displaying card data in the <card-component> element.
+*/
+
+/*
 .card {
     background: #f8f8f8;
     border-radius: 8px;
@@ -20,7 +25,7 @@
     border-style: solid;
     border-width: 0.3rem;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: transform 0.3s ease;
     overflow: hidden;
@@ -30,23 +35,24 @@
     background-repeat: no-repeat;
 }
 
-
-
+/* Hover effect to slightly enlarge the card */
 .card:hover {
     transform: scale(1.05);
 }
 
+/* Card name styling */
 .name {
     border-radius: 0px;
     width: 100%;
     text-align: center;
     display: inline-block;
     margin-top: 1vh;
-    color:white;
-    background-color: rgba(0,0,0,0.6);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
     font-size: 20px;
 }
 
+/* Rarity label styling */
 .rarity {
     border-radius: 5px;
     position: absolute;
@@ -55,15 +61,19 @@
     bottom: 0;
     margin-bottom: 1.5vh;
 }
+
+/* Stats container styling */
 .stats {
     position: absolute;
     bottom: 1.5vh;
     right: 0.5em;
     display: flex;
-    gap: 0.5em;  
+    gap: 0.5em;
 }
 
-.health, .damage {
+/* Health and damage values styling */
+.health,
+.damage {
     background-color: black;
     color: white;
     border-radius: 5px;
@@ -77,6 +87,7 @@
     object-fit: contain;
 }
 
+/* Override rarity text color */
 .rarity {
     color: yellow;
 }

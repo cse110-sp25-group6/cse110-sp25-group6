@@ -57,7 +57,7 @@
   {
     "id": 43,
     "name": "Compile Cerberus",
-    "image": "C-NN.png",
+    "image": "CNN.png",
     "rarity": 1,
     "lore": "A three-headed guard that enforces compile-time checks with unyielding rigor. Each head snarls syntax errors, preventing undefined behavior from entering its realm. It prowls memory gates, snarling at any rogue pointer that dares approach. Only the most disciplined coders survive its ceaseless vigilance.\n\nC-NN (Compile-Time Neural Network) refers to techniques that leverage compile-time metaprogramming (e.g., C++ templates) to build and optimize neural network architectures before runtime.",
     "stats": {
@@ -68,7 +68,7 @@
   {
     "id": 44,
     "name": "Regression Roc",
-    "image": "R-NN.png",
+    "image": "RNN.png",
     "rarity": 1,
     "lore": "A colossal roc perched atop high-dimensional clouds, using statistical metrics to guide its flight. It snatches samples with colossal talons, training its powerful wings on each catch. Its screech resonates across regressions, stirring ancient correlations in the air. Those who dare approach must prove their statistical prowess or be carried away.\n\nR-NN (Recurrent Neural Network) refers to neural networks with loops allowing information to persist across time steps, making them suitable for sequence modeling tasks such as language modeling and time series prediction.",
     "stats": {
@@ -79,7 +79,7 @@
   {
     "id": 71,
     "name": "Grammar Gargoyle",
-    "image": "Context_Free_Grammar_(CFG).png",
+    "image": "CFG.png",
     "rarity": 1,
     "lore": "This stony gargoyle enforces productions without regard for context, demanding perfect syntax from travelers. It guards ancient scrolls, ensuring every phrase follows its strict rules. Those who fail to present grammatically correct offerings are turned into motionless stone. Legends say it knows every rule but refuses to reveal them.\n\nA Context-Free Grammar (CFG) is a formal grammar in which production rules replace a single nonterminal symbol with a sequence of nonterminals and terminals, widely used to define programming language syntax and parse trees.",
     "stats": {
