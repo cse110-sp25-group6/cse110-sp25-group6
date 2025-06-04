@@ -108,34 +108,17 @@ async function createCard(index) {
 
 // deal cards
 function dealCards() {
-    if (TOTAL_CARDS == 5) {
-        let cards = Array.from(stack.children);
-        cards.forEach((card, i) => {
-            
-            setTimeout(() => {
-                card.style.transform = '';
-                card.classList.add("dealt");
-                card.style.transition = "transform 0.8s ease";
+    let cards = Array.from(stack.children);
+    cards.forEach((card, i) => {
+        
+        setTimeout(() => {
+            card.style.transform = '';
+            card.classList.add("dealt");
+            card.style.transition = "transform 0.8s ease";
 
-                card.addEventListener("click", () => flipCard(card));
-            }, i * DEAL_DELAY);
-        });
-    }
-    else {
-        let cards = Array.from(stack.children);
-
-        cards.forEach((card, i) => {
-
-            setTimeout(() => {
-                card.style.transform = '';
-
-                card.classList.add("dealt");
-                card.style.transition = "transform 0.8s ease";
-
-                card.addEventListener("click", () => flipCard(card));
-            }, i * DEAL_DELAY);
-        });
-    }
+            card.addEventListener("click", () => flipCard(card));
+        }, i * DEAL_DELAY);
+    });
 }
 
 // flip card animation
