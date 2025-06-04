@@ -3,7 +3,6 @@
 */
 
 @import '../util/globals.css';
-/* @import '../components/card/cardComponent.css'; */
 @import url('https://fonts.googleapis.com/css2?family=Turret+Road:wght@200;300;400;500;700;800&display=swap');
 
 /* Global element styling */
@@ -98,6 +97,33 @@ sorting-options button:hover:not(.selected) {
   border-color: white;
 }
 
+/* Card entrance animation */
+@keyframes fallIn {
+  0% {
+    opacity: 1;
+    transform: translate(var(--start-x), var(--start-y)) scale(0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+card-component.animate-in {
+  animation-name: fallIn;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+}
+
+card-component {
+  height: 320px;
+  opacity: 1;
+  transform: translate(var(--start-x), var(--start-y)) scale(0.5);
+}
+
 /* Inspector overlay styles */
 .inspector {
   position: absolute;
@@ -127,33 +153,6 @@ sorting-options button:hover:not(.selected) {
 .inspector button:hover {
   transform: scale(var(--scale-hover));
   color: var(--color-accent);
-}
-
-/* Card entrance animation */
-@keyframes fallIn {
-  0% {
-    opacity: 1;
-    transform: translate(var(--start-x), var(--start-y)) scale(0.5);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translate(0, 0) scale(1);
-  }
-}
-
-card-component.animate-in {
-  animation-name: fallIn;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-  animation-delay: 0s;
-}
-
-card-component {
-  height: 320px;
-  opacity: 1;
-  transform: translate(var(--start-x), var(--start-y)) scale(0.5);
 }
 
 /* Inspector container for detailed view */
