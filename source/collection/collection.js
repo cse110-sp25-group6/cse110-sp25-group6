@@ -43,7 +43,7 @@ async function init() {
 	let sortAcquisitionButton = document.getElementById("sort-acquisition");
 
 	const inspectorContainer = document.querySelector('.inspector');
-	const inspectedCard = document.getElementById('insepct-card');
+	const inspectedCard = document.getElementById('inspect-card');
 	const previousButton = document.getElementById("previous");
 	const nextButton = document.getElementById("next");
 	const lore = document.querySelector('.lore');
@@ -137,7 +137,7 @@ function addCurrencyToDocument() {
 function addCardsToDocument(cards) {
 	const collectionContainer = document.querySelector('collection-container');
 	const inspectorContainer = document.querySelector('.inspector');
-	const inspectedCard = document.getElementById('insepct-card');
+	const inspectedCard = document.getElementById('inspect-card');
 	const lore = document.querySelector('.lore');
 	collectionContainer.innerHTML = ''; // Remove all cards
 	for (let c = 0; c < cards.length; c++) {
