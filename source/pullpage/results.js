@@ -16,7 +16,7 @@ let FLIPPED = TOTAL_CARDS;
 let CONTINUE = false;
 
 // initialize: create cards and trigger deal
-function init() {
+async function init() {
     if (sessionStorage.getItem("pull5") == "true") {
         TOTAL_CARDS = 25;
         DEAL_DELAY = 100;
@@ -31,7 +31,7 @@ function init() {
     }
     
     for (let i = 0; i < TOTAL_CARDS; i++) {
-        const card = createCard(i);
+        const card = await createCard(i);
         stack.appendChild(card);
     }
 
@@ -53,18 +53,43 @@ function init() {
 
 }
 
-function getRandomCard() {
+
+
+
+async function getRandomCard() {
+    let rng = Math.random();
+    let rarity = 1;
+    if (rng > 0.99) {
+        rarity = 5;
+    }
+    else if (rng > 0.9) {
+        rarity = 4;
+    }
+    else if (rng > 0.75) {
+        rarity = 3;
+    }
+    else if (rng > 0.5) {
+        rarity = 2;
+    }
+
+    const res = await fetch(`../card_data/${rarity}_star.json`);
+    if (!res.ok) {
+        console.error(`Failed to load ${i}_star.json`);
+    }
+    const cards = await res.json();
+    let index = Math.floor(Math.random() * cards.length);
+    return cards[index];
     
 }
 
 // utility: Create a card DOM element
-function createCard(index) {
+async function createCard(index) {
 
     let front = document.createElement('card-component');
-    front.classList.add("card-front");
-    //let cardData = getRandomCard();
-    //front.data = cardData;
-    //addCardToCollection(cardData);
+    //front.classList.add("card-front");
+    let cardData = await getRandomCard();
+    front.data = cardData;
+    addCardToCollection(cardData);
 
     let card = document.createElement("div");
     card.classList.add("card", "facedown");
