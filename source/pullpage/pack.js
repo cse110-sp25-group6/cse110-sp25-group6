@@ -59,10 +59,28 @@ function verifyPullCount() {
 
     for (let i = 0; i < pull1.length; i++) {
         pull1[i].classList.toggle("not-enough-packs", packsValue < 1);
+
+        pull1[i].addEventListener("click", function (event) {
+            if (packsValue < 1) {
+                alert("You don't have enough packs!");
+                event.preventDefault(); 
+                event.stopImmediatePropagation();
+                // Prevent action 
+            }
+        });
     }
 
     for (let i = 0; i < pull5.length; i++) {
         pull5[i].classList.toggle("not-enough-packs", packsValue < 5);
+
+        pull5[i].addEventListener("click", function (event) {
+            if (packsValue < 5) {
+                alert("You don't have enough packs!");
+                event.preventDefault(); 
+                event.stopImmediatePropagation();
+                // Prevent action 
+            }
+        });
     }
 }
 
