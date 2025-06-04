@@ -28,8 +28,8 @@ let lastSort = "acquisition";
  * @async
  * @returns {Promise<void>}
  */
-async function init() {
-	await populateLocalStorage();
+function init() {
+	
 
 	cards = getCollectionCards();
 	// Sort cards by most recent

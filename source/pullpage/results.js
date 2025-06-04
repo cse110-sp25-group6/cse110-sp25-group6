@@ -86,7 +86,7 @@ async function getRandomCard() {
 async function createCard(index) {
 
     let front = document.createElement('card-component');
-    //front.classList.add("card-front");
+    front.classList.add("card-front");
     let cardData = await getRandomCard();
     front.data = cardData;
     addCardToCollection(cardData);

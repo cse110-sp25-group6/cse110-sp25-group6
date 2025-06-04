@@ -66,7 +66,6 @@ class CardComponent extends HTMLElement {
 	 * @returns {void}
 	 */
 	connectedCallback() {
-		console.log("test")
 		this.render();
 	}
 }
