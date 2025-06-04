@@ -1,183 +1,256 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-  }
-  
-  body {
-    background-color: white;
-    color: black;
-  }
-  
-  /* Header */
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Avatar UI */
-  .avatar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background-color: black;
-    color: white;
-    font-size: 1.8rem;
-    font-weight: bold;
-    box-shadow: 0 0 0 2px gold;
-  }
-  
-  /* Profile info */
-  .profile {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-  }
-  
-  .profile-info h2 {
-    font-size: 18px;
-    color: #111;
-    margin-bottom: 5px;
-  }
-  
-  .level-container {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .level-bar {
-    flex: 1;
-    height: 6px;
-    background: #eee;
-    border-radius: 3px;
-    overflow: hidden;
-  }
-  
-  .level-bar .progress {
-    background: #4CAF50;
-    height: 100%;
-  }
-  
-  /* Header actions */
-  .header-actions {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-  }
-  
-  .header-btn {
-    padding: 12px 22px;
-    font-size: 18px;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .header-btn:hover {
-    background-color: #2980b9;
-  }
-  
-  /* Stats display */
-  stats-container {
-    display: flex;
-    gap: 1rem;
-    background-color: black;
-    padding: 0.5rem 1rem;
-    border-radius: 1rem;
-    align-items: center;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  }
-  
-  stat-display {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: white;
-    font-weight: 600;
-    font-size: 1rem;
-  }
-  
-  .stat-icon {
-    font-size: 1.3rem;
-  }
-  
-  .gems .stat-icon {
-    color: #cc00ff;
-  }
-  
-  .packs .stat-icon {
-    color: #ff3333;
-  }
-  
-  /* Main content */
-  main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 100px);
-  }
-  
-  .pack-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-  }
-  
-  .pack {
-    width: 200px;
-    height: 300px;
-    background-color: #ddd;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    overflow: hidden;
-  }
-  
-  .pack:hover {
-    transform: scale(1.05);
-  }
-  
-  .pack img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  /* Footer */
-  .pack-footer {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  
-  .pack-bar {
-    flex: 1;
-    height: 8px;
-    background-color: #eee;
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  
-  .pack-bar .progress {
-    background-color: #4CAF50;
-    height: 100%;
-  }
-  
-  .pack-time {
-    font-size: 13px;
-    color: #666;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  /* Default font */
+}
+
+body {
+  background-color: white;
+  /* Page background */
+  color: black;
+  /* Default text color */
+}
+
+/* ====================== HEADER ====================== */
+header {
+  display: flex;
+  justify-content: space-between;
+  /* Profile on left, actions on right */
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow */
+}
+
+/* ---------- Avatar Styles ---------- */
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: black;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+  /* Gold border around the avatar circle */
+  box-shadow: 0 0 0 2px gold;
+}
+
+/* ---------- Profile Container ---------- */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  /* Space between avatar and text */
+}
+
+.profile-info h2 {
+  font-size: 18px;
+  color: #111;
+  margin-bottom: 5px;
+  /* Small gap under name if additional line appears */
+}
+
+/* ---------- “Level X” & Progress on Same Line ---------- */
+.level-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  /* Space between “Level X” and its progress bar */
+}
+
+/* “Level 5” text styling */
+#userLevel {
+  font-size: 16px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* ====================== PROGRESS BAR STYLES ====================== */
+/* 
+    A generic wrapper for any progress bar (level or pack).
+    – position: relative so inner .progress can center text.
+    – background: dark gray
+    – border: solid, slightly darker
+    – border-radius: half of height for pill shape
+    – box-shadow: inset for a carved-in look
+  */
+.progress-bar {
+  position: relative;
+  height: 18px;
+  /* Taller to show percentage text clearly */
+  background: #2f2f2f;
+  /* Dark gray background */
+  border: 2px solid #555;
+  /* Slightly lighter gray border */
+  border-radius: 9px;
+  /* Pill-shaped corners */
+  overflow: hidden;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+/* 
+    The colored portion of the progress bar:
+    – gradient from green to gold 
+    – text centered (white + black shadow) to display percentage 
+    – default width = 0% (JS will override)
+    – smooth width transition
+  */
+.progress-bar .progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50, gold);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  text-shadow: 0 0 3px black;
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+/* ====================== SPECIFIC OVERRIDES ====================== */
+/* Make the level progress bar a fixed wider length (instead of auto) */
+.level-bar {
+  width: 100px;
+  /* Increased width so the bar is longer */
+}
+
+
+/* ====================== HEADER ACTIONS ====================== */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  /* Space between Collections button and stats */
+}
+
+.header-btn {
+  padding: 12px 22px;
+  font-size: 18px;
+  background-color: #3498db;
+  /* Bright blue */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.header-btn:hover {
+  background-color: #2980b9;
+  /* Darker blue on hover */
+}
+
+/* ====================== STATS DISPLAY (Gems/Packs) ====================== */
+/* 
+    Using custom tags <stats-container> and <stat-display> purely for styling.
+    – stats-container: black pill-shaped background with a slight drop shadow
+    – stat-display: flex row of icon + value 
+  */
+stats-container {
+  display: flex;
+  gap: 1rem;
+  background-color: black;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+stat-display {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Icon sizes */
+.stat-icon {
+  font-size: 1.3rem;
+}
+
+/* Specific icon colors */
+.gems .stat-icon {
+  color: #cc00ff;
+  /* Purple for gems */
+}
+
+.packs .stat-icon {
+  color: #ff3333;
+  /* Red for packs */
+}
+
+/* ====================== MAIN CONTENT (Pack Area) ====================== */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 120px);
+  /* Full viewport minus header height */
+}
+
+/* ---------- Pack Container ---------- */
+.pack-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* 
+    Card pack image wrapper:
+    – fixed 200x300 size,
+    – subtle drop shadow, rounded corners,
+    – hover zoom effect
+  */
+.pack {
+  width: 200px;
+  height: 300px;
+  background-color: #ddd;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.pack:hover {
+  transform: scale(1.05);
+}
+
+.pack img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Pack Footer ---------- */
+/* Parent container stacks elements vertically */
+.pack-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+/* The “time left” text below the pack progress bar */
+.pack-time {
+  font-size: 13px;
+  color: #666;
+}
+
+/* 
+    Specific override for Pack progress bar to make it wider than the level bar 
+    – since this lives under the big card image, we give it 200px width.
+  */
+.pack-bar {
+  width: 200px;
+}
