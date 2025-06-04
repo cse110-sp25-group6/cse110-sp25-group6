@@ -42,6 +42,9 @@ header {
   display: flex;
   align-items: center;
   gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .level-bar {
   flex: 1;
@@ -49,10 +52,6 @@ header {
   background: #eee;
   border-radius: 3px;
   overflow: hidden;
-}
-.level-bar .progress {
-  background: #4CAF50;
-  height: 100%;
 }
 
 /* Header actions styling (right) */
@@ -80,6 +79,7 @@ header {
   gap: 6px;
   font-size: 14px;
 }
+
 .action-item img {
   width: 32px;
   height: 32px;
@@ -109,6 +109,12 @@ main {
   cursor: pointer;
   transition: transform 0.3s ease;
   overflow: hidden;
+}
+/* Dim pack and disable clicking during cooldown */
+.pack.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
 }
 .pack:hover {
   transform: scale(1.05);
@@ -141,13 +147,19 @@ main {
   border-radius: 4px;
   overflow: hidden;
 }
-.pack-bar .progress {
-  background-color: #4CAF50;
-  height: 100%;
-}
 .pack-time {
   font-size: 13px;
   color: #666;
+}
+
+
+/* Progress fill */
+#packProgress {
+  height: 100%;
+  width: 0%;
+  background-color: #4CAF50; /* soft green, change if needed */
+  transition: width 1s linear;
+  border-radius: 4px;
 }
 
 /* Back button with arrow  */
