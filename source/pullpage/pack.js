@@ -1,6 +1,6 @@
 import '../components/card/cardComponent.js';
 import '../components/top-bar/top-bar.js';
-import { getCollectionCards } from "../util/utils.js";
+import { getCollectionCards, addCardToCollection } from "../util/utils.js";
 
 window.addEventListener("DOMContentLoaded", init);
 
@@ -12,14 +12,23 @@ function init() {
     addCurrencyToDocument();
     verifyPullCount();
 
+    const packsValue = localStorage.getItem("Packs");
+
     document.getElementsByClassName("pull1")[0].addEventListener("click", () => {
-        sessionStorage.setItem("pull5", "false");
-        showVideo();
+        if (packsValue < 1) {
+            createPopup(1);
+        } else {
+            makeAPull("pull1");
+        }
+
     });
 
     document.getElementsByClassName("pull5")[0].addEventListener("click", () => {
-        sessionStorage.setItem("pull5", "true");
-        showVideo();
+        if (packsValue < 10) {
+            createPopup(10);
+        } else {
+            makeAPull("pull10");
+        }
     });
 }
 
@@ -52,6 +61,60 @@ function verifyPullCount() {
     }
 }
 
+function createPopup(pullType) {
+    const mainContainer = document.querySelector('main');
+    const popupContainer = document.createElement('div');
+    popupContainer.classList.add("popup-container");
+
+    const popup = document.createElement('div');
+    popup.classList.add("popup");
+
+    const popupText = document.createElement('div');
+    popupText.classList.add("popup-text");
+    popupText.textContent = "An Additional 10 Intertwined Fate are needed";
+
+    const popupButtonContainer = document.createElement('div');
+    popupButtonContainer.classList.add("popup-button-container");
+
+    const popupCancel = document.createElement('button');
+    popupCancel.classList.add("popup-cancel");
+    popupCancel.innerText = "Cancel";
+
+    const popupConfirm = document.createElement('button');
+    popupConfirm.classList.add("popup-confirm");
+    popupConfirm.innerText = "Confirm";
+
+    popupButtonContainer.append(popupCancel);
+    popupButtonContainer.append(popupConfirm);
+
+
+    popup.append(popupText);
+    popup.append(popupButtonContainer);
+
+    popupContainer.append(popup);
+
+    mainContainer.append(popupContainer);
+
+    popup.addEventListener('click', () => {
+        popupContainer.remove();
+    });
+
+
+    popupContainer.addEventListener('click', (e) => {
+        console.log("Clicked uh something?");
+        if (e.target != popup) {
+            console.log("Clicked outside popup");
+            popupContainer.remove();
+        }
+    });
+}
+
+function makeAPull(pullType) {
+    sessionStorage.setItem("madePull", "true");
+    sessionStorage.setItem("pull5", pullType == "pull5");
+    showVideo();
+}
+
 function showVideo() {
     const videoContainer = document.getElementsByClassName("video-container");
     const videoElement = document.getElementsByClassName("pack-video");
@@ -72,9 +135,8 @@ function showVideo() {
     })
 
 }
-//Keeping this around temporarily in case we still need it later, but for now the easiest fix is just to not run this function.
-/*
-function hideVideo() { 
+
+function hideVideo() { //Keeping this around temporarily in case we still need it later, but for now the easiest fix is just to not run this function.
     const videoContainer = document.getElementsByClassName("video-container");
     const videoElement = document.getElementsByClassName("pack-video");
 
@@ -85,4 +147,4 @@ function hideVideo() {
     for (let i = 0; i < videoElement.length; i++) {
         videoElement[i].style.display = "none";
     }
-}*/
+}
