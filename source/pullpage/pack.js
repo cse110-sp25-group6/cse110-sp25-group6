@@ -7,8 +7,6 @@ window.addEventListener("DOMContentLoaded", init);
 let cards = [];
 
 function init() {
-    populateLocalStorage();
-
     cards = getCollectionCards();
 
     addCurrencyToDocument();
@@ -36,20 +34,6 @@ function addCurrencyToDocument() {
     }
     for (let i = 0; i < packs.length; i++) {
         packs[i].innerHTML = `Packs: ${packsValue}`;
-    }
-}
-
-function populateLocalStorage() {
-    localStorage.clear();
-    localStorage.setItem('Gems', JSON.stringify(50)); // Add some gems
-    localStorage.setItem('Packs', JSON.stringify(3)); // Add some packs
-    for (let i = 0; i < 30; i++) {
-        let card = {
-            "name": `card${i}`,
-            "rarity": i % 5,
-            "acquisition": Date.now() - ((i % 7) * 1000 * 60 * 60 * 24)
-        }
-        addCardToCollection(card);
     }
 }
 
