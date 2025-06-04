@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         packTimeLeft: "5h 32min left"
     };
 
+
     let userData = JSON.parse(localStorage.getItem('userData'));
     if (!userData) {
         userData = defaultData;
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById("gemsCount").textContent = userData.gemsCount;
     document.getElementById("packsCount").textContent = userData.packsCount;
 
+
     // Populate pack display
     document.getElementById("currentPacks").textContent = userData.currentPacks;
     //document.getElementById("packProgress").style.width = `${userData.packProgress}%`;
@@ -37,8 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainPack = document.getElementById("mainPack");
     mainPack.style.cursor = "pointer";
     mainPack.addEventListener("click", () => {
+
         if (mainPack.classList.contains("disabled")) return;
         startCooldown(); // Save unlock time in localStorage
+
         window.location.href = "../pullpage/pack.html";
     });
 
@@ -62,10 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("Pulled 10 packs");
         // TODO: batch-pull logic
     });
-    
-
+  
     updateCooldown();
     setInterval(updateCooldown, 1000); // Update cooldown every second
+
 });
 
 // === Cooldown Timer Settings ===
