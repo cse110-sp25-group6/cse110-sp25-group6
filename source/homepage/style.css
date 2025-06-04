@@ -161,6 +161,8 @@ main {
   border-radius: 4px;
   overflow: hidden;
   margin-top: 4px;
+  border: 1px solid #888; /* medium gray, adjust if needed */
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Progress fill */
