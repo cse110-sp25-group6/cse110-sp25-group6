@@ -1,16 +1,23 @@
 // script.js for homepage landing page functionality
 document.addEventListener('DOMContentLoaded', () => {
+    
     // Sample user data (replace with your real data source)
-    const userData = {
+    const defaultData = {
         profileName: "Player123",
         userLevel: 5,
         levelProgress: 65,   // percentage
         gemsCount: 250,
-        packsCount: 8,
+        packsCount: 3,
         currentPacks: 3,
         packProgress: 75,   // percentage
         packTimeLeft: "5h 32min left"
     };
+
+    let userData = JSON.parse(localStorage.getItem('userData'));
+    if (!userData) {
+        userData = defaultData;
+        localStorage.setItem('userData', JSON.stringify(userData));
+    }
 
     // Populate profile info
     document.getElementById("profileName").textContent = userData.profileName;
@@ -90,9 +97,30 @@ function updateCooldown() {
   const timeLeft = unlockTime - now;
 
   if (timeLeft <= 0) {
+    let userData = JSON.parse(localStorage.getItem('userData'));
+    if (userData) {
+      userData.packsCount += 1;
+      userData.currentPacks += 1;
+      localStorage.setItem('userData', JSON.stringify(userData));
+      
+      const packsCountA = document.getElementById("packsCount");
+      const currentPacksA = document.getElementById("currentPacks");
+
+      if(packsCountA) {
+        packsCountA.textContent = userData.packsCount;
+      }
+
+      if(currentPacksA) {
+        currentPacksA.textContent = userData.currentPacks;
+      }
+
+    }
+
     timeText.textContent = "Ready to open!";
     progress.style.width = "100%";
     pack.classList.remove("disabled");
+    //prevents repeated incrementation
+    localStorage.removeItem("nextPackTime");
   } else {
     timeText.textContent = formatTime(timeLeft);
     const percent = ((fullTime - timeLeft) / fullTime) * 100;
@@ -106,3 +134,4 @@ function startCooldown() {
   localStorage.setItem("nextPackTime", unlockTime);
   updateCooldown();
 }
+
