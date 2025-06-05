@@ -1,3 +1,7 @@
+<!--
+  Card Collection Page
+  Displays the top bar, sorting sidebar, card grid, and inspector overlay.
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,32 +9,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="collection.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=home" />
   <title>Card Grid</title>
-  <script src="cardComponent.js" type="module"></script>
   <script src="collection.js" type="module"></script>
 </head>
 
 <body>
-  <header>
-    <a href="../../homepage/index.html">Home</a>
-    <h1>Collection</h1>
-    <stats-container>
-      <stat-display class="gems">Gems: 100</stat-display>
-      <stat-display class="packs">Packs: 3</stat-display>
-    </stats-container>
-  </header>
+  <top-bar data-title="Collection"></top-bar>
   <main>
     <side-bar>
       <h2 id="sort-header">Sort By</h2>
       <hr>
       <sorting-options>
+        <button id="sort-acquisition" class="selected">Recent</button>
         <button id="sort-name">Name</button>
         <button id="sort-rarity">Rarity</button>
-        <button id="sort-acquisition">Recent</button>
       </sorting-options>
     </side-bar>
 
     <collection-container></collection-container>
+    <div class="inspector" style="display: none;">
+      <button id="previous">&lt;</button>
+      <inspect-container>
+        <card-component id="inspect-card"></card-component>
+        <div class="lore"> some lore </div>
+      </inspect-container>
+      <button id="next">&gt;</button>
+    </div>
   </main>
 
 

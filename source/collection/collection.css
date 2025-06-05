@@ -1,7 +1,17 @@
+/* Collection Page Styles
+   Provides styling for the collection page including layout, sorting, inspector, and animations.
+*/
+
+@import '../util/globals.css';
+@import url('https://fonts.googleapis.com/css2?family=Turret+Road:wght@200;300;400;500;700;800&display=swap');
+
+/* Global element styling */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  color: var(--color-text);
+  font-family: var(--font-family);
 }
 
 body {
@@ -11,59 +21,59 @@ body {
   overflow: hidden;
 }
 
-header {
-  background-color: white;
-  border-bottom: 1px solid black;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-
-}
-
-stats-container {
-  display: flex;
-  gap: 1rem;
-}
-
+/* Main container styles */
 main {
+  position: relative;
+  flex: 1 1 auto;
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
-  height: 100%;
-  overflow: scroll;
   padding: 0 5%;
   margin: 0;
+  overflow: hidden;
+  background-color: var(--color-background);
 }
 
+/* Sidebar styling for sorting options */
 side-bar {
   position: sticky;
   right: 0;
   height: 100%;
   padding: 3rem;
-  border-left: 1px solid black;
+  background-color: var(--color-background);
+  width: fit-content;
 }
 
+/* Sort header and divider */
 #sort-header {
   margin-bottom: 0.5rem;
+  font-size: var(--font-size-heading);
 }
 
 hr {
   height: 1px;
   border: none;
-  background-color: black;
+  background-color: var(--color-text);
   margin: 0.75rem 0;
 }
 
+/* Collection container for cards */
 collection-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   gap: 1rem;
-  overflow-y: scroll;
-  width: 70%;
-  height: 100%;
-  padding: 0 2%;
+  justify-content: center;
+  justify-items: center;
+  align-items: start;
+  align-content: start;
+  overflow: auto;
+  width: 80%;
+  padding: 2vh;
+  background-color: var(--color-foreground);
 }
 
+/* Sorting options styling */
 sorting-options {
   display: flex;
   flex-direction: column;
@@ -74,7 +84,103 @@ sorting-options {
 sorting-options button {
   cursor: pointer;
   padding: 0.5rem;
-  border: 1px black solid;
+  border-style: none;
   border-radius: 9999px;
-  width: 100px;
+  width: 100%;
+  background-color: var(--color-foreground);
+  font-size: var(--font-size-body);
+}
+
+.selected,
+sorting-options button:hover:not(.selected) {
+  background-color: var(--color-accent);
+  color: white;
+  border-color: white;
+}
+
+/* Card entrance animation */
+@keyframes fallIn {
+  0% {
+    opacity: 1;
+    transform: translate(var(--start-x), var(--start-y)) scale(0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+card-component.animate-in {
+  animation-name: fallIn;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+}
+
+card-component {
+  height: 320px;
+  opacity: 1;
+  transform: translate(var(--start-x), var(--start-y)) scale(0.5);
+}
+
+/* Inspector overlay styles */
+.inspector {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#inspect-card {
+  width: 400px;
+  height: auto;
+}
+
+.inspector button {
+  background-color: rgba(0, 0, 0, 0);
+  border-style: none;
+  font-size: var(--font-size-heading);
+  transition: all var(--transition-time) ease;
+}
+
+.inspector button:hover {
+  transform: scale(var(--scale-hover));
+  color: var(--color-accent);
+}
+
+/* Inspector container for detailed view */
+inspect-container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  background-color: var(--color-background);
+  padding: 1rem;
+  border-radius: 1rem;
+  max-width: 80%;
+  max-height: 80%;
+  height: max-content;
+  overflow: scroll;
+}
+
+@media (max-width: 900px) {
+  inspect-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+inspect-container > * {
+  flex: 1 1 auto;
+  box-sizing: border-box;
+}
+
+/* Styling for card lore section */
+.lore {
+  padding: 2rem;
+  max-width: 400px;
 }

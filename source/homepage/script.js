@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainPack = document.getElementById("mainPack");
     if (mainPack) {
         mainPack.addEventListener("click", () => {
-            console.log("Opening pack page...");
+            window.location.href = "../pullpage/pack.html";
         });
     }
 

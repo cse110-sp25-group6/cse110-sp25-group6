@@ -10,30 +10,29 @@
 </head>
 
 <body>
-    <header>
-        <a href="#">Home</a>
-        <stats-container>
-            <stat-display class="gems">Gems: 100</stat-display>
-            <stat-display class="packs">Packs: 3</stat-display>
-        </stats-container>
-    </header>
+    <top-bar data-title="Packs"></top-bar>
+
+    <div class="video-container">
+        <video playsinline="" class="pack-video" src="genshinWishSingleTemp.mp4" style="display: none;"></video>
+    </div>
 
     <main>
         <!--
             Just a placeholder for the card pack. Replace later once we have the art for this
         -->
-        <div class="video-container">
-            <video playsinline="" class="pack-video" src="genshinWishSingleTemp.mp4"
-                style="display: none;"></video>
-        </div>
-        <div id="pack-image">
+        <side-box>
+            <h2>Pack Opening</h2>
+            <hr>
+            <section id="pull-buttons">
+                <button type="button" class="pull1">Pull One(1)</button>
+                <button type="button" class="pull5">Pull Five(5)</button>
+            </section>
+        </side-box>
+        <pack-icon id="pack-image">
             <img id="packPlaceholder" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
                 width="300" height="150" alt="Placeholder image">
-        </div>
-        <section id="pull-buttons">
-            <button type="button" class="pull1">Pull One(1)</button>
-            <button type="button" class="pull5">Pull Five(5)</button>
-        </section>
+        </pack-icon>
+
 
     </main>
 </body>

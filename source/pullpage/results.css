@@ -1,40 +1,34 @@
+@import '../util/globals.css';
+@import url('https://fonts.googleapis.com/css2?family=Turret+Road:wght@200;300;400;500;700;800&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  color: var(--color-text);
+  font-family: var(--font-family);
 }
 
 body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: auto;
-}
-
-header {
-  background-color: white;
-  border-bottom: 1px solid black;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-
-}
-
-#header-elem {
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-
-#display-area {
-  position: relative;
-  width: 800px;
-  height: 100vh;
-  border: dashed 2px #ccc;
   overflow: hidden;
 }
 
+main {
+  position: relative;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  padding: 0 2%;
+  margin: 0;
+  overflow: auto;
+  background-color: var(--color-background);
+}
+
 #card-stack {
-  /* width and height are half of the card size, so the card gets placed in the center of the screen*/
   /*
   width: 100vw;
   height: 150%;
@@ -51,27 +45,23 @@ header {
 
 .card {
   position: relative;
-  width: 200px;
-  height: 300px;
+  width: 228px;
+  height: 320px;
   transition: transform 0.8s ease, opacity 0.5s ease;
   transform-style: preserve-3d;
   cursor: pointer;
   z-index: 2;
 }
 
-.card-inner {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.8s ease;
+.card.flipped:hover {
+    transform: scale(1.05);
 }
 
-.card.facedown .card-inner {
+.card.facedown {
   transform: rotateY(180deg);
 }
 
-.card.flipped .card-inner {
+.card.flipped {
   transform: rotateY(0deg);
 }
 
@@ -100,8 +90,8 @@ header {
 }
 
 .hidden {
-    display: none;
-    transition: opacity 0.3s ease;
+    visibility: hidden;
+    transition: transform 0.8 ease, opacity 1.5s ease;
 }
 
 .card.dealt {
