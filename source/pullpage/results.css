@@ -53,6 +53,9 @@ main {
   z-index: 2;
 }
 
+.card.flipped:hover {
+    transform: scale(1.05);
+}
 
 .card.facedown {
   transform: rotateY(180deg);
