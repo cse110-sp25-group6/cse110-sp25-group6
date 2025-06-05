@@ -1,12 +1,9 @@
-import { getCollectionCards, addCardToCollection } from "../util/utils.js";
+import { addCardToCollection } from "../util/utils.js";
 import '../components/card/cardComponent.js';
-import '../components/top-bar/top-bar.js';
+
 
 // get references to DOM elements
 const stack = document.getElementById("card-stack");
-const topRow = document.getElementById("top-row");
-const bottomRow = document.getElementById("bottom-row");
-const continueButton = document.querySelector("#continue");
 
 // configuration
 let TOTAL_CARDS = 5;
@@ -21,7 +18,7 @@ async function init() {
         window.location.href = 'pack.html';
     }
 
-    //sessionStorage.setItem("madePull", "false");
+    sessionStorage.setItem("madePull", "false");
 
     if (sessionStorage.getItem("pull5") == "true") {
         TOTAL_CARDS = 25;
@@ -35,7 +32,6 @@ async function init() {
         WIPE_DELAY = 100;
         FLIPPED = TOTAL_CARDS;
     }
-
     for (let i = 0; i < TOTAL_CARDS; i++) {
         const card = await createCard(i);
         stack.appendChild(card);
@@ -85,7 +81,6 @@ async function getRandomCard() {
     const cards = await res.json();
     let index = Math.floor(Math.random() * cards.length);
     return cards[index];
-
 }
 
 // utility: Create a card DOM element
@@ -99,7 +94,6 @@ async function createCard(index) {
 
     let card = document.createElement("div");
     card.classList.add("card", "facedown");
-
 
 
     let back = document.createElement("div");
@@ -119,7 +113,6 @@ async function createCard(index) {
 function dealCards() {
     let cards = Array.from(stack.children);
     cards.forEach((card, i) => {
-
         setTimeout(() => {
             card.style.transform = '';
             card.classList.add("dealt");
