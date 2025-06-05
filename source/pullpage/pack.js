@@ -47,7 +47,6 @@ function init() {
 }
 
 export function addCurrencyToDocument() {
-export function addCurrencyToDocument() {
     const gems = document.getElementsByClassName("gems");
     const packs = document.getElementsByClassName("packs");
     let gemsValue = localStorage.getItem("Gems");
