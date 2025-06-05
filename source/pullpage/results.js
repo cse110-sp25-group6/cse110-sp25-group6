@@ -6,7 +6,7 @@ import '../components/top-bar/top-bar.js';
 const stack = document.getElementById("card-stack");
 const topRow = document.getElementById("top-row");
 const bottomRow = document.getElementById("bottom-row");
-const continueButton = document.querySelector("#continue");
+let continueButton = document.getElementById("continue");
 
 // configuration
 let TOTAL_CARDS = 5;
@@ -43,6 +43,10 @@ async function init() {
 
     dealCards();
 
+    setTimeout(() => {
+        continueButton.classList.remove("hidden");
+    }, TOTAL_CARDS * DEAL_DELAY);
+
     document.getElementById("continue").addEventListener("click", () => {
         if (CONTINUE) {
             wipeCards()
@@ -58,9 +62,6 @@ async function init() {
     });
 
 }
-
-
-
 
 async function getRandomCard() {
     let rng = Math.random();
@@ -128,6 +129,7 @@ function dealCards() {
             card.addEventListener("click", () => flipCard(card));
         }, i * DEAL_DELAY);
     });
+    
 }
 
 // flip card animation
