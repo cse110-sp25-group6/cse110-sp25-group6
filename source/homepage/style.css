@@ -263,22 +263,3 @@ main {
 .pack-bar {
   width: 200px;
 }
-
-
-
-
-/*
-.progress-bar .progress {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  background: linear-gradient(90deg, #4CAF50, gold);
-  color: white;
-  font-size: 12px;
-  font-weight: bold;
-  text-shadow: 0 0 3px black;
-  width: 0%;
-  transition: width 0.4s ease;
-}
-*/
