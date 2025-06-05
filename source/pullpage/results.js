@@ -21,7 +21,7 @@ async function init() {
         window.location.href = 'pack.html';
     }
 
-    //sessionStorage.setItem("madePull", "false");
+    sessionStorage.setItem("madePull", "false");
 
     if (sessionStorage.getItem("pull5") == "true") {
         TOTAL_CARDS = 25;
