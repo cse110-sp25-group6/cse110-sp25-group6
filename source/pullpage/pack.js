@@ -19,14 +19,6 @@ function init() {
             makeAPull(1);
         }
 
-        sessionStorage.setItem("pull5", "false");
-
-        let packsValue = localStorage.getItem("Packs");
-        packsValue -= 1;
-        localStorage.setItem('Packs', JSON.stringify(packsValue));
-        // console.log(packsValue);
-
-        showVideo();
     });
 
     document.getElementsByClassName("pull5")[0].addEventListener("click", () => {
@@ -35,14 +27,6 @@ function init() {
         } else {
             makeAPull(5);
         }
-        sessionStorage.setItem("pull5", "true");
-
-        let packsValue = localStorage.getItem("Packs");
-        packsValue -= 5;
-        localStorage.setItem('Packs', JSON.stringify(packsValue));
-        // console.log(packsValue);
-
-        showVideo();
     });
 }
 
@@ -73,50 +57,18 @@ export function addCurrencyToDocument() {
     }
 }
 
-function populateLocalStorage() {
-    // localStorage.clear();
-    // localStorage.setItem('Gems', JSON.stringify(50)); // Add some gems
-    // localStorage.setItem('Packs', JSON.stringify(3)); // Add some packs
-    for (let i = 0; i < 30; i++) {
-        let card = {
-            "name": `card${i}`,
-            "rarity": i % 5,
-            "acquisition": Date.now() - ((i % 7) * 1000 * 60 * 60 * 24)
-        }
-        addCardToCollection(card);
-    }
-}
-
 function verifyPullCount() {
     const pull1 = document.getElementsByClassName("pull1");
     const pull5 = document.getElementsByClassName("pull5");
 
-    let packsValue = localStorage.getItem("Packs");
+    const packsValue = localStorage.getItem("Packs");
 
     for (let i = 0; i < pull1.length; i++) {
         pull1[i].classList.toggle("not-enough-packs", packsValue < 1);
-
-        pull1[i].addEventListener("click", function (event) {
-            if (packsValue < 1) {
-                alert("You don't have enough packs!");
-                event.preventDefault(); 
-                event.stopImmediatePropagation();
-                // Prevent action 
-            }
-        });
     }
 
     for (let i = 0; i < pull5.length; i++) {
         pull5[i].classList.toggle("not-enough-packs", packsValue < 5);
-
-        pull5[i].addEventListener("click", function (event) {
-            if (packsValue < 5) {
-                alert("You don't have enough packs!");
-                event.preventDefault(); 
-                event.stopImmediatePropagation();
-                // Prevent action 
-            }
-        });
     }
 }
 
