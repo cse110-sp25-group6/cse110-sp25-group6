@@ -159,6 +159,8 @@ let canOpenPack = false;
         // Give a new pack and mark as given for this unlock time
         userData.Packs = (userData.Packs || 0) + 1;
         userData._packGiven = unlockTime;
+        // Reset timer for next pack
+        userData.nextPackUnlockTime = Date.now() + 5 * 60 * 1000; // 5 minutes
         localStorage.setItem("userData", JSON.stringify(userData));
         fillUserProfile(userData);
       }
