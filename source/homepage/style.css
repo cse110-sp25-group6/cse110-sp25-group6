@@ -392,3 +392,22 @@ main {
     width: 70vw;
   }
 }
+
+/* ------ for the note UI  ------ */
+.custom-notice {
+  display: none;
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #24292f;
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: 10px;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.2);
+  font-size: 1.15em;
+  z-index: 9999;
+  opacity: 0.96;
+  transition: opacity 0.3s;
+  letter-spacing: 0.03em;
+}
