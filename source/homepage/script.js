@@ -1,60 +1,151 @@
+// --------------- Main logic on page load ---------------
 document.addEventListener('DOMContentLoaded', () => {
-  // ====================== 1) Define user data ======================
-  // In a real app, you’d fetch this from localStorage or a backend API.
-  const userData = {
-    profileName: "SuperTeam6",
-    userLevel: 5,
-    levelProgress: 65,   // Percent, e.g. 65% to next level
-    gemsCount: 250,
-    packsCount: 8,
-    packProgress: 75     // Percent, e.g. 75% until next pack unlock
-  };
+  // 1. Load or initialize user data from localStorage
+  let userData = JSON.parse(localStorage.getItem("userData"));
+  if (!userData) {
+    userData = createDefaultUser();
+    localStorage.setItem("userData", JSON.stringify(userData));
+  }
 
-  // ====================== 2) Set Avatar Initials ======================
-  // Extract initials from profileName (e.g. “Team6” → “T”).
-  const initials = userData.profileName.match(/[A-Z]/g)?.join('') || "U";
+  // 2. Fill all profile and stat fields
+  fillUserProfile(userData);
+
+  // 3. Navigation (collections, pack opening)
+  document.getElementById("collectionsBtn")?.addEventListener("click", () => {
+    window.location.href = "../collection/collection.html";
+  });
+  document.getElementById("mainPack")?.addEventListener("click", () => {
+    window.location.href = "../pullpage/pack.html";
+  });
+
+  // 4. Register/Switch Account modal logic
+  const modal = document.getElementById("modalOverlay");
+  const openModalBtn = document.getElementById("registerBtn");
+  const closeModalBtn = document.getElementById("closeModalBtn");
+  const confirmRegisterBtn = document.getElementById("confirmRegisterBtn");
+  const newUsernameInput = document.getElementById("newUsername");
+
+  // Open modal
+  openModalBtn?.addEventListener("click", () => {
+    modal.style.display = "flex";
+    newUsernameInput.value = "";
+    newUsernameInput.focus();
+  });
+
+  // Close modal (X)
+  closeModalBtn?.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  // Confirm registration (button)
+  confirmRegisterBtn?.addEventListener("click", () => {
+    const username = newUsernameInput.value.trim();
+    if (!username) {
+      alert("Please enter a username!");
+      newUsernameInput.focus();
+      return;
+    }
+    // Create new account
+    const newAccount = createDefaultUser(username);
+    localStorage.setItem("userData", JSON.stringify(newAccount));
+    modal.style.display = "none";
+    fillUserProfile(newAccount);
+    location.reload(); // Ensures UI is fully synced
+  });
+
+  // Support Enter key for submit
+  newUsernameInput?.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      confirmRegisterBtn.click();
+    }
+  });
+
+  // Click outside modal to close
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) modal.style.display = "none";
+  });
+
+  // 5. Start countdown timer for pack unlock progress
+  setInterval(updatePackTimeLeft, 1000);
+  updatePackTimeLeft();
+});
+
+
+// ----------- Utility: Create a default (new or guest) user -----------
+function createDefaultUser(username = "guest") {
+  return {
+    Username: username,
+    AccountCreateTime: new Date().toISOString(),
+    UsrLvl: 1,
+    LevelProgress: 0,
+    Gems: 100,
+    Packs: 3,
+    PackProgress: 0,
+    PacksOpened: 0,
+    Collection: [],
+    Misc: {},
+    // Set unlock time to 6 hours from now for first use
+    nextPackUnlockTime: Date.now() + 6 * 3600 * 1000
+  };
+}
+
+// ----------- Utility: Fill all profile/pack info from userData -----------
+function fillUserProfile(userData) {
+  // Avatar initials
+  const initials = userData.Username
+    ? (userData.Username.match(/[A-Z]/g)?.join('') || userData.Username[0].toUpperCase())
+    : "U";
   document.querySelector(".avatar").textContent = initials;
 
-  // ====================== 3) Populate Profile Info ======================
-  // Insert the username
-  document.getElementById("profileName").textContent = userData.profileName;
-  // Insert “Level X”
-  document.getElementById("userLevel").textContent = `Level ${userData.userLevel}`;
+  // Name/Level
+  document.getElementById("profileName").textContent = userData.Username || "Guest";
+  document.getElementById("userLevel").textContent = `Level ${userData.UsrLvl || 1}`;
+  document.getElementById("levelProgress").value = userData.LevelProgress || 0;
+  document.getElementById("levelProgressLabel").textContent = `${userData.LevelProgress || 0}%`;
+  document.getElementById("headerGemsCount").textContent = userData.Gems || 0;
+  document.getElementById("headerPacksCount").textContent = userData.Packs || 0;
+  document.getElementById("currentPacks").textContent = userData.Packs || 0;
+  // Progress and time will be auto-updated by updatePackTimeLeft()
+}
 
-  // ====================== 4) Level Progress Bar ======================
-  const levelBar = document.getElementById("levelProgress");
-  // Set width to X% (fills the bar)
-  levelBar.style.width = `${userData.levelProgress}%`;
-  // Display the numeric percentage inside the colored bar
-  levelBar.textContent = `${userData.levelProgress}%`;
+// ----------- Countdown timer for next pack unlock (updates progress bar & time) -----------
+function updatePackTimeLeft() {
+  let userData = JSON.parse(localStorage.getItem("userData"));
+  if (!userData) return;
 
-  // ====================== 5) Currency (Gems & Packs) ======================
-  document.querySelector(".stat-value.gems").textContent = userData.gemsCount;
-  document.querySelector(".stat-value.packs").textContent = userData.packsCount;
-
-  // ====================== 6) Pack Footer: Number + Progress ======================
-  document.getElementById("currentPacks").textContent = userData.packsCount;
-  const packBar = document.getElementById("packProgress");
-  // Set width for pack unlock progress
-  packBar.style.width = `${userData.packProgress}%`;
-  // Display the text “75%” inside the pack progress bar
-  packBar.textContent = `${userData.packProgress}%`;
-
-  // ====================== 7) “Collections” Button Click ======================
-  const collectionsBtn = document.getElementById("collectionsBtn");
-  if (collectionsBtn) {
-    collectionsBtn.addEventListener("click", () => {
-      // Navigate to the collection/library page
-      window.location.href = "../collection/collection.html";
-    });
+  // If no unlock time, initialize (for older accounts)
+  if (!userData.nextPackUnlockTime) {
+    userData.nextPackUnlockTime = Date.now() + 6 * 3600 * 1000;
+    localStorage.setItem("userData", JSON.stringify(userData));
   }
+  const unlockTime = userData.nextPackUnlockTime;
+  const now = Date.now();
+  const totalMs = 6 * 3600 * 1000; // 6 hours
+  const msLeft = Math.max(0, unlockTime - now);
 
-  // ====================== 8) Pack Card Click ======================
-  const mainPack = document.getElementById("mainPack");
-  if (mainPack) {
-    mainPack.addEventListener("click", () => {
-      // Navigate to the pack opening page
-      window.location.href = "../pullpage/pack.html";
-    });
+  // Progress bar percent (0% ... 100%)
+  const elapsed = totalMs - msLeft;
+  const percent = Math.min(100, Math.round((elapsed / totalMs) * 100));
+  document.getElementById("packProgress").value = percent;
+  document.getElementById("packProgressLabel").textContent = `${percent}%`;
+
+  // Time label ("xh ymin left" or "Ready!")
+  if (msLeft <= 0) {
+    document.getElementById("packTimeLeft").textContent = "Ready!";
+    document.getElementById("packProgress").value = 100;
+    document.getElementById("packProgressLabel").textContent = "100%";
+  } else {
+    const hours = Math.floor(msLeft / 3600000);
+    const mins = Math.floor((msLeft % 3600000) / 60000);
+    document.getElementById("packTimeLeft").textContent =
+      `${hours}h ${mins}min left`;
   }
-});
+}
+
+// ----------- Call this when pack is opened to reset timer -----------
+function resetPackUnlockTimer() {
+  let userData = JSON.parse(localStorage.getItem("userData"));
+  userData.nextPackUnlockTime = Date.now() + 6 * 3600 * 1000;
+  localStorage.setItem("userData", JSON.stringify(userData));
+  updatePackTimeLeft();
+}
