@@ -21,8 +21,11 @@ main {
   position: relative;
   flex: 1 1 auto;
   display: flex;
+  flex-wrap: wrap-reverse;
   flex-direction: row-reverse;
+  gap: 1rem;
   justify-content: center;
+  align-items: center;
   padding: 0 5%;
   margin: 0;
   overflow: hidden;
@@ -51,43 +54,44 @@ main {
 }
 
 pack-icon {
-  position: relative;
+  /* position: relative; */
   display: flex;
-  padding: 3rem;
+  padding: 1rem;
   justify-content: center;
   align-items: center;
   margin-top: 5vh;
-  margin-bottom: 5vh;
+  margin-bottom: clamp(0.25rem, 10%, 5vh);
   z-index: 1;
 }
 
 #packPlaceholder {
-  width: clamp(100px, 20vw, 40vw);
-  height: clamp(150px, 30vw, 60vw);
+  width: clamp(200px, 20vw, 40vw);
+  height: clamp(300px, 30vw, 60vw);
   border: 2px solid black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: red;
 }
 
 side-box {
   position: sticky;
   right: 0;
-  height: 100%;
-  padding: 3rem;
+  height: auto;
+  max-height: 100%;
+  padding: 1rem;
   background-color: var(--color-background);
   width: fit-content;
+  max-width: 100%;
   align-content: center;
   text-align: center;
-  font-size: 2rem;
+  font-size: clamp(1rem, 2vw, 1.5rem);
 }
 
 hr {
+  position: inherit;
   height: 1px;
+  width: clamp(0.5rem, 60vw, 100%);
   border: none;
   background-color: var(--color-text);
-  margin: 0.75rem 0;
+  margin: 0.75rem auto;
 }
 
 #pull-buttons {
@@ -100,7 +104,7 @@ hr {
 }
 
 #pull-buttons button {
-  width: clamp(200px, 20vw, 30vw);
+  width: clamp(300px, 20vw, 30vw);
   height: clamp(50px, 5vw, 10vw);
   margin: 2%;
   text-align: center;
@@ -109,7 +113,7 @@ hr {
   border-style: none;
   border-radius: 9999px;
   background-color: var(--color-foreground);
-  font-size: 1.5rem;
+  font-size: clamp(1px, 1.15rem, 2rem);
 }
 
 .selected,
