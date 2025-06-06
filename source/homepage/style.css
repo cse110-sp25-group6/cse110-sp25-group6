@@ -1,237 +1,394 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif; /* Default font */
-  }
-  
-  body {
-    background-color: white; /* Page background */
-    color: black;            /* Default text color */
-  }
-  
-  /* ====================== HEADER ====================== */
-  header {
-    display: flex;
-    justify-content: space-between; /* Profile on left, actions on right */
-    align-items: center;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  }
-  
-  /* ---------- Avatar Styles ---------- */
-  .avatar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background-color: black;
-    color: white;
-    font-size: 1.8rem;
-    font-weight: bold;
-    /* Gold border around the avatar circle */
-    box-shadow: 0 0 0 2px gold;
-  }
-  
-  /* ---------- Profile Container ---------- */
-  .profile {
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Space between avatar and text */
-  }
-  
-  .profile-info h2 {
-    font-size: 18px;
-    color: #111;
-    margin-bottom: 5px; /* Small gap under name if additional line appears */
-  }
-  
-  /* ---------- “Level X” & Progress on Same Line ---------- */
-  .level-container {
-    display: flex;
-    align-items: center;
-    gap: 12px; /* Space between “Level X” and its progress bar */
-  }
-  
-  /* “Level 5” text styling */
-  #userLevel {
-    font-size: 16px;
-    font-weight: 600;
-    color: #222;
-  }
-  
-  /* ====================== PROGRESS BAR STYLES ====================== */
-  /* 
-    A generic wrapper for any progress bar (level or pack).
-    – position: relative so inner .progress can center text.
-    – background: dark gray
-    – border: solid, slightly darker
-    – border-radius: half of height for pill shape
-    – box-shadow: inset for a carved-in look
-  */
-  .progress-bar {
-    position: relative;
-    height: 18px;                 /* Taller to show percentage text clearly */
-    background: #2f2f2f;          /* Dark gray background */
-    border: 2px solid #555;       /* Slightly lighter gray border */
-    border-radius: 9px;           /* Pill-shaped corners */
-    overflow: hidden;
-    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.5);
-  }
-  
-  /* 
-    The colored portion of the progress bar:
-    – gradient from green to gold 
-    – text centered (white + black shadow) to display percentage 
-    – default width = 0% (JS will override)
-    – smooth width transition
-  */
-  .progress-bar .progress {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    background: linear-gradient(90deg, #4CAF50, gold); 
-    color: white;
-    font-size: 12px;
-    font-weight: bold;
-    text-shadow: 0 0 3px black;
-    width: 0%;
-    transition: width 0.4s ease;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Turret+Road:wght@200;300;400;500;700;800&display=swap');
 
-  /* ====================== SPECIFIC OVERRIDES ====================== */
-/* Make the level progress bar a fixed wider length (instead of auto) */
-.level-bar {
-  width: 100px; /* Increased width so the bar is longer */
+/* ------ Color and Font Variables ------ */
+:root {
+  --color-background: #181c1d;
+  /* Dark background */
+  --color-foreground: #23272a;
+  /* Slightly lighter for header */
+  --color-text: #f3f3f3;
+  /* Main text color */
+  --color-header-btn: #3498db;
+  /* Blue button */
+  --color-header-btn-hover: #217dbb;
+  --color-black-pill: #18191a;
+  --font-family: 'Turret Road', Arial, sans-serif;
 }
 
-  
-  /* ====================== HEADER ACTIONS ====================== */
-  .header-actions {
-    display: flex;
-    align-items: center;
-    gap: 24px; /* Space between Collections button and stats */
-  }
-  
-  .header-btn {
-    padding: 12px 22px;
-    font-size: 18px;
-    background-color: #3498db; /* Bright blue */
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .header-btn:hover {
-    background-color: #2980b9; /* Darker blue on hover */
-  }
-  
-  /* ====================== STATS DISPLAY (Gems/Packs) ====================== */
-  /* 
-    Using custom tags <stats-container> and <stat-display> purely for styling.
-    – stats-container: black pill-shaped background with a slight drop shadow
-    – stat-display: flex row of icon + value 
-  */
-  stats-container {
-    display: flex;
-    gap: 1rem;
-    background-color: black;
-    padding: 0.5rem 1rem;
-    border-radius: 1rem;
-    align-items: center;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  }
-  
-  stat-display {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: white;
-    font-weight: 600;
-    font-size: 1rem;
-  }
-  
-  /* Icon sizes */
-  .stat-icon {
-    font-size: 1.3rem;
-  }
-  
-  /* Specific icon colors */
-  .gems .stat-icon {
-    color: #cc00ff; /* Purple for gems */
-  }
-  
-  .packs .stat-icon {
-    color: #ff3333; /* Red for packs */
-  }
-  
-  /* ====================== MAIN CONTENT (Pack Area) ====================== */
-  main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 120px); /* Full viewport minus header height */
-  }
-  
-  /* ---------- Pack Container ---------- */
-  .pack-container {
-    display: flex;
+/* ------ Reset ------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ------ Header (Top Bar) ------ */
+.site-header {
+  width: 100vw;
+  background: var(--color-foreground);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.header-content {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 4vw 18px 4vw;
+  box-sizing: border-box;
+}
+
+/* ------ User Profile (Left) ------ */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #000;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  box-shadow: 0 0 0 2px gold;
+}
+
+.profile-info h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 3px;
+  font-family: var(--font-family);
+}
+
+.level-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#userLevel {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.level-bar {
+  width: 180px;
+  height: 14px;
+  margin: 0 0.5em;
+  border-radius: 7px;
+  appearance: none;
+  background: #2f2f2f;
+  border: none;
+}
+
+.level-bar::-webkit-progress-bar {
+  background: #2f2f2f;
+  border-radius: 7px;
+}
+
+.level-bar::-webkit-progress-value {
+  background: linear-gradient(90deg, #4CAF50 65%, gold);
+  border-radius: 7px;
+}
+
+.level-bar::-moz-progress-bar {
+  background: linear-gradient(90deg, #4CAF50 65%, gold);
+  border-radius: 7px;
+}
+
+.progress-label {
+  font-size: 1em;
+  font-weight: 600;
+  background: #444;
+  color: #fff;
+  border-radius: 7px;
+  padding: 0 0.5em;
+  min-width: 32px;
+  text-align: center;
+  display: inline-block;
+  letter-spacing: 0.02em;
+}
+
+/* ------ Header Actions (Right) ------ */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.header-btn {
+  padding: 12px 22px;
+  font-size: 17px;
+  background: var(--color-header-btn);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.17s;
+  box-shadow: 0 1px 5px rgba(52, 152, 219, 0.05);
+}
+
+.header-btn:hover {
+  background: var(--color-header-btn-hover);
+}
+
+.stats-list {
+  display: flex;
+  gap: 1.1rem;
+  list-style: none;
+  background: var(--color-black-pill);
+  border-radius: 1.3rem;
+  padding: 0.35rem 1.1rem;
+  align-items: center;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.13);
+}
+
+.stats-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.stat-icon.gems {
+  color: #c500ff;
+  font-size: 1.17rem;
+}
+
+.stat-icon.packs {
+  color: #ff3333;
+  font-size: 1.15rem;
+}
+
+/* ------ Main Content ------ */
+main {
+  width: 100vw;
+  min-height: calc(100vh - 72px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-background);
+}
+
+/* ------ Pack Section (Card Area) ------ */
+.pack-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  margin-top: 6vh;
+}
+
+/* ------ Main Card (NO big gray box, only modern white card) ------ */
+.pack-card {
+  width: 240px;
+  height: 340px;
+  background: #fff;
+  /* White background for main card */
+  border-radius: 16px;
+  box-shadow: 0 5px 24px rgba(0, 0, 0, 0.14);
+  /* Soft shadow */
+  cursor: pointer;
+  transition: transform 0.23s, box-shadow 0.2s;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  border: none;
+}
+
+.pack-card:hover,
+.pack-card:focus {
+  transform: scale(1.045);
+  box-shadow: 0 8px 28px rgba(52, 152, 219, 0.15);
+  outline: 2px solid #3498db;
+}
+
+.pack-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #eee;
+  border-radius: 16px;
+}
+
+/* ------ Pack Footer & Progress ------ */
+.pack-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.packs-counter {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: #fff;
+  background: var(--color-black-pill);
+  border-radius: 15px;
+  padding: 0.36em 1.6em;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.13);
+}
+
+.packs-counter .stat-icon.packs {
+  color: #ff3333;
+}
+
+.pack-progress-group {
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+  width: 100%;
+  justify-content: center;
+}
+
+.pack-bar {
+  width: 210px;
+  height: 18px;
+  border-radius: 9px;
+  appearance: none;
+  background: #2f2f2f;
+  border: none;
+}
+
+.pack-bar::-webkit-progress-bar {
+  background: #2f2f2f;
+  border-radius: 9px;
+}
+
+.pack-bar::-webkit-progress-value {
+  background: linear-gradient(90deg, #6ECE91 40%, #F4D35E 90%, #222 100%);
+  border-radius: 9px;
+}
+
+.pack-bar::-moz-progress-bar {
+  background: linear-gradient(90deg, #6ECE91 40%, #F4D35E 90%, #222 100%);
+  border-radius: 9px;
+}
+
+.pack-progress-group .progress-label {
+  min-width: 38px;
+  background: #444;
+  color: #fff;
+  border-radius: 7px;
+  text-align: center;
+  font-size: 1em;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.pack-time {
+  font-size: 15px;
+  color: #888;
+  letter-spacing: 0.04em;
+  margin-top: 4px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Modal (Register/Switch Account) */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.35);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  background: #23272a;
+  color: #fff;
+  border-radius: 12px;
+  padding: 2em 2.5em;
+  box-shadow: 0 5px 24px rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 280px;
+  position: relative;
+}
+
+.modal input {
+  padding: 0.4em 0.7em;
+  font-size: 1.1em;
+  margin-top: 1em;
+  border-radius: 7px;
+  border: none;
+  background: #fff;
+  color: #111;
+}
+
+.modal button {
+  margin-top: 1.3em;
+  padding: 0.6em 1.5em;
+  font-size: 1.1em;
+  background: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.modal button:hover {
+  background: #217dbb;
+}
+
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.3em;
+  cursor: pointer;
+}
+
+/* ------ Responsive ------ */
+@media (max-width: 700px) {
+  .header-content {
     flex-direction: column;
-    align-items: center;
-    gap: 16px;
+    gap: 18px;
   }
-  
-  /* 
-    Card pack image wrapper:
-    – fixed 200x300 size,
-    – subtle drop shadow, rounded corners,
-    – hover zoom effect
-  */
-  .pack {
-    width: 200px;
-    height: 300px;
-    background-color: #ddd;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    overflow: hidden;
+
+  .pack-card {
+    width: 95vw;
+    height: 52vw;
+    min-width: 170px;
+    min-height: 230px;
   }
-  
-  .pack:hover {
-    transform: scale(1.05);
-  }
-  
-  .pack img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  /* ---------- Pack Footer ---------- */
-  /* Parent container stacks elements vertically */
-  .pack-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  /* The “time left” text below the pack progress bar */
-  .pack-time {
-    font-size: 13px;
-    color: #666;
-  }
-  
-  /* 
-    Specific override for Pack progress bar to make it wider than the level bar 
-    – since this lives under the big card image, we give it 200px width.
-  */
+
   .pack-bar {
-    width: 200px;
+    width: 70vw;
   }
+}
