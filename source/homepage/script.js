@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ====================== 6) Pack Footer: Number + Progress ======================
   document.getElementById("currentPacks").textContent = userData.packsCount;
-  const packBar = document.getElementById("packProgress");
+  //const packBar = document.getElementById("packProgress");
   // Set width for pack unlock progress
   //packBar.style.width = `${userData.packProgress}%`;
   // Display the text “75%” inside the pack progress bar
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mainPack) {
     mainPack.addEventListener("click", () => {
       if (mainPack.classList.contains("disabled")) return;
-        startCooldown(); // Save unlock time in localStorage
+        //startCooldown(); // Save unlock time in localStorage
       // Navigate to the pack opening page
       window.location.href = "../pullpage/pack.html";
     });
@@ -125,7 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         //if pack count is greater than 100, multiply currPacks/100 by 10 to get appropriate percentage
         if(userData.levelProgress > 100) {
-          let bigPackCount = userData.levelProgress / 100
           userData.levelProgress = (userData.currentPacks / 100) * 10;
         }
 
