@@ -3,7 +3,6 @@ name: CI Pipeline
 on: 
   push:
   workflow_dispatch:
-  pull_request:
 
 
 jobs:
@@ -29,7 +28,10 @@ jobs:
         uses: Cyb3r-Jak3/html5validator-action@v7.2.0
         with:
           root: source/
-          css: true
+          css: false
           blacklist: |
             node_modules
             docs
+      
+      - name: CSS Validator
+        run: npx stylelint "**/*.css" --config config/.stylelintrc.js

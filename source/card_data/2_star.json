@@ -133,10 +133,10 @@
   },
   {
     "id": 25,
-    "name": "Script Djinn",
+    "name": "Reality Weaver Spirit",
     "image": "JavaScript.png",
     "rarity": 2,
-    "lore": "A playful djinn that scripts reality in real time, conjuring dynamic illusions with a flick of its wrist. Its tricks range from minor enhancements to complex, event-driven marvels. Some praise it as indispensable, while others resent its unpredictability. Its influence ripples across the web, unseen but deeply felt.\n\nJavaScript is a high-level, interpreted scripting language that runs in the browser and on servers (via Node.js), used to create dynamic and interactive web content through event-driven, functional, and prototype-based paradigms.",
+    "lore": "A mischievous spirit who warps the fabric of existence with every whispered incantation. It weaves shimmering illusions and interactive wonders in real time, bending perception to its whim. Some hail it as a masterful architect of dynamic sorcery, while others curse its erratic flair for chaos. Its unseen hand ripples through every corner of the web, leaving both marvel and mayhem in its wake.\n\nJavaScript is a high-level, interpreted scripting language that runs in the browser and on servers (via Node.js), used to create dynamic and interactive web content through event-driven, functional, and prototype-based paradigms.",
     "stats": {
       "health": 190,
       "damage": 95

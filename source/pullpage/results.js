@@ -1,8 +1,9 @@
+import { addCardToCollection } from "../util/utils.js";
+import '../components/card/cardComponent.js';
+import '../components/top-bar/top-bar.js';
+
 // get references to DOM elements
 const stack = document.getElementById("card-stack");
-const topRow = document.getElementById("top-row");
-const bottomRow = document.getElementById("bottom-row");
-const continueButton = document.querySelector("#continue");
 
 // configuration
 let TOTAL_CARDS = 5;
@@ -12,10 +13,7 @@ let FLIPPED = TOTAL_CARDS;
 let CONTINUE = false;
 
 // initialize: create cards and trigger deal
-function init() {
-
-
-
+async function init() {
     if (sessionStorage.getItem("pull5") == "true") {
         TOTAL_CARDS = 25;
         DEAL_DELAY = 100;
@@ -28,11 +26,9 @@ function init() {
         WIPE_DELAY = 100;
         FLIPPED = TOTAL_CARDS;
     }
-
-    
     
     for (let i = 0; i < TOTAL_CARDS; i++) {
-        const card = createCard(i);
+        const card = await createCard(i);
         stack.appendChild(card);
     }
 
@@ -54,92 +50,75 @@ function init() {
 
 }
 
+
+
+
+async function getRandomCard() {
+    let rng = Math.random();
+    let rarity = 1;
+    if (rng > 0.99) {
+        rarity = 5;
+    }
+    else if (rng > 0.9) {
+        rarity = 4;
+    }
+    else if (rng > 0.75) {
+        rarity = 3;
+    }
+    else if (rng > 0.5) {
+        rarity = 2;
+    }
+
+    const res = await fetch(`../card_data/${rarity}_star.json`);
+    if (!res.ok) {
+        console.error(`Failed to load ${rarity}_star.json`);
+    }
+    const cards = await res.json();
+    let index = Math.floor(Math.random() * cards.length);
+    return cards[index];
+    
+}
+
 // utility: Create a card DOM element
-function createCard(index) {
+async function createCard(index) {
+
+    let front = document.createElement('card-component');
+    front.classList.add("card-front");
+    let cardData = await getRandomCard();
+    front.data = cardData;
+    addCardToCollection(cardData);
 
     let card = document.createElement("div");
     card.classList.add("card", "facedown");
 
-    let inner = document.createElement("div");
-    inner.classList.add("card-inner");
-
-    let front = document.createElement("div");
-    front.classList.add("card-front");
-    front.textContent = `Front ${index + 1}`;
+    
 
     let back = document.createElement("div");
     back.classList.add("card-back");
     back.textContent = `Back ${index + 1}`;
 
-    inner.appendChild(front);
-    inner.appendChild(back);
-    card.appendChild(inner);
+    card.appendChild(front);
+    card.appendChild(back);
 
     // deal from off-screen (centered, above five locations)
-    card.style.transform = `translate(675px, -500px)`;
+    card.style.transform = `translate(-1500px, -1500px)`;
 
     return card;
 }
 
 // deal cards
 function dealCards() {
-    if (TOTAL_CARDS == 5) {
-        let cards = Array.from(stack.children);
-        let cardWidth = 200;
-        let cardHeight = 300;
-        let gap = 20;
+    let cards = Array.from(stack.children);
+    cards.forEach((card, i) => {
+        
+        setTimeout(() => {
+            card.style.transform = '';
+            card.classList.add("dealt");
+            card.style.transition = "transform 0.8s ease";
 
-        cards.forEach((card, i) => {
-            
-            setTimeout(() => {
-                let col = i % 3;
-                let row = i < 3 ? 0 : 1;
-
-                let cardsInRow = i < 3 ? 3 : 2;
-                let totalWidth = cardsInRow * cardWidth + (cardsInRow - 1) * gap;
-                let startX = (stack.clientWidth - totalWidth) / 2;
-
-                let x = startX + col * (cardWidth + gap);
-                let y = row * (cardHeight + gap);
-
-                card.style.transform = `translate(${x}px, ${y}px)`;
-
-                card.classList.add("dealt");
-
-                card.addEventListener("click", () => flipCard(card));
-            }, i * DEAL_DELAY);
-        });
-    }
-    else {
-        let cards = Array.from(stack.children);
-        let cardWidth = 400/3;
-        let cardHeight = 200;
-        let gap = 20;
-
-        cards.forEach((card, i) => {
-            
-            card.style.width = `${cardWidth}px`;
-            card.style.height = `${cardHeight}px`;
-
-            setTimeout(() => {
-                let col = i < 8  ?  i % 8  :  i < 17  ?  (i + 1) % 9 : (i - 1) % 8;
-                let row = i < 8 ? 0 : i < 17 ? 1 : 2;
-
-                let cardsInRow = i < 8 ? 8 : i < 17 ? 9 : 8;
-                let totalWidth = cardsInRow * cardWidth + (cardsInRow - 1) * gap;
-                let startX = (stack.clientWidth - totalWidth) / 2;
-
-                let x = startX + col * (cardWidth + gap);
-                let y = row * (cardHeight + gap) - 50;
-
-                card.style.transform = `translate(${x}px, ${y}px)`;
-
-                card.classList.add("dealt");
-
-                card.addEventListener("click", () => flipCard(card));
-            }, i * DEAL_DELAY);
-        });
-    }
+            card.addEventListener("click", () => flipCard(card));
+        }, i * DEAL_DELAY);
+    });
 }
 
 // flip card animation

@@ -1,12 +1,12 @@
-import { getCollectionCards, addCardToCollection } from "../util/utils.js";
+import '../components/card/cardComponent.js';
+import '../components/top-bar/top-bar.js';
+import { getCollectionCards } from "../util/utils.js";
 
 window.addEventListener("DOMContentLoaded", init);
 
 let cards = [];
 
 function init() {
-    populateLocalStorage();
-
     cards = getCollectionCards();
 
     addCurrencyToDocument();
@@ -34,20 +34,6 @@ function addCurrencyToDocument() {
     }
     for (let i = 0; i < packs.length; i++) {
         packs[i].innerHTML = `Packs: ${packsValue}`;
-    }
-}
-
-function populateLocalStorage() {
-    localStorage.clear();
-    localStorage.setItem('Gems', JSON.stringify(50)); // Add some gems
-    localStorage.setItem('Packs', JSON.stringify(3)); // Add some packs
-    for (let i = 0; i < 30; i++) {
-        let card = {
-            "name": `card${i}`,
-            "rarity": i % 5,
-            "acquisition": Date.now() - ((i % 7) * 1000 * 60 * 60 * 24)
-        }
-        addCardToCollection(card);
     }
 }
 
@@ -86,8 +72,9 @@ function showVideo() {
     })
 
 }
-
-function hideVideo() { //Keeping this around temporarily in case we still need it later, but for now the easiest fix is just to not run this function.
+//Keeping this around temporarily in case we still need it later, but for now the easiest fix is just to not run this function.
+/*
+function hideVideo() { 
     const videoContainer = document.getElementsByClassName("video-container");
     const videoElement = document.getElementsByClassName("pack-video");
 
@@ -98,4 +85,4 @@ function hideVideo() { //Keeping this around temporarily in case we still need i
     for (let i = 0; i < videoElement.length; i++) {
         videoElement[i].style.display = "none";
     }
-}
+}*/
