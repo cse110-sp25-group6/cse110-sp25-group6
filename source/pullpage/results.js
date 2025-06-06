@@ -105,7 +105,13 @@ async function createCard(index) {
 
     let back = document.createElement("div");
     back.classList.add("card-back");
-    back.textContent = `Back ${index + 1}`;
+    // back.textContent = `Back ${index + 1}`;
+    const img = document.createElement('img');
+    img.src = './card-back.png';
+    img.alt = `Back ${index + 1}`;
+    img.style.width = '226px';
+    img.style.height = '318px';
+    back.appendChild(img);
 
     card.appendChild(front);
     card.appendChild(back);

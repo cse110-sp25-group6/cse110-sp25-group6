@@ -28,7 +28,7 @@ main {
   align-items: center;
   padding: 0 5%;
   margin: 0;
-  overflow: hidden;
+  overflow: auto;
   background-color: var(--color-background);
 }
 
@@ -67,8 +67,8 @@ pack-icon {
 #packPlaceholder {
   width: clamp(200px, 20vw, 40vw);
   height: clamp(300px, 30vw, 60vw);
-  border: 2px solid black;
-  color: red;
+  border: 2px solid red;
+  filter: brightness(3);
 }
 
 side-box {
@@ -113,7 +113,8 @@ hr {
   border-style: none;
   border-radius: 9999px;
   background-color: var(--color-foreground);
-  font-size: clamp(1px, 1.15rem, 2rem);
+  color: red;
+  font-size: clamp(10px, 2vw, 1.5rem);
 }
 
 .selected,
