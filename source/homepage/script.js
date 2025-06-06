@@ -1,6 +1,4 @@
 let canOpenPack = false;
-// Global: Controls if user can open a new pack
-let canOpenPack = false;
 
 // ---------- On page load: Main UI logic ----------
 document.addEventListener('DOMContentLoaded', () => {
@@ -19,16 +17,20 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = "../collection/collection.html";
   });
   document.getElementById("mainPack")?.addEventListener("click", () => {
-    if (!canOpenPack) {
-      showNotice("NOTE: You need to wait until the timer is ready!");
+    let userData = JSON.parse(localStorage.getItem("userData"));
+    if (!userData || (userData.Packs ?? 0) < 1) {
+      showNotice("You don't have any packs to open!");
       return;
     }
+    // Decrement packs by 1 and update localStorage
+    userData.Packs -= 1;
+    localStorage.setItem("userData", JSON.stringify(userData));
+    fillUserProfile(userData); // Update UI immediately
+
     // Particle explosion animation
     particleExplosion('.pack-card', 24);
 
-    // Reset unlock timer & navigate to pack opening page
     setTimeout(() => {
-      resetPackUnlockTimer();
       window.location.href = "../pullpage/pack.html";
     }, 500); // Give time for the animation
   });
@@ -121,7 +123,7 @@ function createDefaultUser(username = "guest") {
     PacksOpened: 0,
     Collection: [],
     Misc: {},
-    nextPackUnlockTime: Date.now() + 6 * 3600 * 1000 // 6 hours later
+    nextPackUnlockTime: Date.now() + 5 * 60 * 1000 // 5 minutes
   };
 }
 
@@ -156,23 +158,14 @@ function updatePackTimeLeft() {
   if (!userData) return;
   const packSubtext = document.getElementById('packSubtext');
 
-  // Update pack card subtext
-  if (canOpenPack && packSubtext) {
-    packSubtext.textContent = "Click to open";
-    packSubtext.style.color = "#ffec97";
-  } else if (packSubtext) {
-    packSubtext.textContent = "Locked (Wait for timer)";
-    packSubtext.style.color = "#bbb";
-  }
-
   // If no unlock time, set one for backward compatibility
   if (!userData.nextPackUnlockTime) {
-    userData.nextPackUnlockTime = Date.now() + 6 * 3600 * 1000;
+    userData.nextPackUnlockTime = Date.now() + 5 * 60 * 1000; // 5 minutes
     localStorage.setItem("userData", JSON.stringify(userData));
   }
   const unlockTime = userData.nextPackUnlockTime;
   const now = Date.now();
-  const totalMs = 6 * 3600 * 1000; // 6 hours
+  const totalMs = 5 * 60 * 1000; // 5 minutes
   const msLeft = Math.max(0, unlockTime - now);
 
   // Progress bar
@@ -181,18 +174,30 @@ function updatePackTimeLeft() {
   document.getElementById("packProgress").value = percent;
   document.getElementById("packProgressLabel").textContent = `${percent}%`;
 
-  // Time label
+  // Time label and pack increment
   if (msLeft <= 0) {
-    canOpenPack = true;
+    // Give a new pack and reset timer
+    userData.Packs = (userData.Packs || 0) + 1;
+    userData.nextPackUnlockTime = Date.now() + 5 * 60 * 1000; // reset for another 5 minutes
+    localStorage.setItem("userData", JSON.stringify(userData));
+    fillUserProfile(userData);
+
     document.getElementById("packTimeLeft").textContent = "Ready!";
     document.getElementById("packProgress").value = 100;
     document.getElementById("packProgressLabel").textContent = "100%";
+    if (packSubtext) {
+      packSubtext.textContent = "Click to open";
+      packSubtext.style.color = "#ffec97";
+    }
   } else {
-    canOpenPack = false;
     const hours = Math.floor(msLeft / 3600000);
     const mins = Math.floor((msLeft % 3600000) / 60000);
     document.getElementById("packTimeLeft").textContent =
       `${hours}h ${mins}min left`;
+    if (packSubtext) {
+      packSubtext.textContent = "Locked (Wait for timer)";
+      packSubtext.style.color = "#bbb";
+    }
   }
 }
 
@@ -201,7 +206,7 @@ function updatePackTimeLeft() {
  */
 function resetPackUnlockTimer() {
   let userData = JSON.parse(localStorage.getItem("userData"));
-  userData.nextPackUnlockTime = Date.now() + 6 * 3600 * 1000;
+  userData.nextPackUnlockTime = Date.now() + 5 * 60 * 1000; // 5 minutes
   localStorage.setItem("userData", JSON.stringify(userData));
   updatePackTimeLeft();
 }
