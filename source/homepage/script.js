@@ -1,14 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
   // ====================== 1) Define user data ======================
   // In a real app, you’d fetch this from localStorage or a backend API.
-  const userData = {
+  const defaultData = {
     profileName: "SuperTeam6",
     userLevel: 5,
     levelProgress: 65,   // Percent, e.g. 65% to next level
     gemsCount: 250,
-    packsCount: 8,
+    packsCount: 12,
+    currentPacks: 12,
     packProgress: 75     // Percent, e.g. 75% until next pack unlock
   };
+
+  let userData = JSON.parse(localStorage.getItem('userData'));
+  if (!userData) {
+    userData = defaultData;
+    localStorage.setItem('userData', JSON.stringify(userData));
+  }
 
   // ====================== 2) Set Avatar Initials ======================
   // Extract initials from profileName (e.g. “Team6” → “T”).
@@ -36,9 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById("currentPacks").textContent = userData.packsCount;
   const packBar = document.getElementById("packProgress");
   // Set width for pack unlock progress
-  packBar.style.width = `${userData.packProgress}%`;
+  //packBar.style.width = `${userData.packProgress}%`;
   // Display the text “75%” inside the pack progress bar
-  packBar.textContent = `${userData.packProgress}%`;
+  //packBar.textContent = `${userData.packProgress}%`;
 
   // ====================== 7) “Collections” Button Click ======================
   const collectionsBtn = document.getElementById("collectionsBtn");
@@ -53,8 +60,94 @@ document.addEventListener('DOMContentLoaded', () => {
   const mainPack = document.getElementById("mainPack");
   if (mainPack) {
     mainPack.addEventListener("click", () => {
+      if (mainPack.classList.contains("disabled")) return;
+        startCooldown(); // Save unlock time in localStorage
       // Navigate to the pack opening page
       window.location.href = "../pullpage/pack.html";
     });
   }
+
+  // ====================== 9) Cooldown Timer & Progress Bar ======================
+  const countdownText = document.getElementById("packTimeLeft");
+  const cooldownBar = document.getElementById("packProgress");
+  const cooldownMinutes = 360; // 6 hours in minutes
+  const cooldownDuration = cooldownMinutes * 60 * 1000; // 6 hours in ms
+
+  // Get the start time from localStorage or set it to now if not present
+  let startTime = localStorage.getItem("packCooldownStart");
+  if (!startTime) {
+    startTime = Date.now();
+    localStorage.setItem("packCooldownStart", startTime);
+  } else {
+    startTime = parseInt(startTime);
+  }
+
+  function updateCooldown() {
+    const now = Date.now();
+    const elapsed = now - startTime;
+    const remaining = cooldownDuration - elapsed;
+
+    // Calculate progress
+    let percent = Math.max(0, Math.min(100, (elapsed / cooldownDuration) * 100));
+    cooldownBar.style.width = `${percent}%`;
+
+    cooldownBar.textContent = "";
+    cooldownBar.setAttribute("data-percent", `${Math.floor(percent)}%`);
+
+    const remainingMinutes = Math.floor(remaining / (60 * 1000));
+    const remainingSeconds = Math.floor((remaining % (60 * 1000)) / 1000);
+
+    // Format remaining time
+    if (remainingMinutes >= 60) {
+      const hours = String(Math.floor(remainingMinutes / 60)).padStart(2, '0');
+      const minutes = String(remainingMinutes % 60).padStart(2, '0');
+      countdownText.textContent = `${hours}H ${minutes}M left`;
+    } else {
+      const minutes = String(remainingMinutes).padStart(2, '0');
+      const seconds = String(remainingSeconds).padStart(2, '0');
+      countdownText.textContent = `${minutes}M ${seconds}S left`;
+    }
+
+    //If finished
+    if (remaining <= 0) {
+      clearInterval(timerInterval);
+
+      //Obtain user data from local storage to increment the pack count
+      let userData = JSON.parse(localStorage.getItem('userData'));
+      if (userData) {
+
+        //Increment pack count and update local storage
+        userData.packsCount += 1;
+        userData.currentPacks += 1;
+        localStorage.setItem('userData', JSON.stringify(userData));
+      
+        //Edit page to reflect pack incrementation immmediately after timer is up
+        const packsCountA = document.getElementById("packsCount");
+        const currentPacksA = document.getElementById("currentPacks");
+        
+        if(packsCountA) {
+          packsCountA.textContent = userData.packsCount;
+        }
+
+        if(currentPacksA) {
+          currentPacksA.textContent = userData.currentPacks;
+        }
+
+    }
+
+      countdownText.textContent = "Ready!";
+      cooldownBar.style.width = "100%";
+      cooldownBar.setAttribute("data-percent", "100%");
+      localStorage.removeItem("packCooldownStart"); // Clear cooldown
+      mainPack.classList.remove("disabled"); // Enable pack card
+    } else {
+      mainPack.classList.add("disabled"); // Disable pack card during cooldown
+    }
+  }
+
+    // Start the countdown
+    const timerInterval = setInterval(updateCooldown, 1000);
+    updateCooldown(); // run once immediately
 });
+
+
