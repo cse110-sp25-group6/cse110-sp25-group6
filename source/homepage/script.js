@@ -22,9 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
       showNotice("You don't have any packs to open!");
       return;
     }
-    // Decrement packs by 1 and update localStorage
-    userData.Packs -= 1;
-    localStorage.setItem("userData", JSON.stringify(userData));
+    // Do NOT decrement packs here
     fillUserProfile(userData); // Update UI immediately
 
     // Particle explosion animation
