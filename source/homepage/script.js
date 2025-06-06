@@ -1,4 +1,4 @@
-  let canOpenPack = false;
+let canOpenPack = false;
 
   // --------------- Main logic on page load ---------------
   document.addEventListener('DOMContentLoaded', () => {
@@ -17,10 +17,15 @@
       window.location.href = "../collection/collection.html";
     });
     document.getElementById("mainPack")?.addEventListener("click", () => {
-      if(!canOpenPack){
-        showNotice("NOTE: You need to wait until the timer is ready!");
+      let userData = JSON.parse(localStorage.getItem("userData"));
+      if (!userData || (userData.Packs ?? 0) < 1) {
+        showNotice("You don't have any packs to open!");
         return;
       }
+      // Decrement packs by 1 and update localStorage
+      userData.Packs -= 1;
+      localStorage.setItem("userData", JSON.stringify(userData));
+      fillUserProfile(userData); // Update UI immediately
       resetPackUnlockTimer();
       window.location.href = "../pullpage/pack.html";
     });
@@ -98,13 +103,13 @@
       UsrLvl: 1,
       LevelProgress: 0,
       Gems: 100,
-      Packs: 3,
+      Packs: 10,
       PackProgress: 0,
       PacksOpened: 0,
       Collection: [],
       Misc: {},
       // Set unlock time to 6 hours from now for first use
-      nextPackUnlockTime: Date.now() + 6 * 3600 * 1000
+      nextPackUnlockTime: Date.now() + 5 * 60 * 1000 // 5 minutes
     };
   }
 
@@ -134,22 +139,29 @@
 
     // If no unlock time, initialize (for older accounts)
     if (!userData.nextPackUnlockTime) {
-      userData.nextPackUnlockTime = Date.now() + 6 * 3600 * 1000;
+      userData.nextPackUnlockTime = Date.now() + 5 * 60 * 1000; // 5 minutes
       localStorage.setItem("userData", JSON.stringify(userData)); 
     }
     const unlockTime = userData.nextPackUnlockTime;
     const now = Date.now();
-    const totalMs = 6 * 3600 * 1000; // 6 hours
+    const totalMs = 5 * 60 * 1000; // 5 minutes
     const msLeft = Math.max(0, unlockTime - now);
 
     // Progress bar percent (0% ... 100%)
-    const elapsed = totalMs - msLeft;
-    const percent = Math.min(100, Math.round((elapsed / totalMs) * 100));
+    const elapsed = Math.max(0, totalMs - msLeft);
+    const percent = Math.max(0, Math.min(100, Math.round((elapsed / totalMs) * 100)));
     document.getElementById("packProgress").value = percent;
     document.getElementById("packProgressLabel").textContent = `${percent}%`;
 
     // Time label ("xh ymin left" or "Ready!")
     if (msLeft <= 0) {
+      if (!userData._packGiven || userData._packGiven < unlockTime) {
+        // Give a new pack and mark as given for this unlock time
+        userData.Packs = (userData.Packs || 0) + 1;
+        userData._packGiven = unlockTime;
+        localStorage.setItem("userData", JSON.stringify(userData));
+        fillUserProfile(userData);
+      }
       canOpenPack = true;
       document.getElementById("packTimeLeft").textContent = "Ready!";
       document.getElementById("packProgress").value = 100;
@@ -166,7 +178,7 @@
   // ----------- Call this when pack is opened to reset timer -----------
   function resetPackUnlockTimer() {
     let userData = JSON.parse(localStorage.getItem("userData"));
-    userData.nextPackUnlockTime = Date.now() + 6 * 3600 * 1000;
+    userData.nextPackUnlockTime = Date.now() + 5 * 60 * 1000; // 5 minutes
     localStorage.setItem("userData", JSON.stringify(userData));
     updatePackTimeLeft();
   }
