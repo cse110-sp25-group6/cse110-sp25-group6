@@ -21,8 +21,11 @@
         </div>
       </section>
       <nav class="header-actions" aria-label="Main navigation">
+        <div class="header-title">
+          <h1>CS Monsters Game</h1>
+        </div>
         <button class="header-btn" id="collectionsBtn">Collections</button>
-        <button class="header-btn" id="registerBtn">Register account</button>
+        <button class="header-btn" id="registerBtn">Change Username</button>
         <ul class="stats-list" aria-label="User Stats">
           <li>
             <span class="stat-icon gems">&#9672;</span>
@@ -70,10 +73,10 @@
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="registerTitle">
       <button class="modal-close" id="closeModalBtn" title="Close">&times;</button>
-      <h2 id="registerTitle">Register Account</h2>
-      <input type="text" id="newUsername" placeholder="Enter your username" maxlength="20" autocomplete="off" />
+      <h2 id="registerTitle">Change Username</h2>
+      <input type="text" id="newUsername" placeholder="Enter new username" maxlength="20" autocomplete="off" />
       <div class="form-tip">Username must be 3-16 letters or number</div>
-      <button id="confirmRegisterBtn">Create Account</button>
+      <button id="confirmRegisterBtn">Change Username</button>
     </div>
   </div>  
 
