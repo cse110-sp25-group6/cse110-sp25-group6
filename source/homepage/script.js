@@ -29,11 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById("userLevel").textContent = `Level ${userData.userLevel}`;
 
   // ====================== 4) Level Progress Bar ======================
-  const levelBar = document.getElementById("levelProgress");
+  //const levelBar = document.getElementById("levelProgress");
   // Set width to X% (fills the bar)
-  levelBar.style.width = `${userData.levelProgress}%`;
+  //levelBar.style.width = `${userData.levelProgress}%`;
   // Display the numeric percentage inside the colored bar
-  levelBar.textContent = `${userData.levelProgress}%`;
+  //levelBar.textContent = `${userData.levelProgress}%`;
 
   // ====================== 5) Currency (Gems & Packs) ======================
   document.querySelector(".stat-value.gems").textContent = userData.gemsCount;
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ====================== 9) Cooldown Timer & Progress Bar ======================
   const countdownText = document.getElementById("packTimeLeft");
   const cooldownBar = document.getElementById("packProgress");
-  const cooldownMinutes = 360; // 6 hours in minutes
+  const cooldownMinutes = 1; // 6 hours in minutes
   const cooldownDuration = cooldownMinutes * 60 * 1000; // 6 hours in ms
 
   // Get the start time from localStorage or set it to now if not present
@@ -119,18 +119,40 @@ document.addEventListener('DOMContentLoaded', () => {
         //Increment pack count and update local storage
         userData.packsCount += 1;
         userData.currentPacks += 1;
+
+        //update level progress
+        userData.levelProgress = (userData.currentPacks / 100) * 100;
+
+        //if pack count is greater than 100, multiply currPacks/100 by 10 to get appropriate percentage
+        if(userData.levelProgress > 100) {
+          let bigPackCount = userData.levelProgress / 100
+          userData.levelProgress = (userData.currentPacks / 100) * 10;
+        }
+
+        //set items in local storage
         localStorage.setItem('userData', JSON.stringify(userData));
       
-        //Edit page to reflect pack incrementation immmediately after timer is up
+        //get html elements to reflect pack incrementation immmediately after timer is up
         const packsCountA = document.getElementById("packsCount");
         const currentPacksA = document.getElementById("currentPacks");
+
+        //get level progress bar page 
+        const levelProgressA = document.getElementById("levelProgress");
         
+        //update page to reflect alterations - pack incrementation and level progress bar
         if(packsCountA) {
           packsCountA.textContent = userData.packsCount;
         }
 
         if(currentPacksA) {
           currentPacksA.textContent = userData.currentPacks;
+        }
+
+        if(levelProgressA) {
+          
+          levelProgressA.style.width = `${userData.levelProgress}%`;
+          // Display the numeric percentage inside the colored bar
+          levelProgressA.textContent = `${userData.levelProgress}%`;
         }
 
     }
