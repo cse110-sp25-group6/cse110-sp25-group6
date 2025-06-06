@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Game Homepage</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
   <header class="site-header">
     <div class="header-content">
@@ -23,8 +21,8 @@
         </div>
       </section>
       <nav class="header-actions" aria-label="Main navigation">
-        <button type="button" class="header-btn" id="collectionsBtn">Collections</button>
-        <button type="button" class="header-btn" id="registerBtn">Register account</button>
+        <button class="header-btn" id="collectionsBtn">Collections</button>
+        <button class="header-btn" id="registerBtn">Register account</button>
         <ul class="stats-list" aria-label="User Stats">
           <li>
             <span class="stat-icon gems">&#9672;</span>
@@ -41,11 +39,20 @@
 
   <main>
     <section class="pack-section" aria-label="Main Game Pack">
-      <!-- Card is just a white card, no outer box! -->
-      <div class="pack-card" id="mainPack" tabindex="0" aria-label="Game Pack Card">
-        <img src="https://placehold.co/240x340?text=Game+Pack" alt="Game Pack" class="pack-image" />
-      </div>
-      <div class="pack-footer" aria-label="Pack Progress & Time">
+      <article class="pack-card" id="mainPack" tabindex="0" aria-label="Game Pack Card">
+        <!-- Particle explosion (dynamic) -->
+        <div class="particle-explosion"></div>
+        <div class="pack-glow"></div>
+        <div class="pack-corner top-left"></div>
+        <div class="pack-corner top-right"></div>
+        <div class="pack-corner bottom-left"></div>
+        <div class="pack-corner bottom-right"></div>
+        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4e6.svg" class="pack-icon"
+          alt="Pack Box" />
+        <div class="pack-title">Game Pack</div>
+        <div class="pack-subtext" id="packSubtext">Click to open</div>
+      </article>
+      <footer class="pack-footer" aria-label="Pack Progress & Time">
         <div class="packs-counter">
           <span class="stat-icon packs">&#10697;</span>
           <span class="stat-value" id="currentPacks">0</span>
@@ -55,7 +62,7 @@
           <span class="progress-label" id="packProgressLabel">0%</span>
         </div>
         <span class="pack-time" id="packTimeLeft">Loading...</span>
-      </div>
+      </footer>
     </section>
   </main>
 
@@ -63,19 +70,16 @@
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="registerTitle">
       <button class="modal-close" id="closeModalBtn" title="Close">&times;</button>
-      <h2 id="registerTitle">RegisterAccount</h2>
+      <h2 id="registerTitle">Register Account</h2>
       <input type="text" id="newUsername" placeholder="Enter your username" maxlength="20" autocomplete="off" />
+      <div class="form-tip">Username must be 3-16 letters or number</div>
       <button id="confirmRegisterBtn">Create Account</button>
     </div>
-  </div>
+  </div>  
 
-  <script type="module" src="script.js"></script>
-
-  //this is for the note ui
   <div id="customNotice" class="custom-notice">
     <span id="customNoticeText"></span>
   </div>
-
-
+  <script type="module" src="script.js"></script>
 </body>
 </html>
