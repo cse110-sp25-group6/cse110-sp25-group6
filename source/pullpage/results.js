@@ -100,11 +100,18 @@ async function createCard(index) {
 
     let card = document.createElement("div");
     card.classList.add("card", "facedown");
-
-
+    /*
+    let blur = 10;
+    let spread = 0.5;
+    let R = 255;
+    let G = 155;
+    let B = 255;
+    let opacity = 0.7;
+    */
 
     let back = document.createElement("div");
     back.classList.add("card-back");
+    //back.style.boxShadow = `0 0 ${blur}px ${spread}px rgb(${R}, ${G}, ${B}, ${opacity}) inset`;
     back.textContent = `Back ${index + 1}`;
 
     card.appendChild(front);
