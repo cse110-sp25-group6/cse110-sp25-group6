@@ -14,10 +14,6 @@
 
     // 3. Navigation (collections, pack opening)
     document.getElementById("collectionsBtn")?.addEventListener("click", () => {
-      if(!canOpenPack){
-        showNotice("NOTE: You need to wait until the timer is ready!");
-        return;
-      }
       window.location.href = "../collection/collection.html";
     });
     document.getElementById("mainPack")?.addEventListener("click", () => {
