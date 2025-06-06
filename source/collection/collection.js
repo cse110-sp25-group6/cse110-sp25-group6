@@ -1,3 +1,16 @@
+/**
+ * 
+ * This file initializes the card collection page by loading cards from local storage,
+ * setting up event listeners for sorting, card inspection (next/previous navigation),
+ * and currency display.
+ *
+ * Dependencies:
+ *  - cardComponent.js
+ *  - top-bar.js
+ *  - util/utils.js
+ * 
+ */
+
 import '../components/card/cardComponent.js';
 import '../components/top-bar/top-bar.js';
 import { getCollectionCards, addCardToCollection } from "../util/utils.js";
@@ -8,10 +21,18 @@ let cards = [];
 let currentIndex = 0;
 let lastSort = "acquisition";
 
-async function init() {
-	await populateLocalStorage();
+/**
+ * Initializes the page by populating local storage, loading cards, sorting them,
+ * and attaching event listeners for interactive elements.
+ *
+ * @async
+ * @returns {Promise<void>}
+ */
+function init() {
+	
 
 	cards = getCollectionCards();
+	// Sort cards by most recent
 	sortCards(cards, "acquisition");
 	addCardsToDocument(cards);
 
@@ -22,31 +43,37 @@ async function init() {
 	let sortAcquisitionButton = document.getElementById("sort-acquisition");
 
 	const inspectorContainer = document.querySelector('.inspector');
-	const inspectedCard = document.getElementById('insepct-card');
+	const inspectedCard = document.getElementById('inspect-card');
 	const previousButton = document.getElementById("previous");
 	const nextButton = document.getElementById("next");
 	const lore = document.querySelector('.lore');
 
+	// Hide inspector when clicking outside the card area
 	inspectorContainer.addEventListener("click", (e) => {
 		if (e.target === e.currentTarget) {
 			inspectorContainer.style.display = "none";
 		}
-	})
-	previousButton.addEventListener("click", () => {
-		if (currentIndex != 0) {
-			currentIndex -= 1;
-			inspectedCard.data = cards[currentIndex]
-			lore.textContent = cards[currentIndex].lore;
-		}
-	})
-	nextButton.addEventListener("click", () => {
-		if (currentIndex != cards.length - 1) {
-			currentIndex += 1;
-			inspectedCard.data = cards[currentIndex]
-			lore.textContent = cards[currentIndex].lore;
-		}
-	})
+	});
 
+	// Navigate to previous card in inspector
+	previousButton.addEventListener("click", () => {
+		if (currentIndex !== 0) {
+			currentIndex -= 1;
+			inspectedCard.data = cards[currentIndex];
+			lore.textContent = cards[currentIndex].lore;
+		}
+	});
+
+	// Navigate to next card in inspector
+	nextButton.addEventListener("click", () => {
+		if (currentIndex !== cards.length - 1) {
+			currentIndex += 1;
+			inspectedCard.data = cards[currentIndex];
+			lore.textContent = cards[currentIndex].lore;
+		}
+	});
+
+	// Setup sort by name button
 	sortNameButton.addEventListener("click", () => {
 		if (lastSort === "name") return;
 		sortNameButton.classList.add("selected");
@@ -56,7 +83,8 @@ async function init() {
 		sortCards(cards, "name");
 		addCardsToDocument(cards);
 	});
-	
+
+	// Setup sort by rarity button
 	sortRarityButon.addEventListener("click", () => {
 		if (lastSort === "rarity") return;
 		sortRarityButon.classList.add("selected");
@@ -66,7 +94,8 @@ async function init() {
 		sortCards(cards, "rarity");
 		addCardsToDocument(cards);
 	});
-	
+
+	// Setup sort by acquisition date button
 	sortAcquisitionButton.addEventListener("click", () => {
 		if (lastSort === "acquisition") return;
 		sortAcquisitionButton.classList.add("selected");
@@ -78,6 +107,12 @@ async function init() {
 	});
 }
 
+/**
+ * Updates the DOM with the user's currency values (Gems and Packs).
+ * Retrieves values from local storage and updates all elements with the classes "gems" and "packs".
+ *
+ * @returns {void}
+ */
 function addCurrencyToDocument() {
 	const gems = document.getElementsByClassName("gems");
 	const packs = document.getElementsByClassName("packs");
@@ -93,40 +128,45 @@ function addCurrencyToDocument() {
 }
 
 /**
- * Adds all the cards that the user has to the document
- * @param {List} cards - List of cards to add to the document
- * @returns {void} - Nothing
+ * Renders all the cards into the document.
+ * Clears any existing cards and creates new card components for each card in the array.
+ *
+ * @param {Array} cards - List of card objects to be rendered.
+ * @returns {void}
  */
 function addCardsToDocument(cards) {
 	const collectionContainer = document.querySelector('collection-container');
 	const inspectorContainer = document.querySelector('.inspector');
-	const inspectedCard = document.getElementById('insepct-card');
+	const inspectedCard = document.getElementById('inspect-card');
 	const lore = document.querySelector('.lore');
 	collectionContainer.innerHTML = ''; // Remove all cards
 	for (let c = 0; c < cards.length; c++) {
 		let cardData = cards[c];
 		const cardComponent = document.createElement('card-component');
 
+		// Pass card data to the custom component
 		cardComponent.data = cardData;
 
+		// When a card is clicked, open the inspector and load the card details
 		cardComponent.addEventListener("click", () => {
 			currentIndex = c;
 			inspectorContainer.style.display = "flex";
 			inspectedCard.data = cardData;
 			lore.textContent = cardData.lore;
-		})
+		});
 
-
+		// Restart animation by triggering a reflow
 		cardComponent.classList.remove('animate-in');
 		collectionContainer.append(cardComponent);
 		void cardComponent.offsetWidth;
-		const x = -100 - Math.random() * 500 + '%'
-		const y = -100 - Math.random() * 500 + '%'
+		// Randomized starting position for the entrance animation
+		const x = -100 - Math.random() * 500 + '%';
+		const y = -100 - Math.random() * 500 + '%';
 		cardComponent.style.setProperty('--start-x', x);
-    	cardComponent.style.setProperty('--start-y', y);
+		cardComponent.style.setProperty('--start-y', y);
 		cardComponent.classList.add('animate-in');
 
-
+		// Add hover effect for the inner card
 		const card = cardComponent.shadowRoot.querySelector('.card');
 		card.addEventListener('mouseover', () => {
 			card.style.transform = 'scale(1.05)';
@@ -138,14 +178,17 @@ function addCardsToDocument(cards) {
 }
 
 /**
- * Populates the local storage with some sample cards 
- * @returns {void} - Nothing
+ * Populates local storage with sample cards and initial currency values.
+ *
+ * @async
+ * @returns {Promise<void>}
  */
 async function populateLocalStorage() {
 	localStorage.clear();
-	localStorage.setItem('Gems',JSON.stringify(50)); // Add some gems
-	localStorage.setItem('Packs',JSON.stringify(3)); // Add some packs
+	localStorage.setItem('Gems', JSON.stringify(50)); // Add some gems
+	localStorage.setItem('Packs', JSON.stringify(3)); // Add some packs
 
+	// Loop through sample card data files
 	for (let i = 1; i < 6; i++) {
 		const res = await fetch(`../card_data/${i}_star.json`);
 		if (!res.ok) {
@@ -155,20 +198,20 @@ async function populateLocalStorage() {
 
 		const cards = await res.json();
 
+		// Adjust acquisition date and add each card to the collection
 		for (const card of cards) {
 			card.acquisition = Date.now() - ((i % 7) * 1000 * 60 * 60 * 24);
 			addCardToCollection(card);
 		}
-  }
+	}
 }
 
-
-
 /**
- * Sorts the cards given in a specific order (in-place)
- * @param {List} cards - List of cards to be sorted
- * @param {String} property - Property by which to sort the given cards by
- * @returns {void} - Nothing
+ * Sorts the cards in place based on a given property.
+ *
+ * @param {Array} cards - Array of card objects.
+ * @param {string} property - Property to sort by ("name", "rarity", "acquisition").
+ * @returns {void}
  */
 export function sortCards(cards, property) {
 	if (property === "name") {

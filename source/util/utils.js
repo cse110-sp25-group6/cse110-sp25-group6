@@ -8,7 +8,7 @@ export function getCollectionCards() {
 
 export function addCardToCollection(card) {
 	if (!card) return;
-	// card.acquisition = Date.now();
+	card.acquisition = Date.now();
 	const cards = getCollectionCards();
 	cards.push(card);
 	localStorage.setItem('Collection', JSON.stringify(cards));

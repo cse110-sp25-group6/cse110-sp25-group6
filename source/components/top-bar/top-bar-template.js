@@ -1,3 +1,13 @@
+/**
+ * Top Bar Template
+ *
+ * Exports a template function that returns an HTML string for rendering the <top-bar> component.
+ *
+ *
+ * @param {Object} data - An object containing the page title, gems, and packs.
+ * @returns {string} HTML string representing the top bar.
+ */
+
 export const template = (data) => `
 	<header>
 		<a href="../homepage/index.html">&#8962</a>

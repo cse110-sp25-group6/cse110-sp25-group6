@@ -1,3 +1,12 @@
+/**
+ * Card Styles
+ *
+ * Exports the CSS styles for the card component.
+ * These styles define the appearance for the card container,
+ * its name, rarity, stats, and icon elements.
+ *
+ */
+
 export const styles = `
 	.card {
 	 	aspect-ratio: 5 / 7;
@@ -30,32 +39,34 @@ export const styles = `
 	}
 
 	.rarity {
-		border-radius: 5px;
+		border-top-right-radius: 5px;
+		border-bottom-right-radius: 5px;
 		position: absolute;
 		background-color: black;
 		color: white;
 		bottom: 0;
 		margin-bottom: 1.5vh;
+		font-size: 0.9rem;
 	}
 	.stats {
 		position: absolute;
 		bottom: 1.5vh;
-		right: 0.5em;
+		right: 0.5rem;
 		display: flex;
-		gap: 0.5em;  
+		gap: 0.5rem;  
 	}
 
 	.health, .damage {
 		background-color: black;
 		color: white;
 		border-radius: 5px;
-		padding: 0.2em 0.5em;
-		font-size: 0.9em;
+		padding: 0.2rem 0.5rem;
+		font-size: 0.9rem;
 	}
 
 	.stats span img {
-		width: 0.7em;
-		height: 0.7em;
+		width: 0.7rem;
+		height: 0.7rem;
 		object-fit: contain;
 	}
 

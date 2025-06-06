@@ -1,7 +1,13 @@
+@import '../util/globals.css';
+@import '../components/card/cardComponent.css';
+@import url('https://fonts.googleapis.com/css2?family=Turret+Road:wght@200;300;400;500;700;800&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  color: var(--color-text);
+  font-family: var(--font-family);
 }
 
 body {
@@ -11,13 +17,16 @@ body {
   overflow: hidden;
 }
 
-header {
-  background-color: white;
-  border-bottom: 1px solid black;
-  padding: 1rem;
+main {
+  position: relative;
+  flex: 1 1 auto;
   display: flex;
-  justify-content: space-between;
-
+  flex-direction: row-reverse;
+  justify-content: center;
+  padding: 0 5%;
+  margin: 0;
+  overflow: hidden;
+  background-color: var(--color-background);
 }
 
 .video-container {
@@ -33,19 +42,23 @@ header {
 .video-container.show {
   display: block;
   background-color: #fff;
-  opacity: 1
+  opacity: 1;
+  z-index: 10;
 }
 
 .not-enough-packs {
   color: #de2f22
 }
 
-#pack-image {
+pack-icon {
+  position: relative;
   display: flex;
+  padding: 3rem;
   justify-content: center;
   align-items: center;
   margin-top: 5vh;
   margin-bottom: 5vh;
+  z-index: 1;
 }
 
 #packPlaceholder {
@@ -58,19 +71,49 @@ header {
   color: red;
 }
 
+side-box {
+  position: sticky;
+  right: 0;
+  height: 100%;
+  padding: 3rem;
+  background-color: var(--color-background);
+  width: fit-content;
+  align-content: center;
+  text-align: center;
+  font-size: 2rem;
+}
+
+hr {
+  height: 1px;
+  border: none;
+  background-color: var(--color-text);
+  margin: 0.75rem 0;
+}
+
 #pull-buttons {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
+  width: 100%;
 }
 
 #pull-buttons button {
-  width: clamp(100px, 20vw, 40vw);
+  width: clamp(200px, 20vw, 30vw);
   height: clamp(50px, 5vw, 10vw);
   margin: 2%;
   text-align: center;
-  font-size: clamp(10px, 2vw, 4vw);
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  background-color: aqua;
   cursor: pointer;
+  padding: 1rem;
+  border-style: none;
+  border-radius: 9999px;
+  background-color: var(--color-foreground);
+  font-size: 1.5rem;
+}
+
+.selected, #pull-buttons button:hover:not(.selected) {
+  background-color: var(--color-accent);
+  color: white;
+  border-color: white;
 }
