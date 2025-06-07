@@ -6,22 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // [2] Fill profile & stats fields with loaded user data
   fillUserProfile();
 
-  // document.getElementById("mainPack")?.addEventListener("click", () => {
-  //   let userData = JSON.parse(localStorage.getItem("userData"));
-  //   if (!userData || (userData.Packs ?? 0) < 1) {
-  //     showNotice("You don't have any packs to open!");
-  //     return;
-  //   }
-  //   // Do NOT decrement packs here
-  //   fillUserProfile(userData); // Update UI immediately
-
-  //   // Particle explosion animation
-  //   particleExplosion('.pack-card', 24);
-
-  //   setTimeout(() => {
-  //     window.location.href = "../pullpage/pack.html";
-  //   }, 500); // Give time for the animation
-  // });
 
   // [4] Register Account Modal: handle open, close, register, enter key, click outside
   const modal = document.getElementById("modalOverlay");
@@ -159,13 +143,7 @@ function fillUserProfile() {
 function updatePackTimeLeft() {
   // makes sure local storage is populated
   updateLocalStorage();
-  // const packSubtext = document.getElementById('packSubtext');
 
-  // // If no unlock time, set one for backward compatibility
-  // if (!localStorage.nextPackUnlockTime) {
-  //   userData.nextPackUnlockTime = Date.now() + 5 * 60 * 1000; // 5 minutes
-  //   localStorage.setItem("userData", JSON.stringify(userData));
-  // }
   const unlockTime = Number(localStorage.getItem("nextPackUnlockTime"));
   const now = Date.now();
   const totalMs = 5 * 60 * 1000; // 5 minutes
@@ -187,19 +165,11 @@ function updatePackTimeLeft() {
     document.getElementById("packTimeLeft").textContent = "Ready!";
     document.getElementById("packProgress").value = 100;
     document.getElementById("packProgressLabel").textContent = "100%";
-    // if (packSubtext) {
-    //   packSubtext.textContent = "Click to open";
-    //   packSubtext.style.color = "#ffec97";
-    // }
   } else {
     const mins = Math.floor(msLeft / 60000);
     const secs = Math.floor((msLeft % 60000) / 1000);
     document.getElementById("packTimeLeft").textContent =
       `${mins}min ${secs}sec left`;
-    // if (packSubtext) {
-    //   packSubtext.textContent = "Locked (Wait for timer)";
-    //   packSubtext.style.color = "#bbb";
-    // }
   }
 }
 
@@ -207,38 +177,6 @@ function updatePackTimeLeft() {
  * Call this after a pack is opened to reset the unlock timer.
  */
 function resetPackUnlockTimer() {
-  // let userData = JSON.parse(localStorage.getItem("userData"));
-  // userData.nextPackUnlockTime = Date.now() + 5 * 60 * 1000; // 5 minutes
   let nextPackUnlockTime = Date.now() + 5 * 60 * 1000; // 5 minutes
   localStorage.setItem("nextPackUnlockTime", nextPackUnlockTime);
 }
-
-// /**
-//  * Particle explosion animation for "opening" the main pack card.
-//  * @param {string} containerSelector - CSS selector for card/container
-//  * @param {number} n - Number of particles
-//  */
-// function particleExplosion(containerSelector = '.pack-card', n = 24) {
-//   const card = document.querySelector(containerSelector);
-//   const explosion = card.querySelector('.particle-explosion');
-//   if (!explosion) return;
-//   explosion.innerHTML = ''; // Clear old particles
-
-//   for(let i=0; i<n; ++i) {
-//     // Compute angle and random radius for explosion
-//     const angle = (Math.PI * 2) * (i / n);
-//     const radius = 70 + Math.random() * 30; // px
-//     const dx = Math.cos(angle) * radius + (Math.random() - 0.5) * 18;
-//     const dy = Math.sin(angle) * radius + (Math.random() - 0.5) * 18;
-
-//     // Create particle
-//     const p = document.createElement('div');
-//     p.className = 'particle';
-//     p.style.setProperty('--dx', dx+'px');
-//     p.style.setProperty('--dy', dy+'px');
-//     explosion.appendChild(p);
-
-//     // Auto-remove particle after animation
-//     setTimeout(() => p.remove(), 950);
-//   }
-// }  
