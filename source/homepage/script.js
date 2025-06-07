@@ -1,37 +1,27 @@
-let canOpenPack = false;
-
 // ---------- On page load: Main UI logic ----------
 document.addEventListener('DOMContentLoaded', () => {
   // [1] Load or initialize user data from localStorage
-  let userData = JSON.parse(localStorage.getItem("userData"));
-  if (!userData) {
-    userData = createDefaultUser();
-    localStorage.setItem("userData", JSON.stringify(userData));
-  }
+  updateLocalStorage();
 
   // [2] Fill profile & stats fields with loaded user data
-  fillUserProfile(userData);
+  fillUserProfile();
 
-  // [3] Navigation: handle collection and pack click events
-  document.getElementById("collectionsBtn")?.addEventListener("click", () => {
-    window.location.href = "../collection/collection.html";
-  });
-  document.getElementById("mainPack")?.addEventListener("click", () => {
-    let userData = JSON.parse(localStorage.getItem("userData"));
-    if (!userData || (userData.Packs ?? 0) < 1) {
-      showNotice("You don't have any packs to open!");
-      return;
-    }
-    // Do NOT decrement packs here
-    fillUserProfile(userData); // Update UI immediately
+  // document.getElementById("mainPack")?.addEventListener("click", () => {
+  //   let userData = JSON.parse(localStorage.getItem("userData"));
+  //   if (!userData || (userData.Packs ?? 0) < 1) {
+  //     showNotice("You don't have any packs to open!");
+  //     return;
+  //   }
+  //   // Do NOT decrement packs here
+  //   fillUserProfile(userData); // Update UI immediately
 
-    // Particle explosion animation
-    particleExplosion('.pack-card', 24);
+  //   // Particle explosion animation
+  //   particleExplosion('.pack-card', 24);
 
-    setTimeout(() => {
-      window.location.href = "../pullpage/pack.html";
-    }, 500); // Give time for the animation
-  });
+  //   setTimeout(() => {
+  //     window.location.href = "../pullpage/pack.html";
+  //   }, 500); // Give time for the animation
+  // });
 
   // [4] Register Account Modal: handle open, close, register, enter key, click outside
   const modal = document.getElementById("modalOverlay");
@@ -61,9 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     const newAccount = createDefaultUser(username);
-    localStorage.setItem("userData", JSON.stringify(newAccount));
+    // localStorage.setItem("Username", JSON.stringify(newAccount));
+    localStorage.clear(); // resets Local Storage for new user
+    updateLocalStorage(newAccount);
     modal.style.display = "none";
-    fillUserProfile(newAccount);
+    fillUserProfile();
     location.reload(); // Sync UI
   });
 
@@ -125,25 +117,38 @@ function createDefaultUser(username = "guest") {
   };
 }
 
+/** 
+ * Checks local storage to make sure that all data is present and populates if empty
+ * @param {object} user - object containing all user data
+ */
+function updateLocalStorage(user = createDefaultUser()){
+  let data = ["Username", "AccountCreateTime", "UsrLvl", "LevelProgress", "Gems", "Packs", "PackProgress", "PacksOpened", "Collection", "nextPackUnlockTime", "Misc"];
+  data.forEach((element) => { // checks all fields
+    let item = localStorage.getItem(element);
+    if(!item){ // populates if item does not exist in the local storage
+      localStorage.setItem(element, user[element]);
+    }
+  });
+}
+
 /**
  * Utility: Fill all profile/pack info from userData object
- * @param {object} userData - User data to display
  */
-function fillUserProfile(userData) {
+function fillUserProfile() {
   // Avatar: Show uppercase initials
-  const initials = userData.Username
-    ? (userData.Username.match(/[A-Z]/g)?.join('') || userData.Username[0].toUpperCase())
+  const initials = localStorage.getItem("Username")
+    ? (localStorage.getItem("Username").match(/[A-Z]/g)?.join('') || localStorage.getItem("Username")[0].toUpperCase())
     : "U";
   document.querySelector(".avatar").textContent = initials;
 
   // Fill user fields
-  document.getElementById("profileName").textContent = userData.Username || "Guest";
-  document.getElementById("userLevel").textContent = `Level ${userData.UsrLvl || 1}`;
-  document.getElementById("levelProgress").value = userData.LevelProgress || 0;
-  document.getElementById("levelProgressLabel").textContent = `${userData.LevelProgress || 0}%`;
-  document.getElementById("headerGemsCount").textContent = userData.Gems || 0;
-  document.getElementById("headerPacksCount").textContent = userData.Packs || 0;
-  document.getElementById("currentPacks").textContent = userData.Packs || 0;
+  document.getElementById("profileName").textContent = localStorage.getItem("Username") || "Guest";
+  document.getElementById("userLevel").textContent = `Level ${localStorage.getItem("Usrlvl") || 1}`;
+  document.getElementById("levelProgress").value = localStorage.getItem("LevelProgress") || 0;
+  document.getElementById("levelProgressLabel").textContent = `${localStorage.getItem("LevelProgress") || 0}%`;
+  document.getElementById("headerGemsCount").textContent = localStorage.getItem("Gems") || 0;
+  document.getElementById("headerPacksCount").textContent = localStorage.getItem("Packs") || 0;
+  document.getElementById("currentPacks").textContent = localStorage.getItem("Packs") || 0;
   // Progress and time are auto-updated by updatePackTimeLeft()
 }
 
@@ -152,16 +157,16 @@ function fillUserProfile(userData) {
  * Updates progress bar & time label, enables pack opening if time is up.
  */
 function updatePackTimeLeft() {
-  let userData = JSON.parse(localStorage.getItem("userData"));
-  if (!userData) return;
-  const packSubtext = document.getElementById('packSubtext');
+  // makes sure local storage is populated
+  updateLocalStorage();
+  // const packSubtext = document.getElementById('packSubtext');
 
-  // If no unlock time, set one for backward compatibility
-  if (!userData.nextPackUnlockTime) {
-    userData.nextPackUnlockTime = Date.now() + 5 * 60 * 1000; // 5 minutes
-    localStorage.setItem("userData", JSON.stringify(userData));
-  }
-  const unlockTime = userData.nextPackUnlockTime;
+  // // If no unlock time, set one for backward compatibility
+  // if (!localStorage.nextPackUnlockTime) {
+  //   userData.nextPackUnlockTime = Date.now() + 5 * 60 * 1000; // 5 minutes
+  //   localStorage.setItem("userData", JSON.stringify(userData));
+  // }
+  const unlockTime = localStorage.getItem("nextPackUnlockTime");
   const now = Date.now();
   const totalMs = 5 * 60 * 1000; // 5 minutes
   const msLeft = Math.max(0, unlockTime - now);
@@ -175,27 +180,26 @@ function updatePackTimeLeft() {
   // Time label and pack increment
   if (msLeft <= 0) {
     // Give a new pack and reset timer
-    userData.Packs = (userData.Packs || 0) + 1;
-    userData.nextPackUnlockTime = Date.now() + 5 * 60 * 1000; // reset for another 5 minutes
-    localStorage.setItem("userData", JSON.stringify(userData));
-    fillUserProfile(userData);
+    localStorage.setItem("Packs", (parseInt(localStorage.getItem("Packs")) || 0) + 1);
+    localStorage.setItem("nextPackUnlockTime", Date.now() + 5 * 60 * 1000); // reset for another 5 minutes
+    fillUserProfile();
 
     document.getElementById("packTimeLeft").textContent = "Ready!";
     document.getElementById("packProgress").value = 100;
     document.getElementById("packProgressLabel").textContent = "100%";
-    if (packSubtext) {
-      packSubtext.textContent = "Click to open";
-      packSubtext.style.color = "#ffec97";
-    }
+    // if (packSubtext) {
+    //   packSubtext.textContent = "Click to open";
+    //   packSubtext.style.color = "#ffec97";
+    // }
   } else {
     const hours = Math.floor(msLeft / 3600000);
     const mins = Math.floor((msLeft % 3600000) / 60000);
     document.getElementById("packTimeLeft").textContent =
       `${hours}h ${mins}min left`;
-    if (packSubtext) {
-      packSubtext.textContent = "Locked (Wait for timer)";
-      packSubtext.style.color = "#bbb";
-    }
+    // if (packSubtext) {
+    //   packSubtext.textContent = "Locked (Wait for timer)";
+    //   packSubtext.style.color = "#bbb";
+    // }
   }
 }
 
@@ -203,38 +207,38 @@ function updatePackTimeLeft() {
  * Call this after a pack is opened to reset the unlock timer.
  */
 function resetPackUnlockTimer() {
-  let userData = JSON.parse(localStorage.getItem("userData"));
-  userData.nextPackUnlockTime = Date.now() + 5 * 60 * 1000; // 5 minutes
-  localStorage.setItem("userData", JSON.stringify(userData));
-  updatePackTimeLeft();
+  // let userData = JSON.parse(localStorage.getItem("userData"));
+  // userData.nextPackUnlockTime = Date.now() + 5 * 60 * 1000; // 5 minutes
+  let nextPackUnlockTime = Date.now() + 5 * 60 * 1000; // 5 minutes
+  localStorage.setItem("nextPackUnlockTime", nextPackUnlockTime);
 }
 
-/**
- * Particle explosion animation for "opening" the main pack card.
- * @param {string} containerSelector - CSS selector for card/container
- * @param {number} n - Number of particles
- */
-function particleExplosion(containerSelector = '.pack-card', n = 24) {
-  const card = document.querySelector(containerSelector);
-  const explosion = card.querySelector('.particle-explosion');
-  if (!explosion) return;
-  explosion.innerHTML = ''; // Clear old particles
+// /**
+//  * Particle explosion animation for "opening" the main pack card.
+//  * @param {string} containerSelector - CSS selector for card/container
+//  * @param {number} n - Number of particles
+//  */
+// function particleExplosion(containerSelector = '.pack-card', n = 24) {
+//   const card = document.querySelector(containerSelector);
+//   const explosion = card.querySelector('.particle-explosion');
+//   if (!explosion) return;
+//   explosion.innerHTML = ''; // Clear old particles
 
-  for(let i=0; i<n; ++i) {
-    // Compute angle and random radius for explosion
-    const angle = (Math.PI * 2) * (i / n);
-    const radius = 70 + Math.random() * 30; // px
-    const dx = Math.cos(angle) * radius + (Math.random() - 0.5) * 18;
-    const dy = Math.sin(angle) * radius + (Math.random() - 0.5) * 18;
+//   for(let i=0; i<n; ++i) {
+//     // Compute angle and random radius for explosion
+//     const angle = (Math.PI * 2) * (i / n);
+//     const radius = 70 + Math.random() * 30; // px
+//     const dx = Math.cos(angle) * radius + (Math.random() - 0.5) * 18;
+//     const dy = Math.sin(angle) * radius + (Math.random() - 0.5) * 18;
 
-    // Create particle
-    const p = document.createElement('div');
-    p.className = 'particle';
-    p.style.setProperty('--dx', dx+'px');
-    p.style.setProperty('--dy', dy+'px');
-    explosion.appendChild(p);
+//     // Create particle
+//     const p = document.createElement('div');
+//     p.className = 'particle';
+//     p.style.setProperty('--dx', dx+'px');
+//     p.style.setProperty('--dy', dy+'px');
+//     explosion.appendChild(p);
 
-    // Auto-remove particle after animation
-    setTimeout(() => p.remove(), 950);
-  }
-}
+//     // Auto-remove particle after animation
+//     setTimeout(() => p.remove(), 950);
+//   }
+// }
