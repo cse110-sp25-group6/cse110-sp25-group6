@@ -142,7 +142,8 @@ card-component {
 }
 
 .inspector button:hover {
-  transform: scale(var(--scale-hover));
+  transform: scale(1.5);
+  cursor: pointer;
   color: var(--color-accent);
 }
 
@@ -181,4 +182,7 @@ inspect-container > * {
 .lore {
   padding: 2rem;
   max-width: 400px;
+  max-height: 400px;
+  font-size: 1.25rem;
+  line-height: 1.25;
 }
