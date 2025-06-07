@@ -7,57 +7,77 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Header containing profile and currency -->
-  <header>
-    <div class="currency">
-      <div class="gems">
-        <img src="https://placehold.co/30x30?text=Gems" alt="Gems" />
-        <span id="gemsCount">100</span>
-      </div>
-      <div class="packs-owned">
-        <img src="https://placehold.co/30x30?text=Pack" alt="Packs" />
-        <span id="packsCount">5</span>
-      </div>
-    </div>
-    <div class="profile">
-      <img id="profileImage" src="https://placehold.co/60x60?text=User" alt="Profile Image" />
-      <div class="profile-info">
-        <h2 id="profileName">Username</h2>
-        <div class="level-container">
-          <span id="userLevel">Level 1</span>
-          <div class="progress-bar">
-            <div class="progress" id="levelProgress"></div>
+  <header class="site-header">
+    <div class="header-content">
+      <section class="profile" aria-label="User Profile">
+        <span class="avatar" aria-label="User avatar">U</span>
+        <div class="profile-info">
+          <h1 id="profileName">Guest</h1>
+          <div class="level-container">
+            <span id="userLevel">Level 1</span>
+            <progress class="level-bar" id="levelProgress" max="100" value="0" aria-label="Level Progress"></progress>
+            <span class="progress-label" id="levelProgressLabel">0%</span>
           </div>
         </div>
-      </div>
+      </section>
+      <nav class="header-actions" aria-label="Main navigation">
+        <div class="header-title">
+          <h1>CS Monsters Game</h1>
+        </div>
+        <button class="header-btn" onclick="location.href='../collection/collection.html'">Collections</button>
+        <button class="header-btn" id="registerBtn">Change Username</button>
+        <ul class="stats-list" aria-label="User Stats">
+          <li class="stat-card">
+            <span class="stat-icon gems">&#9672;</span>
+            <span class="gemCount label">Gem Count:</span>
+            <span class="stat-value" id="headerGemsCount">0</span>
+          </li>
+          <li class="stat-card">
+            <span class="stat-icon packs">&#10697;</span>
+            <span class="packCount label">Pack Count:</span>
+            <span class="stat-value" id="headerPacksCount">0</span>
+          </li>
+        </ul>        
+      </nav>
     </div>
   </header>
 
   <main>
-    <!-- Pack display -->
-    <div class="pack-container">
-      <div id="mainPack" class="pack">
-        <img src="https://placehold.co/200x300?text=Game+Pack" alt="Game Pack" />
-      </div>
-      <div class="pack-progress">
-        <div class="pack-count">
-          <span id="currentPacks">5</span> packs owned
+    <section class="pack-section" aria-label="Main Game Pack">
+      <article class="pack-card" id="mainPack" tabindex="0" aria-label="Game Pack Card" onclick="location.href='../pullpage/pack.html'">
+        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4e6.svg" class="pack-icon"
+          alt="Pack Box" />
+        <div class="pack-title">Game Pack</div>
+        <div class="pack-subtext" id="packSubtext">Click to open</div>
+      </article>
+      <footer class="pack-footer" aria-label="Pack Progress & Time">
+        <div class="packs-counter">
+          <span class="stat-icon packs">&#10697;</span>
+          <span class="stat-value" id="currentPacks">0</span>
         </div>
-        <div class="progress-bar">
-          <div class="progress" id="packProgress"></div>
+        <div class="pack-progress-group">
+          <progress class="pack-bar" id="packProgress" max="100" value="0" aria-label="Pack Unlock Progress"></progress>
+          <span class="progress-label" id="packProgressLabel">0%</span>
         </div>
-        <div class="pack-progress-text">
-          <span id="packProgressText">50/100</span> to next pack
-        </div>
-      </div>
-    </div>
-
-    <!-- Collections button -->
-    <div class="collections-button">
-      <button id="collectionsBtn">Collections</button>
-    </div>
+        <span class="pack-time" id="packTimeLeft">Loading...</span>
+      </footer>
+    </section>
   </main>
 
-  <script src="script.js"></script>
+  <!-- Change name account modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="registerTitle">
+      <button class="modal-close" id="closeModalBtn" title="Close">&times;</button>
+      <h2 id="registerTitle">Change Username</h2>
+      <input type="text" id="newUsername" placeholder="Enter new username" maxlength="20" autocomplete="off" />
+      <div class="form-tip">Username must be 3-16 letters or number</div>
+      <button id="confirmRegisterBtn">Change Username</button>
+    </div>
+  </div>  
+
+  <div id="customNotice" class="custom-notice">
+    <span id="customNoticeText"></span>
+  </div>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
