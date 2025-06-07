@@ -1,3 +1,7 @@
+/**
+ * Test suite for ensuring sorting behavior is correct.
+ */
+
 import { sortCards } from './collection.js'
 
 let card1 = {
