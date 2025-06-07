@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Home - Documentation</title>
+    <title>components/top-bar/top-bar-template.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,33 +29,43 @@
 
 <div id="main">
     
+    <h1 class="page-title">components/top-bar/top-bar-template.js</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Top Bar Template
+ *
+ * Exports a template function that returns an HTML string for rendering the &lt;top-bar> component.
+ *
+ *
+ * @param {Object} data - An object containing the page title, gems, and packs.
+ * @returns {string} HTML string representing the top bar.
+ */
 
-
-
-
-
-
-
-
-
-    
-
-
-    <section class="readme">
-        <article><h1>cse110-sp25-group6</h1>
-<h2>About us</h2>
-<p>Read this <a href="https://github.com/cse110-sp25-group6/cse110-sp25-group6/blob/main/admin/team.md">page</a> to learn more about us!
-<br>
-Check out our First Sprint Results: <a href="https://youtu.be/zg7NDSaTIAg">Status Video 1</a></p></article>
+export const template = (data) => `
+	&lt;header>
+		&lt;a href="../homepage/index.html">&amp;#8962&lt;/a>
+		&lt;h1>${data.pageTitle}&lt;/h1>
+		&lt;stats-container>
+		&lt;stat-display>
+			&lt;span class="stat-icon" id="gems">◈&lt;/span>
+			&lt;span class="stat-value">${data.gems}&lt;/span>
+		&lt;/stat-display>
+		&lt;stat-display>
+			&lt;span class="stat-icon" id="packs">⧉&lt;/span>
+			&lt;span class="stat-value">${data.packs}&lt;/span>&lt;/stat-display>
+		&lt;/stats-container>
+	&lt;/header>
+`;</code></pre>
+        </article>
     </section>
-
-
 
 
 

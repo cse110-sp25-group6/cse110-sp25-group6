@@ -2,7 +2,8 @@
   "source": {
     "include": [
       "source/collection", 
-      "source/components", 
+      "source/components/card",
+      "source/components/top-bar",
       "source/homepage", 
       "source/pullpage",
       "source/util"

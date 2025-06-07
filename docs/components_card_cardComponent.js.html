@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Home - Documentation</title>
+    <title>components/card/cardComponent.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,33 +29,91 @@
 
 <div id="main">
     
+    <h1 class="page-title">components/card/cardComponent.js</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * 
+ * This file defines a custom HTML element &lt;card-component> that renders a card using
+ * shadow DOM. It imports CSS styles and an HTML template for the card structure.
+ *
+ * Dependencies:
+ *  - card-styles.js
+ *  - card-template.js
+ *
+ */
 
+import { styles } from './card-styles.js';
+import { template } from './card-template.js';
 
+class CardComponent extends HTMLElement {
+	/**
+	 * Creates an instance of CardComponent and attaches an open shadow root.
+	 */
+	constructor() {
+		super();
+		this.attachShadow({ mode: 'open' });
 
+		/**
+		 * Default card data used as a fallback.
+		 * @type {Object}
+		 */
+		this.cardData = {
+			name: "unknown",
+			image: "heap.png",
+			rarity: 5,
+			stats: {
+				health: -1,
+				damage: -1
+			}
+		};
+	}
 
+	/**
+	 * Setter for the card data.
+	 *
+	 * @param {Object} data - The card data to be rendered.
+	 */
+	set data(data) {
+		if (!data) return;
+		this.cardData = data;
+		this.render();
+	}
 
+	/**
+	 * Renders the card by inserting the style and template into the shadow DOM.
+	 *
+	 * @returns {void}
+	 */
+	render() {
+		this.shadowRoot.innerHTML = `
+            &lt;style>
+                ${styles}
+            &lt;/style>
+            ${template(this.cardData)}
+        `;
+	}
 
+	/**
+	 * Lifecycle callback invoked when the element is connected to the document.
+	 *
+	 * @returns {void}
+	 */
+	connectedCallback() {
+		this.render();
+	}
+}
 
-
-
-    
-
-
-    <section class="readme">
-        <article><h1>cse110-sp25-group6</h1>
-<h2>About us</h2>
-<p>Read this <a href="https://github.com/cse110-sp25-group6/cse110-sp25-group6/blob/main/admin/team.md">page</a> to learn more about us!
-<br>
-Check out our First Sprint Results: <a href="https://youtu.be/zg7NDSaTIAg">Status Video 1</a></p></article>
+customElements.define('card-component', CardComponent);</code></pre>
+        </article>
     </section>
-
-
 
 
 

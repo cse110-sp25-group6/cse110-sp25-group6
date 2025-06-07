@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Home - Documentation</title>
+    <title>components/card/card-styles.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,33 +29,102 @@
 
 <div id="main">
     
+    <h1 class="page-title">components/card/card-styles.js</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Card Styles
+ *
+ * Exports the CSS styles for the card component.
+ * These styles define the appearance for the card container,
+ * its name, rarity, stats, and icon elements.
+ *
+ */
 
+export const styles = `
+	.card {
+	 	aspect-ratio: 5 / 7;
+		box-sizing: border-box;
+		height: 100%;
+		background-color: #ddd;
+		border-color: black;
+		border-style: solid;
+		border-width: 0.3rem;
+		border-radius: 10px;
+		box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+		cursor: pointer;
+		transition: transform 0.3s ease;
+		overflow: hidden;
+		position: relative;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
 
+	.name {
+		border-radius: 0px;
+		width: 100%;
+		text-align: center;
+		display: inline-block;
+		margin-top: 1vh;
+		color:white;
+		background-color: rgba(0,0,0,0.6);
+		font-size: 20px;
+	}
 
+	.rarity {
+		border-top-right-radius: 5px;
+		border-bottom-right-radius: 5px;
+		position: absolute;
+		background-color: black;
+		color: white;
+		bottom: 0;
+		margin-bottom: 1.5vh;
+		font-size: 0.9rem;
+	}
+	.stats {
+		position: absolute;
+		bottom: 1.5vh;
+		right: 0.5rem;
+		display: flex;
+		gap: 0.5rem;  
+	}
 
+	.health, .damage {
+		background-color: black;
+		color: white;
+		border-radius: 5px;
+		padding: 0.2rem 0.5rem;
+		font-size: 0.9rem;
+	}
 
+	.stats span img {
+		width: 0.7rem;
+		height: 0.7rem;
+		object-fit: contain;
+	}
 
+	.rarity {
+		color: yellow;
+	}
 
+	.heart-icon {
+		color: red;
+	}
 
-
-    
-
-
-    <section class="readme">
-        <article><h1>cse110-sp25-group6</h1>
-<h2>About us</h2>
-<p>Read this <a href="https://github.com/cse110-sp25-group6/cse110-sp25-group6/blob/main/admin/team.md">page</a> to learn more about us!
-<br>
-Check out our First Sprint Results: <a href="https://youtu.be/zg7NDSaTIAg">Status Video 1</a></p></article>
+	.damage-icon {
+		color: blue;
+	}
+`;</code></pre>
+        </article>
     </section>
-
-
 
 
 

@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#addCardsToDocument">addCardsToDocument</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#addCurrencyToDocument">addCurrencyToDocument</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#init">init</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#populateLocalStorage">populateLocalStorage</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#sortCards">sortCards</a></span></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="CardComponent.html">CardComponent</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CardComponent.html#connectedCallback">connectedCallback</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CardComponent.html#render">render</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="TopBar.html">TopBar</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TopBar.html#connectedCallback">connectedCallback</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TopBar.html#render">render</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#addCardsToDocument">addCardsToDocument</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#addCurrencyToDocument">addCurrencyToDocument</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#init">init</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#populateLocalStorage">populateLocalStorage</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#sortCards">sortCards</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#styles">styles</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#template">template</a></span></li>
 </nav>
 
 <div id="main">
@@ -107,6 +107,277 @@
     
 
     
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<div class="section-members">
+<h4 class="name" id="styles"><span class="type-signature">(constant) </span>styles<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    Card Styles
+
+Exports the CSS styles for the card component.
+These styles define the appearance for the card container,
+its name, rarity, stats, and icon elements.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_card_card-styles.js.html">components/card/card-styles.js</a>, <a href="components_card_card-styles.js.html#line10">line 10</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+</div>
+
+        
+            
+<div class="section-members">
+<h4 class="name" id="styles"><span class="type-signature">(constant) </span>styles<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    Top Bar Styles
+
+Exports the CSS styles for the <top-bar> component.
+Defines global resets, header layout, link hover effects, and styling
+for the currency (stats) display.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_top-bar_top-bar-styles.js.html">components/top-bar/top-bar-styles.js</a>, <a href="components_top-bar_top-bar-styles.js.html#line10">line 10</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+</div>
+
+        
+            
+<div class="section-members">
+<h4 class="name" id="template"><span class="type-signature">(constant) </span>template<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    This file exports a template function that returns an HTML string to render a card.
+It uses the provided data to populate card properties such as name, rarity, and stats.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_card_card-template.js.html">components/card/card-template.js</a>, <a href="components_card_card-template.js.html#line10">line 10</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+</div>
+
+        
+            
+<div class="section-members">
+<h4 class="name" id="template"><span class="type-signature">(constant) </span>template<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    Top Bar Template
+
+Exports a template function that returns an HTML string for rendering the <top-bar> component.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_top-bar_top-bar-template.js.html">components/top-bar/top-bar-template.js</a>, <a href="components_top-bar_top-bar-template.js.html#line11">line 11</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+</div>
+
+        
+    
 
     
         <h3 class="subsection-title">Methods</h3>
@@ -161,7 +432,7 @@ Clears any existing cards and creates new card components for each card in the a
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="collection.js.html">collection.js</a>, <a href="collection.js.html#line153">line 153</a>
+        <a href="collection_collection.js.html">collection/collection.js</a>, <a href="collection_collection.js.html#line153">line 153</a>
     </li></ul></dd>
     
 
@@ -318,7 +589,7 @@ Retrieves values from local storage and updates all elements with the classes "g
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="collection.js.html">collection.js</a>, <a href="collection.js.html#line132">line 132</a>
+        <a href="collection_collection.js.html">collection/collection.js</a>, <a href="collection_collection.js.html#line132">line 132</a>
     </li></ul></dd>
     
 
@@ -423,7 +694,7 @@ and attaching event listeners for interactive elements.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="collection.js.html">collection.js</a>, <a href="collection.js.html#line31">line 31</a>
+        <a href="collection_collection.js.html">collection/collection.js</a>, <a href="collection_collection.js.html#line31">line 31</a>
     </li></ul></dd>
     
 
@@ -527,7 +798,7 @@ and attaching event listeners for interactive elements.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="collection.js.html">collection.js</a>, <a href="collection.js.html#line202">line 202</a>
+        <a href="collection_collection.js.html">collection/collection.js</a>, <a href="collection_collection.js.html#line202">line 202</a>
     </li></ul></dd>
     
 
@@ -631,7 +902,7 @@ and attaching event listeners for interactive elements.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="collection.js.html">collection.js</a>, <a href="collection.js.html#line232">line 232</a>
+        <a href="collection_collection.js.html">collection/collection.js</a>, <a href="collection_collection.js.html#line232">line 232</a>
     </li></ul></dd>
     
 
@@ -782,7 +1053,7 @@ and attaching event listeners for interactive elements.
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Sat Jun 07 2025 19:18:23 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Sat Jun 07 2025 19:41:44 GMT+0000 (Coordinated Universal Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
