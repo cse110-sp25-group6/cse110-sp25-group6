@@ -27,19 +27,15 @@
         <button class="header-btn" onclick="location.href='../collection/collection.html'">Collections</button>
         <button class="header-btn" id="registerBtn">Change Username</button>
         <ul class="stats-list" aria-label="User Stats">
-          <div class="stats-panel">
-            <div class="stat-card">
-              <span class="stat-icon gems">&#9672;</span>
-              <span class="gemCount label">Gem Count:</span>
-              <span id="headerGemsCount">100</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-icon packs">&#10697;</span>
-              <span class="packCount label">Pack Count:</span>
-              <span id="headerPacksCount">5</span>
-            </div>
-          </div>
-        </ul>
+          <li class="stat-card">
+            <span class="stat-icon gems">&#9672;</span>
+            Gem Count: <span id="headerGemsCount">100</span>
+          </li>
+          <li class="stat-card">
+            <span class="stat-icon packs">&#10697;</span>
+            Pack Count: <span id="headerPacksCount">5</span>
+          </li>
+        </ul>        
       </nav>
     </div>
   </header>
@@ -66,7 +62,7 @@
     </section>
   </main>
 
-  <!-- Register/Switch account modal -->
+  <!-- Change name account modal -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="registerTitle">
       <button class="modal-close" id="closeModalBtn" title="Close">&times;</button>

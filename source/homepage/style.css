@@ -223,6 +223,7 @@ body::before {
 
 .stats-list {
   display: flex;
+  flex-direction: column; 
   gap: 1.1rem;
   list-style: none;
   background: var(--color-black-pill);
@@ -230,6 +231,7 @@ body::before {
   padding: 0.35rem 1.1rem;
   align-items: center;
   box-shadow: 0 2px 7px rgba(0, 0, 0, 0.13);
+  margin: 0; 
 }
 
 .stats-list li {
@@ -239,6 +241,7 @@ body::before {
   color: #fff;
   font-weight: 600;
   font-size: 1rem;
+  font-family: 'Turret Road', 'Orbitron', Arial, sans-serif;
 }
 
 .stat-icon.gems {
@@ -248,7 +251,7 @@ body::before {
 
 .stat-icon.packs {
   color: #ff3333;
-  font-size: 1.15rem;
+  font-size: 1.17rem;
 }
 
 /* ------ Main Content ------ */
