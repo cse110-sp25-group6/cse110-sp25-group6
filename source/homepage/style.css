@@ -154,6 +154,23 @@ body::before {
   display: flex;
   align-items: center;
   gap: 1.6rem;
+  width: 100%;
+}
+
+.header-title {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.header-title h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  font-family: 'Turret Road', Arial, sans-serif;
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: 0.04em;
+  text-align: center;
 }
 
 /* Gradient animated buttons */
