@@ -1,0 +1,68 @@
+[
+  {
+    "id": 28,
+    "name": "Primeval Lambda",
+    "image": "Lambda_Calculus.png",
+    "rarity": 5,
+    "lore": "A primordial leviathan of abstraction, spawning boundless possibilities with a single lambda. It drifts through realms of pure computation, collapsing everything into functions. Those who witness its form are said to glimpse deeper truths hidden from mortal eyes. Few dare approach, for its power transcends all logic.\n\nLambda Calculus is a formal system in mathematical logic and computer science for expressing computation based on function abstraction and application, forming the theoretical foundation of functional programming.",
+    "stats": {
+      "health": 495,
+      "damage": 205
+    }
+  },
+  {
+    "id": 51,
+    "name": "Hidden State Horror",
+    "image": "Hidden_Markov_Model.png",
+    "rarity": 5,
+    "lore": "A spectral horror shifting through unseen states, cloaking its victims in probabilistic dread. Its every movement is a hidden algorithm, observable only through trembling fear. Those trapped in its chain quake as underlying states change without warning. Scholars know only that its next form is always uncertain.\n\nA Hidden Markov Model (HMM) is a statistical model where the system is assumed to follow a Markov process with unobserved (hidden) states, using observed emissions to infer state sequences via algorithms like the Forward-Backward and Viterbi methods.",
+    "stats": {
+      "health": 505,
+      "damage": 210
+    }
+  },
+  {
+    "id": 52,
+    "name": "Policy Djinn",
+    "image": "Markov_Decision_Process.png",
+    "rarity": 5,
+    "lore": "This djinn navigates infinite states, selecting actions to maximize its expected reward at every turn. It observes the world with calculating eyes, shifting probabilities in its favor. Adventurers gamble each step they take, unaware of the transitions that lie ahead. Legends tell of entire kingdoms swayed by its mastery of policy.\n\nA Markov Decision Process (MDP) formalizes decision-making in stochastic environments by defining states, actions, rewards, and transition probabilities, seeking a policy that maximizes cumulative expected reward over time.",
+    "stats": {
+      "health": 490,
+      "damage": 195
+    }
+  },
+  {
+    "id": 74,
+    "name": "Turing Titan",
+    "image": "Turing_Machine.png",
+    "rarity": 5,
+    "lore": "A colossal titan that reads and writes across infinite tape, deciding destinies with boundless logic. Its head moves left and right, altering symbols to reshape entire worlds. Mortals whisper its name with reverence, for its computations transcend all comprehension. Legends tell of kingdoms restored—or destroyed—by its algorithmic will.\n\nA Turing Machine is a theoretical computing model with an infinite tape and a read/write head, capable of simulating any algorithm (Turing completeness), forming the foundational concept of computability theory.",
+    "stats": {
+      "health": 520,
+      "damage": 200
+    }
+  },
+  {
+    "id": 82,
+    "name": "Superposition Quasar",
+    "image": "Quantum_Bits.png",
+    "rarity": 5,
+    "lore": "A cosmic quasar entangled in superposition, collapsing realities with a single glance. It flickers between existence and oblivion, defying all classical law. Physicists revere it as the bridge between parallel worlds, yet few survive its observation. Those who endure claim it holds secrets of infinite universes.\n\nQuantum Bits (Qubits) are the fundamental units of quantum computation, capable of being in a superposition of |0⟩ and |1⟩ states simultaneously, enabling quantum parallelism and entanglement for exponential speedups in certain algorithms.",
+    "stats": {
+      "health": 515,
+      "damage": 200
+    }
+  },
+  {
+    "id": 83,
+    "name": "SE Paladin Powell",
+    "image": "Powell.png",
+    "rarity": 5,
+    "lore": "Cursed by the demons Atari, Apple, and Commodore to forever be bound to introduce computing ideas to all comers and play games well into his senior years, the SE Paladin Powell is a powerful and occasionally quixotic creature.  He still practices magic, and his ancient spells can be potent.  However, he is somewhat susceptible to jargon tornado attacks, especially those backed by creatures with extreme hordes of Gold.  Chaotic Good by nature, he is often encountered by young adventurers, especially those making their way from the Academia Archipelago to the Inland Industrial Wastes.",
+    "stats": {
+      "health": 999,
+      "damage": 999
+    }
+  }
+]

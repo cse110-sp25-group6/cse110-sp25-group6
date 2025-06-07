@@ -1,0 +1,18 @@
+{
+  "source": {
+    "include": [
+      "source/collection", 
+      "source/components", 
+      "source/homepage", 
+      "source/pullpage",
+      "source/util"
+    ],
+    "exclude": [
+      "source/node_modules",
+      "source/card_data"
+    ]
+  },
+  "opts": {
+    "destination": "docs"
+  }
+}
