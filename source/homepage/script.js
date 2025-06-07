@@ -166,7 +166,7 @@ function updatePackTimeLeft() {
   //   userData.nextPackUnlockTime = Date.now() + 5 * 60 * 1000; // 5 minutes
   //   localStorage.setItem("userData", JSON.stringify(userData));
   // }
-  const unlockTime = localStorage.getItem("nextPackUnlockTime");
+  const unlockTime = Number(localStorage.getItem("nextPackUnlockTime"));
   const now = Date.now();
   const totalMs = 5 * 60 * 1000; // 5 minutes
   const msLeft = Math.max(0, unlockTime - now);
@@ -192,10 +192,10 @@ function updatePackTimeLeft() {
     //   packSubtext.style.color = "#ffec97";
     // }
   } else {
-    const hours = Math.floor(msLeft / 3600000);
-    const mins = Math.floor((msLeft % 3600000) / 60000);
+    const mins = Math.floor(msLeft / 60000);
+    const secs = Math.floor((msLeft % 60000) / 1000);
     document.getElementById("packTimeLeft").textContent =
-      `${hours}h ${mins}min left`;
+      `${mins}min ${secs}sec left`;
     // if (packSubtext) {
     //   packSubtext.textContent = "Locked (Wait for timer)";
     //   packSubtext.style.color = "#bbb";
@@ -241,4 +241,4 @@ function resetPackUnlockTimer() {
 //     // Auto-remove particle after animation
 //     setTimeout(() => p.remove(), 950);
 //   }
-// }
+// }  

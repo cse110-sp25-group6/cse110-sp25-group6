@@ -27,14 +27,18 @@
         <button class="header-btn" onclick="location.href='../collection/collection.html'">Collections</button>
         <button class="header-btn" id="registerBtn">Change Username</button>
         <ul class="stats-list" aria-label="User Stats">
-          <li>
-            <span class="stat-icon gems">&#9672;</span>
-            <span class="stat-value" id="headerGemsCount">0</span>
-          </li>
-          <li>
-            <span class="stat-icon packs">&#10697;</span>
-            <span class="stat-value" id="headerPacksCount">0</span>
-          </li>
+          <div class="stats-panel">
+            <div class="stat-card">
+              <span class="stat-icon gems">&#9672;</span>
+              <span class="gemCount label">Gem Count:</span>
+              <span id="headerGemsCount">100</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-icon packs">&#10697;</span>
+              <span class="packCount label">Pack Count:</span>
+              <span id="headerPacksCount">5</span>
+            </div>
+          </div>
         </ul>
       </nav>
     </div>
