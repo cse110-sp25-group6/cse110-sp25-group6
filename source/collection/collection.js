@@ -72,7 +72,7 @@ function init() {
 		}
 	});
 
-	// Escape inspect view
+	// Keyboard shortcuts for the inspect view
 	document.addEventListener('keydown', (event) => {
 		if (event.key == "Escape") {
 			inspectorContainer.style.display = "none";
