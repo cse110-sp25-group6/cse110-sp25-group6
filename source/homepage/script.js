@@ -169,7 +169,7 @@ function updatePackTimeLeft() {
     const mins = Math.floor(msLeft / 60000);
     const secs = Math.floor((msLeft % 60000) / 1000);
     document.getElementById("packTimeLeft").textContent =
-      `${mins}min ${secs}sec left`;
+      `${mins}min ${secs}sec left until the next pack!`;
   }
 }
 
