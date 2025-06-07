@@ -12,8 +12,17 @@ let continueButton = document.getElementById("continue");
 let TOTAL_CARDS = 5;
 let DEAL_DELAY = 500;
 let WIPE_DELAY = 100;
+let BUTTON_OFFSET = 10;
 let FLIPPED = TOTAL_CARDS;
 let CONTINUE = false;
+
+// back-glow
+let blur = 18;
+let spread = 7;
+let R = 255;
+let G = 174;
+let B = 0;
+let opacity = 1;
 
 // initialize: create cards and trigger deal
 async function init() {
@@ -27,17 +36,25 @@ async function init() {
         TOTAL_CARDS = 25;
         DEAL_DELAY = 100;
         WIPE_DELAY = 20;
+        BUTTON_OFFSET = 10;
         FLIPPED = TOTAL_CARDS;
     }
     else {
         TOTAL_CARDS = 5;
         DEAL_DELAY = 500;
         WIPE_DELAY = 100;
+        BUTTON_OFFSET = 30;
         FLIPPED = TOTAL_CARDS;
     }
 
     for (let i = 0; i < TOTAL_CARDS; i++) {
         const card = await createCard(i);
+        // add line break for pull1
+        if (TOTAL_CARDS == 5 && i == 3) {
+            let lineBreak = document.createElement("div");
+            lineBreak.className = "break";
+            stack.appendChild(lineBreak);
+        }
         stack.appendChild(card);
     }
 
@@ -46,6 +63,10 @@ async function init() {
     setTimeout(() => {
         continueButton.classList.remove("hidden");
     }, TOTAL_CARDS * DEAL_DELAY);
+
+    // offset button closer to center for pull1
+    continueButton.style.bottom = `${BUTTON_OFFSET}px`;
+    continueButton.style.right = `${BUTTON_OFFSET}px`;
 
     document.getElementById("continue").addEventListener("click", () => {
         if (CONTINUE) {
@@ -79,6 +100,30 @@ async function getRandomCard() {
         rarity = 2;
     }
 
+    // set backglow values (only for 4 and 5 stars)
+    if (rarity == 5) {
+        blur = 18;
+		spread = 7;
+		R = 255;
+		G = 174;
+		B = 0;
+		opacity = 1;
+    } else if (rarity == 4) {
+		blur = 15;
+		spread = 5;
+		R = 170;
+		G = 0;
+		B = 255;
+		opacity = 1;
+    } else {
+        blur = 0;
+		spread = 0;
+		R = 0;
+		G = 0;
+		B = 0;
+		opacity = 0;
+    }
+
     const res = await fetch(`../card_data/${rarity}_star.json`);
     if (!res.ok) {
         console.error(`Failed to load ${rarity}_star.json`);
@@ -100,14 +145,6 @@ async function createCard(index) {
 
     let card = document.createElement("div");
     card.classList.add("card", "facedown");
-    /*
-    let blur = 10;
-    let spread = 0.5;
-    let R = 255;
-    let G = 155;
-    let B = 255;
-    let opacity = 0.7;
-    */
 
     let back = document.createElement("div");
     back.classList.add("card-back");
@@ -118,6 +155,9 @@ async function createCard(index) {
     img.style.width = '226px';
     img.style.height = '318px';
     back.appendChild(img);
+
+    // add back glow
+    back.style.boxShadow = `0 0 ${blur}px ${spread}px rgb(${R}, ${G}, ${B}, ${opacity}) inset`;
 
     card.appendChild(front);
     card.appendChild(back);
@@ -131,6 +171,19 @@ async function createCard(index) {
 // deal cards
 function dealCards() {
     let cards = Array.from(stack.children);
+
+    //remove pause in dealing animation due to line break
+    if (TOTAL_CARDS == 5) {
+        let newCards = [TOTAL_CARDS];
+        for (let i = 0; i < cards.length; i++) {
+            if (!(i == 3)) {
+                newCards.push(cards[i]);
+            }
+        }
+        cards = newCards;
+    }
+
+
     cards.forEach((card, i) => {
 
         setTimeout(() => {
@@ -167,6 +220,17 @@ function flipAll() {
 // wipe card animation
 function wipeCards() {
     let cards = Array.from(stack.children);
+
+    //remove pause in wiping animation due to line break
+    if (TOTAL_CARDS == 5) {
+        let newCards = [TOTAL_CARDS];
+        for (let i = 0; i < cards.length; i++) {
+            if (!(i == 3)) {
+                newCards.push(cards[i]);
+            }
+        }
+        cards = newCards;
+    }
 
     // Apply messy wipe with slight delay for each card
     cards.forEach((card, index) => {

@@ -43,6 +43,11 @@ main {
   margin-bottom: 12vh;
 } 
 
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
+
 .card {
   position: relative;
   width: 228px;
@@ -113,7 +118,7 @@ main {
   height: 3em;
   border-radius: 10px;
   background-color: var(--color-accent);
-  border: 2px solid rgb(11, 83, 11);
+  border: 3px solid var(--color-accent);
   font-size: large;
   transition-duration: 0.4s;
   cursor: pointer;
