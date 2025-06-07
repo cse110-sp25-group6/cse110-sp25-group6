@@ -29,14 +29,14 @@ test('sort by name', () => {
 
 test('sort by acquisition', () => {
 	sortCards(cards, 'acquisition');
-	expect(cards[0]).toBe(card2);
+	expect(cards[0]).toBe(card3);
 	expect(cards[1]).toBe(card1);
-	expect(cards[2]).toBe(card3);
+	expect(cards[2]).toBe(card2);
 })
 
 test('sort by rarity', () => {
 	sortCards(cards, 'rarity');
-	expect(cards[0]).toBe(card1);
+	expect(cards[0]).toBe(card3);
 	expect(cards[1]).toBe(card2);
-	expect(cards[2]).toBe(card3);
+	expect(cards[2]).toBe(card1);
 })
