@@ -56,10 +56,10 @@
   },
   {
     "id": 83,
-    "name": "God Powell",
+    "name": "SE Paladin Powell",
     "image": "Powell.png",
     "rarity": 5,
-    "lore": "",
+    "lore": "Cursed by the demons Atari, Apple, and Commodore to forever be bound to introduce computing ideas to all comers and play games well into his senior years, the SE Paladin is a powerful and occasionally quixotic creature.  He still practices magic, and his ancient spells can be potent.  However, he is somewhat susceptible to jargon tornado attacks, especially those backed by creatures with extreme hordes of Gold.  Chaotic Good by nature, he is often encountered by young adventurers, especially those making their way from the Academia Archipelago to the Inland Industrial Wastes. Software engineering being his specialty, Powell rules over his \"iron triagle\", daring anyone to question his agile methods.",
     "stats": {
       "health": 999,
       "damage": 999
