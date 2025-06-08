@@ -154,6 +154,10 @@ async function createCard(index) {
     img.alt = `Back ${index + 1}`;
     img.style.width = '226px';
     img.style.height = '318px';
+    // img.style.filter = 'brightness(90%) grayscale(30%) blur(5px)';
+    img.style.filter = 'brightness(90%)';
+    img.style.filter = 'grayscale(35%)';
+    // img.style.filter = 'blur(1px)';
     back.appendChild(img);
 
     // add back glow
