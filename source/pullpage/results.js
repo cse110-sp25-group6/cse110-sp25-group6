@@ -1,4 +1,4 @@
-import { getCollectionCards, addCardToCollection } from "../util/utils.js";
+import {addCardToCollection } from "../util/utils.js";
 import '../components/card/cardComponent.js';
 import '../components/top-bar/top-bar.js';
 
