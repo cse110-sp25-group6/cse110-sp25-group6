@@ -189,13 +189,11 @@ function dealCards() {
         setTimeout(() => {
             if (card instanceof HTMLElement) {
                 card.style.transform = '';
-            } else {
-                console.error('Card element not found!');
-            }
-            card.classList.add("dealt");
-            card.style.transition = "transform 0.8s ease";
+                card.classList.add("dealt");
+                card.style.transition = "transform 0.8s ease";
 
-            card.addEventListener("click", () => flipCard(card));
+                card.addEventListener("click", () => flipCard(card));
+            }
         }, i * DEAL_DELAY);
     });
     

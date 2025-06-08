@@ -11,23 +11,28 @@ function init() {
     verifyPullCount();
 
     const packsValue = localStorage.getItem("Packs");
+    let pull1 = document.getElementsByClassName("pull1")[0];
+    if (pull1) {
+        pull1.addEventListener("click", () => {
+            if (packsValue < 1) {
+                createPopup(1);
+            } else {
+                makeAPull(1);
+            }
 
-    document.getElementsByClassName("pull1")[0].addEventListener("click", () => {
-        if (packsValue < 1) {
-            createPopup(1);
-        } else {
-            makeAPull(1);
-        }
+        });
+    }
 
-    });
-
-    document.getElementsByClassName("pull5")[0].addEventListener("click", () => {
-        if (packsValue < 5) {
-            createPopup(5);
-        } else {
-            makeAPull(5);
-        }
-    });
+    let pull5 = document.getElementsByClassName("pull5")[0];
+    if (pull5) {
+        pull5.addEventListener("click", () => {
+            if (packsValue < 5) {
+                createPopup(5);
+            } else {
+                makeAPull(5);
+            }
+        });
+    }
 }
 
 export function addCurrencyToDocument() {
