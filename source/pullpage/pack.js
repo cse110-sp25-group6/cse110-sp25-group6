@@ -173,16 +173,3 @@ function showVideo() {
     })
 
 }
-
-/*function hideVideo() { //Keeping this around temporarily in case we still need it later, but for now the easiest fix is just to not run this function.
-    const videoContainer = document.getElementsByClassName("video-container");
-    const videoElement = document.getElementsByClassName("pack-video");
-
-    for (let i = 0; i < videoContainer.length; i++) {
-        videoContainer[i].classList.toggle("show", false);
-    }
-
-    for (let i = 0; i < videoElement.length; i++) {
-        videoElement[i].style.display = "none";
-    }
-}*/
