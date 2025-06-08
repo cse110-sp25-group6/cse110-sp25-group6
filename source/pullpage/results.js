@@ -17,7 +17,7 @@ let FLIPPED = TOTAL_CARDS;
 let CONTINUE = false;
 
 // back-glow
-let blur = 18;
+let cardBlur = 18;
 let spread = 7;
 let R = 255;
 let G = 174;
@@ -102,21 +102,21 @@ async function getRandomCard() {
 
     // set backglow values (only for 4 and 5 stars)
     if (rarity == 5) {
-        blur = 18;
+        cardBlur = 18;
 		spread = 7;
 		R = 255;
 		G = 174;
 		B = 0;
 		opacity = 1;
     } else if (rarity == 4) {
-		blur = 15;
+		cardBlur = 15;
 		spread = 5;
 		R = 170;
 		G = 0;
 		B = 255;
 		opacity = 1;
     } else {
-        blur = 0;
+        cardBlur = 0;
 		spread = 0;
 		R = 0;
 		G = 0;
@@ -157,7 +157,7 @@ async function createCard(index) {
     back.appendChild(img);
 
     // add back glow
-    back.style.boxShadow = `0 0 ${blur}px ${spread}px rgb(${R}, ${G}, ${B}, ${opacity}) inset`;
+    back.style.boxShadow = `0 0 ${cardBlur}px ${spread}px rgb(${R}, ${G}, ${B}, ${opacity}) inset`;
 
     card.appendChild(front);
     card.appendChild(back);
@@ -187,7 +187,11 @@ function dealCards() {
     cards.forEach((card, i) => {
 
         setTimeout(() => {
-            card.style.transform = '';
+            if (card instanceof HTMLElement) {
+                card.style.transform = '';
+            } else {
+                console.error('Card element not found!');
+            }
             card.classList.add("dealt");
             card.style.transition = "transform 0.8s ease";
 
