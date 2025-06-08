@@ -30,7 +30,6 @@ let lastSort = "acquisition";
  */
 function init() {
 
-
 	cards = getCollectionCards();
 	// Sort cards by most recent
 	sortCards(cards, "acquisition");
@@ -70,6 +69,23 @@ function init() {
 			currentIndex += 1;
 			inspectedCard.data = cards[currentIndex];
 			lore.textContent = cards[currentIndex].lore;
+		}
+	});
+
+	// Keyboard shortcuts for the inspect view
+	document.addEventListener('keydown', (event) => {
+		if (event.key == "Escape") {
+			inspectorContainer.style.display = "none";
+		}
+		if (event.key == "ArrowLeft") {
+			if (inspectorContainer.style.display != "none") {
+				previousButton.click();
+			}
+		}
+		if (event.key == "ArrowRight") {
+			if (inspectorContainer.style.display != "none") {
+				nextButton.click();
+			}
 		}
 	});
 
@@ -218,9 +234,9 @@ export function sortCards(cards, property) {
 		cards.sort((a, b) => a.name.localeCompare(b.name));
 	}
 	if (property === "rarity") {
-		cards.sort((a, b) => a.rarity - b.rarity);
+		cards.sort((a, b) => b.rarity - a.rarity);
 	}
 	if (property === "acquisition") {
-		cards.sort((a, b) => a.acquisition - b.acquisition);
+		cards.sort((a, b) => b.acquisition - a.acquisition);
 	}
 }

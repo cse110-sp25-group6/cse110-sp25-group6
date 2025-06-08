@@ -2,7 +2,7 @@
    Provides styling for the collection page including layout, sorting, inspector, and animations.
 */
 
-@import '../util/globals.css';
+@import url('../util/globals.css');
 @import url('https://fonts.googleapis.com/css2?family=Turret+Road:wght@200;300;400;500;700;800&display=swap');
 
 /* Global element styling */
@@ -91,13 +91,6 @@ sorting-options button {
   font-size: var(--font-size-body);
 }
 
-.selected,
-sorting-options button:hover:not(.selected) {
-  background-color: var(--color-accent);
-  color: white;
-  border-color: white;
-}
-
 /* Card entrance animation */
 @keyframes fallIn {
   0% {
@@ -139,6 +132,7 @@ card-component {
 #inspect-card {
   width: 400px;
   height: auto;
+  transform: none;
 }
 
 .inspector button {
@@ -149,8 +143,14 @@ card-component {
 }
 
 .inspector button:hover {
-  transform: scale(var(--scale-hover));
+  transform: scale(1.5);
+  cursor: pointer;
   color: var(--color-accent);
+}
+
+.selected,
+sorting-options button:hover:not(.selected) {
+  background-color: var(--color-accent);
 }
 
 /* Inspector container for detailed view */
@@ -183,4 +183,7 @@ inspect-container > * {
 .lore {
   padding: 2rem;
   max-width: 400px;
+  max-height: 400px;
+  font-size: 1.25rem;
+  line-height: 1.25;
 }
