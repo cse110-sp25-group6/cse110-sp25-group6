@@ -1,3 +1,13 @@
+/**
+ * Card Inspect Styles
+ *
+ * Exports the Card Inspect styles for the card-inspect component.
+ * These styles define the appearance for the inspect container,
+ * its next and previous buttons, and lore.
+ *
+ */
+
+
 export const styles = `
 	:host {
 		position: absolute;
