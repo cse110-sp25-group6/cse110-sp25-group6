@@ -164,10 +164,11 @@ inspect-container {
   max-width: 80%;
   max-height: 80%;
   height: max-content;
-  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   inspect-container {
     grid-template-columns: 1fr;
   }
@@ -183,7 +184,7 @@ inspect-container > * {
 .lore {
   padding: 2rem;
   max-width: 400px;
-  max-height: 400px;
+  /* max-height: 400px; */
   font-size: 1.25rem;
   line-height: 1.25;
 }
