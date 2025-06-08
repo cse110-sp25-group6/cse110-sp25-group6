@@ -21,11 +21,14 @@ main {
   position: relative;
   flex: 1 1 auto;
   display: flex;
+  flex-wrap: wrap-reverse;
   flex-direction: row-reverse;
+  gap: 1rem;
   justify-content: center;
+  align-items: center;
   padding: 0 5%;
   margin: 0;
-  overflow: hidden;
+  overflow: auto;
   background-color: var(--color-background);
 }
 
@@ -51,43 +54,44 @@ main {
 }
 
 pack-icon {
-  position: relative;
+  /* position: relative; */
   display: flex;
-  padding: 3rem;
+  padding: 1rem;
   justify-content: center;
   align-items: center;
   margin-top: 5vh;
-  margin-bottom: 5vh;
+  margin-bottom: clamp(0.25rem, 10%, 5vh);
   z-index: 1;
 }
 
 #packPlaceholder {
-  width: clamp(100px, 20vw, 40vw);
-  height: clamp(150px, 30vw, 60vw);
-  border: 2px solid black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: red;
+  width: clamp(200px, 20vw, 40vw);
+  height: clamp(300px, 30vw, 60vw);
+  border: 2px solid red;
+  filter: brightness(3);
 }
 
 side-box {
   position: sticky;
   right: 0;
-  height: 100%;
-  padding: 3rem;
+  height: auto;
+  max-height: 100%;
+  padding: 1rem;
   background-color: var(--color-background);
   width: fit-content;
+  max-width: 100%;
   align-content: center;
   text-align: center;
-  font-size: 2rem;
+  font-size: clamp(1rem, 2vw, 1.5rem);
 }
 
 hr {
+  position: inherit;
   height: 1px;
+  width: clamp(0.5rem, 60vw, 100%);
   border: none;
   background-color: var(--color-text);
-  margin: 0.75rem 0;
+  margin: 0.75rem auto;
 }
 
 #pull-buttons {
@@ -99,8 +103,18 @@ hr {
   width: 100%;
 }
 
+button:disabled {
+  opacity: 0.7;
+}
+
+.popup-button-container button:hover:not(:disabled) {
+  background-color: var(--color-accent);
+  color: white;
+  border-color: white;
+}
+
 #pull-buttons button {
-  width: clamp(200px, 20vw, 30vw);
+  width: clamp(300px, 20vw, 30vw);
   height: clamp(50px, 5vw, 10vw);
   margin: 2%;
   text-align: center;
@@ -109,11 +123,94 @@ hr {
   border-style: none;
   border-radius: 9999px;
   background-color: var(--color-foreground);
-  font-size: 1.5rem;
+  color: white;
+  font-size: clamp(10px, 2vw, 1.5rem);
 }
 
-.selected, #pull-buttons button:hover:not(.selected) {
+.selected,
+#pull-buttons button:hover:not(.selected) {
   background-color: var(--color-accent);
   color: white;
   border-color: white;
 }
+
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.popup {
+  width: 35rem;
+  max-width: 90%;
+  height: 100%;
+  max-height: 30vh;
+  background-color: #fbf6ee;
+  padding: 8px;
+  text-align: center;
+  position: relative;
+  border-radius: .8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.popup-text-container {
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-text {
+  color: #383b40;
+  max-width: 100%;
+  font-size: 1.5rem;
+}
+
+.yellow {
+  color: #dab12d !important;
+}
+
+.red {
+  color: #de2f22 !important;
+}
+
+.popup-button-container {
+  display: flex;
+  padding: .7rem 0;
+  justify-content: space-around;
+  position: relative;
+  z-index: +1;
+  margin-top: auto;
+  width: 100%;
+}
+
+.popup-button {
+  background-color: #4a5265;
+  color: var(--color-text);
+  border-radius: 40px;
+  align-items: center;
+  font-size: 1.3rem;
+  padding: 0 0 0 .3em;
+  max-width: 100%;
+  height: 1.6rem;
+  position: relative;
+  text-align: center;
+  border: 1px solid transparent;
+  transition: all .2s;
+  width: 200px;
+}
+
+
+

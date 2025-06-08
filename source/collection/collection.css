@@ -66,6 +66,7 @@ collection-container {
   justify-content: center;
   justify-items: center;
   align-items: start;
+  align-content: start;
   overflow: auto;
   width: 80%;
   padding: 2vh;

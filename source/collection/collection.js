@@ -199,7 +199,7 @@ function addCardsToDocument(cards) {
  * @async
  * @returns {Promise<void>}
  */
-async function populateLocalStorage() {
+/* async function populateLocalStorage() {
 	localStorage.clear();
 	localStorage.setItem('Gems', JSON.stringify(50)); // Add some gems
 	localStorage.setItem('Packs', JSON.stringify(3)); // Add some packs
@@ -220,7 +220,7 @@ async function populateLocalStorage() {
 			addCardToCollection(card);
 		}
 	}
-}
+} */
 
 /**
  * Sorts the cards in place based on a given property.
