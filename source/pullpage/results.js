@@ -150,7 +150,7 @@ async function createCard(index) {
     back.classList.add("card-back");
     // back.textContent = `Back ${index + 1}`;
     const img = document.createElement('img');
-    img.src = '../card_data/images/card-back.png';
+    img.src = './card-back.png';
     img.alt = `Back ${index + 1}`;
     img.style.width = '226px';
     img.style.height = '318px';
