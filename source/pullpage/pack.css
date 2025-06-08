@@ -123,7 +123,7 @@ button:disabled {
   border-style: none;
   border-radius: 9999px;
   background-color: var(--color-foreground);
-  color: red;
+  color: white;
   font-size: clamp(10px, 2vw, 1.5rem);
 }
 
