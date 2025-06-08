@@ -103,6 +103,16 @@ hr {
   width: 100%;
 }
 
+button:disabled {
+  opacity: 0.7;
+}
+
+.popup-button-container button:hover:not(:disabled) {
+  background-color: var(--color-accent);
+  color: white;
+  border-color: white;
+}
+
 #pull-buttons button {
   width: clamp(300px, 20vw, 30vw);
   height: clamp(50px, 5vw, 10vw);
@@ -136,8 +146,6 @@ hr {
   align-items: center;
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
-  height: 100vh;
-  display: flex;
   flex-direction: column;
   overflow: hidden;
 }
@@ -204,12 +212,5 @@ hr {
   width: 200px;
 }
 
-.popup-button-container button:hover:not(:disabled) {
-  background-color: var(--color-accent);
-  color: white;
-  border-color: white;
-}
 
-button:disabled {
-  opacity: 0.7;
-}
+
