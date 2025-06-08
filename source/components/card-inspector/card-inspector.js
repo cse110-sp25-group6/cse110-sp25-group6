@@ -5,7 +5,7 @@ import { template } from './card-inspector-template.js';
  * A custom element for inspect cards in a modal-like UI.
  * Displays the selected card side by side with its lore.
  * Allows for navigation between cards with next and previous
- * buttons.
+ * buttons. 
  * 
  * @class
  * @extends {HTMLElement}
