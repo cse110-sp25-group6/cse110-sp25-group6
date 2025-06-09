@@ -19,6 +19,7 @@ export default [
         ...globals.browser,
         ...jest.environments.globals.globals,
         "page": "readonly",
+        "TrackJS": "readonly"
       },
     },
     rules: {
