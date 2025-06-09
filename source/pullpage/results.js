@@ -25,7 +25,7 @@ let FLIPPED = TOTAL_CARDS;
 let CONTINUE = false;
 
 // back-glow
-let blur = 18;
+let cardBlur = 18;
 let spread = 7;
 let R = 255;
 let G = 174;
