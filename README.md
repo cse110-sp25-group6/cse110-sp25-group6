@@ -24,7 +24,7 @@ Read this [page](https://github.com/cse110-sp25-group6/cse110-sp25-group6/blob/m
 Check out our First Sprint Results: [Status Video 1](https://youtu.be/zg7NDSaTIAg)
 
 ## Getting Started
-To access our app, all you have to do is follow this link: [My CS Monsters](https://cse110-sp25-group6.github.io/cse110-sp25-group6/source/homepage/index.html)
+To access our app, all you have to do is follow this link: [My CS Monsters](https://cse110-sp25-group6.github.io/cse110-sp25-group6/homepage/index.html)
 
 Thats it! Now the Digital Realm is in your hands! "The world is your oyster" they say.
 
@@ -39,8 +39,13 @@ Finally, the reset user button will **reset** everything. Your packs, gems, user
 
 ### Pull page
 This is our main attraction, the page that you have all been waiting for. Here you can still see your packs and gems in the top right and also navigate back home. But most importantly this is where you can open all the packs you have been saving up. Each pack has 5 cards. You can open them one at a time, or if you are feeling lucky, you can bulk open by opening 5 packs all at once. 
+![Pull Page](/admin/assets/pullpage.png)
 
 ### Collection
 Of course, you would also want to see all those cards that you worked so hard to get right? This is where you would find them. Here you can see every card that you have ever pulled. 
 
+![Collections](/admin/assets/collection.png)
+
 Click On the cards to inspect them and learn about their lore!
+
+![Inspect](/admin/assets/inspect.png)
