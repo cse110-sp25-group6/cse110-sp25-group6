@@ -1,32 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="pack.css" rel="stylesheet">
+    <link href="pack.css" rel="stylesheet" />
     <title>Pull Page</title>
     <script src="pack.js" type="module"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <top-bar data-title="Packs"></top-bar>
 
     <div class="video-container">
-        <video playsinline="" class="pack-video" src="pull1Video.mp4" style="display: none;"></video>
+      <video
+        playsinline=""
+        class="pack-video"
+        src="pull1Video.mp4"
+        style="display: none"
+      ></video>
     </div>
 
     <main>
-        <side-box>
-            <h2>Pack Opening</h2>
-            <hr>
-            <section id="pull-buttons">
-                <button type="button" class="pull1">Pull One(1)</button>
-                <button type="button" class="pull5">Pull Five(5)</button>
-            </section>
-        </side-box>
-        <pack-icon id="pack-image">
-            <img id="packPlaceholder" src="./pack-image.png" alt="Card Pack image">
-        </pack-icon>
+      <side-box>
+        <h2>Pack Opening</h2>
+        <hr />
+        <section id="pull-buttons">
+          <button type="button" class="pull1">Pull One(1)</button>
+          <button type="button" class="pull5">Pull Five(5)</button>
+        </section>
+      </side-box>
+      <pack-icon id="pack-image">
+        <img
+          id="packPlaceholder"
+          src="./pack-image.png"
+          alt="Card Pack image"
+        />
+      </pack-icon>
     </main>
-</body>
+  </body>
+</html>
