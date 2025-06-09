@@ -29,8 +29,8 @@ class CardComponent extends HTMLElement {
 		 */
 		this.cardData = {
 			name: "unknown",
-			image: "heap.png",
-			rarity: 5,
+			image: "",
+			rarity: 0,
 			stats: {
 				health: -1,
 				damage: -1
