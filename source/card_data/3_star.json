@@ -1,0 +1,222 @@
+[
+  {
+    "id": 4,
+    "name": "Memoir Dragon",
+    "image": "Dynamic_Programming.png",
+    "rarity": 3,
+    "lore": "This ancient dragon stores every skirmish it has ever encountered, learning from each outcome. It weaves smaller triumphs into a grand strategy, optimizing its next assault. Legends tell of entire legions defeated by its ability to recall past victories. Its scales shimmer with runes representing conquered subproblems.\n\nDynamic Programming solves complex problems by breaking them into overlapping subproblems, storing their solutions (memoization or tabulation) to avoid redundant computations and optimize overall runtime.",
+    "stats": {
+      "health": 295,
+      "damage": 118
+    }
+  },
+  {
+    "id": 5,
+    "name": "Reverie Wraith",
+    "image": "Backtracking.png",
+    "rarity": 3,
+    "lore": "An ethereal specter that drifts through shadowed corridors, retracing its path to find new opportunities. When a chosen route ends in danger, it slips back into the gloom and seeks another path. Its mournful wail lures lost wanderers deeper into its labyrinth. Those who hear its cry understand that only persistence can break its curse.\n\nBacktracking incrementally builds candidates to the solution, abandoning a candidate (“backtracking”) as soon as it determines that it cannot possibly be completed to a valid solution, commonly used in puzzles and constraint satisfaction.",
+    "stats": {
+      "health": 310,
+      "damage": 125
+    }
+  },
+  {
+    "id": 6,
+    "name": "Shortsighted Gremlin",
+    "image": "Greedy_Algorithm.png",
+    "rarity": 3,
+    "lore": "This cunning creature grabs the most tempting treasure within reach, ignoring any potential gains that lie ahead. Its hoard grows haphazardly as it chases each shiny object, leaving long-term wealth to rust. Over time, its fleeting victories reveal glaring weaknesses. Legends warn that its greatest danger is its own insatiable hunger.\n\nA Greedy Algorithm makes the locally optimal choice at each step with the hope of finding the global optimum, but unlike dynamic programming, it does not always guarantee an optimal solution for every problem.",
+    "stats": {
+      "health": 285,
+      "damage": 115
+    }
+  },
+  {
+    "id": 7,
+    "name": "Wavefront Devourer",
+    "image": "BFS.png",
+    "rarity": 3,
+    "lore": "This relentless entity expands outward, consuming everything at one depth before moving deeper. It engulfs every target in its path, leaving no one safe at a given radius. Victims trapped at the edge watch helplessly as each wave sweeps them into oblivion. Survivors whisper that its advance is heralded by distant, muffled screams.\n\nBreadth-First Search (BFS) explores nodes level by level in a graph or tree, visiting all neighbors at the current depth before descending further, ensuring the shortest path (in unweighted graphs) is found first.",
+    "stats": {
+      "health": 300,
+      "damage": 130
+    }
+  },
+  {
+    "id": 8,
+    "name": "Abyssal Wyrm",
+    "image": "DFS.png",
+    "rarity": 3,
+    "lore": "A daunting serpent that plunges into darkness without hesitation, ignoring any easier prey. It follows a single tunnel until it reaches a dead end or finds its ultimate quarry. Its fiery breath illuminates ancient catacombs as it hunts. Travelers warn that once it commits to a path, its persistence is terrifying.\n\nDepth-First Search (DFS) explores as far down a branch as possible before backtracking, visiting nodes by descending through one child at a time, useful for pathfinding and cycle detection.",
+    "stats": {
+      "health": 320,
+      "damage": 120
+    }
+  },
+  {
+    "id": 9,
+    "name": "Pathfinder Djinn",
+    "image": "Dijkstra’s.png",
+    "rarity": 3,
+    "lore": "This spectral djinn weighs every possible route before unleashing its wrath along the optimal path. It glides over uneven terrain, leaving smoldering traces where obstacles once stood. Opponents realize too late that no detour can save them from its precision. Tales recount mighty heroes falter under its unerring guidance.\n\nDijkstra’s Algorithm finds the shortest paths from a single source node to all other nodes in a weighted graph with non-negative weights, using a priority queue to pick the next node with the smallest tentative distance.",
+    "stats": {
+      "health": 295,
+      "damage": 128
+    }
+  },
+  {
+    "id": 10,
+    "name": "Midpoint Basilisk",
+    "image": "Binary_Search.png",
+    "rarity": 3,
+    "lore": "A towering basilisk that halves any crowd with a single petrifying glare. Its gaze locks onto the central point of its prey’s formation, eliminating half in an instant. Victims collapse into a frozen tableau as the beast discards one side after another. Legends say those who survive find their defenses irreparably shattered.\n\nBinary Search repeatedly divides a sorted array in half by comparing the target to the middle element, discarding the half in which the target cannot lie, achieving O(log n) runtime.",
+    "stats": {
+      "health": 305,
+      "damage": 122
+    }
+  },
+  {
+    "id": 11,
+    "name": "Rootbound Hydra",
+    "image": "Heap.png",
+    "rarity": 3,
+    "lore": "This multi-headed hydra organizes its heads by strength, attacking with the mightiest one first. As each head is severed, another rises to maintain the heap’s balance. Enemies tremble at the sight of the topmost head lunging with overwhelming force. Defeating it demands rooting out every head until its foundation is exposed.\n\nA Heap is a specialized tree-based data structure (often a binary heap) that maintains the heap property, where each parent node is ordered with respect to its children, enabling efficient extraction of the maximum (or minimum) element in O(log n).",
+    "stats": {
+      "health": 285,
+      "damage": 118
+    }
+  },
+  {
+    "id": 12,
+    "name": "Feathered Cipher",
+    "image": "Hashmap.png",
+    "rarity": 3,
+    "lore": "This harpy conceals secrets within hashed feathers, striking in constant time before its prey can react. It swoops down with uncanny precision, leaving victims disoriented and confused. Its lair is a maze of key-value enigmas only it can unravel. Rumor says those who steal its feathers vanish into an abyss of collisions.\n\nA Hashmap (or hash table) stores key-value pairs, using a hash function to compute an index into an array of buckets, enabling average-case O(1) time complexity for lookups, insertions, and deletions, while handling collisions via chaining or open addressing.",
+    "stats": {
+      "health": 310,
+      "damage": 124
+    }
+  },
+  {
+    "id": 15,
+    "name": "Branchblade Treant",
+    "image": "Tree_Traversal.png",
+    "rarity": 3,
+    "lore": "An ancient treant that journeys through its forest in preorder, inorder, and postorder rituals. Each branch conceals a secret, revealed only when its traversal is complete. The earth trembles as its roots shift pathways for unsuspecting travelers. Legends speak of its wisdom in uncovering hidden truths among tangled limbs.\n\nTree Traversal refers to algorithms that visit all the nodes in a tree data structure in a specified order—preorder (node, left, right), inorder (left, node, right), or postorder (left, right, node)—each serving different use cases in expression evaluation and search.",
+    "stats": {
+      "health": 300,
+      "damage": 127
+    }
+  },
+  {
+    "id": 32,
+    "name": "Unionmind Illithid",
+    "image": "Inner_Join.png",
+    "rarity": 3,
+    "lore": "This mind flayer merges the consciousness of two victims, extracting only their shared memories. It binds them together in a psychic union, tearing away extraneous thoughts. In its lair, only overlapping identities may endure its mental probe. Survivors whisper of a connection beyond mortal understanding.\n\nAn Inner Join in SQL returns only the rows that have matching values in both tables, merging records where the join condition holds true.",
+    "stats": {
+      "health": 305,
+      "damage": 130
+    }
+  },
+  {
+    "id": 33,
+    "name": "Omniconflux Behemoth",
+    "image": "Full_Join.png",
+    "rarity": 3,
+    "lore": "A towering behemoth that gathers all warriors and monsters under one immense canopy, ignoring allegiances. It wields a staff of union that binds both friend and foe to its cause. Its roar echoes with the combined voices of every being in its thrall. Only the mightiest resist its all-encompassing embrace.\n\nA Full Outer Join in SQL returns all rows from both tables, combining matching rows where possible and filling with NULLs where there is no match.",
+    "stats": {
+      "health": 290,
+      "damage": 117
+    }
+  },
+  {
+    "id": 34,
+    "name": "Leftbound Lich",
+    "image": "Left_Join.png",
+    "rarity": 3,
+    "lore": "A skeletal lich that summons allies exclusively loyal to its left-hand force, ignoring others entirely. It raises a legion of undead, each bound by partial allegiance. Its cryptic incantations dismiss missing souls on the right, focusing on the faithful few. Survivors claim even its incomplete army is a terrifying sight.\n\nA Left Outer Join in SQL returns all rows from the left table and matched rows from the right table, filling with NULLs where there is no match on the right.",
+    "stats": {
+      "health": 315,
+      "damage": 121
+    }
+  },
+  {
+    "id": 35,
+    "name": "Rightward Revenant",
+    "image": "Right_Join.png",
+    "rarity": 3,
+    "lore": "This ghostly revenant calls forth only those aligned with its right-hand force, banishing others to oblivion. Its mournful howl summons lost warriors desperate to join its spectral ranks. Even the unwilling are drawn into its fold by its unrelenting call. Each new soul strengthens its eerie, one-sided army.\n\nA Right Outer Join in SQL returns all rows from the right table and matched rows from the left table, filling with NULLs where there is no match on the left.",
+    "stats": {
+      "health": 300,
+      "damage": 115
+    }
+  },
+  {
+    "id": 39,
+    "name": "Distance Kraken",
+    "image": "K-NN.png",
+    "rarity": 3,
+    "lore": "A colossal kraken that lurks in clustered depths, snapping at the k nearest swimmers with monstrous tentacles. It measures distances with terrifying accuracy, ensuring no prey escapes its grip. Its lair is mapped with countless data points, each glinting like a warning. Sailors tell of vanishing fleets when its presence is near.\n\nThe k-Nearest Neighbors (k-NN) algorithm classifies data points by finding the k closest labeled examples in feature space and assigning the majority class (or average value for regression), relying on a distance metric such as Euclidean distance.",
+    "stats": {
+      "health": 285,
+      "damage": 120
+    }
+  },
+  {
+    "id": 40,
+    "name": "Margin Specter",
+    "image": "SVM.png",
+    "rarity": 3,
+    "lore": "A ghostly wraith that carves hyperplanes between the realms of the living and the dead. It maximizes the distance between its prey with spectral precision, chilling the air with each breath. Those who cross its boundary feel an icy hand determine their fate. In its presence, no soul dares stray too close to the margin.\n\nA Support Vector Machine (SVM) finds a hyperplane that maximizes the margin between classes in a feature space, often using kernel functions to handle nonlinearity while achieving strong classification performance.",
+    "stats": {
+      "health": 310,
+      "damage": 127
+    }
+  },
+  {
+    "id": 41,
+    "name": "LeastSquares Lamia",
+    "image": "Linear_Regression.png",
+    "rarity": 3,
+    "lore": "A serpent-woman who forecasts her prey’s path with uncanny linear precision. Each slither traces a least-squares line carved into her scales. She coils around scattered souls, eliminating outliers with venomous intent. Legends say she once predicted the downfall of entire kingdoms.\n\nLinear Regression fits a straight line to a set of data points by minimizing the sum of squared residuals between observed and predicted values, allowing prediction of a continuous target variable based on a linear relationship.",
+    "stats": {
+      "health": 300,
+      "damage": 118
+    }
+  },
+  {
+    "id": 48,
+    "name": "Expectation Efreet",
+    "image": "EM.png",
+    "rarity": 3,
+    "lore": "An efreet that shifts between expectation and maximization, forging infernal solutions beneath its smoky veil. In the expectation phase, it conjures possible states; in maximization, it strengthens the likeliest one. Its methods evolve with each iteration, never resting until convergence. Mortals quake at its unseen steps, for the true model remains hidden until the end.\n\nThe Expectation-Maximization (EM) algorithm iteratively alternates between computing expected values of latent variables (E-step) and maximizing the likelihood with respect to parameters (M-step), used for parameter estimation in models with hidden data.",
+    "stats": {
+      "health": 300,
+      "damage": 120
+    }
+  },
+  {
+    "id": 49,
+    "name": "Centroid Kraken",
+    "image": "K-Means_Clustering.png",
+    "rarity": 3,
+    "lore": "A titanic kraken that herds sailors into k distinct clusters before unleashing its wrath. Its tentacles circle centroids carved from the screams of the doomed. Each cluster shrieks when separated, only to be swallowed as one. Its lair is a shifting mosaic of similar terrors bound by unrelenting algorithmic fervor.\n\nK-Means Clustering partitions data into k clusters by iteratively assigning points to the nearest centroid and updating centroids to the mean of points in each cluster, converging when assignments no longer change.",
+    "stats": {
+      "health": 290,
+      "damage": 118
+    }
+  },
+  {
+    "id": 53,
+    "name": "Minimax Revenant",
+    "image": "MiniMax.png",
+    "rarity": 3,
+    "lore": "A cunning mimic that alternates between maximizing its loot and minimizing its foes’ options. It shifts its form to mirror the greatest threat, ensuring no enemy gains the advantage. Each encounter becomes a balanced duel of wits as it calculates both sides at once. Only those who think several steps ahead survive its strategic onslaught.\n\nThe Minimax algorithm, used in adversarial search (e.g., game playing), recursively evaluates game states by assuming optimal play from both sides: one player tries to maximize the score while the opponent tries to minimize it.",
+    "stats": {
+      "health": 305,
+      "damage": 125
+    }
+  }
+]
