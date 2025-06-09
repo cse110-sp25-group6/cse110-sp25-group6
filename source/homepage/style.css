@@ -17,7 +17,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   /* Cool animated gradient and glow background */
   background: linear-gradient(120deg, #191c28 0%, #232b40 35%, #21364d 100%);
@@ -122,7 +121,6 @@ body::before {
   margin-bottom: 3px;
   font-family: var(--font-family);
 }
-
 .level-container {
   display: flex;
   align-items: center;
