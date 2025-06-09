@@ -1,14 +1,4 @@
-/**
- * This file initializes the pack results page by loading the card-pack image, 
- * setting up event listeners for pulling, generating a pop-up that allows
- * pulling with gems if the user can't afford packs, and playing the pull
- * animation along with navigating the user to the results page after opening
- * a pack.
- * Dependencies:
- *  - cardComponent.js
- *  - top-bar.js
- */
-import { addCardToCollection } from "../util/utils.js";
+import {addCardToCollection } from "../util/utils.js";
 import '../components/card/cardComponent.js';
 import '../components/top-bar/top-bar.js';
 
@@ -34,25 +24,14 @@ let G = 174;
 let B = 0;
 let opacity = 1;
 
-/**
- * Redirects the user if they inappropriately accessed or reloaded the results page,
- * then initializes the page by checking for pull type (single or 5-pack), creates
- * cards, deals them, then sets up the event listeners for the flip/continue button.
- *
- * @async
- * @returns {Promise<void>}
- */
+// initialize: create cards and trigger deal
 async function init() {
-    //Redirects the user if they attempt to inappropriately access the results page (such as 
-    // by entering in the URL directly or reloading the page), only allowing access
-    //and generating cards if the results were accessed after making a pull.
     if (sessionStorage.getItem("madePull") != "true") {
         window.location.href = 'pack.html';
     }
 
     sessionStorage.setItem("madePull", "false");
 
-    //Alters values of variables depending on pull count
     if (sessionStorage.getItem("pull5") == "true") {
         TOTAL_CARDS = 25;
         DEAL_DELAY = 100;
@@ -68,7 +47,6 @@ async function init() {
         FLIPPED = TOTAL_CARDS;
     }
 
-    //Loop to generate the cards
     for (let i = 0; i < TOTAL_CARDS; i++) {
         const card = await createCard(i);
         // add line break for pull1
@@ -80,10 +58,8 @@ async function init() {
         stack.appendChild(card);
     }
 
-    //Animates the dealing of cards 
     dealCards();
 
-    //Hides flip/continue buttons until all cards have been dealt out.
     setTimeout(() => {
         continueButton.classList.remove("hidden");
     }, TOTAL_CARDS * DEAL_DELAY);
@@ -92,7 +68,6 @@ async function init() {
     continueButton.style.bottom = `${BUTTON_OFFSET}px`;
     continueButton.style.right = `${BUTTON_OFFSET}px`;
 
-    //Adds event listener for the continue button. Flips all cards if there are face-down cards, otherwise wipes all cards and redirects the user.
     document.getElementById("continue").addEventListener("click", () => {
         if (CONTINUE) {
             wipeCards()
@@ -109,16 +84,7 @@ async function init() {
 
 }
 
-/**
- * Generates a card of a random weighted rarity, pulling the card's
- * data randomly from the appriopriate json file.
- * Higher rarity cards have special glows.
- * 
- * @async
- * @returns {Promise<Object>} A promise that resolves to a card data object
- */
 async function getRandomCard() {
-    //Generates rarity of card randomly based on rarity weights.
     let rng = Math.random();
     let rarity = 1;
     if (rng > 0.99) {
@@ -137,28 +103,27 @@ async function getRandomCard() {
     // set backglow values (only for 4 and 5 stars)
     if (rarity == 5) {
         cardBlur = 18;
-        spread = 7;
-        R = 255;
-        G = 174;
-        B = 0;
-        opacity = 1;
+		spread = 7;
+		R = 255;
+		G = 174;
+		B = 0;
+		opacity = 1;
     } else if (rarity == 4) {
-        cardBlur = 15;
-        spread = 5;
-        R = 170;
-        G = 0;
-        B = 255;
-        opacity = 1;
+		cardBlur = 15;
+		spread = 5;
+		R = 170;
+		G = 0;
+		B = 255;
+		opacity = 1;
     } else {
         cardBlur = 0;
-        spread = 0;
-        R = 0;
-        G = 0;
-        B = 0;
-        opacity = 0;
+		spread = 0;
+		R = 0;
+		G = 0;
+		B = 0;
+		opacity = 0;
     }
 
-    //Fetches the appropriate json for the random rarity, then randomly selects a card from the set of cards in that rarity.
     const res = await fetch(`../card_data/${rarity}_star.json`);
     if (!res.ok) {
         console.error(`Failed to load ${rarity}_star.json`);
@@ -169,19 +134,11 @@ async function getRandomCard() {
 
 }
 
-/**
- * Creates a card DOM element with front and back faces.
- * 
- * @async
- * @param {number} index - The position index of the card in the stack
- * @returns {Promise<HTMLElement>} A promise that resolves to a card element
- */
+// utility: Create a card DOM element
 async function createCard(index) {
 
-    //Generates front of the card element
     let front = document.createElement('card-component');
     front.classList.add("card-front");
-    //Generates the data of a random card, before updating local storage to add that card to the user's collection.
     let cardData = await getRandomCard();
     front.data = cardData;
     addCardToCollection(cardData);
@@ -189,11 +146,9 @@ async function createCard(index) {
     let card = document.createElement("div");
     card.classList.add("card", "facedown");
 
-    //Generates back of the card element.
     let back = document.createElement("div");
     back.classList.add("card-back");
     // back.textContent = `Back ${index + 1}`;
-
     const img = document.createElement('img');
     img.src = '../card_data/images/card-back.png';
     img.alt = `Back ${index + 1}`;
@@ -213,13 +168,7 @@ async function createCard(index) {
     return card;
 }
 
-/**
- * Animates card dealing one-by-one from offscreen to the
- * appriopriate position, with altered layout depending on
- * pull type.
- * 
- * @returns {void}
- */
+// deal cards
 function dealCards() {
     let cards = Array.from(stack.children);
 
@@ -234,7 +183,7 @@ function dealCards() {
         cards = newCards;
     }
 
-    //Loops through each card in the stack, dealing each card out inddividually.
+
     cards.forEach((card, i) => {
 
         setTimeout(() => {
@@ -242,27 +191,19 @@ function dealCards() {
                 card.style.transform = '';
                 card.classList.add("dealt");
                 card.style.transition = "transform 0.8s ease";
-                //Allows user to flip specific space-down cards by clicking them.
+
                 card.addEventListener("click", () => flipCard(card));
             }
         }, i * DEAL_DELAY);
     });
-
+    
 }
 
-/**
- * Flips one card from face-down to face-up,
- * and updates the count of non-flipped cards.
- * 
- * @param {HTMLElement} card - The card element to flip
- * @returns {void}
- */
+// flip card animation
 function flipCard(card) {
-    //Flips the card by updating its classes.
     card.classList.remove("facedown");
     card.classList.add("flipped");
     FLIPPED--;
-    //Once all cards have been flipped, updates the continue button to instead continue back to the pull page.
     if (FLIPPED <= 0) {
         CONTINUE = true;
         // if continue is true, change text on button
@@ -270,29 +211,19 @@ function flipCard(card) {
     }
 }
 
-/**
- * Flips all remaining face-down cards to face-up.
- * 
- * @returns {void}
- */
 function flipAll() {
     let cards = Array.from(stack.children);
-    //Loops through every card in the stack, flipping them individually.
+
     cards.forEach((card) => {
         flipCard(card);
     });
 }
 
-/**
- * Animates the wipe/removal of cards with light randomization,
- * with altered behavior depending on pull type.
- * 
- * @returns {void}
- */
+// wipe card animation
 function wipeCards() {
     let cards = Array.from(stack.children);
 
-    //remove pause in wiping animation due to line break used for single-pull formatting.
+    //remove pause in wiping animation due to line break
     if (TOTAL_CARDS == 5) {
         let newCards = [TOTAL_CARDS];
         for (let i = 0; i < cards.length; i++) {
