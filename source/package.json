@@ -5,8 +5,8 @@
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "lint": "eslint -c config/eslint.config.js .",
-    "prettier:check": "prettier --check script",
-    "prettier:fix": "prettier --write script",
+    "prettier:check": "prettier --check .",
+    "prettier:fix": "prettier --write .",
     "docs": "jsdoc -c config/jsdoc.conf.json"
   },
   "keywords": [],
@@ -37,7 +37,6 @@
   },
   "description": "",
   "jest": {
-
     "preset": "jest-puppeteer",
     "verbose": true
   }

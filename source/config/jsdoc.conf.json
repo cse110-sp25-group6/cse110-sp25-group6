@@ -1,18 +1,15 @@
 {
   "source": {
     "include": [
-      "source/collection", 
+      "source/collection",
       "source/components/card",
       "source/components/top-bar",
       "source/components/card-inspector",
-      "source/homepage", 
+      "source/homepage",
       "source/pullpage",
       "source/util"
     ],
-    "exclude": [
-      "source/node_modules",
-      "source/card_data"
-    ]
+    "exclude": ["source/node_modules", "source/card_data"]
   },
   "opts": {
     "destination": "source/docs"
