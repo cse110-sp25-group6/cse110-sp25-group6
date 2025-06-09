@@ -30,7 +30,7 @@ Thats it! Now the Digital Realm is in your hands! "The world is your oyster" the
 
 ## Features
 ### Landing Page
-![homepage](/admin/assets/image.png)
+![homepage](/admin/assets/homepage.png)
 This is our Homepage, the start of your journey into the Digital Realm. From here you can go to the two main features of our app: Collections and Pack Opening. In the top right corner you can see your in Game currencies. Packs are the number of card packs that you have. These packs contain a variety of cards each with different rarities, stats, and lore. You will get a pack every 5 minutes and the time till your next pack is indicated by the progress bar under the "Game Pack" button. Gems can be used when you don't have enough packs and you don't want to wait for more. 
 
 To open packs all you have to do is click on the "Game Pack" button. This will bring you to the pack opening page where you can open all your juicy packs. To see your cards, just click on Collections. This will bring you to your very own collection so you can see all the cards that you own.
