@@ -1,38 +1,72 @@
-import { addCardToCollection } from "../util/utils.js";
+import {addCardToCollection } from "../util/utils.js";
 import '../components/card/cardComponent.js';
 import '../components/top-bar/top-bar.js';
 
 // get references to DOM elements
 const stack = document.getElementById("card-stack");
+const topRow = document.getElementById("top-row");
+const bottomRow = document.getElementById("bottom-row");
+let continueButton = document.getElementById("continue");
 
 // configuration
 let TOTAL_CARDS = 5;
 let DEAL_DELAY = 500;
 let WIPE_DELAY = 100;
+let BUTTON_OFFSET = 10;
 let FLIPPED = TOTAL_CARDS;
 let CONTINUE = false;
 
+// back-glow
+let cardBlur = 18;
+let spread = 7;
+let R = 255;
+let G = 174;
+let B = 0;
+let opacity = 1;
+
 // initialize: create cards and trigger deal
 async function init() {
+    if (sessionStorage.getItem("madePull") != "true") {
+        window.location.href = 'pack.html';
+    }
+
+    sessionStorage.setItem("madePull", "false");
+
     if (sessionStorage.getItem("pull5") == "true") {
         TOTAL_CARDS = 25;
         DEAL_DELAY = 100;
         WIPE_DELAY = 20;
+        BUTTON_OFFSET = 10;
         FLIPPED = TOTAL_CARDS;
     }
     else {
         TOTAL_CARDS = 5;
         DEAL_DELAY = 500;
         WIPE_DELAY = 100;
+        BUTTON_OFFSET = 30;
         FLIPPED = TOTAL_CARDS;
     }
-    
+
     for (let i = 0; i < TOTAL_CARDS; i++) {
         const card = await createCard(i);
+        // add line break for pull1
+        if (TOTAL_CARDS == 5 && i == 3) {
+            let lineBreak = document.createElement("div");
+            lineBreak.className = "break";
+            stack.appendChild(lineBreak);
+        }
         stack.appendChild(card);
     }
 
     dealCards();
+
+    setTimeout(() => {
+        continueButton.classList.remove("hidden");
+    }, TOTAL_CARDS * DEAL_DELAY);
+
+    // offset button closer to center for pull1
+    continueButton.style.bottom = `${BUTTON_OFFSET}px`;
+    continueButton.style.right = `${BUTTON_OFFSET}px`;
 
     document.getElementById("continue").addEventListener("click", () => {
         if (CONTINUE) {
@@ -50,9 +84,6 @@ async function init() {
 
 }
 
-
-
-
 async function getRandomCard() {
     let rng = Math.random();
     let rarity = 1;
@@ -69,6 +100,30 @@ async function getRandomCard() {
         rarity = 2;
     }
 
+    // set backglow values (only for 4 and 5 stars)
+    if (rarity == 5) {
+        cardBlur = 18;
+		spread = 7;
+		R = 255;
+		G = 174;
+		B = 0;
+		opacity = 1;
+    } else if (rarity == 4) {
+		cardBlur = 15;
+		spread = 5;
+		R = 170;
+		G = 0;
+		B = 255;
+		opacity = 1;
+    } else {
+        cardBlur = 0;
+		spread = 0;
+		R = 0;
+		G = 0;
+		B = 0;
+		opacity = 0;
+    }
+
     const res = await fetch(`../card_data/${rarity}_star.json`);
     if (!res.ok) {
         console.error(`Failed to load ${rarity}_star.json`);
@@ -76,7 +131,7 @@ async function getRandomCard() {
     const cards = await res.json();
     let index = Math.floor(Math.random() * cards.length);
     return cards[index];
-    
+
 }
 
 // utility: Create a card DOM element
@@ -91,11 +146,18 @@ async function createCard(index) {
     let card = document.createElement("div");
     card.classList.add("card", "facedown");
 
-    
-
     let back = document.createElement("div");
     back.classList.add("card-back");
-    back.textContent = `Back ${index + 1}`;
+    // back.textContent = `Back ${index + 1}`;
+    const img = document.createElement('img');
+    img.src = '../card_data/images/card-back.png';
+    img.alt = `Back ${index + 1}`;
+    img.style.width = '226px';
+    img.style.height = '318px';
+    back.appendChild(img);
+
+    // add back glow
+    back.style.boxShadow = `0 0 ${cardBlur}px ${spread}px rgb(${R}, ${G}, ${B}, ${opacity}) inset`;
 
     card.appendChild(front);
     card.appendChild(back);
@@ -109,16 +171,32 @@ async function createCard(index) {
 // deal cards
 function dealCards() {
     let cards = Array.from(stack.children);
-    cards.forEach((card, i) => {
-        
-        setTimeout(() => {
-            card.style.transform = '';
-            card.classList.add("dealt");
-            card.style.transition = "transform 0.8s ease";
 
-            card.addEventListener("click", () => flipCard(card));
+    //remove pause in dealing animation due to line break
+    if (TOTAL_CARDS == 5) {
+        let newCards = [TOTAL_CARDS];
+        for (let i = 0; i < cards.length; i++) {
+            if (!(i == 3)) {
+                newCards.push(cards[i]);
+            }
+        }
+        cards = newCards;
+    }
+
+
+    cards.forEach((card, i) => {
+
+        setTimeout(() => {
+            if (card instanceof HTMLElement) {
+                card.style.transform = '';
+                card.classList.add("dealt");
+                card.style.transition = "transform 0.8s ease";
+
+                card.addEventListener("click", () => flipCard(card));
+            }
         }, i * DEAL_DELAY);
     });
+    
 }
 
 // flip card animation
@@ -145,17 +223,28 @@ function flipAll() {
 function wipeCards() {
     let cards = Array.from(stack.children);
 
+    //remove pause in wiping animation due to line break
+    if (TOTAL_CARDS == 5) {
+        let newCards = [TOTAL_CARDS];
+        for (let i = 0; i < cards.length; i++) {
+            if (!(i == 3)) {
+                newCards.push(cards[i]);
+            }
+        }
+        cards = newCards;
+    }
+
     // Apply messy wipe with slight delay for each card
     cards.forEach((card, index) => {
-      setTimeout(() => {
-        let randomX = 800 + Math.random() * 400; // 800px to 1200px
-        let randomY = (Math.random() - 0.5) * 200; // -100px to +100px
-        let randomAngle = (Math.random() - 0.5) * 60; // -30deg to +30deg
+        setTimeout(() => {
+            let randomX = 800 + Math.random() * 400; // 800px to 1200px
+            let randomY = (Math.random() - 0.5) * 200; // -100px to +100px
+            let randomAngle = (Math.random() - 0.5) * 60; // -30deg to +30deg
 
-        card.style.transition = 'transform 0.7s ease-in-out, opacity 0.5s';
-        card.style.opacity = '0';
-        card.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${randomAngle}deg)`;
-      }, index * WIPE_DELAY); // 100ms stagger per card
+            card.style.transition = 'transform 0.7s ease-in-out, opacity 0.5s';
+            card.style.opacity = '0';
+            card.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${randomAngle}deg)`;
+        }, index * WIPE_DELAY); // 100ms stagger per card
     });
 }
 

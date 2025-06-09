@@ -1,3 +1,8 @@
+
+
+import { styles } from './card-styles.js';
+import { template } from './card-template.js';
+
 /**
  * 
  * This file defines a custom HTML element <card-component> that renders a card using
@@ -6,15 +11,13 @@
  * Dependencies:
  *  - card-styles.js
  *  - card-template.js
- *
+ * 
+ * @class
  */
-
-import { styles } from './card-styles.js';
-import { template } from './card-template.js';
-
 class CardComponent extends HTMLElement {
 	/**
 	 * Creates an instance of CardComponent and attaches an open shadow root.
+	 * @constructor
 	 */
 	constructor() {
 		super();

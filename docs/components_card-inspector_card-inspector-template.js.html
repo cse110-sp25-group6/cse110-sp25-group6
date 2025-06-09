@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>components/card/card-template.js - Documentation</title>
+    <title>components/card-inspector/card-inspector-template.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">components/card/card-template.js</h1>
+    <h1 class="page-title">components/card-inspector/card-inspector-template.js</h1>
     
 
     
@@ -40,84 +40,17 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- *
- * This file exports a template function that returns an HTML string to render a card.
- * It uses the provided data to populate card properties such as name, rarity, and stats.
- *
- * @param {Object} data - The card data containing properties for name, rarity, and stats.
- * @returns {string} HTML string representing the card element.
+ * This file exports a template function that returns an HTML string to render the card inspector.
  */
 
-export const template = (data) => {
-	let blur = 0;
-	let spread = 0;
-	let R = 0;
-	let G = 0;
-	let B = 0;
-	let opacity = 0;
-
-	if (data.rarity == 1) {
-		blur = 10;
-		spread = 0.5;
-		R = 255;
-		G = 255;
-		B = 255;
-		opacity = 0.7;
-	}
-	else if (data.rarity == 2) {
-		blur = 10;
-		spread = 1;
-		R = 89;
-		G = 255;
-		B = 0;
-		opacity = 0.9;
-	}
-	else if (data.rarity == 3) {
-		blur = 12;
-		spread = 3;
-		R = 0;
-		G = 38;
-		B = 255;
-		opacity = 1;
-	}
-	else if (data.rarity == 4) {
-		blur = 15;
-		spread = 5;
-		R = 170;
-		G = 0;
-		B = 255;
-		opacity = 1;
-	}
-	else if (data.rarity == 5) {
-		blur = 18;
-		spread = 7;
-		R = 255;
-		G = 174;
-		B = 0;
-		opacity = 1;
-	}
-
-	return `
-		&lt;div class="card" style="background-image: url('../card_data/images/${data.image}'), url('../card_data/images/Heap.png'); box-shadow: 0 0 ${blur}px ${spread}px rgb(${R}, ${G}, ${B}, ${opacity}) inset; filter: brightness(1.5);">
-			&lt;p class="name"> ${data.name} &lt;/p>
-			&lt;p class="rarity"> ${'★'.repeat(data.rarity)} &lt;/p>
-			&lt;div class="stats">
-				&lt;span class="health"> 
-					&lt;span class="heart-icon">
-						❤
-					&lt;/span>
-					${data.stats.health} 
-				&lt;/span>
-				&lt;span class="damage"> 
-					&lt;span class="damage-icon">
-						🗡️
-					&lt;/span>
-					${data.stats.damage} 
-				&lt;/span>
-			&lt;/div>
-		&lt;/div>
-	`;
-}</code></pre>
+export const template = `
+      &lt;button id="previous">&amp;lt;&lt;/button>
+      &lt;inspect-container>
+        &lt;card-component id="inspect-card">&lt;/card-component>
+        &lt;div class="lore">&lt;/div>
+      &lt;/inspect-container>
+      &lt;button id="next">&amp;gt;&lt;/button>
+`;</code></pre>
         </article>
     </section>
 

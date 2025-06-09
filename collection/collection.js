@@ -7,12 +7,14 @@
  * Dependencies:
  *  - cardComponent.js
  *  - top-bar.js
+ * 	- card-inspect.js
  *  - util/utils.js
  * 
  */
 
 import '../components/card/cardComponent.js';
 import '../components/top-bar/top-bar.js';
+import '../components/card-inspector/card-inspector.js'
 import { getCollectionCards, addCardToCollection } from "../util/utils.js";
 
 window.addEventListener("DOMContentLoaded", init);
@@ -40,52 +42,21 @@ function init() {
 	let sortNameButton = document.getElementById("sort-name");
 	let sortRarityButon = document.getElementById("sort-rarity");
 	let sortAcquisitionButton = document.getElementById("sort-acquisition");
-
-	const inspectorContainer = document.querySelector('.inspector');
-	const inspectedCard = document.getElementById('inspect-card');
-	const previousButton = document.getElementById("previous");
-	const nextButton = document.getElementById("next");
-	const lore = document.querySelector('.lore');
-
-	// Hide inspector when clicking outside the card area
-	inspectorContainer.addEventListener("click", (e) => {
-		if (e.target === e.currentTarget) {
-			inspectorContainer.style.display = "none";
-		}
-	});
-
-	// Navigate to previous card in inspector
-	previousButton.addEventListener("click", () => {
-		if (currentIndex !== 0) {
-			currentIndex -= 1;
-			inspectedCard.data = cards[currentIndex];
-			lore.textContent = cards[currentIndex].lore;
-		}
-	});
-
-	// Navigate to next card in inspector
-	nextButton.addEventListener("click", () => {
-		if (currentIndex !== cards.length - 1) {
-			currentIndex += 1;
-			inspectedCard.data = cards[currentIndex];
-			lore.textContent = cards[currentIndex].lore;
-		}
-	});
+	let cardInspector = document.querySelector('card-inspector');
+	cardInspector.cardArray = cards;
+	cardInspector.currentIndex = 0;
 
 	// Keyboard shortcuts for the inspect view
 	document.addEventListener('keydown', (event) => {
 		if (event.key == "Escape") {
-			inspectorContainer.style.display = "none";
+			// inspectorContainer.style.display = "none";
+			cardInspector.hide();
 		}
 		if (event.key == "ArrowLeft") {
-			if (inspectorContainer.style.display != "none") {
-				previousButton.click();
-			}
+			cardInspector.prev();
 		}
 		if (event.key == "ArrowRight") {
-			if (inspectorContainer.style.display != "none") {
-				nextButton.click();
-			}
+			cardInspector.next();
 		}
 	});
 
@@ -152,9 +123,7 @@ function addCurrencyToDocument() {
  */
 function addCardsToDocument(cards) {
 	const collectionContainer = document.querySelector('collection-container');
-	const inspectorContainer = document.querySelector('.inspector');
-	const inspectedCard = document.getElementById('inspect-card');
-	const lore = document.querySelector('.lore');
+	const cardInspector = document.querySelector('card-inspector')
 	collectionContainer.innerHTML = ''; // Remove all cards
 	for (let c = 0; c < cards.length; c++) {
 		let cardData = cards[c];
@@ -165,10 +134,9 @@ function addCardsToDocument(cards) {
 
 		// When a card is clicked, open the inspector and load the card details
 		cardComponent.addEventListener("click", () => {
-			currentIndex = c;
-			inspectorContainer.style.display = "flex";
-			inspectedCard.data = cardData;
-			lore.textContent = cardData.lore;
+			cardInspector.currentIndex = c;
+			cardInspector.show();
+
 		});
 
 		// Restart animation by triggering a reflow
@@ -199,7 +167,7 @@ function addCardsToDocument(cards) {
  * @async
  * @returns {Promise<void>}
  */
-async function populateLocalStorage() {
+/* async function populateLocalStorage() {
 	localStorage.clear();
 	localStorage.setItem('Gems', JSON.stringify(50)); // Add some gems
 	localStorage.setItem('Packs', JSON.stringify(3)); // Add some packs
@@ -220,7 +188,7 @@ async function populateLocalStorage() {
 			addCardToCollection(card);
 		}
 	}
-}
+} */
 
 /**
  * Sorts the cards in place based on a given property.

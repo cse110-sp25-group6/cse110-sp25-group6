@@ -1,16 +1,18 @@
+
+
+import { styles } from './top-bar-styles.js';
+import { template } from './top-bar-template.js';
 /**
  *
  * Defines a custom <top-bar> element that displays the page title and currency values.
  * Retrieves currency from local storage and uses a shadow DOM to encapsulate its styles.
- * 
+ * @class
+ * @extends {HTMLElement}
  */
-
-import { styles } from './top-bar-styles.js';
-import { template } from './top-bar-template.js';
-
 class TopBar extends HTMLElement {
 	/**
 	 * Attaches shadow DOM and sets default data.
+	 * @constructor
 	 */
 	constructor() {
 		super();
@@ -20,6 +22,7 @@ class TopBar extends HTMLElement {
 
 	/**
 	 * Called when element is connected. Renders the component.
+	 * @returns {void}
 	 */
 	connectedCallback() {
 		this.render();
@@ -27,6 +30,7 @@ class TopBar extends HTMLElement {
 
 	/**
 	 * Renders the top bar by updating data from dataset and local storage, then injecting the template.
+	 * @returns {void}
 	 */
 	render() {
 		this.data.pageTitle = this.dataset.title || "";

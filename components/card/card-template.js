@@ -57,7 +57,7 @@ export const template = (data) => {
 	}
 
 	return `
-		<div class="card" style="background-image: url('../card_data/images/${data.image}'), url('../card_data/images/Heap.png'); box-shadow: 0 0 ${blur}px ${spread}px rgb(${R}, ${G}, ${B}, ${opacity}) inset;">
+		<div class="card" style="background-image: url('../card_data/images/${data.image}'), url('../card_data/images/Heap.png'); box-shadow: 0 0 ${blur}px ${spread}px rgb(${R}, ${G}, ${B}, ${opacity}) inset; filter: brightness(1.5);">
 			<p class="name"> ${data.name} </p>
 			<p class="rarity"> ${'★'.repeat(data.rarity)} </p>
 			<div class="stats">

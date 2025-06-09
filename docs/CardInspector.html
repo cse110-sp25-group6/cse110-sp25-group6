@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>CardComponent - Documentation</title>
+    <title>CardInspector - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">CardComponent</h1>
+    <h1 class="page-title">CardInspector</h1>
     
 
     
@@ -42,15 +42,13 @@
 <header>
     
         <h2>
-        CardComponent
+        CardInspector
         </h2>
         
-            <div class="class-description">This file defines a custom HTML element <card-component> that renders a card using
-shadow DOM. It imports CSS styles and an HTML template for the card structure.
-
-Dependencies:
- - card-styles.js
- - card-template.js</div>
+            <div class="class-description">A custom element for inspect cards in a modal-like UI.
+Displays the selected card side by side with its lore.
+Allows for navigation between cards with next and previous
+buttons.</div>
         
     
 </header>
@@ -65,14 +63,15 @@ Dependencies:
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="CardComponent"><span class="type-signature"></span>new CardComponent<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="CardInspector"><span class="type-signature"></span>new CardInspector<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    Creates an instance of CardComponent and attaches an open shadow root.
+    Creates an instance of CardInspector as an HTMLElement, attaches an open
+shadow root, and defines default field values.
 </div>
 
 
@@ -108,7 +107,7 @@ Dependencies:
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_card_cardComponent.js.html">components/card/cardComponent.js</a>, <a href="components_card_cardComponent.js.html#line17">line 17</a>
+        <a href="components_card-inspector_card-inspector.js.html">components/card-inspector/card-inspector.js</a>, <a href="components_card-inspector_card-inspector.js.html#line13">line 13</a>
     </li></ul></dd>
     
 
@@ -146,6 +145,17 @@ Dependencies:
     </div>
 
     
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li>HTMLElement</li>
+    </ul>
+
+
+    
 
     
 
@@ -161,13 +171,13 @@ Dependencies:
         
             
 <div class="section-members">
-<h4 class="name" id="cardData"><span class="type-signature"></span>cardData<span class="type-signature"> :Object</span></h4>
+<h4 class="name" id="cardArray"><span class="type-signature"></span>cardArray<span class="type-signature"></span></h4>
 
 
 
 
 <div class="description">
-    Default card data used as a fallback.
+    Set the array of cards to inspect.
 </div>
 
 
@@ -203,7 +213,7 @@ Dependencies:
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_card_cardComponent.js.html">components/card/cardComponent.js</a>, <a href="components_card_cardComponent.js.html#line30">line 30</a>
+        <a href="components_card-inspector_card-inspector.js.html">components/card-inspector/card-inspector.js</a>, <a href="components_card-inspector_card-inspector.js.html#line31">line 31</a>
     </li></ul></dd>
     
 
@@ -216,16 +226,6 @@ Dependencies:
 
 
 
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type"><code>Object</code></span>
-
-
-        </li>
-    </ul>
-
 
 
 
@@ -235,13 +235,13 @@ Dependencies:
         
             
 <div class="section-members">
-<h4 class="name" id="data"><span class="type-signature"></span>data<span class="type-signature"></span></h4>
+<h4 class="name" id="currentIndex"><span class="type-signature"></span>currentIndex<span class="type-signature"></span></h4>
 
 
 
 
 <div class="description">
-    Setter for the card data.
+    Set the current card index
 </div>
 
 
@@ -277,7 +277,7 @@ Dependencies:
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_card_cardComponent.js.html">components/card/cardComponent.js</a>, <a href="components_card_cardComponent.js.html#line46">line 46</a>
+        <a href="components_card-inspector_card-inspector.js.html">components/card-inspector/card-inspector.js</a>, <a href="components_card-inspector_card-inspector.js.html#line39">line 39</a>
     </li></ul></dd>
     
 
@@ -308,14 +308,14 @@ Dependencies:
 
     
 
-    <h4 class="name" id="connectedCallback"><span class="type-signature"></span>connectedCallback<span class="signature">()</span><span class="type-signature"> &rarr; {void}</span></h4>
+    <h4 class="name" id="connectedCallback"><span class="type-signature"></span>connectedCallback<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    Lifecycle callback invoked when the element is connected to the document.
+    Render element when it is added the DOM
 </div>
 
 
@@ -351,7 +351,7 @@ Dependencies:
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_card_cardComponent.js.html">components/card/cardComponent.js</a>, <a href="components_card_cardComponent.js.html#line71">line 71</a>
+        <a href="components_card-inspector_card-inspector.js.html">components/card-inspector/card-inspector.js</a>, <a href="components_card-inspector_card-inspector.js.html#line46">line 46</a>
     </li></ul></dd>
     
 
@@ -381,27 +381,6 @@ Dependencies:
 
 
 
-
-<div class="section-returns">
-<h5>Returns:</h5>
-
-        
-
-<dl class="param-type">
-    <dt>
-        Type:
-    </dt>
-    <dd>
-        
-<span class="param-type"><code>void</code></span>
-
-
-    </dd>
-</dl>
-
-
-    
-</div>
 
 
 
@@ -412,14 +391,17 @@ Dependencies:
 
     
 
-    <h4 class="name" id="render"><span class="type-signature"></span>render<span class="signature">()</span><span class="type-signature"> &rarr; {void}</span></h4>
+    <h4 class="name" id="defineEventListeners"><span class="type-signature"></span>defineEventListeners<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    Renders the card by inserting the style and template into the shadow DOM.
+    Defines event listeners for UI interactions: 
+ - dismissing inspect view when clicking ouside inspect container
+ - displaying the next card when next button is pressed
+ - displaying the previous card when the previous button is pressed
 </div>
 
 
@@ -455,7 +437,7 @@ Dependencies:
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_card_cardComponent.js.html">components/card/cardComponent.js</a>, <a href="components_card_cardComponent.js.html#line57">line 57</a>
+        <a href="components_card-inspector_card-inspector.js.html">components/card-inspector/card-inspector.js</a>, <a href="components_card-inspector_card-inspector.js.html#line67">line 67</a>
     </li></ul></dd>
     
 
@@ -486,26 +468,503 @@ Dependencies:
 
 
 
-<div class="section-returns">
-<h5>Returns:</h5>
 
+
+</div>
         
+            
+<div class="section-method">
 
-<dl class="param-type">
-    <dt>
-        Type:
-    </dt>
-    <dd>
-        
-<span class="param-type"><code>void</code></span>
+    
+
+    <h4 class="name" id="displayCurrentCard"><span class="type-signature"></span>displayCurrentCard<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
 
 
-    </dd>
+
+<div class="description">
+    Set the current card to be displayed and its lore content.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_card-inspector_card-inspector.js.html">components/card-inspector/card-inspector.js</a>, <a href="components_card-inspector_card-inspector.js.html#line84">line 84</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
 </dl>
 
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="hide"><span class="type-signature"></span>hide<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Hides the inspector.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_card-inspector_card-inspector.js.html">components/card-inspector/card-inspector.js</a>, <a href="components_card-inspector_card-inspector.js.html#line94">line 94</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="next"><span class="type-signature"></span>next<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Advance the next card if not at the end.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_card-inspector_card-inspector.js.html">components/card-inspector/card-inspector.js</a>, <a href="components_card-inspector_card-inspector.js.html#line111">line 111</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="prev"><span class="type-signature"></span>prev<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Go to the previous card if not the beginning.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_card-inspector_card-inspector.js.html">components/card-inspector/card-inspector.js</a>, <a href="components_card-inspector_card-inspector.js.html#line124">line 124</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="render"><span class="type-signature"></span>render<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Renders the shadow DOM content and sets up event listeners.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_card-inspector_card-inspector.js.html">components/card-inspector/card-inspector.js</a>, <a href="components_card-inspector_card-inspector.js.html#line53">line 53</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="show"><span class="type-signature"></span>show<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Shows the inspector.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_card-inspector_card-inspector.js.html">components/card-inspector/card-inspector.js</a>, <a href="components_card-inspector_card-inspector.js.html#line102">line 102</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
