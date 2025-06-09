@@ -8,14 +8,12 @@
  *  - cardComponent.js
  *  - top-bar.js
  */
-import { getCollectionCards, addCardToCollection } from "../util/utils.js";
+import { addCardToCollection } from "../util/utils.js";
 import '../components/card/cardComponent.js';
 import '../components/top-bar/top-bar.js';
 
 // get references to DOM elements
 const stack = document.getElementById("card-stack");
-const topRow = document.getElementById("top-row");
-const bottomRow = document.getElementById("bottom-row");
 let continueButton = document.getElementById("continue");
 
 // configuration
@@ -136,21 +134,21 @@ async function getRandomCard() {
 
     // set backglow values (only for 4 and 5 stars)
     if (rarity == 5) {
-        blur = 18;
+        cardBlur = 18;
         spread = 7;
         R = 255;
         G = 174;
         B = 0;
         opacity = 1;
     } else if (rarity == 4) {
-        blur = 15;
+        cardBlur = 15;
         spread = 4;
         R = 170;
         G = 0;
         B = 255;
         opacity = 1;
     } else {
-        blur = 0;
+        cardBlur = 0;
         spread = 0;
         R = 0;
         G = 0;
@@ -198,14 +196,14 @@ async function createCard(index) {
     img.alt = `Back ${index + 1}`;
     img.style.width = '226px';
     img.style.height = '318px';
-    // img.style.filter = 'brightness(90%) grayscale(30%) blur(5px)';
+    // img.style.filter = 'brightness(90%) grayscale(30%) cardBlur(5px)';
     img.style.filter = 'brightness(90%)';
     img.style.filter = 'grayscale(35%)';
-    // img.style.filter = 'blur(1px)';
+    // img.style.filter = 'cardBlur(1px)';
     back.appendChild(img);
 
     // add back glow
-    back.style.boxShadow = `0 0 ${blur}px ${spread}px rgb(${R}, ${G}, ${B}, ${opacity})`;
+    back.style.boxShadow = `0 0 ${cardBlur}px ${spread}px rgb(${R}, ${G}, ${B}, ${opacity})`;
 
     card.appendChild(front);
     card.appendChild(back);
