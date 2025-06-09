@@ -1,4 +1,4 @@
-# Brainstorming Meeting 04/27/25
+# Brainstorming Meeting - 4/27/25
 
 ## Attendees: 
 - Andrew

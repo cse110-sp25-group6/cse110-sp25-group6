@@ -239,11 +239,13 @@ function dealCards() {
     cards.forEach((card, i) => {
 
         setTimeout(() => {
-            card.style.transform = '';
-            card.classList.add("dealt");
-            card.style.transition = "transform 0.8s ease";
+            if (card instanceof HTMLElement) {
+                card.style.transform = '';
+                card.classList.add("dealt");
+                card.style.transition = "transform 0.8s ease";
 
-            card.addEventListener("click", () => flipCard(card));
+                card.addEventListener("click", () => flipCard(card));
+            }
         }, i * DEAL_DELAY);
     });
 }
