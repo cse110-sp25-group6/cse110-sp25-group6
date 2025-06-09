@@ -35,3 +35,22 @@ jobs:
       
       - name: CSS Validator
         run: npx stylelint "**/*.css" --config config/.stylelintrc.js
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [ci]
+    if: github.ref_name == 'main' || github.ref_name == 'development'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Doc Gen
+      uses: andstor/jsdoc-action@v1
+      with:
+        config_file: ./source/config/jsdoc.conf.json
+        template: minami
+        front_page: README.md
+    - name: Deploy Docs
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./source
