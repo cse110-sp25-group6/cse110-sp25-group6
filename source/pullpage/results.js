@@ -8,7 +8,7 @@
  *  - cardComponent.js
  *  - top-bar.js
  */
-import { getCollectionCards, addCardToCollection } from "../util/utils.js";
+import {addCardToCollection } from "../util/utils.js";
 import '../components/card/cardComponent.js';
 import '../components/top-bar/top-bar.js';
 
@@ -27,7 +27,7 @@ let FLIPPED = TOTAL_CARDS;
 let CONTINUE = false;
 
 // back-glow
-let blur = 18;
+let cardBlur = 18;
 let spread = 7;
 let R = 255;
 let G = 174;
@@ -241,11 +241,13 @@ function dealCards() {
     cards.forEach((card, i) => {
 
         setTimeout(() => {
-            card.style.transform = '';
-            card.classList.add("dealt");
-            card.style.transition = "transform 0.8s ease";
+            if (card instanceof HTMLElement) {
+                card.style.transform = '';
+                card.classList.add("dealt");
+                card.style.transition = "transform 0.8s ease";
 
-            card.addEventListener("click", () => flipCard(card));
+                card.addEventListener("click", () => flipCard(card));
+            }
         }, i * DEAL_DELAY);
     });
 }
