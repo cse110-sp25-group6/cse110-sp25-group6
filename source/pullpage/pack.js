@@ -78,7 +78,7 @@ export function addCurrencyToDocument() {
 
 
     //temporary setting test values for dev purposes
-    let setBudget = true;
+    let setBudget = false;
     if (setBudget) {
         gemsValue = 999999;
         packsValue = 100;
