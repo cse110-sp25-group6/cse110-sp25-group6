@@ -69,6 +69,7 @@ function init() {
 		lastSort = "name";
 		sortCards(cards, "name");
 		addCardsToDocument(cards);
+		TrackJS.track('Sort by Name');
 	});
 
 	// Setup sort by rarity button
@@ -80,6 +81,7 @@ function init() {
 		lastSort = "rarity";
 		sortCards(cards, "rarity");
 		addCardsToDocument(cards);
+		TrackJS.track('Sort by Rarity');
 	});
 
 	// Setup sort by acquisition date button
@@ -91,7 +93,13 @@ function init() {
 		lastSort = "acquisition";
 		sortCards(cards, "acquisition");
 		addCardsToDocument(cards);
+		TrackJS.track('Sort by Recent');
 	});
+
+	window.onerror = function(message, source, lineno, colno, error) {
+		const details = `Global error: ${message} at ${source}:${lineno}:${colno}`;
+		TrackJS.track(details);
+	};
 }
 
 /**
