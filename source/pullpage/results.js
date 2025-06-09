@@ -103,25 +103,25 @@ async function getRandomCard() {
     // set backglow values (only for 4 and 5 stars)
     if (rarity == 5) {
         blur = 18;
-		spread = 7;
-		R = 255;
-		G = 174;
-		B = 0;
-		opacity = 1;
+        spread = 7;
+        R = 255;
+        G = 174;
+        B = 0;
+        opacity = 1;
     } else if (rarity == 4) {
-		blur = 15;
-		spread = 5;
-		R = 170;
-		G = 0;
-		B = 255;
-		opacity = 1;
+        blur = 15;
+        spread = 4;
+        R = 170;
+        G = 0;
+        B = 255;
+        opacity = 1;
     } else {
         blur = 0;
-		spread = 0;
-		R = 0;
-		G = 0;
-		B = 0;
-		opacity = 0;
+        spread = 0;
+        R = 0;
+        G = 0;
+        B = 0;
+        opacity = 0;
     }
 
     const res = await fetch(`../card_data/${rarity}_star.json`);
@@ -161,7 +161,7 @@ async function createCard(index) {
     back.appendChild(img);
 
     // add back glow
-    back.style.boxShadow = `0 0 ${blur}px ${spread}px rgb(${R}, ${G}, ${B}, ${opacity}) inset`;
+    back.style.boxShadow = `0 0 ${blur}px ${spread}px rgb(${R}, ${G}, ${B}, ${opacity})`;
 
     card.appendChild(front);
     card.appendChild(back);
@@ -198,7 +198,7 @@ function dealCards() {
             card.addEventListener("click", () => flipCard(card));
         }, i * DEAL_DELAY);
     });
-    
+
 }
 
 // flip card animation

@@ -30,6 +30,7 @@ function init() {
     });
 }
 
+//
 export function addCurrencyToDocument() {
     const gems = document.getElementsByClassName("gems");
     const packs = document.getElementsByClassName("packs");
@@ -39,10 +40,10 @@ export function addCurrencyToDocument() {
 
 
     //temporary setting test values for dev purposes
-    let setBudget = false;
+    let setBudget = true;
     if (setBudget) {
-        gemsValue = 100;
-        packsValue = 1;
+        gemsValue = 999999;
+        packsValue = 100;
         localStorage.setItem('Gems', JSON.stringify(gemsValue));
         localStorage.setItem('Packs', JSON.stringify(packsValue));
     }
@@ -150,16 +151,22 @@ function makeAPull(pullCount, gemPull) {
     }
     sessionStorage.setItem("madePull", "true");
     sessionStorage.setItem("pull5", pullCount == 5);
-    showVideo();
+    showVideo(pullCount);
 }
 
-function showVideo() {
+function showVideo(pullCount) {
     const videoContainer = document.getElementsByClassName("video-container");
     const videoElement = document.getElementsByClassName("pack-video");
 
     for (let i = 0; i < videoContainer.length; i++) {
         videoContainer[i].classList.toggle("show", true);
     }
+
+    /*if (pullCount == 5) {
+        videoElement[0].src = "pull5Video.mp4";
+    } else {
+        videoElement[0].src = "pull1Video.mp4";
+    }*/
 
     for (let i = 0; i < videoElement.length; i++) {
         videoElement[i].style.display = "unset";
