@@ -15,7 +15,7 @@
 import '../components/card/cardComponent.js';
 import '../components/top-bar/top-bar.js';
 import '../components/card-inspector/card-inspector.js'
-import { getCollectionCards, addCardToCollection } from "../util/utils.js";
+import { getCollectionCards, addCardToCollection, sortCards } from "../util/utils.js";
 
 window.addEventListener("DOMContentLoaded", init);
 
@@ -190,21 +190,3 @@ function addCardsToDocument(cards) {
 	}
 } */
 
-/**
- * Sorts the cards in place based on a given property.
- *
- * @param {Array} cards - Array of card objects.
- * @param {string} property - Property to sort by ("name", "rarity", "acquisition").
- * @returns {void}
- */
-export function sortCards(cards, property) {
-	if (property === "name") {
-		cards.sort((a, b) => a.name.localeCompare(b.name));
-	}
-	if (property === "rarity") {
-		cards.sort((a, b) => b.rarity - a.rarity);
-	}
-	if (property === "acquisition") {
-		cards.sort((a, b) => b.acquisition - a.acquisition);
-	}
-}

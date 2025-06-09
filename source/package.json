@@ -37,7 +37,7 @@
   },
   "description": "",
   "jest": {
-    "testEnvironment": "jsdom",
+
     "preset": "jest-puppeteer",
     "verbose": true
   }
