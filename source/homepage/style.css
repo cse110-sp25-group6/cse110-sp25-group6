@@ -26,6 +26,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
+  overflow: hidden;
 }
 body::before {
   /* Soft moving background light overlays */
