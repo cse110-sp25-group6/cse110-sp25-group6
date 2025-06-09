@@ -1,5 +1,5 @@
-@import '../util/globals.css';
-@import url('https://fonts.googleapis.com/css2?family=Turret+Road:wght@200;300;400;500;700;800&display=swap');
+@import "../util/globals.css";
+@import url("https://fonts.googleapis.com/css2?family=Turret+Road:wght@200;300;400;500;700;800&display=swap");
 
 * {
   box-sizing: border-box;
@@ -47,7 +47,7 @@ main {
   /* margin-bottom: clamp(10vh, 65px, 12vh); */
   /* bottom: 65px; */
   /* padding-bottom: 65px; */
-} 
+}
 
 .break {
   flex-basis: 100%;
@@ -58,7 +58,9 @@ main {
   position: relative;
   width: 228px;
   height: 320px;
-  transition: transform 0.8s ease, opacity 0.5s ease;
+  transition:
+    transform 0.8s ease,
+    opacity 0.5s ease;
   transform-style: preserve-3d;
   cursor: pointer;
   z-index: 2;
@@ -73,41 +75,43 @@ main {
 }
 
 .card.flipped:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .card-front,
 .card-back {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    backface-visibility: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    border: 1px solid #ccc;
-    border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
 }
 
 .card-front {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 .card-back {
-    background-color: #000000;
-    color: white;
-    transform: rotateY(180deg);
+  background-color: #000000;
+  color: white;
+  transform: rotateY(180deg);
 }
 
 .hidden {
-    visibility: hidden;
-    transition: transform 0.8s ease, opacity 1.5s ease;
+  visibility: hidden;
+  transition:
+    transform 0.8s ease,
+    opacity 1.5s ease;
 }
 
 .card.dealt {
-    opacity: 1;
-    pointer-events: auto;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* button */
@@ -132,7 +136,9 @@ main {
 }
 
 #continue:hover {
-  background-color: var(--color-accent-hover); 
+  background-color: var(--color-accent-hover);
   color: white;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  box-shadow:
+    0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }

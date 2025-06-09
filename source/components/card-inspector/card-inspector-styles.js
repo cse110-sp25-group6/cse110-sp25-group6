@@ -7,7 +7,6 @@
  *
  */
 
-
 export const styles = `
 	:host {
 		position: absolute;

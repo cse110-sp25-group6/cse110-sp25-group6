@@ -3,11 +3,10 @@
  * @returns {Promise<Object>} A JSON object containing all cards user has
  */
 export function getCollectionCards() {
-
-	if (localStorage.getItem('Collection')) {
-		return JSON.parse(localStorage.getItem('Collection'));
-	}
-	return [];
+  if (localStorage.getItem("Collection")) {
+    return JSON.parse(localStorage.getItem("Collection"));
+  }
+  return [];
 }
 
 /**
@@ -16,11 +15,11 @@ export function getCollectionCards() {
  * @returns {void}
  */
 export function addCardToCollection(card) {
-	if (!card) return;
-	card.acquisition = Date.now();
-	const cards = getCollectionCards();
-	cards.push(card);
-	localStorage.setItem('Collection', JSON.stringify(cards));
+  if (!card) return;
+  card.acquisition = Date.now();
+  const cards = getCollectionCards();
+  cards.push(card);
+  localStorage.setItem("Collection", JSON.stringify(cards));
 }
 
 /**
@@ -31,13 +30,13 @@ export function addCardToCollection(card) {
  * @returns {void}
  */
 export function sortCards(cards, property) {
-	if (property === "name") {
-		cards.sort((a, b) => a.name.localeCompare(b.name));
-	}
-	if (property === "rarity") {
-		cards.sort((a, b) => b.rarity - a.rarity);
-	}
-	if (property === "acquisition") {
-		cards.sort((a, b) => b.acquisition - a.acquisition);
-	}
+  if (property === "name") {
+    cards.sort((a, b) => a.name.localeCompare(b.name));
+  }
+  if (property === "rarity") {
+    cards.sort((a, b) => b.rarity - a.rarity);
+  }
+  if (property === "acquisition") {
+    cards.sort((a, b) => b.acquisition - a.acquisition);
+  }
 }
