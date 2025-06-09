@@ -2,7 +2,7 @@
  * Test suite for ensuring sorting behavior is correct.
  */
 
-import { sortCards } from './collection.js'
+import { sortCards } from '../util/utils.js'
 
 let card1 = {
 	'name' : 'b-card',	
