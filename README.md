@@ -51,5 +51,8 @@ Click On the cards to inspect them and learn about their lore!
 
 ![Inspect](/admin/assets/inspect.png)
 
+### Documentation
+For an even more extensive rundown of the components that turn the gears in this new world, visit our [documentation](https://cse110-sp25-group6.github.io/cse110-sp25-group6/docs/)
+
 ## OOO!! I want to Contribute!
 I see that you are eager to add your own features to the project. Fear not, here at the Null Terminators, we welcome that mindset. Just head on over to the [Contributing.md](/CONTRIBUTING.md) file and you will learn everything you need to know. Or click [here](/CONTRIBUTING.md)

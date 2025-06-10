@@ -4,6 +4,7 @@ Firstly, Thank you for taking the time to contribute to this project!! It means 
 ## Table Of Contents
 - [Getting started](#so-how-can-i-get-started)
 - [Folder Structure](#folder-structure)
+- [Documentation](#what-does-this-button-do)
 - [Branches](#to-branch-or-not-to-branch)
 - [Pipline](#pipeline)
 - [Testing](#testing-123)
@@ -60,6 +61,9 @@ CSE110-SP25-GROUP6
     └── brainstorm - artifacts of our project brainstorming
     
 ```
+
+## "What does this button do?"
+Now that you know the general structure of our repo, it would be helpful to know what we have already implemented. Click [here](https://cse110-sp25-group6.github.io/cse110-sp25-group6/docs/) to access our docs. 
 
 ## To Branch or not to Branch?
 Again, Since our app is a web app, we separated our features into different pages with each page being developed separately on different branches.
