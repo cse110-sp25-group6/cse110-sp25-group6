@@ -35,8 +35,8 @@
 
 #### Page Styling
 
-![collection page](./060125-collection-page.png)
+![collection page](../assets/060125-collection-page.png)
 
 #### Inspect View
 
-![inspectview](./060125-inspect-view.png)
+![inspectview](../assets/060125-inspect-view.png)
