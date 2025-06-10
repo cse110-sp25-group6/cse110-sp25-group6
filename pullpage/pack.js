@@ -30,16 +30,6 @@ function init() {
   verifyPullCount();
 
   const packsValue = localStorage.getItem("Packs");
-  let pull1 = document.getElementsByClassName("pull1")[0];
-  if (pull1) {
-    pull1.addEventListener("click", () => {
-      if (packsValue < 1) {
-        createPopup(1);
-      } else {
-        makeAPull(1);
-      }
-    });
-  }
 
   //Event listener for single-pull button. Makes a single-pull for 5 cards if user can afford to pull, generates a pop-up otherwise.
   document.getElementsByClassName("pull1")[0].addEventListener("click", () => {
@@ -73,7 +63,7 @@ export function addCurrencyToDocument() {
   let packsValue = localStorage.getItem("Packs");
 
   //temporary setting test values for dev purposes
-  let setBudget = true;
+  let setBudget = false;
   if (setBudget) {
     gemsValue = 999999;
     packsValue = 100;
