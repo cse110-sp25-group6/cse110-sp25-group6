@@ -35,6 +35,8 @@ CSE110-SP25-GROUP6
 │
 ├── source - This is where all our projects code is
 │   │
+│   ├── assets - assets used by our source files
+│   │
 │   ├── **card_data - data for our cards (JSON objects and images)
 │   │
 │   ├── **collection - Collection page functionality 
@@ -45,11 +47,9 @@ CSE110-SP25-GROUP6
 │   │
 │   ├── **homepage - homepage functionality
 │   │
+│   ├── img - images used by our source files
+│   │
 │   ├── **pullpage - pullpage functionality
-│   │
-│   ├── script - test scripts for testing the CIpipeline
-│   │
-│   ├── test - tests that test the CIpipeline
 │   │
 │   └── **util - global functions and styles used across the site
 │   
@@ -78,6 +78,13 @@ I see that you are eager to start working, lets go through the pipeline.
 - Assign Issues - Firstly you must assign yourself the issue. Whether it is a new feature, bug, or documentation, assign yourself the issue or create a new issue before you start any work. 
 - Pull - Next Pull from the desired branch. Assume you are working on a new feature for the homepage, pull the latest code from the homepage branch onto your machine
 - Create a new branch - to prevent any conflicts, make sure that after you have pulled, create a new branch for yourself. This will be your very own space to do whatever you need to do
+- Before pushing your code, run local checks to make sure that your code follows our CI standards
+    - `npm install` (install dev dependencies)
+    - `npm run lint` (run linter to check for JS errors)
+    - `npm run test` (run tests)
+    - `npm run prettier`:check (check formatting)
+    - use `npm run prettier:fix` to automatically fix formatting issues
+    - **IMPORTANT**: If any of these fail, please fix these issues before pushing.
 - Push to your branch and submit a pull request- Now that you have finished your wonderful additions push your changes to your branch and submit a pull request to merge your branch into the page that you have been working. Going along with the homepage example, you should be merging into the homepage branch.
 - Done! thats it! Your PR will be reviewed, and if accepted it will be merged. Once that is merged, a PR will be submitted to merge into development. Once that is approved, another PR will be submitted to merge into Main. 
 
