@@ -29,6 +29,8 @@ function init() {
   addCurrencyToDocument();
   verifyPullCount();
 
+  const packsValue = localStorage.getItem("Packs");
+
   //Event listener for single-pull button. Makes a single-pull for 5 cards if user can afford to pull, generates a pop-up otherwise.
   document.getElementsByClassName("pull1")[0].addEventListener("click", () => {
     if (packsValue < 1) {
