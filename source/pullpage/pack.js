@@ -73,7 +73,7 @@ export function addCurrencyToDocument() {
   let packsValue = localStorage.getItem("Packs");
 
   //temporary setting test values for dev purposes
-  let setBudget = true;
+  let setBudget = false;
   if (setBudget) {
     gemsValue = 999999;
     packsValue = 100;
