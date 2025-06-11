@@ -23,6 +23,8 @@
 Read this [page](https://github.com/cse110-sp25-group6/cse110-sp25-group6/blob/main/admin/team.md) to learn more about us! 
 <br>
 Check out our First Sprint Results: [Status Video 1](https://youtu.be/zg7NDSaTIAg)
+Check out our Final Demo: [Public Demo](https://www.youtube.com/watch?v=fMJmjyS2SRg)
+Check out our Secret video showing you our build process: [Shhh its a secret](https://youtu.be/7mML0E1OdGQ)
 
 ## Getting Started
 To access our app, all you have to do is follow this link: [My CS Monsters](https://cse110-sp25-group6.github.io/cse110-sp25-group6/homepage/index.html)
