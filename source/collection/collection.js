@@ -15,7 +15,7 @@
 import '../components/card/cardComponent.js';
 import '../components/top-bar/top-bar.js';
 import '../components/card-inspector/card-inspector.js'
-import { getCollectionCards, addCardToCollection, sortCards } from "../util/utils.js";
+import { getCollectionCards, sortCards } from "../util/utils.js";
 
 window.addEventListener("DOMContentLoaded", init);
 
